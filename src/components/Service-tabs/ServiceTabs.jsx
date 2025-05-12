@@ -35,7 +35,7 @@ const servicesData = {
     {
       title: "Logo Designer",
       desc: "Creates modern logos.",
-      image:"/images/services/service-1.jpg",
+      image: "/images/services/service-1.jpg",
       tags: ["Illustrator", "Branding", "Creativity"],
     },
     {
@@ -191,10 +191,13 @@ export default function ServiceTabs() {
                   </div>
                 </div>
               </div>
-
-              {/* Tags */}
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <button className="px-4 py-2 rounded-full border border-black transition bg-black text-white">
+            Browse More Candidate
+          </button>
         </div>
       </div>
     </section>
