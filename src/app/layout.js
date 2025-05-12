@@ -1,14 +1,12 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { PT_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const ptSans = PT_Sans({
+  variable: "--font-pt-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "700"], // optional: include weights you need
+  display: "swap",
 });
 
 export const metadata = {
@@ -19,9 +17,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${ptSans.variable} font-sans antialiased`}>
+        <Header />
         {children}
       </body>
     </html>
