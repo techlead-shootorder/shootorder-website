@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -20,19 +20,21 @@ export default function PartnerCarousel() {
     slides: { perView: 3, spacing: 12 },
   });
 
-  const partnerLogos = Array.from({ length: 14 }, (_, i) => `/images/logo/${i + 1}.jpg`);
+  const partnerLogos = Array.from(
+    { length: 14 },
+    (_, i) => `/images/logo/${i + 1}.jpg`
+  );
 
   return (
-    <div className="relative max-w-7xl mx-auto py-12">
-        <h2 className="text-2xl font-bold text-center mb-8">Our Partners</h2>
+    <div className="relative max-w-7xl mx-auto py-16">
+      <h2 className="text-2xl font-bold text-center mb-8">Our Partners</h2>
       {/* Left Arrow */}
       <button
         onClick={() => instanceRef.current?.prev()}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow"
+        className="absolute left-0 top-[65%] -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow"
       >
         <ChevronLeft />
       </button>
-
       {/* Slider */}
       <div ref={sliderRef} className="keen-slider overflow-hidden px-8">
         {partnerLogos.map((logo, index) => (
@@ -43,8 +45,8 @@ export default function PartnerCarousel() {
             <Image
               src={logo}
               alt={`Partner ${index + 1}`}
-              width={100}
-              height={50}
+              width={150}
+              height={150}
               className="object-contain"
             />
           </div>
@@ -54,7 +56,7 @@ export default function PartnerCarousel() {
       {/* Right Arrow */}
       <button
         onClick={() => instanceRef.current?.next()}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow"
+        className="absolute right-0 top-[65%] -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow"
       >
         <ChevronRight />
       </button>

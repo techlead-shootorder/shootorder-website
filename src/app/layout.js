@@ -1,6 +1,7 @@
 import { PT_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const ptSans = PT_Sans({
   variable: "--font-pt-sans",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className={`${ptSans.variable} font-sans antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

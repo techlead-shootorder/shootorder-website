@@ -39,7 +39,7 @@ const cardsData = [
 
 export default function CompanyInfo() {
   return (
-    <div className="max-w-7xl mx-auto py-12">
+    <div className="max-w-7xl mx-auto py-16">
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-6">
         {cardsData.map((card) => (
           <Card

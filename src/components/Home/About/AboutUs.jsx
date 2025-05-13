@@ -2,7 +2,7 @@ import { BsImage } from "react-icons/bs";
 
 export default function AboutUs() {
   return (
-    <section className="w-full  py-20">
+    <section className="w-full  py-16">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
         {/* Text Content */}
         <div>

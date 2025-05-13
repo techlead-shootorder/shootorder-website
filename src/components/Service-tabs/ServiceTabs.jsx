@@ -143,7 +143,7 @@ export default function ServiceTabs() {
 
   return (
     <section className="bg-[#f8f6ee]">
-      <div className="py-12 px-4 max-w-7xl mx-auto ">
+      <div className="py-16 px-4 max-w-7xl mx-auto ">
         {/* Tabs */}
         <div className="flex flex-wrap gap-4 mb-8">
           {categories.map((cat) => (
