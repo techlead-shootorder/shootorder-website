@@ -1,5 +1,12 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
   {
@@ -38,13 +45,38 @@ const cardsData = [
 ];
 
 export default function CompanyInfo() {
+  const sectionRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const cards = cardRefs.current;
+
+    gsap.from(cards, {
+      x: 200,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%",
+       toggleActions: "play reset play reset",
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div className="max-w-7xl mx-auto py-16">
-      <div className=" grid grid-cols-1 md:grid-cols-3 gap-6">
-        {cardsData.map((card) => (
+    <div ref={sectionRef} className="max-w-7xl mx-auto py-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {cardsData.map((card, index) => (
           <Card
             key={card.id}
             className="border border-gray-200 rounded-2xl p-6"
+            ref={(el) => (cardRefs.current[index] = el)}
           >
             <CardHeader className="p-0 mb-4">
               <div className="flex items-center justify-start gap-3">
@@ -59,7 +91,7 @@ export default function CompanyInfo() {
               </div>
             </CardHeader>
 
-            <CardContent className="p-0 space-y-4  ">
+            <CardContent className="p-0 space-y-4">
               <p className="text-sm text-gray-500">{card.subtitle}</p>
               <p className="text-black">{card.content}</p>
 

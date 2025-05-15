@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "software-engineering",
+    "title": "Software Engineering",
+    "description": "Custom software solutions for businesses of all sizes.",
+    "imageUrl": "/images/services/software-engineering.jpg",
+    "features": [
+      "Full-stack development",
+      "Custom web applications",
+      "Mobile app development",
+      "API development",
+      "Legacy system modernization"
+    ],
+    "content": "<p>Our software engineering services provide end-to-end solutions from concept to deployment.</p>"
+  },
+  {
+    "slug": "web-development",
+    "title": "Web Development",
+    "description": "Professional web development services using the latest technologies.",
+    "imageUrl": "/images/services/web-development.jpg",
+    "features": [
+      "Responsive website design",
+      "E-commerce solutions",
+      "Content management systems",
+      "Progressive web apps",
+      "Website optimization"
+    ],
+    "content": "<p>We build modern, fast, and secure websites that help your business stand out.</p>"
+  },
+  {
+    "title": "Wordpress Developer",
+    "slug": "wordpress-developer",
+    "description": "This is for testing Purpose",
+    "imageUrl": "shootorder-logo.png",
+    "features": [
+      "24/7",
+      "24/7",
+      "24/7"
+    ],
+    "content": "<p>this is for testing purpose"
+  }
+]
