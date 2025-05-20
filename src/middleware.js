@@ -29,5 +29,5 @@ export function middleware(request) {
 // Configure the middleware to run on specific paths
 export const config = {
   // Match all admin paths and the login path
-  matcher: ['/admin/:path*', '/login'],
+  matcher: ['/admin/:path*', '/login'], 
 };
