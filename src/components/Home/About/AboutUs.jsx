@@ -1,25 +1,66 @@
-import { BsImage } from "react-icons/bs";
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutUs() {
-  return (
-    <section className="w-full  py-16">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-        {/* Text Content */}
-        <div>
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">About Us</h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            We are a dynamic digital marketing agency committed to delivering exceptional results
-            through innovative strategies and a passionate team. Our mission is to help businesses
-            grow by enhancing their online presence and driving measurable outcomes.
-          </p>
-        </div>
+  const sectionRef = useRef(null);
+  const paragraphRef = useRef(null);
 
-        {/* Dummy Image Placeholder */}
-        <div className="w-full h-full">
-          <div className="w-full h-80 md:h-full rounded-xl bg-gray-300 flex items-center justify-center shadow-inner">
-            <BsImage className="w-16 h-16 text-gray-500" />
-          </div>
-        </div>
+  useEffect(() => {
+    const paragraph = paragraphRef.current;
+
+    // Split paragraph into spans per character
+    const splitChars = (element) => {
+      const text = element.textContent;
+      element.innerHTML = "";
+      text.split("").forEach((char) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.style.opacity = "0";
+        span.style.display = "inline-block";
+        span.style.transform = "translateY(50px)";
+        element.appendChild(span);
+      });
+    };
+
+    splitChars(paragraph);
+    const chars = paragraph.querySelectorAll("span");
+
+    // Animate each character with scroll
+    gsap.to(chars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.05,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "bottom+=1000 top", // long enough to slowly scroll the whole line
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="w-full min-h-screen bg-white flex justify-center items-center"
+    >
+      <div className="max-w-5xl text-center px-4">
+        <p
+          ref={paragraphRef}
+          className="text-4xl md:text-7xl font-extrabold text-gray-900 leading-tight whitespace-pre-wrap"
+        >
+          We are a dynamic digital marketing agency committed to delivering
+          exceptional results through innovative strategies and a passionate
+          team.
+        </p>
       </div>
     </section>
   );

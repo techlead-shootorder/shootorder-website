@@ -3,7 +3,7 @@ import React from "react";
 const TestimonialSection = () => {
   return (
     <section className=" bg-gray-100">
-      <div className="relative max-w-7xl mx-auto grid grid-cols-2 py-16 px-4 md:px-16 ">
+      <div className="relative !max-w-7xl mx-auto grid grid-cols-2 py-16 px-4 md:px-16 ">
         {/* Gray Circle on Left */}
         <div className=" w-72 h-72 bg-gray-400 rounded-full "></div>
         {/* Content Row */}

@@ -28,8 +28,8 @@ export default function TalentForm() {
   };
 
   return (
-    <section className="bg-[#f8f6ee] py-16 ">
-      <div className="w-full max-w-4xl mx-auto px-4  text-center">
+    <div className=" py-16 ">
+      <div className="w-full !max-w-4xl mx-auto px-4  text-center">
         <h2 className="text-3xl font-semibold mb-2">
           Finding top talent from India is like
           <br />
@@ -102,6 +102,6 @@ export default function TalentForm() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

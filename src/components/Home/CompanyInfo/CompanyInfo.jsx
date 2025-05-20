@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +46,7 @@ const cardsData = [
 ];
 
 export default function CompanyInfo() {
+  const pathname = usePathname();
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
 
@@ -59,15 +61,15 @@ export default function CompanyInfo() {
       ease: "power3.out",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
-       toggleActions: "play reset play reset",
+        start: "top 80%",
+       toggleActions: "play none play none",
       },
     });
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <div ref={sectionRef} className="max-w-7xl mx-auto py-16">

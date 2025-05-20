@@ -33,7 +33,7 @@ export default function ContactUs() {
       ></iframe>
 
       {/* Contact Info & Form */}
-      <div className="max-w-7xl mx-auto">
+      <div className="!max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 my-12 rounded-3xl border p-4 md:p-4">
           {/* Left Section - Info */}
           <div className="bg-[#f2333b] rounded-3xl p-6 md:p-10">

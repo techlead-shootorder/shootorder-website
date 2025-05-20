@@ -52,7 +52,7 @@ const WhyChooseSection = () => {
 
   return (
     <div className="w-full bg-[#F8F6EE] py-16 px-4 md:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="!max-w-4xl mx-auto">
         <h2 className="text-center font-bold text-2xl mb-8">Why Choose Shootorder</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (

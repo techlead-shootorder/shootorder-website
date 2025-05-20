@@ -46,8 +46,8 @@ const FormulaSection = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white py-16 px-4 md:px-8" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="w-full bg-[#fff5f4] py-16 px-4 md:px-8" ref={sectionRef}>
+      <div className="!max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-gray-200 w-full h-80 rounded-xl"></div>
         <div>
           <h2 className="text-center font-bold text-2xl mb-8">

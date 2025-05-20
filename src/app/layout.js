@@ -18,9 +18,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${ptSans.variable} font-sans antialiased`}>
+      <body className={`${ptSans.variable} font-sans antialiased `}>
         <Header />
         {children}
+
+        <div className="absolute inset-0 -z-10">
+          {/* Background elements for parallax */}
+          <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
+        </div>
         <Footer />
       </body>
     </html>

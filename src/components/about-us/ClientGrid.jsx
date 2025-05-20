@@ -6,7 +6,7 @@ function ClientGrid() {
     (_, i) => `/images/logo/${i + 1}.jpg`
   );
   return (
-    <div className="max-w-7xl mx-auto pb-16">
+    <div className="!max-w-7xl mx-auto pb-16">
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">
         {partnerLogos.map((logo, index) => (
           <div key={index} className="flex justify-center items-center">
