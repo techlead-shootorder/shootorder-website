@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,22 +12,41 @@ export default function AboutUs() {
   useEffect(() => {
     const paragraph = paragraphRef.current;
 
-    // Split paragraph into spans per character
-    const splitChars = (element) => {
+    // Split paragraph into spans per word instead of character
+    const splitWords = (element) => {
       const text = element.textContent;
+      const words = text.split(" ");
       element.innerHTML = "";
-      text.split("").forEach((char) => {
-        const span = document.createElement("span");
-        span.textContent = char;
-        span.style.opacity = "0";
-        span.style.display = "inline-block";
-        span.style.transform = "translateY(50px)";
-        element.appendChild(span);
+      
+      words.forEach((word, wordIndex) => {
+        const wordSpan = document.createElement("span");
+        wordSpan.style.display = "inline-block";
+        wordSpan.style.marginRight = "0.25em"; // Space between words
+        
+        // Color "passionate team" 
+        if (word === "passionate" || word === "team.") {
+          wordSpan.style.color = "#F2333B"; // Blue color
+        }
+        
+        // Split each word into characters
+        word.split("").forEach((char, charIndex) => {
+          const span = document.createElement("span");
+          span.textContent = char;
+          span.style.opacity = "0";
+          span.style.display = "inline-block";
+          span.style.transform = "translateY(50px)";
+          span.classList.add("char");
+          span.dataset.wordIndex = wordIndex;
+          span.dataset.charIndex = charIndex;
+          wordSpan.appendChild(span);
+        });
+        
+        element.appendChild(wordSpan);
       });
     };
 
-    splitChars(paragraph);
-    const chars = paragraph.querySelectorAll("span");
+    splitWords(paragraph);
+    const chars = paragraph.querySelectorAll(".char");
 
     // Animate each character with scroll
     gsap.to(chars, {
@@ -45,6 +63,11 @@ export default function AboutUs() {
         anticipatePin: 1,
       },
     });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   return (
@@ -55,7 +78,8 @@ export default function AboutUs() {
       <div className="max-w-5xl text-center px-4">
         <p
           ref={paragraphRef}
-          className="text-4xl md:text-7xl font-extrabold text-gray-900 leading-tight whitespace-pre-wrap"
+          className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight"
+          style={{ wordBreak: "keep-all", overflowWrap: "break-word" }}
         >
           We are a dynamic digital marketing agency committed to delivering
           exceptional results through innovative strategies and a passionate

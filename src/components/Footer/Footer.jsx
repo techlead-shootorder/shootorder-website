@@ -13,125 +13,91 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
           {/* About Us Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">About Us</h3>
+            <h3 className="font-bold text-lg mb-4">Company Profile</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/why-it-works"
+                  href="/about/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Why It Works
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/why-shootorder"
+                  href="/about/work-flow/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Why Shootorder
+                  Work Flow
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/pricing"
+                  href="/about/clients/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Pricing
+                  Clients & Testimonials
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/case-studies/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Contact
+                  Case Studies
                 </Link>
               </li>
             </ul>
             <div className="grid grid-cols-1 gap-6">
             <div className="mt-8">
-              <h3 className="font-bold text-lg mb-4">Software Engineer</h3>
+              <h3 className="font-bold text-lg mb-4">Attract Services</h3>
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/full-stack"
+                    href="/seo/"
                     className="text-gray-700 hover:text-red-500"
                   >
-                    Full Stack
+                    SEO
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/java"
+                    href="/advertise/"
                     className="text-gray-700 hover:text-red-500"
                   >
-                    Java
+                    Performance Marketing
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/python"
+                    href="/social-media-marketing/"
                     className="text-gray-700 hover:text-red-500"
                   >
-                    Python
+                    Social Media Marketing
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/dotnet"
+                    href="/blog-management/"
                     className="text-gray-700 hover:text-red-500"
                   >
-                    .Net
+                    Blog Marketing
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/flutter"
+                    href="/influencers-marketing/"
                     className="text-gray-700 hover:text-red-500"
                   >
-                    Flutter
+                    Influencer Marketing
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/react"
+                    href="/email-marketing/"
                     className="text-gray-700 hover:text-red-500"
                   >
-                    React
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai" className="text-gray-700 hover:text-red-500">
-                    AI
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ml" className="text-gray-700 hover:text-red-500">
-                    ML
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/backend"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Backend
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/laravel"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Laravel
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/node"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Node
+                    eMail Marketing
                   </Link>
                 </li>
               </ul>
@@ -144,123 +110,85 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/blog" className="text-gray-700 hover:text-red-500">
+                <Link href="https://www.shootorder.com/blog/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-red-500">
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/success-story"
+                  href="/submitticket/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Success Story
+                  Departments
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/ai-in-recruitment"
+                  href="/careers/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  AI in Recruitment
+                  Careers
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/knowledge-base"
+                  href="/training/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Knowledge Base
+                  Training
                 </Link>
               </li>
             </ul>
             <div className="grid grid-cols-1 gap-6 mt-8">
               <div>
-                <h3 className="font-bold text-lg mb-4">Software Engineer</h3>
+                <h3 className="font-bold text-lg mb-4">Engage Services</h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      href="/data-scientist"
+                      href="/web-design/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Data Scientist
+                      Website & Landing Pages
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/data-analyst"
+                      href="/orm/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Data Analyst
+                      Online Reputation Management (ORM)
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/network-engineer"
+                      href="https://www.pushfomo.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Network Engineer
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/mean"
-                      className="text-gray-700 hover:text-red-500"
-                    >
-                      MEAN
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/salesforce"
-                      className="text-gray-700 hover:text-red-500"
-                    >
-                      Salesforce
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/qa"
-                      className="text-gray-700 hover:text-red-500"
-                    >
-                      QA
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/mern"
-                      className="text-gray-700 hover:text-red-500"
-                    >
-                      MERN
+                      On-Site Engagement - PushFOMO
                     </Link>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="font-bold text-lg mb-4">App Developer</h3>
+                <h3 className="font-bold text-lg mb-4">Delight Services</h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      href="/ios"
+                      href="/marketing-automation/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      iOS
+                      Marketing Automation
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/android"
+                      href="/analytics/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Android
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/react-native"
-                      className="text-gray-700 hover:text-red-500"
-                    >
-                      React Native
+                      Data Analytics & Dashboards
                     </Link>
                   </li>
                 </ul>
@@ -270,82 +198,82 @@ const Footer = () => {
 
           {/* For Talent Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">For Talent</h3>
+            <h3 className="font-bold text-lg mb-4">Connect</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/find-a-job"
+                  href="/contact-us/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Find a Job
+                  Contact Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/knowledge-base"
+                  href="/careers/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Knowledge Base
+                  Careers
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-gray-700 hover:text-red-500">
-                  FAQ
+                <Link href="/enquiry/" className="text-gray-700 hover:text-red-500">
+                  Enquiry
                 </Link>
               </li>
             </ul>
 
-            {/* Marketers Section */}
-            <h3 className="font-bold text-lg mt-8 mb-4">Marketers</h3>
+            {/* Quick Links Section */}
+            <h3 className="font-bold text-lg mt-8 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/seo" className="text-gray-700 hover:text-red-500">
-                  SEO
+                <Link href="/index.php" className="text-gray-700 hover:text-red-500">
+                  Home
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programmatic"
+                  href="/services"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Programmatic
+                  All Services
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/sem-ppc"
+                  href="/company"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  SEM & PPC
+                  Company
                 </Link>
               </li>
             </ul>
 
-            {/* Designer Section */}
-            <h3 className="font-bold text-lg mt-6 mb-4">Designer</h3>
+            {/* Additional Services */}
+            <h3 className="font-bold text-lg mt-6 mb-4">More Services</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/web-designer"
+                  href="/seo/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Web Designer
+                  SEO Services
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/ui-ux-designer"
+                  href="/web-design/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  UI/UX Designer
+                  Web Design
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/graphic-designer"
+                  href="/social-media-marketing/"
                   className="text-gray-700 hover:text-red-500"
                 >
-                  Graphic Designer
+                  Social Media Marketing
                 </Link>
               </li>
             </ul>
@@ -358,68 +286,68 @@ const Footer = () => {
           <div className="">
             <div className="">
               <div>
-                <h3 className="font-bold text-lg mb-4">Web Developer</h3>
+                <h3 className="font-bold text-lg mb-4">Marketing Services</h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      href="/shopify"
+                      href="/advertise/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Shopify
+                      Performance Marketing
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/php"
+                      href="/blog-management/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      PHP
+                      Blog Marketing
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/wordpress"
+                      href="/influencers-marketing/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      WordPress
+                      Influencer Marketing
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/javascript"
+                      href="/email-marketing/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Javascript
+                      Email Marketing
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/vuejs"
+                      href="/orm/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      VueJS
+                      ORM Services
                     </Link>
                   </li>
                 </ul>
               </div>
 
               <div className="mt-8">
-                <h3 className="font-bold text-lg mb-4">IT Staffing</h3>
+                <h3 className="font-bold text-lg mb-4">Business Solutions</h3>
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      href="/web-designer-staffing"
+                      href="/marketing-automation/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      Web Designer
+                      Marketing Automation
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/it-staffing-engineer"
+                      href="/analytics/"
                       className="text-gray-700 hover:text-red-500"
                     >
-                      IT Staffing Engineer
+                      Data Analytics
                     </Link>
                   </li>
                 </ul>

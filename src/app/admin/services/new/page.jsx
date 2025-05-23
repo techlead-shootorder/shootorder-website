@@ -15,7 +15,13 @@ export default function NewServicePage() {
     slug: '',
     description: '',
     imageUrl: '',
-    features: ['', '', ''],
+    features: [
+      {
+        imageUrl: '',
+        heading: '',
+        content: ''
+      }
+    ],
     content: ''
   });
   
@@ -46,9 +52,12 @@ export default function NewServicePage() {
     });
   };
   
-  const handleFeatureChange = (index, value) => {
+  const handleFeatureChange = (index, field, value) => {
     const updatedFeatures = [...formData.features];
-    updatedFeatures[index] = value;
+    updatedFeatures[index] = {
+      ...updatedFeatures[index],
+      [field]: value
+    };
     setFormData({
       ...formData,
       features: updatedFeatures
@@ -58,7 +67,10 @@ export default function NewServicePage() {
   const addFeatureField = () => {
     setFormData({
       ...formData,
-      features: [...formData.features, '']
+      features: [
+        ...formData.features, 
+        { imageUrl: '', heading: '', content: '' }
+      ]
     });
   };
   
@@ -75,10 +87,14 @@ export default function NewServicePage() {
     setIsSubmitting(true);
     setMessage({ type: '', text: '' });
     
-    // Filter out empty features
+    // Filter out empty features (consider a feature empty if all fields are empty)
     const cleanedData = {
       ...formData,
-      features: formData.features.filter(feature => feature.trim() !== '')
+      features: formData.features.filter(feature => 
+        feature.heading.trim() !== '' || 
+        feature.imageUrl.trim() !== '' || 
+        feature.content.trim() !== ''
+      )
     };
     
     try {
@@ -90,10 +106,9 @@ export default function NewServicePage() {
         body: JSON.stringify(cleanedData),
       });
       
-      
       const result = await response.json();
       
-      console.log("result for the service",result);
+      console.log("result for the service", result);
       
       if (response.ok) {
         setMessage({ 
@@ -209,25 +224,60 @@ export default function NewServicePage() {
           </label>
           
           {formData.features.map((feature, index) => (
-            <div key={index} className="flex items-center mb-2">
-              <input
-                type="text"
-                value={feature}
-                onChange={(e) => handleFeatureChange(index, e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                placeholder="e.g., 24/7 Support"
-              />
-              {formData.features.length > 1 && (
-                <button
-                  type="button"
-                  onClick={() => removeFeatureField(index)}
-                  className="ml-2 p-2 text-red-600 hover:text-red-800"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              )}
+            <div key={index} className="p-4 mb-4 border border-gray-200 rounded-md bg-gray-50">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-md font-medium">Feature {index + 1}</h3>
+                {formData.features.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeFeatureField(index)}
+                    className="p-1 text-red-600 hover:text-red-800"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+              
+              <div className="mb-3">
+                <label className="block text-gray-700 text-sm font-medium mb-1">
+                  Image URL
+                </label>
+                <input
+                  type="text"
+                  value={feature.imageUrl}
+                  onChange={(e) => handleFeatureChange(index, 'imageUrl', e.target.value)}
+                  placeholder="/images/features/icon.svg"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
+                />
+              </div>
+              
+              <div className="mb-3">
+                <label className="block text-gray-700 text-sm font-medium mb-1">
+                  Heading
+                </label>
+                <input
+                  type="text"
+                  value={feature.heading}
+                  onChange={(e) => handleFeatureChange(index, 'heading', e.target.value)}
+                  placeholder="Feature Title"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 text-sm font-medium mb-1">
+                  Content
+                </label>
+                <textarea
+                  value={feature.content}
+                  onChange={(e) => handleFeatureChange(index, 'content', e.target.value)}
+                  rows="2"
+                  placeholder="Describe this feature"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
+                ></textarea>
+              </div>
             </div>
           ))}
           

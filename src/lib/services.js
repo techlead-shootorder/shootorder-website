@@ -32,7 +32,7 @@ export async function getAllServices() {
           content: '<p>Our software engineering services provide end-to-end solutions from concept to deployment.</p>'
         },
         {
-          slug: 'web-development',
+          slug: 'seo',
           title: 'Web Development',
           description: 'Professional web development services using the latest technologies.',
           imageUrl: '/images/services/web-development.jpg',

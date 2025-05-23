@@ -66,7 +66,7 @@ export default function ContactUs() {
 
             <div className="mt-6">
               <p className="text-white font-semibold mb-2">We are on Socials</p>
-              <div className="grid grid-cols-3 gap-3 text-white text-lg">
+              <div className="flex items-center justify-start gap-6 text-white text-lg">
                 <FaFacebookF />
                 <FaTwitter />
                 <FaPinterest />

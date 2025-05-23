@@ -390,7 +390,7 @@ export default function Banner() {
           </p>
           
           <div ref={buttonRef}>
-            <Button className="bg-white text-black font-semibold px-8 py-6 text-lg rounded-full hover:bg-gray-200 transition-all hover:scale-105 shadow-lg">
+            <Button className="!bg-white !text-black font-semibold px-8 py-6 text-lg rounded-full hover:bg-gray-200 transition-all hover:scale-105 shadow-lg">
               Enquire Now
             </Button>
           </div>
