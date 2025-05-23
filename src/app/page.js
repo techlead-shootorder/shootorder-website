@@ -163,22 +163,22 @@ export default function Home() {
       });
     });
 
-    // Modified horizontal sliding animations for partners - smoother slide
+    // Updated OurPartners animation - slide up from bottom instead of scale
     gsap.fromTo(
       "#partners-container",
       {
-        x: "40%", // Reduced from 50%
+        y: 80, // Start from below
         opacity: 0,
       },
       {
-        x: 0,
+        y: 0, // Move to original position
         opacity: 1,
-        ease: "power2.out",
+        duration: 1.2,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: "#partners-section",
-          start: "top bottom-=50", // Adjusted trigger point
-          end: "top center+=50", // Adjusted end point
-          scrub: 1.2, // Increased for smoother effect
+          trigger: "#partners-container",
+          start: "top bottom-=120",
+          toggleActions: "play none none reverse",
         },
       }
     );
@@ -267,7 +267,7 @@ export default function Home() {
         </div>
 
         <div
-          className="animate-section max-w-7xl mx-auto"
+          className=" max-w-7xl mx-auto"
           id="partners-section"
         >
           <div id="partners-container" className="!max-w-7xl mx-auto">
@@ -275,9 +275,12 @@ export default function Home() {
           </div>
         </div>
         <section className="!bg-[#f8f6ee]">
-        <div className="animate-section !max-w-7xl mx-auto" id="service-tabs-section">
-          <ServiceTabs />
-        </div>
+          <div
+            className="animate-section !max-w-7xl mx-auto"
+            id="service-tabs-section"
+          >
+            <ServiceTabs />
+          </div>
         </section>
 
         <div className="animate-section !max-w-7xl mx-auto" id="hire-section">

@@ -202,13 +202,13 @@ export default function Header() {
 
   return (
     <header className="w-full fixed top-0 left-0 z-50 bg-white shadow-sm">
-      <div className="!max-w-7xl mx-auto px-4 md:px-0 py-4 flex items-center justify-between">
+      <div className="!max-w-7xl mx-auto px-4 md:px-0 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
           <img
-            src="/images/logo/shootorder.webp"
+            src="/images/logo/shootorder-logo.svg"
             alt="Logo"
-            className="h-8 w-auto"
+            className="h-20 w-24"
           />
         </Link>
         {/* Desktop Navigation */}

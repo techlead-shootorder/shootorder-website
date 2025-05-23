@@ -16,14 +16,6 @@ export default function ServiceFlow() {
       title: "DELIGHT",
       desc: "Retaining customers and fostering loyalty is crucial for long-term success..",
     },
-    {
-      title: "DELIGHT",
-      desc: "Retaining customers and fostering loyalty is crucial for long-term success..",
-    },
-    {
-      title: "DELIGHT",
-      desc: "Retaining customers and fostering loyalty is crucial for long-term success..",
-    },
   ];
 
   return (

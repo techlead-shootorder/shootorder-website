@@ -1,10 +1,9 @@
 // components/Footer.jsx
 import Link from "next/link";
 import Image from "next/image";
-import { Youtube, Instagram, } from "lucide-react";
+import { Youtube, Instagram } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
-import {FaXTwitter } from "react-icons/fa6";
-
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -49,60 +48,60 @@ const Footer = () => {
               </li>
             </ul>
             <div className="grid grid-cols-1 gap-6">
-            <div className="mt-8">
-              <h3 className="font-bold text-lg mb-4">Attract Services</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/seo/"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    SEO
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/advertise/"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Performance Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/social-media-marketing/"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Social Media Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/blog-management/"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Blog Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/influencers-marketing/"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    Influencer Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/email-marketing/"
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    eMail Marketing
-                  </Link>
-                </li>
-              </ul>
+              <div className="mt-8">
+                <h3 className="font-bold text-lg mb-4">Attract Services</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      href="/seo/"
+                      className="text-gray-700 hover:text-red-500"
+                    >
+                      SEO
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/advertise/"
+                      className="text-gray-700 hover:text-red-500"
+                    >
+                      Performance Marketing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/social-media-marketing/"
+                      className="text-gray-700 hover:text-red-500"
+                    >
+                      Social Media Marketing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/blog-management/"
+                      className="text-gray-700 hover:text-red-500"
+                    >
+                      Blog Marketing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/influencers-marketing/"
+                      className="text-gray-700 hover:text-red-500"
+                    >
+                      Influencer Marketing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/email-marketing/"
+                      className="text-gray-700 hover:text-red-500"
+                    >
+                      eMail Marketing
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Resources Column */}
@@ -110,7 +109,12 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="https://www.shootorder.com/blog/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-red-500">
+                <Link
+                  href="https://www.shootorder.com/blog/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-red-500"
+                >
                   Blog
                 </Link>
               </li>
@@ -217,7 +221,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/enquiry/" className="text-gray-700 hover:text-red-500">
+                <Link
+                  href="/enquiry/"
+                  className="text-gray-700 hover:text-red-500"
+                >
                   Enquiry
                 </Link>
               </li>
@@ -227,7 +234,10 @@ const Footer = () => {
             <h3 className="font-bold text-lg mt-8 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/index.php" className="text-gray-700 hover:text-red-500">
+                <Link
+                  href="/index.php"
+                  className="text-gray-700 hover:text-red-500"
+                >
                   Home
                 </Link>
               </li>
@@ -253,10 +263,7 @@ const Footer = () => {
             <h3 className="font-bold text-lg mt-6 mb-4">More Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/seo/"
-                  className="text-gray-700 hover:text-red-500"
-                >
+                <Link href="/seo/" className="text-gray-700 hover:text-red-500">
                   SEO Services
                 </Link>
               </li>
@@ -280,7 +287,6 @@ const Footer = () => {
           </div>
 
           {/* Software Engineer and other tech roles */}
-          
 
           {/* More Technical Roles */}
           <div className="">
@@ -359,7 +365,7 @@ const Footer = () => {
           <div className=" flex flex-col items-end justify-start">
             <div className="mb-4">
               <Image
-                src="/images/logo/shootorder.webp"
+                src="/images/logo/shootorder-logo.svg"
                 alt="ShootOrder Logo"
                 width={200}
                 height={70}
@@ -393,13 +399,13 @@ const Footer = () => {
                 href="https://linkedin.com"
                 className="text-gray-700 hover:text-red-500"
               >
-                <FaLinkedin  size={20} />
+                <FaLinkedin size={20} />
               </Link>
               <Link
                 href="https://twitter.com"
                 className="text-gray-700 hover:text-red-500"
               >
-                <FaXTwitter  size={20} />
+                <FaXTwitter size={20} />
               </Link>
             </div>
 
@@ -407,40 +413,46 @@ const Footer = () => {
             <div className="space-y-4 w-full">
               <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between">
                 <div className="mr-3">
-                  <FaLinkedin  className="text-[#0A66C2]" size={28} />
+                  <img
+                    src="/images/about-us/meta.png"
+                    alt="ShootOrder Logo"
+                    className="w-16 h-16 object-cover"
+                  />
                 </div>
-               
-                  <p className="font-bold">1 M+</p>
-                  <p className="text-xs text-gray-600">Followers</p>
-                
+
+                <p className="text-sm font-semibold text-gray-600">Meta Business Partner</p>
               </div>
 
               <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between">
                 <div className="mr-3">
-                  <FaLinkedin  className="text-[#0A66C2]" size={28} />
+                  <img
+                    src="/images/about-us/google.png"
+                    alt="ShootOrder Logo"
+                    className="w-16 h-16 object-cover"
+                  />
                 </div>
                 <div className="flex items-center">
-                  <p className="font-bold mr-2">4.1</p>
-                  <span className="text-yellow-500">★</span>
-                  <p className="text-xs text-gray-600 ml-3">365 reviews</p>
+                  <p className="text-sm font-semibold text-gray-600 ml-3">Google Partner</p>
                 </div>
               </div>
 
               <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between">
                 <div className="mr-3">
-                  <FaLinkedin  className="text-[#0A66C2]" size={28} />
+                  <img
+                    src="/images/about-us/hubspot.png"
+                    alt="ShootOrder Logo"
+                    className="w-16 h-16 object-cover"
+
+                  />
                 </div>
                 <div className="flex items-center">
-                  <p className="font-bold mr-2">4.1</p>
-                  <span className="text-yellow-500">★</span>
-                  <p className="text-xs text-gray-600 ml-3">365 reviews</p>
+                  <p className="text-sm font-semibold text-gray-600 ml-3">HubSpot</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Web Developer and IT Staffing columns */}
-          
         </div>
 
         {/* Copyright and Policies */}

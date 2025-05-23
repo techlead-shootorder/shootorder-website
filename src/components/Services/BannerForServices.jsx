@@ -4,7 +4,7 @@ import React from "react";
 const BannerForServices = () => {
   return (
     <section
-      className="w-full bg-cover bg-center py-20"
+      className="w-full bg-cover bg-center py-24"
       style={{
         backgroundImage: `url(/images/services/banners/service-banner.jpg)`,
         backgroundPosition:"bottom center"
