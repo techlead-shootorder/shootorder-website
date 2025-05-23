@@ -16,7 +16,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/about/"
+                  href="/about-us/"
                   className="text-gray-700 hover:text-red-500"
                 >
                   About Us
@@ -110,7 +110,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="https://www.shootorder.com/blog/"
+                  href="/blogs/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-red-500"
