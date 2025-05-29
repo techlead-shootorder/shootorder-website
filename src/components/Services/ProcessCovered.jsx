@@ -5,10 +5,10 @@ import { Button } from "../ui/button";
 async function ProcessCovered({services}) {
 
   return (
-    <section className="w-full pb-16">
+    <section className="w-full pb-16 py-16">
       <div className=" !max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-semibold mb-4">
-          Process Covered In Our SEO Services
+          Process Covered In Our {services.title} Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {services.features.map((service) => (

@@ -5,134 +5,88 @@ import Image from "next/image";
 import clsx from "clsx";
 
 const servicesData = {
-  "Web Developers": [
+  Attract: [
     {
-      title: "Frontend Developer",
-      desc: "Expert in React and Tailwind.",
+      title: "SEO",
+      desc: "Boost your search engine rankings. Our SEO experts optimize your website to increase visibility and drive organic traffic.",
       image: "/images/services/service-1.jpg",
-      tags: ["HTML", "CSS", "JavaScript"],
+      tags: ["Keywords", "Ranking", "Traffic"],
+      href: "/seo",
     },
     {
-      title: "Backend Developer",
-      desc: "Skilled in Node.js and databases.",
+      title: "Performance Marketing",
+      desc: "Data-driven advertising campaigns. Our performance marketing strategies focus on measurable results, ensuring you get the best return on investment.",
       image: "/images/services/service-1.jpg",
-      tags: ["Node.js", "MongoDB", "API"],
+      tags: ["PPC", "ROI", "Conversion"],
+      href: "/advertise/",
     },
     {
-      title: "Fullstack Developer",
-      desc: "Handles both frontend and backend.",
+      title: "Social Media Marketing",
+      desc: "Engage audiences on social platforms. Our social media marketing services help you connect with your audience, build brand awareness, and drive engagement.",
       image: "/images/services/service-1.jpg",
-      tags: ["React", "Express", "SQL"],
+      tags: ["Facebook", "Instagram", "Engagement"],
+      href: "/social-media-marketing/",
     },
     {
-      title: "DevOps Engineer",
-      desc: "CI/CD and cloud deployments.",
+      title: "Blog Marketing",
+      desc: "Content that drives engagement. Our blog marketing services create valuable content that attracts and retains customers, enhancing your brand's authority and reach.",
       image: "/images/services/service-1.jpg",
-      tags: ["Docker", "AWS", "CI/CD"],
-    },
-  ],
-  "Graphic Designers": [
-    {
-      title: "Logo Designer",
-      desc: "Creates modern logos.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Illustrator", "Branding", "Creativity"],
+      tags: ["Content", "SEO", "Audience"],
+      href: "/blog-management/",
     },
     {
-      title: "UI/UX Designer",
-      desc: "Crafts beautiful interfaces.",
+      title: "Influencer Marketing",
+      desc: "Partner with industry influencers. Our influencer marketing services connect your brand with influential figures to amplify your reach and credibility.",
       image: "/images/services/service-1.jpg",
-      tags: ["Figma", "Wireframe", "Prototyping"],
+      tags: ["Influencers", "Brand", "Reach"],
+      href: "/influencers-marketing/",
     },
     {
-      title: "Print Designer",
-      desc: "Expert in brochures and flyers.",
+      title: "eMail Marketing",
+      desc: "Direct communication with customers. Our email marketing services help you nurture leads, retain customers, and drive conversions through targeted email campaigns.",
       image: "/images/services/service-1.jpg",
-      tags: ["Print", "Layout", "Typography"],
-    },
-    {
-      title: "Social Media Designer",
-      desc: "Eye-catching social content.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Instagram", "Canva", "Graphics"],
+      tags: ["Email", "Automation", "Nurture"],
+      href: "/email-marketing/",
     },
   ],
-  "Video Editors": [
+  Engage: [
     {
-      title: "YouTube Editor",
-      desc: "Edits engaging YouTube videos.",
+      title: "Website & Landing Pages",
+      desc: "Beautiful and converting web designs. Our web design services create stunning websites and landing pages that not only look great but also convert visitors into customers.",
       image: "/images/services/service-1.jpg",
-      tags: ["Premiere Pro", "Cuts", "Titles"],
+      tags: ["Design", "UX", "Conversion"],
+      href: "/web-design/",
     },
     {
-      title: "Reels Specialist",
-      desc: "Short-form video expert.",
+      title: "Online Reputation Management (ORM)",
+      desc: "Manage and improve online reputation. Our ORM services help you monitor, manage, and enhance your online presence, ensuring your brand is perceived positively.",
       image: "/images/services/service-1.jpg",
-      tags: ["Instagram", "Trendy", "Fast-paced"],
+      tags: ["Reputation", "Reviews", "Brand"],
+      href: "/orm/",
     },
     {
-      title: "Motion Graphics Artist",
-      desc: "Creates animated visuals.",
+      title: "On-Site Engagement - PushFOMO",
+      desc: "Boost conversions with social proof. PushFOMO is a powerful tool that creates urgency and trust by displaying real-time notifications of customer activity on your site, enhancing user engagement and driving conversions.",
       image: "/images/services/service-1.jpg",
-      tags: ["After Effects", "Animation", "3D"],
-    },
-    {
-      title: "Corporate Video Editor",
-      desc: "Professional business videos.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Interviews", "Branding", "Editing"],
+      tags: ["FOMO", "Conversion", "Engagement"],
+      href: "https://www.pushfomo.com",
+      external: true,
     },
   ],
-  "Content Writers": [
+  Delight: [
     {
-      title: "SEO Writer",
-      desc: "Writes with Google in mind.",
+      title: "Marketing Automation",
+      desc: "Streamline your marketing processes. Our marketing automation services help you automate repetitive tasks, nurture leads, and deliver personalized experiences at scale, improving efficiency and effectiveness.",
       image: "/images/services/service-1.jpg",
-      tags: ["Keywords", "Blogging", "Traffic"],
+      tags: ["Automation", "Workflow", "Efficiency"],
+      href: "/marketing-automation/",
     },
     {
-      title: "Copywriter",
-      desc: "Persuasive ad copy.",
+      title: "Data Analytics & Dashboards",
+      desc: "Insights to drive better decisions. Our data analytics services provide in-depth analysis and custom dashboards that help you understand your business performance, customer behavior, and market trends, enabling data-driven decision-making.",
       image: "/images/services/service-1.jpg",
-      tags: ["Ads", "CTA", "Sales"],
-    },
-    {
-      title: "Technical Writer",
-      desc: "Clear and concise documentation.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Docs", "Manuals", "Clarity"],
-    },
-    {
-      title: "Script Writer",
-      desc: "Writes for videos and podcasts.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Storytelling", "Voiceover", "Structure"],
-    },
-  ],
-  "Advertisement Specialist": [
-    {
-      title: "Google Ads Expert",
-      desc: "Drives traffic with Google Ads.",
-      image: "/images/services/service-1.jpg",
-      tags: ["PPC", "Search", "CTR"],
-    },
-    {
-      title: "Facebook Ads Manager",
-      desc: "Targeted social ads.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Audience", "Retargeting", "Budget"],
-    },
-    {
-      title: "Campaign Strategist",
-      desc: "Plans and optimizes campaigns.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Funnel", "KPIs", "Analytics"],
-    },
-    {
-      title: "Email Marketer",
-      desc: "Converts with emails.",
-      image: "/images/services/service-1.jpg",
-      tags: ["Open Rate", "CRM", "Templates"],
+      tags: ["Analytics", "Data", "Insights"],
+      href: "/analytics/",
     },
   ],
 };
@@ -145,14 +99,16 @@ export default function ServiceTabs() {
     <section className="bg-[#f8f6ee]">
       <div className="py-16 px-4 max-w-7xl mx-auto ">
         {/* Tabs */}
-        <div className="flex flex-wrap gap-4 mb-8">
+        <div className="flex justify-center flex-wrap gap-4 mb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveTab(cat)}
               className={clsx(
                 "px-4 py-2 rounded-full border border-black transition",
-                activeTab === cat ? "bg-black text-white" : "text-black"
+                activeTab === cat
+                  ? "bg-[#F2333B] text-white border-white"
+                  : "text-black"
               )}
             >
               {cat}
@@ -165,7 +121,7 @@ export default function ServiceTabs() {
           {servicesData[activeTab].map((item, idx) => (
             <div
               key={idx}
-              className="border border-gray-300 bg-white rounded-xl p-4 flex flex-col gap-4"
+              className="border border-gray-300 bg-white rounded-xl p-4 flex flex-col justify-center items-center gap-4"
             >
               {/* Top Row: Image + Content */}
               <div className="flex gap-4">
@@ -179,7 +135,7 @@ export default function ServiceTabs() {
                 <div>
                   <h3 className="font-semibold text-lg">{item.title}</h3>
                   <p className="text-gray-600 text-sm">{item.desc}</p>
-                  <div className="flex gap-2 flex-wrap mt-5">
+                  {/* <div className="flex gap-2 flex-wrap mt-5">
                     {item.tags.map((tag, i) => (
                       <span
                         key={i}
@@ -188,17 +144,27 @@ export default function ServiceTabs() {
                         {tag}
                       </span>
                     ))}
+                  </div> */}
+                  <div className="mt-4">
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : "_self"}
+                      rel={item.external ? "noopener noreferrer" : ""}
+                      className="text-[#F2333B] hover:underline"
+                    >
+                      Know More →
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
+        {/* <div className="flex justify-center mt-8">
           <button className="px-4 py-2 rounded-full border border-black transition bg-black text-white">
-            Browse More Candidate
+            Browse More Services
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

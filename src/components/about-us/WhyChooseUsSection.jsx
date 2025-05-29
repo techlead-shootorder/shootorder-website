@@ -1,6 +1,19 @@
 // WhyChooseSection.jsx
 import React from "react";
-import { Clock, Image, Star, Phone, Shield, Users } from "lucide-react";
+import {
+  Clock,
+  Image,
+  Star,
+  Phone,
+  Shield,
+  Headphones,
+  FileSignature,
+  HeartHandshake,
+  BadgeCheck,
+  Users,
+  Wrench,
+  Zap,
+} from "lucide-react";
 
 const FeatureBox = ({ icon, title, description }) => {
   return (
@@ -17,40 +30,52 @@ const FeatureBox = ({ icon, title, description }) => {
 const WhyChooseSection = () => {
   const features = [
     {
-      icon: <Clock className="h-10 w-12 text-orange-700" />,
-      title: "Turnaround in Days",
+      icon: <BadgeCheck  className="h-14 w-14 text-orange-700" />,
+      title: "Experienced Managers",
       description:
-        "We edit any composition within 2-3 business days because we know how crucial it is when you're close to your launch.",
+        "Every manager in ShootOrder's team is a google certified manager, our experience will not let you down!",
     },
     {
-      icon: <Image className="h-10 w-12 text-orange-700" />,
-      title: "15K Images To Grow With",
+      icon: <Users className="h-14 w-14 text-orange-700" />,
+      title: "Dedicated Team",
       description:
-        "We are already ready to start Right now! We have covered more than 15k+ of photoshoots and shoot.",
+        "Our dedicated team has only one target, to get you business at the least possible cost and keep you always smiling.",
     },
     {
-      icon: <Star className="h-10 w-12 text-orange-700" />,
-      title: "Evaluated by Creators",
+      icon: <Star className="h-14 w-14 text-orange-700" />,
+      title: "We are creative!",
       description:
-        "We offer the best work every time by qualified designer and get your creative direction as well as support when you collaborate with us.",
+        "You don't have to outsource creative work to a third party vendor, we are a full service advertising agency and we are confident enough to provide you utmost creativity.",
     },
     {
-      icon: <Phone className="h-10 w-12 text-orange-700" />,
-      title: "Client Package Process",
+      icon: <Wrench  ne className="h-14 w-14 text-orange-700" />,
+      title: "We will fix your website!",
       description:
-        "Designers + marketing director + producer + you 24/7 combined! One who creates your assets and is available to solve your queries.",
+        "Urgh!!! Keeping your website bug free and with latest optimizations is a nightmare. With our Digital Marketing services, you dont have to go anywhere else. Until your website is optimized, our digital marketing services won't yield the expected results.",
     },
     {
-      icon: <Shield className="h-10 w-12 text-orange-700" />,
-      title: "Trust in Our Middle Name",
+      icon: <Zap  className="h-14 w-14 text-orange-700" />,
+      title: "Quick Results",
       description:
-        "Our ability and integrity is incomparable. We believe in relationships built on trust not just in our brand ing but also doing what it takes to understand the needs of our clients.",
+        "You don't have to wait month and months to get in positive ROI's, we do it quick!",
     },
     {
-      icon: <Users className="h-10 w-12 text-orange-700" />,
+      icon: <Headphones className="h-14 w-14 text-orange-700" />,
+      title: "Always available for you!",
+      description:
+        "Our client servicing team is always available at your service with industries best turnaround time.",
+    },
+    {
+      icon: <FileSignature className="h-14 w-14 text-orange-700" />,
+      title: "No long term contracts!",
+      description:
+        "We are always ready to sign NDA in case our clients want to set the bar of confidentiality higher. Also, no worries of long term contracts.",
+    },
+    {
+      icon: <HeartHandshake className="h-14 w-14 text-orange-700" />,
       title: "Complete Satisfaction",
       description:
-        "We work time & money on talent for keeping extraordinary photo compositions which will make complete point of our work.",
+        "We value time & money of client for long term relationships. Client satisfaction is one of the most important aspect of our work.",
     },
   ];
 

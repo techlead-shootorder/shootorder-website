@@ -1,49 +1,104 @@
 [
+  
   {
-    "slug": "software-engineering",
-    "title": "Software Engineering",
-    "description": "Custom software solutions for businesses of all sizes.",
-    "imageUrl": "/images/services/software-engineering.jpg",
-    "features": [
-      {
-        "imageUrl": "/images/services/logo/react.png",
-        "heading": "Keywords Optimization",
-        "content": "ShootOrder - SEO Company in Hyderabad offers multilevel keyword optimization. Keyword optimization is the seo process where the on page content is optimized to focus on particular keywords so that large number of audience can find your website easily through search engines. Our content writers are well experienced in producing unique, appealing and refreshing content for your website."
-      },
-      {}
-    ],
-    "content": "<p>Our software engineering services provide end-to-end solutions from concept to deployment.</p>"
-  },
-  {
+    "heading": "Awarded SEO Agency",
+    "subheading": "Websites on the first page of search results receive 95% of organic traffic, while subsequent pages receive significantly less. We position your company well on Search Engines so that your customers can find you easily! An important aspect of SEO is making your website easy to understand for both users and search engines. Our SEO Experts will create the brand value across internet. SEO is also about marketing. You can build a perfect website, but its content will remain invisible to search engines if it is not optimized.",
     "slug": "seo",
-    "title": "Web Development",
+    "title": "SEO",
     "description": "Professional web development services using the latest technologies.",
-    "imageUrl": "/images/services/web-development.jpg",
+    "imageUrl": "https://www.shootorder.com/templates/shoot/img/seo-01.jpg",
     "features": [
       {
-        "imageUrl": "/images/services/logos/react.png",
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/keyword-optimization.jpg",
         "heading": "Keywords Optimization",
         "content": "ShootOrder - SEO Company in Hyderabad offers multilevel keyword optimization. Keyword optimization is the seo process where the on page content is optimized to focus on particular keywords so that large number of audience can find your website easily through search engines. Our content writers are well experienced in producing unique, appealing and refreshing content for your website."
       },
       {
-        "imageUrl": "/images/services/logos/react.png",
-        "heading": "Keywords Optimization",
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/meta-tags-optimization.jpg",
+        "heading": "Meta Tags Optimization",
         "content": "ShootOrder - SEO Company in Hyderabad offers multilevel keyword optimization. Keyword optimization is the seo process where the on page content is optimized to focus on particular keywords so that large number of audience can find your website easily through search engines. Our content writers are well experienced in producing unique, appealing and refreshing content for your website."
       },
       {
-        "imageUrl": "/images/services/logos/react.png",
-        "heading": "Keywords Optimization",
-        "content": "ShootOrder - SEO Company in Hyderabad offers multilevel keyword optimization. Keyword optimization is the seo process where the on page content is optimized to focus on particular keywords so that large number of audience can find your website easily through search engines. Our content writers are well experienced in producing unique, appealing and refreshing content for your website."
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/rich-markups.jpg",
+        "heading": "Rich Mark-ups",
+        "content": "Rich Mark-up allows different websites like search engines, social networking sites etc to know about your website content better. We insert some of the major rich markups to your website to gain more traffic from various sources and by showing the relevant content to the users. Ex. Twitter Cards, Google Maps, Schema Markups etc."
+      },{
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/site-loading-speed.jpg",
+        "heading": "Technical SEO",
+        "content": "Site Loading Time or Page Speed is the major concern of all website publishers because you get few seconds to attract your website visitor and if the website doesn't load in the respctive time you lose a potential lead. Our SEO Experts optimize your sites page speed by various compression techniques."
+      },{
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/seo-content.jpg",
+        "heading": "SEO friendly Content Optimization",
+        "content": "The content on your website which is the major factor in deciding your site ranking on search engines. The content needs to be SEO friendly and appealing at the same time. ShootOrder has a dedicated team to make your content alive."
       }
     ],
     "content": "<p>We build modern, fast, and secure websites that help your business stand out.</p>"
   },
   {
-    "title": "Wordpress Developer",
-    "slug": "wordpress-developer",
-    "description": "This is for testing Purpose",
-    "imageUrl": "shootorder-logo.png",
-    "features": ["24/7", "24/7", "24/7"],
-    "content": "<p>this is for testing purpose"
+    "heading": "Performance Marketing Agency",
+    "subheading": "Introducing our award-winning PPC & Performance Marketing services. We handle your performance marketing requirements as if they were our own. With over 50 performance marketing specialists, our paid ads services are growth-driven. Our account strategists bring in a deep understanding of business, with their precise targeting and effective messaging, this combination makes us the best in the market.",
+    "title": "Performance Marketing",
+    "slug": "advertise",
+    "description": "Introducing our award-winning PPC & Performance Marketing services\nWe handle your performance marketing requirements as if they were our own. With over 50 performance marketing specialists, our paid ads services are growth-driven. Our account strategists bring in a deep understanding of business, with their precise targeting and effective messaging, this combination makes us the best in the market.",
+    "imageUrl": "https://www.shootorder.com/templates/shoot/img/shootorder-digital-marketing-agency.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/search-engine-advertising-so.jpg",
+        "heading": "Paid Search",
+        "content": "Search Engine Marketing (SEM) or Paid Search Engine Advertising can help your customers find you easily. For an existing market, the best way to generate sales/leads is Search Engine Marketing. ShootOrder leading search marketing agency makes sure to invest your money in right keywords with an extra edge of making your company look different than others yet by managing low cost per click."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/display-ads.jpg",
+        "heading": "Paid Display",
+        "content": "Display Advertising on the other hand can build an image of a brand by displaying its products & services on various websites across world wide web. Display Advertisements are much more attractive and appealing to customers as these appear in various formats like Image, Animated Images, Flash, Video etc. Paid display advertising is effective, both as direct response and branding strategy. Youtube advertising is also a major display advertising channel."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-advertising-so.jpg",
+        "heading": "Paid Social",
+        "content": "Social Media Advertising is targeted on interest based audience. Take leverage out of our social media advertising methods on facebook, linkedin, twitter, pinterest etc... These are mostly in image and video formats."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/ott.jpg",
+        "heading": "OTT Advertising",
+        "content": "ShootOrder is your trusted partner for OTT Advertising, helping businesses effectively reach their target audience through streaming media platforms. With our expertise in digital advertising, we deliver impactful video, display, and interactive ads on popular OTT platforms, ensuring maximum engagement and measurable results. Reach your customers where they are, and let ShootOrder's OTT Advertising service elevate your brand to new heights in the digital streaming landscape."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/music.jpg",
+        "heading": "Streaming Ads",
+        "content": "ShootOrder is a leading provider of Streaming Ads, empowering businesses to connect with their target audience through the power of streaming media platforms. With our expertise in digital advertising, we create compelling video, display, and interactive ads that seamlessly integrate into popular streaming services. Drive brand awareness, engage viewers, and achieve measurable results with ShootOrder's Streaming Ads service. Let us help you make a lasting impact in the streaming landscape and reach your customers in the most effective way possible."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/coupon.jpg",
+        "heading": "Coupon/Scratch Ads",
+        "content": "ShootOrder brings you Coupon Ads, a powerful advertising solution that enables businesses to attract and engage customers through enticing discounts and promotions. Our expert team designs visually appealing coupon ads that capture attention and drive conversions. With strategic placement across various platforms, including digital channels and social media, ShootOrder's Coupon Ads ensure maximum visibility and reach. Boost your sales, increase customer loyalty, and achieve a measurable return on investment with ShootOrder's Coupon Ads service. Let us help you create irresistible offers and connect with your target audience effectively."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Social Media Marketing Company",
+    "subheading": "The future of business is social! ShootOrder ranks among the top social media marketing companies in India. We've earned top rankings from major social marketing hubs and magazines. Our services encompass Instagram, Facebook, Twitter, LinkedIn marketing, and many more",
+    "title": "Social Media Marketing",
+    "slug": "social-media-marketing",
+    "description": "hello",
+    "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-01.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-strategy.jpg",
+        "heading": "Research & Strategy",
+        "content": "Social Marketing requires extensive research and analysis. This includes brand analysis, competitors in market, present trend, demographics & most importantly behaviour. We then come up with a customised social media strategy to reach the desired goals and objectives."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-profile-setup.jpg",
+        "heading": "Profiles Setup",
+        "content": "On the basis of the strategy, we design cover images and fine tune the logo to match the theme. We make sure the setup is appropriate not just channel wise but also device wise."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-updates.jpg",
+        "heading": "Daily Updates",
+        "content": "As per the strategy, we custom design the creatives, infographics, videos and creative content to delight your targeted audience. We make sure your consumers appreciate your social media engagement."
+      }
+    ],
+    "content": ""
   }
 ]
