@@ -30,7 +30,7 @@ const servicesData = {
     {
       title: "Blog Marketing",
       desc: "Content that drives engagement. Our blog marketing services create valuable content that attracts and retains customers, enhancing your brand's authority and reach.",
-      image: "/images/so-homepage-services/Blog-MARKETING.png",
+      image: "/images/so-homepage-services/Blog-Marketing.png",
       tags: ["Content", "SEO", "Audience"],
       href: "/blog-management/",
     },
