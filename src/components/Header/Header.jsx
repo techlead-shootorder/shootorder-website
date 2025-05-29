@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { FaBars, FaTimes ,FaChevronDown  } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -25,7 +25,11 @@ const serviceCategories = [
     links: [
       { name: "Website & Landing Pages", href: "/web-design/" },
       { name: "Online Reputation Management (ORM)", href: "/orm/" },
-      { name: "On-Site Engagement - PushFOMO", href: "https://www.pushfomo.com", external: true },
+      {
+        name: "On-Site Engagement - PushFOMO",
+        href: "https://www.pushfomo.com",
+        external: true,
+      },
     ],
   },
   {
@@ -59,13 +63,13 @@ const companyCategories = [
 
 // Contact categories for mega menu
 const contactCategories = [
-  {
-    title: "Useful Links",
-    links: [
-      { name: "Departments", href: "/submitticket/" },
-      { name: "Blog", href: "/blogs", external: true },
-    ],
-  },
+  // {
+  //   title: "Useful Links",
+  //   links: [
+  //     { name: "Departments", href: "/submitticket/" },
+  //     { name: "Blog", href: "/blogs", external: true },
+  //   ],
+  // },
   {
     title: "Connect",
     links: [
@@ -78,9 +82,14 @@ const contactCategories = [
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services", hasMegaMenu: true, menuType: "services" },
+  {
+    name: "Services",
+    href: "/services",
+    hasMegaMenu: true,
+    menuType: "services",
+  },
   { name: "Company", href: "/company", hasMegaMenu: true, menuType: "company" },
-    { name: "Blogs", href: "/blogs" },
+  { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact", hasMegaMenu: true, menuType: "contact" },
 ];
 
@@ -95,7 +104,7 @@ export default function Header() {
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const initLenis = async () => {
-      const Lenis = (await import('@studio-freight/lenis')).default;
+      const Lenis = (await import("@studio-freight/lenis")).default;
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -115,9 +124,11 @@ export default function Header() {
     // Event listeners for clicks outside the mega menu
     const handleClickOutside = (event) => {
       if (
-        megaMenuRef.current && 
-        !megaMenuRef.current.contains(event.target) && 
-        !Object.values(navItemRefs.current).some(ref => ref && ref.contains(event.target))
+        megaMenuRef.current &&
+        !megaMenuRef.current.contains(event.target) &&
+        !Object.values(navItemRefs.current).some(
+          (ref) => ref && ref.contains(event.target)
+        )
       ) {
         setMegaMenuOpen(false);
         setActiveMegaMenu(null);
@@ -136,15 +147,15 @@ export default function Header() {
     if (megaMenuOpen) {
       gsap.fromTo(
         megaMenuRef.current,
-        { 
-          opacity: 0, 
-          y: -10 
+        {
+          opacity: 0,
+          y: -10,
         },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.3, 
-          ease: "power2.out" 
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out",
         }
       );
     }
@@ -176,11 +187,11 @@ export default function Header() {
 
   const getCurrentMegaMenuData = () => {
     switch (activeMegaMenu) {
-      case 'services':
+      case "services":
         return serviceCategories;
-      case 'company':
+      case "company":
         return companyCategories;
-      case 'contact':
+      case "contact":
         return contactCategories;
       default:
         return [];
@@ -189,11 +200,11 @@ export default function Header() {
 
   const getMobileMenuData = (menuType) => {
     switch (menuType) {
-      case 'services':
+      case "services":
         return serviceCategories;
-      case 'company':
+      case "company":
         return companyCategories;
-      case 'contact':
+      case "contact":
         return contactCategories;
       default:
         return [];
@@ -204,38 +215,52 @@ export default function Header() {
     <header className="w-full fixed top-0 left-0 z-50 bg-white shadow-sm">
       <div className="!max-w-7xl mx-auto px-4 md:px-0 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
-          <img
-            src="/images/logo/shootorder-logo.svg"
-            alt="Logo"
-            className="h-20 w-24"
-          />
-        </Link>
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-6 items-center">
-          {navLinks.map((link) => (
-            <div key={link.name} className="relative">
-              <Link
-                href={link.href}
-                className="text-gray-800 hover:text-primary transition flex items-center gap-1"
-                ref={(el) => navItemRefs.current[link.name] = el}
-                onMouseEnter={link.hasMegaMenu ? () => handleNavMouseEnter(link.menuType) : undefined}
-                onMouseLeave={link.hasMegaMenu ? handleNavMouseLeave : undefined}
-              >
-                {link.name}
-                {link.hasMegaMenu && (
-                  <span className="text-red-500 text-sm"><FaChevronDown /></span>
-                )}
-              </Link>
-            </div>
-          ))}
-        </nav>
-
-        <Link href="/contact-us/" className="hidden md:block">
-          <Button variant="default">
-            Get In Touch
-          </Button>
-        </Link>
+        <div className="flex items-center gap-10 ">
+          <Link href="/" className=" inline-block">
+            <img
+              src="/images/logo/shootorder-logo.svg"
+              alt="Logo"
+              className="h-20 w-32 "
+            />
+          </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex gap-6 items-center">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative">
+                <Link
+                  href={link.href}
+                  className="text-gray-800 hover:text-primary transition flex items-center gap-1"
+                  ref={(el) => (navItemRefs.current[link.name] = el)}
+                  onMouseEnter={
+                    link.hasMegaMenu
+                      ? () => handleNavMouseEnter(link.menuType)
+                      : undefined
+                  }
+                  onMouseLeave={
+                    link.hasMegaMenu ? handleNavMouseLeave : undefined
+                  }
+                >
+                  {link.name}
+                  {link.hasMegaMenu && (
+                    <span className="text-[#F94839] text-sm">
+                      <FaChevronDown />
+                    </span>
+                  )}
+                </Link>
+              </div>
+            ))}
+          </nav>
+        </div>
+        <div className="hidden md:flex items-center gap-4">
+          <Link href="/contact-us/" className="hidden md:block">
+            <Button variant="default">Get In Touch</Button>
+          </Link>
+          <Link href="tel:+91 6303921512" className="hidden md:block">
+            <Button variant="default" className="w-full">
+              Contact Us
+            </Button>
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -260,29 +285,39 @@ export default function Header() {
             <Link
               href={link.href}
               className="block py-2 text-gray-800 hover:text-primary font-medium"
-              onClick={() => link.hasMegaMenu ? setActiveMegaMenu(activeMegaMenu === link.menuType ? null : link.menuType) : null}
+              onClick={() =>
+                link.hasMegaMenu
+                  ? setActiveMegaMenu(
+                      activeMegaMenu === link.menuType ? null : link.menuType
+                    )
+                  : null
+              }
             >
               {link.name}
-              {link.hasMegaMenu && (
-                <span className="text-red-500 ml-1">♥</span>
-              )}
+              {link.hasMegaMenu && <span className="text-red-500 ml-1">♥</span>}
             </Link>
-            
+
             {/* Mobile Submenu */}
             {link.hasMegaMenu && activeMegaMenu === link.menuType && (
               <div className="bg-gray-50 p-4 mt-2 rounded-lg">
                 <div className="grid grid-cols-1 gap-4">
                   {getMobileMenuData(link.menuType).map((category) => (
                     <div key={category.title} className="mb-4">
-                      <h3 className="font-semibold text-sm mb-2 text-gray-900">{category.title}</h3>
+                      <h3 className="font-semibold text-sm mb-2 text-gray-900">
+                        {category.title}
+                      </h3>
                       <ul className="space-y-1">
                         {category.links.map((subLink) => (
                           <li key={subLink.name}>
-                            <Link 
-                              href={subLink.href} 
+                            <Link
+                              href={subLink.href}
                               className="text-gray-700 text-sm hover:text-red-500 block py-1"
                               target={subLink.external ? "_blank" : undefined}
-                              rel={subLink.external ? "noopener noreferrer" : undefined}
+                              rel={
+                                subLink.external
+                                  ? "noopener noreferrer"
+                                  : undefined
+                              }
                             >
                               {subLink.name}
                             </Link>
@@ -296,35 +331,44 @@ export default function Header() {
             )}
           </div>
         ))}
-        
+
         <Link href="/contact-us/" className="mt-4 block">
           <Button variant="default" className="w-full">
-            Get In Touch
+            Enquire Now
           </Button>
         </Link>
       </div>
-
       {/* Mega Menu for Desktop */}
       {megaMenuOpen && activeMegaMenu && (
-        <div 
+        <div
           ref={megaMenuRef}
           className="absolute left-0 w-full bg-white shadow-lg border-t border-gray-100 hidden md:block z-50"
           onMouseEnter={handleMegaMenuMouseEnter}
           onMouseLeave={handleMegaMenuMouseLeave}
         >
           <div className="!max-w-7xl mx-auto py-8 px-4">
-            <div className={`grid gap-8 ${getCurrentMegaMenuData().length <= 2 ? 'grid-cols-2 justify-center max-w-2xl mx-auto' : 'grid-cols-3'}`}>
+            <div
+              className={`grid gap-8 ${
+                getCurrentMegaMenuData().length <= 2
+                  ? "grid-cols-2 justify-center max-w-2xl mx-auto"
+                  : "grid-cols-3"
+              }`}
+            >
               {getCurrentMegaMenuData().map((category) => (
                 <div key={category.title} className="mb-4">
-                  <h3 className="font-bold text-base mb-3 text-gray-900">{category.title}</h3>
+                  <h3 className="font-bold text-base mb-3 text-gray-900">
+                    {category.title}
+                  </h3>
                   <ul className="space-y-2">
                     {category.links.map((link) => (
                       <li key={link.name}>
-                        <Link 
-                          href={link.href} 
+                        <Link
+                          href={link.href}
                           className="text-gray-700 hover:text-red-500 text-sm block py-1"
                           target={link.external ? "_blank" : undefined}
-                          rel={link.external ? "noopener noreferrer" : undefined}
+                          rel={
+                            link.external ? "noopener noreferrer" : undefined
+                          }
                         >
                           {link.name}
                         </Link>

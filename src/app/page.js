@@ -246,15 +246,16 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto ">
-        <div className=" !max-w-7xl mx-auto">
-          {/* <div className=" absolute inset-0 -z-10 w-full">
+        <div className="w-full ">
+          <div className=" !max-w-7xl mx-auto">
+            {/* <div className=" absolute inset-0 -z-10 w-full">
         
             <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
           </div> */}
-          <AboutUs />
+            <AboutUs />
+          </div>
         </div>
-
         <div
           className="animate-section !max-w-7xl !mx-auto"
           id="company-section"
@@ -266,10 +267,7 @@ export default function Home() {
           <CompanyInfo />
         </div>
 
-        <div
-          className=" max-w-7xl mx-auto"
-          id="partners-section"
-        >
+        <div className=" max-w-7xl mx-auto" id="partners-section">
           <div id="partners-container" className="!max-w-7xl mx-auto">
             <OurPartners />
           </div>

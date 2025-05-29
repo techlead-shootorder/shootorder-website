@@ -183,7 +183,6 @@ export default function NewServicePage() {
           type: 'success', 
           text: 'Service created successfully!' 
         });
-        
         setTimeout(() => {
           router.push(`/${result.service.slug}`);
         }, 1000);

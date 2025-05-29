@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutUs() {
   const sectionRef = useRef(null);
   const paragraphRef = useRef(null);
+  const bgRefs = useRef([]);
 
   useEffect(() => {
     const paragraph = paragraphRef.current;
@@ -17,18 +18,16 @@ export default function AboutUs() {
       const text = element.textContent;
       const words = text.split(" ");
       element.innerHTML = "";
-      
+
       words.forEach((word, wordIndex) => {
         const wordSpan = document.createElement("span");
         wordSpan.style.display = "inline-block";
-        wordSpan.style.marginRight = "0.25em"; // Space between words
-        
-        // Color "passionate team" 
+        wordSpan.style.marginRight = "0.25em";
+
         if (word === "passionate" || word === "team.") {
-          wordSpan.style.color = "#F2333B"; // Blue color
+          wordSpan.style.color = "#F94839";
         }
-        
-        // Split each word into characters
+
         word.split("").forEach((char, charIndex) => {
           const span = document.createElement("span");
           span.textContent = char;
@@ -40,7 +39,7 @@ export default function AboutUs() {
           span.dataset.charIndex = charIndex;
           wordSpan.appendChild(span);
         });
-        
+
         element.appendChild(wordSpan);
       });
     };
@@ -57,25 +56,53 @@ export default function AboutUs() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "bottom+=1000 top", // long enough to slowly scroll the whole line
+        end: "bottom+=1000 top",
         scrub: true,
         pin: true,
         anticipatePin: 1,
       },
     });
 
-    // Cleanup function
+    // Animate floating background items
+    bgRefs.current.forEach((ref, i) => {
+      gsap.to(ref, {
+        y: "+=40",
+        x: "+=20",
+        repeat: -1,
+        yoyo: true,
+        duration: 6 + i,
+        ease: "sine.inOut",
+      });
+    });
+
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="w-full min-h-screen bg-white flex justify-center items-center"
+      className="relative w-full min-h-screen bg-white flex justify-center items-center overflow-hidden"
     >
-      <div className="max-w-5xl text-center px-4">
+      {/* Background floating shapes */}
+      {[...Array(4)].map((_, index) => (
+        <div
+          key={index}
+          ref={(el) => (bgRefs.current[index] = el)}
+          className="absolute rounded-full !bg-[#ff8075] opacity-40 blur-2xl"
+          style={{
+            width: `${120 + index * 20}px`,
+            height: `${120 + index * 20}px`,
+            top: `${10 + index * 15}%`,
+            left: `${20 + index * 20}%`,
+            zIndex: 0,
+          }}
+        />
+      ))}
+
+      {/* Main content */}
+      <div className="max-w-5xl text-center px-4 z-10">
         <p
           ref={paragraphRef}
           className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight"

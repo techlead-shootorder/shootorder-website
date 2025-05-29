@@ -36,7 +36,7 @@ export default function ContactUs() {
       <div className="!max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 my-12 rounded-3xl border p-4 md:p-4">
           {/* Left Section - Info */}
-          <div className="bg-[#f2333b] rounded-3xl p-6 md:p-10">
+          <div className="bg-[#F94839] rounded-3xl p-6 md:p-10">
             <h3 className="font-semibold text-white text-lg mb-2">
               Contact Information
             </h3>
