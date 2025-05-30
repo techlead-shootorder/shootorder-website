@@ -377,7 +377,7 @@ export default function Banner() {
       <div
         className="banner-background-image absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: "url('/images/background/home-bg.png')",
+          backgroundImage: "url('/images/background/home-bg2.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -410,7 +410,7 @@ export default function Banner() {
           </p>
 
           <div ref={buttonRef}>
-            <Button className="!bg-white !text-black font-semibold px-8 py-6 text-lg rounded-full hover:bg-gray-200 transition-all hover:scale-105 shadow-lg">
+            <Button className="!bg-white !text-black font-semibold px-8 py-6 text-lg rounded-full hover:bg-gray-200 transition-all hover:scale-105 shadow-lg" onClick={()=>window.location.href="/contact-us"}>
               Enquire Now
             </Button>
           </div>

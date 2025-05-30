@@ -246,7 +246,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto ">
-        <div className="w-full ">
+        <div className="w-full " style={{backgroundImage:'url(/images/background/bg.png)',objectFit:'cover'}}>
           <div className=" !max-w-7xl mx-auto">
             {/* <div className=" absolute inset-0 -z-10 w-full">
         
@@ -289,12 +289,12 @@ export default function Home() {
           <Hire />
         </div>
 
-        <div
+        {/* <div
           className="animate-section !max-w-7xl mx-auto"
           id="service-flow-section"
         >
           <ServiceFlow />
-        </div>
+        </div> */}
         <section className=" !bg-[#f8f6ee]">
           <div
             className="animate-section !max-w-7xl mx-auto "

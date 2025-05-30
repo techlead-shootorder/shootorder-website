@@ -83,24 +83,9 @@ export default function AboutUs() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-white flex justify-center items-center overflow-hidden"
+      className="relative w-full min-h-screen  flex justify-center items-center overflow-hidden"
     >
       {/* Background floating shapes */}
-      {[...Array(4)].map((_, index) => (
-        <div
-          key={index}
-          ref={(el) => (bgRefs.current[index] = el)}
-          className="absolute rounded-full !bg-[#ff8075] opacity-40 blur-2xl"
-          style={{
-            width: `${120 + index * 20}px`,
-            height: `${120 + index * 20}px`,
-            top: `${10 + index * 15}%`,
-            left: `${20 + index * 20}%`,
-            zIndex: 0,
-          }}
-        />
-      ))}
-
       {/* Main content */}
       <div className="max-w-5xl text-center px-4 z-10">
         <p

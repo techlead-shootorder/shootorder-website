@@ -7,20 +7,20 @@ function ClientGrid({ children }) {
   const topRowRef = useRef(null);
   const bottomRowRef = useRef(null);
 
+  // Partner logos (14)
   const partnerLogos = Array.from(
     { length: 14 },
     (_, i) => `/images/logo/${i + 1}.jpg`
   );
 
-  // Split logos into two rows
-  const topRowLogos = partnerLogos.slice(0, 7);
-  const bottomRowLogos = partnerLogos.slice(7, 14);
+  // Trust logos (10): a1.jpg to j1.jpg
+  const trustLogos = [
+    "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1", "j1"
+  ].map((name) => `/images/clients/${name}.jpg`);
 
   useEffect(() => {
-    // Wait for page to load completely
     const handleLoad = () => {
       if (topRowRef.current && bottomRowRef.current) {
-        // Create continuous horizontal scroll for top row (left to right)
         gsap.to(topRowRef.current, {
           x: "-50%",
           duration: 20,
@@ -28,8 +28,8 @@ function ClientGrid({ children }) {
           repeat: -1,
         });
 
-        // Create continuous horizontal scroll for bottom row (right to left)
-        gsap.fromTo(bottomRowRef.current, 
+        gsap.fromTo(
+          bottomRowRef.current,
           { x: "-50%" },
           {
             x: "0%",
@@ -41,12 +41,11 @@ function ClientGrid({ children }) {
       }
     };
 
-    // Check if page is already loaded
-    if (document.readyState === 'complete') {
+    if (document.readyState === "complete") {
       handleLoad();
     } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
 
@@ -55,7 +54,7 @@ function ClientGrid({ children }) {
       <div className="flex justify-center items-center">
         <img
           src={logo}
-          alt={`Partner ${index + 1}`}
+          alt={`Logo ${index + 1}`}
           className="object-contain h-16 w-16 md:h-40 md:w-40"
         />
       </div>
@@ -65,33 +64,35 @@ function ClientGrid({ children }) {
   return (
     <div className="!max-w-7xl mx-auto overflow-hidden">
       {children}
-      
-      <div ref={containerRef} className="space-y-4">
-        {/* Top Row - Moving Right */}
-        <div className="relative">
-          <div 
-            ref={topRowRef}
-            className="flex whitespace-nowrap"
-            style={{ width: '200%' }}
-          >
-            {/* First set */}
-            {topRowLogos.map(renderLogoCard)}
-            {/* Duplicate set for seamless loop */}
-            {topRowLogos.map((logo, index) => renderLogoCard(logo, index + 7))}
+
+      <div ref={containerRef} className="space-y-8">
+        {/* Top Row Heading */}
+        <div>
+          <h2 className="text-center font-bold text-2xl mb-8">Our Partners</h2>
+          <div className="relative">
+            <div
+              ref={topRowRef}
+              className="flex whitespace-nowrap"
+              style={{ width: "200%" }}
+            >
+              {partnerLogos.map(renderLogoCard)}
+              {partnerLogos.map((logo, index) => renderLogoCard(logo, index + 14))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom Row - Moving Left */}
-        <div className="relative">
-          <div 
-            ref={bottomRowRef}
-            className="flex whitespace-nowrap"
-            style={{ width: '200%' }}
-          >
-            {/* First set */}
-            {bottomRowLogos.map(renderLogoCard)}
-            {/* Duplicate set for seamless loop */}
-            {bottomRowLogos.map((logo, index) => renderLogoCard(logo, index + 7))}
+        {/* Bottom Row Heading */}
+        <div>
+          <h2 className="text-center font-bold text-2xl mb-8">Why Trust Us</h2>
+          <div className="relative">
+            <div
+              ref={bottomRowRef}
+              className="flex whitespace-nowrap"
+              style={{ width: "200%" }}
+            >
+              {trustLogos.map(renderLogoCard)}
+              {trustLogos.map((logo, index) => renderLogoCard(logo, index + 10))}
+            </div>
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ const Footer = () => {
                   <Link
                     href={item.href}
                     {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="text-gray-700 hover:text-red-500 transition-colors"
+                    className="text-gray-700 hover:text-[#F94839] transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -80,7 +80,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={service.href}
-                    className="text-gray-700 hover:text-red-500 transition-colors"
+                    className="text-gray-700 hover:text-[#F94839] transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
                   <Link
                     href={service.href}
                     {...(service.external && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="text-gray-700 hover:text-red-500 transition-colors"
+                    className="text-gray-700 hover:text-[#F94839] transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -115,7 +115,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-700 hover:text-red-500 transition-colors"
+                    className="text-gray-700 hover:text-[#F94839] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -153,7 +153,7 @@ const Footer = () => {
             <div className="flex gap-4 justify-end mb-6">
               <Link
                 href="https://youtube.com"
-                className="text-gray-700 hover:text-red-500 transition-colors"
+                className="text-gray-700 hover:text-[#F94839] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -161,7 +161,7 @@ const Footer = () => {
               </Link>
               <Link
                 href="https://instagram.com"
-                className="text-gray-700 hover:text-red-500 transition-colors"
+                className="text-gray-700 hover:text-[#F94839] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -169,7 +169,7 @@ const Footer = () => {
               </Link>
               <Link
                 href="https://linkedin.com"
-                className="text-gray-700 hover:text-red-500 transition-colors"
+                className="text-gray-700 hover:text-[#F94839] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -177,7 +177,7 @@ const Footer = () => {
               </Link>
               <Link
                 href="https://twitter.com"
-                className="text-gray-700 hover:text-red-500 transition-colors"
+                className="text-gray-700 hover:text-[#F94839] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >

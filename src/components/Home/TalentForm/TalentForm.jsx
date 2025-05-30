@@ -117,7 +117,7 @@ export default function ContactForm() {
                 }`}
               />
               {errors.name && (
-                <p className="text-red-500 text-sm text-left">{errors.name}</p>
+                <p className="text-[#F94839] text-sm text-left">{errors.name}</p>
               )}
             </div>
 
@@ -133,7 +133,7 @@ export default function ContactForm() {
                 }`}
               />
               {errors.email && (
-                <div className="flex items-center gap-2 text-red-500 text-sm text-left">
+                <div className="flex items-center gap-2 text-[#F94839] text-sm text-left">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path
                       className="warning-icon"
@@ -158,7 +158,7 @@ export default function ContactForm() {
                 }`}
               />
               {errors.phone && (
-                <p className="text-red-500 text-sm text-left">{errors.phone}</p>
+                <p className="text-[#F94839] text-sm text-left">{errors.phone}</p>
               )}
             </div>
 
@@ -173,7 +173,7 @@ export default function ContactForm() {
                 }`}
               />
               {errors.companyName && (
-                <p className="text-red-500 text-sm text-left">
+                <p className="text-[#F94839] text-sm text-left">
                   {errors.companyName}
                 </p>
               )}
@@ -191,7 +191,7 @@ export default function ContactForm() {
                 >
                   <SelectValue placeholder="Regarding?*" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent >
                   <SelectItem value="general-inquiry">
                     General Inquiry
                   </SelectItem>
@@ -203,7 +203,7 @@ export default function ContactForm() {
                 </SelectContent>
               </Select>
               {errors.regarding && (
-                <p className="text-red-500 text-sm text-left">
+                <p className="text-[#F94839] text-sm text-left">
                   {errors.regarding}
                 </p>
               )}

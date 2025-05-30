@@ -102,9 +102,9 @@ export default async function ServicePage({ params }) {
       <WhyChooseSection />
       <section className="py-16">
         <ClientGrid>
-          <h3 className="text-3xl font-semibold mb-4 text-center">
+          {/* <h3 className="text-3xl font-semibold mb-4 text-center">
             Top Brand&apos;s We Have Worked With
-          </h3>
+          </h3> */}
         </ClientGrid>
       </section>
       <section className="bg-[#fffbe7]">

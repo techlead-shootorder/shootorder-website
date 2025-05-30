@@ -1,14 +1,20 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import ServiceModal from "../Modal/ServiceModal";
 
 const BannerForServices = ({ imageUrl, subheading, heading }) => {
+  const modalRef = useRef();
+
   return (
     <section className="relative w-full min-h-[600px]">
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: `url(${imageUrl || "/images/services/banners/seo-banner.jpg"})`,
+          backgroundImage: `url(${
+            imageUrl || "/images/services/banners/seo-banner.jpg"
+          })`,
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-10" />
@@ -16,7 +22,7 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
 
       {/* Content */}
       <div className="relative z-20 flex items-center min-h-[600px] px-4">
-        <div className="!max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full">
+        <div className="!max-w-5xl mx-auto items-center  text-center">
           {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -27,7 +33,10 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
               {subheading ||
                 "Unlock the full potential of your SaaS website with our expert SEO services. Our team specializes in optimizing your site for search engines, ensuring higher visibility and increased traffic. Whether you're looking to improve your rankings, enhance user experience, or drive more conversions, our SEO experts are here to help."}
             </p>
-            <button className="bg-black text-white px-6 py-3 rounded-full font-medium">
+            <button
+              className="bg-black text-white px-6 py-3 rounded-full font-medium"
+              onClick={() => modalRef.current?.open()}
+            >
               Hire SEO Expert
             </button>
           </div>
@@ -53,6 +62,7 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
           <Image src="/images/about-us/meta.png" alt="Meta" width={140} height={140} />
         </div>
       </div> */}
+      <ServiceModal ref={modalRef} />
     </section>
   );
 };

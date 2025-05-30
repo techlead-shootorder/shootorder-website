@@ -294,7 +294,7 @@ export default function Header() {
               }
             >
               {link.name}
-              {link.hasMegaMenu && <span className="text-red-500 ml-1">♥</span>}
+              {link.hasMegaMenu && <span className="text-[#F94839] ml-1">♥</span>}
             </Link>
 
             {/* Mobile Submenu */}
@@ -311,7 +311,7 @@ export default function Header() {
                           <li key={subLink.name}>
                             <Link
                               href={subLink.href}
-                              className="text-gray-700 text-sm hover:text-red-500 block py-1"
+                              className="text-gray-700 text-sm hover:text-[#F94839] block py-1"
                               target={subLink.external ? "_blank" : undefined}
                               rel={
                                 subLink.external
@@ -364,7 +364,7 @@ export default function Header() {
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-gray-700 hover:text-red-500 text-sm block py-1"
+                          className="text-gray-700 hover:text-[#F94839] text-sm block py-1"
                           target={link.external ? "_blank" : undefined}
                           rel={
                             link.external ? "noopener noreferrer" : undefined

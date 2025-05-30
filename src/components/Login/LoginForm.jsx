@@ -137,7 +137,7 @@ export default function LoginForm() {
         </form>
 
         <div className="text-center mt-4">
-          <Link href="/" className="text-sm text-red-600 hover:text-red-500">
+          <Link href="/" className="text-sm text-red-600 hover:text-[#F94839]">
             Return to Home
           </Link>
         </div>
