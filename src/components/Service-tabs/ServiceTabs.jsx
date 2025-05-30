@@ -105,7 +105,8 @@ export default function CombinedServiceFlow() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-center mb-8">
-            A leading <span className="text-[#F94839]">full service digital</span>
+            A leading{" "}
+            <span className="text-[#F94839]">full service digital</span>
             <br />
             marketing agency in India
           </h2>
@@ -120,18 +121,6 @@ export default function CombinedServiceFlow() {
           {/* Left Column - Image + Process Steps */}
           <div className="lg:col-span-5 space-y-8">
             {/* Hero Image */}
-            <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 to-blue-500/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src="/images/services/service-flow.png"
-                  alt="Service Flow"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-              </div>
-            </div>
-
             {/* Process Steps */}
             <div className="space-y-4">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
@@ -161,7 +150,9 @@ export default function CombinedServiceFlow() {
                     <div>
                       <h4
                         className={`font-bold text-sm ${
-                          activeTab === step ? "text-[#F94839]" : "text-gray-900"
+                          activeTab === step
+                            ? "text-[#F94839]"
+                            : "text-gray-900"
                         }`}
                       >
                         {step.toUpperCase()}
@@ -175,6 +166,17 @@ export default function CombinedServiceFlow() {
                   </div>
                 );
               })}
+            </div>
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 to-blue-500/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="/images/services/service-flow.png"
+                  alt="Service Flow"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+              </div>
             </div>
           </div>
 
@@ -212,7 +214,11 @@ export default function CombinedServiceFlow() {
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-28 h-28 rounded-lg ">
-                        <img src={item.image} alt={item.title} className="w-full !object-cover"/>
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full !object-cover"
+                        />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
