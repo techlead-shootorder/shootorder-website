@@ -1,0 +1,17 @@
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.75;
+  }
+  to {
+    transform: scale(150);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  width: 20px;
+  height: 20px;
+  transform-origin: center;
+  animation: ripple 1s linear;
+}

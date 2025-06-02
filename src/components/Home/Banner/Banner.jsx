@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { FiBriefcase, FiClock, FiUsers } from "react-icons/fi";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Banner() {
   const bannerRef = useRef(null);
@@ -16,6 +16,7 @@ export default function Banner() {
   const buttonRef = useRef(null);
   const statBubblesRef = useRef([]); // Reference for all stat bubbles
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     // Make sure GSAP plugins are registered
@@ -371,7 +372,7 @@ export default function Banner() {
   return (
     <section
       ref={bannerRef}
-      className="w-full bg-white relative overflow-hidden h-screen max-w-full mt-4 "
+      className="w-full bg-white relative overflow-hidden h-screen max-w-full mt-4"
     >
       {/* Background Image with Parallax Effect */}
       <div
@@ -389,29 +390,81 @@ export default function Banner() {
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto relative z-10 h-full flex flex-col justify-center items-center px-4">
         <div className="banner-content text-center w-full">
-          <div className="inline-block px-4 py-2 rounded-full mb-6 text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20">
-            Find, hire & manage your offshore team seamlessly.
+          {/* Google Partner Logo */}
+          <div className="mb-4">
+            <img 
+              width={100} 
+              height={100} 
+              className="mx-auto sm:w-[240px] " 
+              src="/images/logo/Google Premier Partner.webp"
+              alt="Google Premier Partner"
+            />
           </div>
 
+          {/* Badge Text */}
+          <div className="inline-block px-4 py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20">
+            <p>Top 3% Digital Marketing Agency in India, #1 in Hyderabad - ShootOrder®</p>
+          </div>
+
+          {/* Main heading with responsive sizes */}
           <h1
             ref={headingRef}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 text-white"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-white"
           >
             Strategic Digital Growth with <br className="hidden sm:block" />
             ShootOrder's Expertise
           </h1>
 
+          {/* Description with responsive sizing */}
           <p
             ref={descriptionRef}
-            className="max-w-xl mx-auto text-white/90 text-lg mb-8"
+            className="max-w-xl mx-auto text-white/90 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 px-4 sm:px-0"
           >
             ShootOrder stands as the forefront leader in providing comprehensive
             digital marketing solutions in Hyderabad, India.
           </p>
 
           <div ref={buttonRef}>
-            <Button className="!bg-white !text-black font-semibold px-8 py-6 text-lg rounded-full hover:bg-gray-200 transition-all hover:scale-105 shadow-lg" onClick={()=>window.location.href="/contact-us"}>
-              Enquire Now
+            <Button 
+              className="group relative overflow-hidden !bg-white !text-black font-semibold px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:shadow-xl active:scale-95"
+              onClick={(e) => {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                const rect = e.target.getBoundingClientRect();
+                ripple.className = 'absolute animate-ripple rounded-full bg-gray-200';
+                ripple.style.left = `${e.clientX - rect.left}px`;
+                ripple.style.top = `${e.clientY - rect.top}px`;
+                e.target.appendChild(ripple);
+                
+                // Remove ripple after animation
+                setTimeout(() => ripple.remove(), 1000);
+                
+                // Navigate with slight delay for visual feedback
+                setTimeout(() => router.push('/contact-us'), 200);
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+              }}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Enquire Now
+                <svg 
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </span>
             </Button>
           </div>
         </div>
@@ -476,40 +529,31 @@ export default function Banner() {
         </svg>
       </div>
 
-      {/* Mobile Stats with enhanced styling and animations */}
-      <div className="block md:hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-4 py-6 w-full">
-        <div className="grid grid-cols-3 gap-3">
-          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-3 rounded-xl flex flex-col items-center justify-center cursor-pointer">
-            <FiBriefcase className="text-xl text-white" />
-            <div
-              className="text-lg font-semibold text-white mobile-value"
-              data-value="50"
-            >
+      {/* Mobile Stats - Updated styling */}
+      <div className="block md:hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-4 w-full">
+        <div className="grid grid-cols-3 gap-2">
+          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
+            <FiBriefcase className="text-lg text-white mb-1" />
+            <div className="text-base font-semibold text-white mobile-value" data-value="50">
               50+
             </div>
-            <div className="text-xs text-white/80 text-center">Projects</div>
+            <div className="text-[10px] text-white/80 text-center">Projects</div>
           </div>
 
-          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-3 rounded-xl flex flex-col items-center justify-center cursor-pointer">
-            <FiClock className="text-xl text-white" />
-            <div
-              className="text-lg font-semibold text-white mobile-value"
-              data-value="12"
-            >
+          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
+            <FiClock className="text-lg text-white mb-1" />
+            <div className="text-base font-semibold text-white mobile-value" data-value="12">
               12+
             </div>
-            <div className="text-xs text-white/80 text-center">Experience</div>
+            <div className="text-[10px] text-white/80 text-center">Experience</div>
           </div>
 
-          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-3 rounded-xl flex flex-col items-center justify-center cursor-pointer">
-            <FiUsers className="text-xl text-white" />
-            <div
-              className="text-lg font-semibold text-white mobile-value"
-              data-value="92"
-            >
+          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
+            <FiUsers className="text-lg text-white mb-1" />
+            <div className="text-base font-semibold text-white mobile-value" data-value="92">
               92+
             </div>
-            <div className="text-xs text-white/80 text-center">Retention</div>
+            <div className="text-[10px] text-white/80 text-center">Retention</div>
           </div>
         </div>
       </div>

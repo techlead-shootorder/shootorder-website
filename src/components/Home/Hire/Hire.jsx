@@ -5,29 +5,29 @@ const steps = [
     number: "01",
     icon: <FaUserTie className="text-white" />,
     button: "Submit Request",
-    title: "Tell Us What You Need",
-    sub: "Fill out a quick form about your project.",
+    title: "Submit Your Request",
+    sub: "Tell us about your project needs and goals.",
   },
   {
     number: "02",
     icon: <FaBriefcase className="text-white" />,
-    button: "Get Matched",
-    title: "We Find the Right Talent",
-    sub: "We match you with the best fit from our network.",
+    button: "Get Match",
+    title: "Get Matched",
+    sub: "We'll match you with the perfect service package.",
   },
   {
     number: "03",
     icon: <FaStar className="text-white" />,
-    button: "Interview",
-    title: "You Evaluate",
-    sub: "Interview candidates to ensure a perfect match.",
+    button: "Strategy",
+    title: "Strategy & Proposal",
+    sub: "Receive a customized strategy and proposal.",
   },
   {
     number: "04",
     icon: <FaArrowRight className="text-white" />,
-    button: "Start Work",
-    title: "Kick Off the Project",
-    sub: "Begin working with your new team member.",
+    button: "Start Project",
+    title: "Launch Project",
+    sub: "Begin your journey to digital success.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function Hire() {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-10">
-        Hire in 4 Easy Steps
+        Get Started With Shootorder
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {steps.map((step, index) => (

@@ -13,6 +13,7 @@ import "keen-slider/keen-slider.min.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useSmoothScroll from "@/utils/smooth-scroll";
+import AnimatedIntro from "@/components/Home/Intro/AnimatedIntro";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -246,13 +247,21 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-auto ">
-        <div className="w-full " style={{backgroundImage:'url(/images/background/bg.png)',objectFit:'cover'}}>
+        <div
+          className="w-full "
+          style={{
+            backgroundImage: "url(/images/background/bg.png)",
+            objectFit: "cover",
+          }}
+        >
+          <AnimatedIntro />
           <div className=" !max-w-7xl mx-auto">
             {/* <div className=" absolute inset-0 -z-10 w-full">
         
             <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
           </div> */}
+
             <AboutUs />
           </div>
         </div>
@@ -264,7 +273,6 @@ export default function Home() {
             {/* Background elements for parallax */}
             <div className="absolute top-1/4 left-1/4 w-1/4 h-1/4 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
-          <CompanyInfo />
         </div>
 
         <div className=" max-w-7xl mx-auto" id="partners-section">
@@ -274,7 +282,7 @@ export default function Home() {
         </div>
         <section className="!bg-[#f8f6ee]">
           <div
-            className="animate-section !max-w-7xl mx-auto"
+            className="animate-section "
             id="service-tabs-section"
           >
             <ServiceTabs />
@@ -288,7 +296,7 @@ export default function Home() {
           </div>
           <Hire />
         </div>
-
+        <CompanyInfo />
         {/* <div
           className="animate-section !max-w-7xl mx-auto"
           id="service-flow-section"

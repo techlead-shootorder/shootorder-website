@@ -10,112 +10,151 @@ import { usePathname } from "next/navigation";
 gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
-  {
-    id: 1,
-    logo: "/images/logo/images.png",
-    title: "Facebook & Google Ads Campaign for EdTech Company",
-    subtitle: "They have the best price-quality ratio.",
-    content:
-      "Despite the limited budget, ShootOrder has helped the client record 400,000 app downloads in India. They've also delivered several good video ads that the client can use for both their Indian and Estonian apps. Moreover, they facilitate a smooth workflow and hold bi-weekly standup meetings.",
-    avatar: "/images/logo/avatar.svg",
-    name: "Janek Jaago",
-    designation: "CCO, ALPA Kids",
-  },
-  {
-    id: 2,
-    logo: "/images/logo/images.png",
-    title: "Digital Marketing for Fertility Provider",
-    subtitle: "They reduced CPL and increased ROI.",
-    content:
-      "Cost per lead was reduced and the return on investment was increased because of ShootOrder. Their team was cost-effective and performed well, although they could finish the jobs more within deadlines.",
-    avatar: "/images/logo/avatar.svg",
-    name: "Anonymous",
-    designation: "Digital Marketing Manager, Oasis Fertility",
-  },
-  {
-    id: 3,
-    logo: "/images/logo/images.png",
-    title: "Content Marketing & SMM for Home Decor & Lifestyle Company",
-    subtitle: "ShootOrder is very understanding, and they’re in sync with our brand. They know exactly what we require",
-    content:
-      "ShootOrder has been able to provide great results to the client, including an increase in sales and engagement and a decrease in the dropout rate. The team is very communicative, understanding, and flexible, and they excel at meeting deadlines due to their structured approach.",
-    avatar: "/images/logo/avatar.svg",
-    name: "Arnab Ghosh",
-    designation: "Head of Marketing & Co-Founder, Nakshikathaa",
-  },
+	{
+		id: 1,
+		rating: 5,
+		logo: "/images/testimonials/clutch.svg",
+		title: "Facebook & Google Ads Campaign",
+		content:
+			"ShootOrder's strategic approach to our ad campaigns resulted in a 300% increase in conversions while reducing our cost per acquisition by 40%. Their team's expertise in targeting and optimization made all the difference.",
+		avatar: "/images/testimonials/client1.jpg",
+		name: "Sarah Johnson",
+		designation: "Marketing Director, TechStart Inc.",
+		platform: "Clutch Review",
+	},
+	{
+		id: 2,
+		rating: 5,
+		logo: "/images/testimonials/clutch.svg",
+		title: "SEO & Content Marketing",
+		content:
+			"Within 6 months of working with ShootOrder, our organic traffic increased by 200%. Their content strategy and technical SEO expertise helped us rank for highly competitive keywords in our industry.",
+		avatar: "/images/testimonials/client2.jpg",
+		name: "Michael Chen",
+		designation: "CEO, GrowthHub",
+		platform: "Clutch Review",
+	},
+	{
+		id: 3,
+		rating: 5,
+		logo: "/images/testimonials/clutch.svg",
+		title: "Digital Marketing Strategy",
+		content:
+			"ShootOrder transformed our digital presence completely. Their comprehensive approach to digital marketing helped us achieve a 150% increase in leads and a 75% improvement in conversion rates.",
+		avatar: "/images/testimonials/client3.jpg",
+		name: "Priya Sharma",
+		designation: "Founder, InnovateX",
+		platform: "Clutch Review",
+	},
 ];
 
 export default function CompanyInfo() {
-  const pathname = usePathname();
-  const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
+	const pathname = usePathname();
+	const sectionRef = useRef(null);
+	const cardRefs = useRef([]);
 
-  useEffect(() => {
-    const cards = cardRefs.current;
+	useEffect(() => {
+		const cards = cardRefs.current;
 
-    gsap.from(cards, {
-      x: 200,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-       toggleActions: "play none play none",
-      },
-    });
+		gsap.from(cards, {
+			x: 200,
+			opacity: 0,
+			duration: 1,
+			stagger: 0.2,
+			ease: "power3.out",
+			scrollTrigger: {
+				trigger: sectionRef.current,
+				start: "top 80%",
+				toggleActions: "play none play none",
+			},
+		});
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [pathname]);
+		return () => {
+			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+		};
+	}, [pathname]);
 
-  return (
-    <div ref={sectionRef} className="max-w-7xl mx-auto py-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {cardsData.map((card, index) => (
-          <Card
-            key={card.id}
-            className="border border-gray-200 rounded-2xl p-6"
-            ref={(el) => (cardRefs.current[index] = el)}
-          >
-            <CardHeader className="p-0 mb-4">
-              <div className="flex items-center justify-start gap-3">
-                <Image
-                  src={card.logo}
-                  alt="Logo"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
-                <h3 className="text-lg font-semibold">{card.title}</h3>
-              </div>
-            </CardHeader>
+	return (
+		<section className="py-20 bg-gray-50">
+			<div ref={sectionRef} className="max-w-7xl mx-auto px-4">
+				{/* Header Section */}
+				<div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+					<h2 className="text-4xl font-bold text-gray-900">
+						Trusted by Growing Businesses
+					</h2>
+					<p className="text-lg text-gray-600">
+						See how we've helped businesses across industries achieve their
+						digital marketing goals and drive measurable results.
+					</p>
+				</div>
 
-            <CardContent className="p-0 space-y-4">
-              <p className="text-sm text-gray-500">{card.subtitle}</p>
-              <p className="text-black">{card.content}</p>
+				{/* Reviews Grid */}
+				<div
+					className="w-full"
+					style={{ maxWidth: "1024px", margin: "0 auto" }}
+				>
+				
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+							{cardsData.map((card, index) => (
+								<Card
+									key={card.id}
+									className="bg-gray-50 border-none hover:shadow-xl transition-shadow duration-300"
+									ref={(el) => (cardRefs.current[index] = el)}
+								>
+									<CardHeader className="p-6 space-y-4">
+										<div className="flex items-center justify-between">
+											<Image
+												src={card.logo}
+												alt="Platform Logo"
+												width={100}
+												height={24}
+												className="h-6 w-auto"
+											/>
+											<div className="flex gap-1">
+												{[...Array(card.rating)].map((_, i) => (
+													<span key={i} className="text-yellow-400">
+														★
+													</span>
+												))}
+											</div>
+										</div>
+										<h3 className="text-xl font-semibold text-gray-900">
+											{card.title}
+										</h3>
+									</CardHeader>
 
-              <div className="flex items-center justify-between mt-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src={card.avatar}
-                    alt="Avatar"
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <p className="text-sm font-medium">{card.name}</p>
-                    <p className="text-xs text-gray-500">{card.designation}</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
+									<CardContent className="p-6 pt-0 space-y-6">
+										<p className="text-gray-600 leading-relaxed">
+											"{card.content}"
+										</p>
+
+										<div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+											<Image
+												src={card.avatar}
+												alt={card.name}
+												width={48}
+												height={48}
+												className="rounded-full"
+											/>
+											<div>
+												<p className="font-semibold text-gray-900">
+													{card.name}
+												</p>
+												<p className="text-sm text-gray-500">
+													{card.designation}
+												</p>
+												<p className="text-xs text-gray-400">
+													{card.platform}
+												</p>
+											</div>
+										</div>
+									</CardContent>
+								</Card>
+							))}
+						</div>
+					
+				</div>
+			</div>
+		</section>
+	);
 }
