@@ -1,6 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowRight, Target, Users, Heart } from "lucide-react";
+import Image from "next/image";
+
+const PLACEHOLDER_IMAGE = "https://placehold.co/400x400/e2e8f0/475569?text=Service";
 
 const servicesData = {
   Branding: [
@@ -111,26 +114,30 @@ export default function CombinedServiceFlow() {
   const categories = ["Branding", "Digital Marketing", "Growth Solutions"];
   const [activeTab, setActiveTab] = useState(categories[0]);
 
+  const handleImageError = (e) => {
+    e.target.src = PLACEHOLDER_IMAGE;
+  };
+
   return (
-    <section className="py-16 px-4">
+    <section className="py-8 md:py-16 px-4">
       <div className="max-w-7xl mx-auto" style={{ width: "min(1260px, 100%)" }}>
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600">
+        {/* Header Section - Improved Mobile Spacing */}
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
+          <p className="text-base md:text-lg text-gray-600 px-2">
             Comprehensive digital solutions for your business growth
           </p>
         </div>
 
-        {/* Centered Tabs Navigation */}
-        <div className="flex justify-center gap-4 mb-8">
+        {/* Mobile-Optimized Tabs Navigation */}
+        <div className="flex overflow-x-auto md:overflow-visible md:justify-center gap-2 md:gap-4 mb-6 md:mb-8 pb-2 md:pb-0 scrollbar-hide">
           {categories.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              className={`px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                 activeTab === tab
-                  ? "bg-[#9a0c28] text-white"
+                  ? "bg-[#9a0c28] text-white shadow-lg"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
@@ -139,8 +146,8 @@ export default function CombinedServiceFlow() {
           ))}
         </div>
 
-        {/* Tab Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Tab Content - Mobile Optimized */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8">
           {/* Left Column */}
           <div className="lg:col-span-5">
             {activeTab === "Digital Marketing" ? (
@@ -160,7 +167,7 @@ export default function CombinedServiceFlow() {
             ) : null}
           </div>
 
-          {/* Right Column - Service Cards */}
+          {/* Right Column - Improved Mobile Service Cards */}
           <div className={`${activeTab === "Digital Marketing" ? "lg:col-span-7" : "lg:col-span-12"}`}>
             <div className={`grid grid-cols-1 gap-4 ${
               activeTab === "Digital Marketing" ? "xl:grid-cols-2" : "xl:grid-cols-4"
@@ -168,30 +175,35 @@ export default function CombinedServiceFlow() {
               {servicesData[activeTab].map((item, idx) => (
                 <div
                   key={idx}
-                  className="group bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-red-200 transition-all duration-300 transform hover:-translate-y-1"
+                  className="group bg-white border border-gray-200 rounded-xl p-4 md:p-5 hover:shadow-lg hover:border-red-200 transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0">
-                      <div className="w-28 h-28 rounded-lg ">
+                  <div className="flex flex-col md:flex-row md:items-start gap-3">
+                    {/* Image container - Full width on mobile */}
+                    <div className="flex-shrink-0 w-full md:w-28">
+                      <div className="aspect-video md:aspect-square rounded-lg overflow-hidden bg-gray-100">
                         <img
-                          src={item.image}
+                          src={item.image || PLACEHOLDER_IMAGE}
                           alt={item.title}
-                          className="w-full !object-cover"
+                          className="w-full h-full object-cover"
+                          onError={handleImageError}
+                          loading="lazy"
                         />
                       </div>
                     </div>
+                    
+                    {/* Content - Full width on mobile */}
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-sm text-gray-900 mb-2 group-hover:text-[#F94839] transition-colors">
+                      <h4 className="font-bold text-base md:text-sm text-gray-900 mb-2 group-hover:text-[#9a0c28] transition-colors">
                         {item.title}
                       </h4>
-                      <p className="text-gray-600 text-xs leading-relaxed mb-3 line-clamp-2">
+                      <p className="text-gray-600 text-sm md:text-xs leading-relaxed mb-3 line-clamp-2">
                         {item.desc}
                       </p>
-                      <div className="flex flex-wrap gap-1 mb-3">
+                      <div className="flex flex-wrap gap-1.5 mb-3">
                         {item.tags.slice(0, 2).map((tag, i) => (
                           <span
                             key={i}
-                            className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md font-medium"
+                            className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full font-medium"
                           >
                             {tag}
                           </span>
@@ -201,10 +213,10 @@ export default function CombinedServiceFlow() {
                         href={item.href}
                         target={item.external ? "_blank" : "_self"}
                         rel={item.external ? "noopener noreferrer" : ""}
-                        className="inline-flex items-center text-[#9a0c28] hover:text-[#7a0920] font-semibold text-xs group-hover:underline transition-all"
+                        className="inline-flex items-center text-[#9a0c28] hover:text-[#7a0920] font-semibold text-sm md:text-xs group-hover:underline transition-all py-1"
                       >
                         Learn More
-                        <ArrowRight className="w-3 h-3 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-4 h-4 md:w-3 md:h-3 ml-1 transform group-hover:translate-x-1 transition-transform" />
                       </a>
                     </div>
                   </div>
@@ -214,9 +226,9 @@ export default function CombinedServiceFlow() {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <button className="bg-[#9a0c28] hover:bg-[#7a0920] text-white px-6 py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+        {/* Mobile-Optimized CTA */}
+        <div className="text-center mt-8 md:mt-12">
+          <button className="w-full md:w-auto bg-[#9a0c28] hover:bg-[#7a0920] text-white px-6 py-3.5 md:py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-base md:text-lg">
             Explore All Services
           </button>
         </div>

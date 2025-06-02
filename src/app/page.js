@@ -241,7 +241,7 @@ export default function Home() {
       <div className="page-loader fixed top-0 left-0 w-full h-full bg-black z-50 flex items-center justify-center">
         <div className="loader-content text-white text-3xl">ShootOrder</div>
       </div>
-      <div className="banner-section relative overflow-hidden max-w-7xl mx-auto pr-5">
+      <div className="banner-section relative overflow-hidden max-w-7xl mx-auto">
         <div className="banner-background w-full">
           <Banner />
         </div>
