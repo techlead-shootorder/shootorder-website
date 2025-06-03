@@ -24,9 +24,9 @@ const FeatureBox = ({ icon, title, description, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.02 }}
-      className="flex items-start gap-3 p-6 rounded-xl hover:shadow-lg transition-all bg-white border border-gray-100 hover:border-[#9a0c28]/20"
+      className="flex items-start gap-4 p-6 rounded-xl hover:shadow-lg transition-all bg-white border border-gray-100 hover:border-[#9a0c28]/20"
     >
-      <div className="bg-[#9a0c28]/10 p-4 rounded-xl group-hover:bg-[#9a0c28]/20 transition-colors">
+      <div className="bg-[#9a0c28]/10 p-3 rounded-full hover:bg-[#9a0c28]/20 transition-colors flex-shrink-0">
         <motion.div
           whileHover={{ rotate: 360 }}
           transition={{ duration: 0.5 }}
@@ -34,9 +34,9 @@ const FeatureBox = ({ icon, title, description, index }) => {
           {icon}
         </motion.div>
       </div>
-      <div>
+      <div className="flex-1">
         <h2 className="font-bold text-lg mb-2 text-gray-900">{title}</h2>
-        <p className="text-gray-600 leading-relaxed">{description}</p>
+        <p className="text-gray-600 leading-relaxed text-sm">{description}</p>
       </div>
     </motion.div>
   );
@@ -45,49 +45,49 @@ const FeatureBox = ({ icon, title, description, index }) => {
 const WhyChooseSection = () => {
   const features = [
     {
-      icon: <BadgeCheck className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <BadgeCheck className="h-8 w-8 text-[#9a0c28]" />,
       title: "Experienced Managers",
       description:
         "Every manager in ShootOrder's team is a google certified manager, our experience will not let you down!",
     },
     {
-      icon: <Users className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <Users className="h-8 w-8 text-[#9a0c28]" />,
       title: "Dedicated Team",
       description:
         "Our dedicated team has only one target, to get you business at the least possible cost and keep you always smiling.",
     },
     {
-      icon: <Star className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
       title: "We are creative!",
       description:
         "You don't have to outsource creative work to a third party vendor, we are a full service advertising agency and we are confident enough to provide you utmost creativity.",
     },
     {
-      icon: <Wrench className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <Wrench className="h-8 w-8 text-[#9a0c28]" />,
       title: "We will fix your website!",
       description:
         "Urgh!!! Keeping your website bug free and with latest optimizations is a nightmare. With our Digital Marketing services, you dont have to go anywhere else. Until your website is optimized, our digital marketing services won't yield the expected results.",
     },
     {
-      icon: <Zap className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <Zap className="h-8 w-8 text-[#9a0c28]" />,
       title: "Quick Results",
       description:
         "You don't have to wait month and months to get in positive ROI's, we do it quick!",
     },
     {
-      icon: <Headphones className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <Headphones className="h-8 w-8 text-[#9a0c28]" />,
       title: "Always available for you!",
       description:
         "Our client servicing team is always available at your service with industries best turnaround time.",
     },
     {
-      icon: <FileSignature className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <FileSignature className="h-8 w-8 text-[#9a0c28]" />,
       title: "No long term contracts!",
       description:
         "We are always ready to sign NDA in case our clients want to set the bar of confidentiality higher. Also, no worries of long term contracts.",
     },
     {
-      icon: <HeartHandshake className="h-6 w-6 text-[#9a0c28]" />,
+      icon: <HeartHandshake className="h-8 w-8 text-[#9a0c28]" />,
       title: "Complete Satisfaction",
       description:
         "We value time & money of client for long term relationships. Client satisfaction is one of the most important aspect of our work.",

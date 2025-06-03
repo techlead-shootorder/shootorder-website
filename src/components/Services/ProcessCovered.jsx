@@ -56,8 +56,9 @@ function ProcessCovered({ services }) {
           });
 
           if (bgImage) {
+            // Set initial opacity for background images
             gsap.set(bgImage, { 
-              // opacity: index === 0 ? 0.15 : 0 
+              opacity: index === 0 ? 0.8 : 0 // First image visible, others hidden initially
             });
           }
         });
@@ -95,7 +96,7 @@ function ProcessCovered({ services }) {
 
                 tl.fromTo(nextBg,
                   { opacity: 0 },
-                  { opacity: 0.15, duration: 0.5 },
+                  { opacity: 0.8, duration: 0.5 }, // Increased opacity to 0.8 for better visibility
                   index
                 );
               }
@@ -137,7 +138,7 @@ function ProcessCovered({ services }) {
                 backgroundImage: `url(${service.imageUrl || getPlaceholderImage(service.heading)})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                // opacity: index === 0 ? 0.1 : 0
+                opacity: index === 0 ? 0.8 : 0 // Set initial opacity for first image
               }}
             >
               {/* Fallback if image fails to load */}
@@ -150,8 +151,8 @@ function ProcessCovered({ services }) {
               />
             </div>
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
+            {/* Gradient Overlay - reduced opacity to show more of the background image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/20 z-10" />
 
             <div className="w-full px-8 relative pt-[200px]">
               {/* Background heading */}

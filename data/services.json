@@ -8,27 +8,27 @@
     "imageUrl": "https://www.shootorder.com/templates/shoot/img/seo-01.jpg",
     "features": [
       {
-        "imageUrl": "/images/services/service-1.jpg",
+        "imageUrl": "/images/services/service-page-seo/keyword-optimization.jpg",
         "heading": "Keywords Optimization",
         "content": "ShootOrder - SEO Company in Hyderabad offers multilevel keyword optimization. Keyword optimization is the seo process where the on page content is optimized to focus on particular keywords so that large number of audience can find your website easily through search engines. Our content writers are well experienced in producing unique, appealing and refreshing content for your website."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/meta-tags-optimization.jpg",
+        "imageUrl": "/images/services/service-page-seo/meta-tags-optimizations.jpg",
         "heading": "Meta Tags Optimization",
         "content": "ShootOrder - SEO Company in Hyderabad offers multilevel keyword optimization. Keyword optimization is the seo process where the on page content is optimized to focus on particular keywords so that large number of audience can find your website easily through search engines. Our content writers are well experienced in producing unique, appealing and refreshing content for your website."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/rich-markups.jpg",
+        "imageUrl": "/images/services/service-page-seo/rich-mark-up.jpg",
         "heading": "Rich Mark-ups",
         "content": "Rich Mark-up allows different websites like search engines, social networking sites etc to know about your website content better. We insert some of the major rich markups to your website to gain more traffic from various sources and by showing the relevant content to the users. Ex. Twitter Cards, Google Maps, Schema Markups etc."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/site-loading-speed.jpg",
+        "imageUrl": "/images/services/service-page-seo/technical-seo.jpg",
         "heading": "Technical SEO",
         "content": "Site Loading Time or Page Speed is the major concern of all website publishers because you get few seconds to attract your website visitor and if the website doesn't load in the respctive time you lose a potential lead. Our SEO Experts optimize your sites page speed by various compression techniques."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/seo-content.jpg",
+        "imageUrl": "/images/services/service-page-seo/seo-friendly-content-optimization.jpg",
         "heading": "SEO friendly Content Optimization",
         "content": "The content on your website which is the major factor in deciding your site ranking on search engines. The content needs to be SEO friendly and appealing at the same time. ShootOrder has a dedicated team to make your content alive."
       }
@@ -111,32 +111,32 @@
     "imageUrl": "/images/services/blog-bg.jpg",
     "features": [
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-strategy.png",
+        "imageUrl": "/images/services/blog-management/strategy-development.jpg",
         "heading": "Strategy Development",
         "content": "Before diving into blog marketing, we take the time to understand your business goals, target audience, and industry landscape. Our team conducts thorough research to identify relevant topics, keywords, and trends that align with your brand's messaging. We then develop a comprehensive blog strategy that outlines the frequency of posting, content types, and promotional tactics"
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-content.png",
+        "imageUrl": "/images/services/blog-management/content-creation.jpg",
         "heading": "Content Creation",
         "content": "Our talented team of writers and content creators collaborate closely with you to develop engaging and high-quality blog content. We ensure that the content aligns with your brand voice and resonates with your target audience. Whether it's informative articles, how-to guides, industry insights, or thought leadership pieces, we create compelling blog posts that deliver value to your readers."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-seo.png",
+        "imageUrl": "/images/services/blog-management/seo-optimization.jpg",
         "heading": "SEO Optimization",
         "content": "Having great content is just the first step. To maximize the reach and visibility of your blog, we employ advanced search engine optimization (SEO) techniques. We conduct keyword research, optimize meta tags, headers, and URLs, and incorporate relevant internal and external links. By optimizing your blog posts for search engines, we increase the likelihood of ranking higher in search results, driving organic traffic to your website."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-distribution.png",
+        "imageUrl": "/images/services/blog-management/distribution-and-promotion.jpg",
         "heading": "Distribution and Promotion",
         "content": "We believe that great content deserves to be seen. Our blog marketing and management services extend beyond publishing the blog posts on your website. We leverage various distribution channels, including social media platforms, email newsletters, and content syndication networks, to amplify the reach of your blog content. By promoting your blog across multiple channels, we ensure that it reaches a wider audience and drives targeted traffic back to your website."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-tracking.png",
+        "imageUrl": "/images/services/blog-management/perfomance-analytics.jpg",
         "heading": "Performance Tracking and Analytics",
         "content": "We believe in data-driven decision making. Our team closely monitors the performance of your blog posts using advanced analytics tools. We track key metrics such as website traffic, engagement, social shares, and conversions. By analyzing this data, we gain valuable insights into what's working and what can be improved. We provide regular reports and recommendations to optimize your blog marketing strategy and drive continuous growth."
       },
       {
-        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-optimization.png",
+        "imageUrl": "/images/services/blog-management/ongoing-management-and-optimization.jpg",
         "heading": "Ongoing Management and Optimization",
         "content": "Blog marketing is an ongoing process. Our team takes care of all aspects of blog management, including publishing new posts, updating old content, and maintaining a consistent publishing schedule. We also keep an eye on the latest trends, industry news, and changes in search engine algorithms to ensure that your blog remains relevant and effective in reaching your target audience."
       }
