@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import AboutUs from "@/components/Home/About/AboutUs";
 import Banner from "@/components/Home/Banner/Banner";

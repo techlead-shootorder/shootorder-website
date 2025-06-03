@@ -95,7 +95,7 @@ const serviceCategories = [
 				description: "Leverage social proof",
 			},
 			// { name: "Growth Hacking", href: "/growth-hacking", description: "Rapid growth strategies" },
-			// { name: "Landing Pages", href: "/landing-pages", description: "High-converting pages" },
+			{ name: "Performance Marketing", href: "/performance-marketing", description: "High-converting pages" },
 			{
 				name: "Marketing Automation",
 				href: "/marketing-automation",
@@ -158,7 +158,7 @@ const navLinks = [
 	{ name: "Home", href: "/" },
 	{
 		name: "Services",
-		href: "/services",
+		href: "#",
 		hasMegaMenu: true,
 		menuType: "services",
 	},
