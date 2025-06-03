@@ -68,7 +68,7 @@ export default function AnimatedIntro() {
       ref={sectionRef}
       className="relative min-h-[70vh] flex justify-center items-center overflow-hidden"
     >
-      <div className="max-w-5xl text-center px-4 z-10">
+      <div className="!max-w-7xl text-center px-4 z-10">
         <p
           ref={paragraphRef}
           className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight"

@@ -395,7 +395,7 @@ export default function Banner() {
             <img 
               width={100} 
               height={100} 
-              className="mx-auto sm:w-[240px] " 
+              className="mx-auto sm:w-[240px]" 
               src="/images/logo/Google Premier Partner.webp"
               alt="Google Premier Partner"
             />

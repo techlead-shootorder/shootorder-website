@@ -8,12 +8,13 @@ import Hire from "@/components/Home/Hire/Hire";
 import OurPartners from "@/components/Home/Partners/OurPartners";
 import ServiceFlow from "@/components/Home/ServiceFlow/ServiceFlow";
 import TalentForm from "@/components/Home/TalentForm/TalentForm";
-import ServiceTabs from "@/components/Service-tabs/ServiceTabs";
+import ServiceTabs from "../../public/images/so-homepage-services/ServiceTabs";
 import "keen-slider/keen-slider.min.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useSmoothScroll from "@/utils/smooth-scroll";
 import AnimatedIntro from "@/components/Home/Intro/AnimatedIntro";
+import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -295,6 +296,9 @@ export default function Home() {
             <div className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-gradient-to-tl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
           <Hire />
+        </div>
+        <div className=" !max-w-7xl mx-auto">
+        <WhyTrustUs/>
         </div>
         <CompanyInfo />
         {/* <div

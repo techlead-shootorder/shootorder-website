@@ -120,8 +120,8 @@ function ProcessCovered({ services }) {
   if (!services?.features) return null;
 
   return (
-    <div ref={sectionRef} className="h-[100vh]">
-      <div className="sticky top-0 h-screen overflow-hidden bg-white">
+    <div ref={sectionRef} className="h-[100vh] ">
+      <div className="sticky top-0 h-screen overflow-hidden bg-white ">
         {services.features.map((service, index) => (
           <div
             key={index}
@@ -187,7 +187,7 @@ function ProcessCovered({ services }) {
       </div>
 
       {/* Progress bar - moved up from bottom */}
-      <div className="fixed bottom-8 left-0 right-0 h-1 bg-[#9a0c28]/10 z-50">
+      {/* <div className="fixed bottom-8 left-0 right-0 h-1 bg-[#9a0c28]/10 z-50">
         <div
           className="h-full bg-[#9a0c28]"
           ref={headingRef}
@@ -196,7 +196,7 @@ function ProcessCovered({ services }) {
             transition: "transform 0.3s ease-out",
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

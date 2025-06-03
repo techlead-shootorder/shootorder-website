@@ -63,39 +63,39 @@ const serviceCategories = [
 			{
 				subtitle: "Paid Media",
 				items: [
-					{ name: "Google Ads", href: "/google-ads", description: "PPC & Display advertising" },
-					{ name: "Meta Ads", href: "/meta-ads", description: "Social media advertising" },
+					// { name: "Google Ads", href: "/google-ads", description: "PPC & Display advertising" },
+					{ name: "Email Marketing", href: "/email-marketing", description: "Email Marketing" },
 				],
 			},
-			{
-				subtitle: "Earned Media",
-				items: [
-					{
-						name: "Digital PR",
-						href: "/digital-pr",
-						description: "Build brand authority & backlinks",
-					},
-					{
-						name: "Influencer Marketing",
-						href: "/influencers-marketing",
-						description: "Leverage social proof & reach",
-					},
-				],
-			},
+			// {
+			// 	subtitle: "Earned Media",
+			// 	items: [
+			// 		{
+			// 			name: "Digital PR",
+			// 			href: "/digital-pr",
+			// 			description: "Build brand authority & backlinks",
+			// 		},
+			// 		{
+			// 			name: "Influencer Marketing",
+			// 			href: "/influencers-marketing",
+			// 			description: "Leverage social proof & reach",
+			// 		},
+			// 	],
+			// },
 		],
 	},
 	{
 		title: "Growth Solutions",
 		icon: "📈",
 		links: [
-			{ name: "Digital PR", href: "/digital-pr", description: "Build online presence" },
+			// { name: "Digital PR", href: "/digital-pr", description: "Build online presence" },
 			{
 				name: "Influencer Marketing",
 				href: "/influencers-marketing",
 				description: "Leverage social proof",
 			},
-			{ name: "Growth Hacking", href: "/growth-hacking", description: "Rapid growth strategies" },
-			{ name: "Landing Pages", href: "/landing-pages", description: "High-converting pages" },
+			// { name: "Growth Hacking", href: "/growth-hacking", description: "Rapid growth strategies" },
+			// { name: "Landing Pages", href: "/landing-pages", description: "High-converting pages" },
 			{
 				name: "Marketing Automation",
 				href: "/marketing-automation",
@@ -107,10 +107,10 @@ const serviceCategories = [
 		title: "Analytics & Optimization",
 		icon: "📊",
 		links: [
-			{ name: "Smart Analytics", href: "/analytics", description: "Data-driven insights" },
-			{ name: "Performance Dashboards", href: "/dashboards", description: "Real-time monitoring" },
+			// { name: "Smart Analytics", href: "/analytics", description: "Data-driven insights" },
+			// { name: "Performance Dashboards", href: "/dashboards", description: "Real-time monitoring" },
 			{ name: "ORM", href: "/orm", description: "Reputation management" },
-			{ name: "On-site Engagement", href: "/engagement", description: "Visitor conversion tools" },
+			{ name: "Data Analytics & Dashboard", href: "/analytics", description: "Visitor conversion tools" },
 		],
 	},
 ];

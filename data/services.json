@@ -1,5 +1,4 @@
 [
-  
   {
     "heading": "Awarded SEO Agency",
     "subheading": "Websites on the first page of search results receive 95% of organic traffic, while subsequent pages receive significantly less. We position your company well on Search Engines so that your customers can find you easily! An important aspect of SEO is making your website easy to understand for both users and search engines. Our SEO Experts will create the brand value across internet. SEO is also about marketing. You can build a perfect website, but its content will remain invisible to search engines if it is not optimized.",
@@ -22,11 +21,13 @@
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/rich-markups.jpg",
         "heading": "Rich Mark-ups",
         "content": "Rich Mark-up allows different websites like search engines, social networking sites etc to know about your website content better. We insert some of the major rich markups to your website to gain more traffic from various sources and by showing the relevant content to the users. Ex. Twitter Cards, Google Maps, Schema Markups etc."
-      },{
+      },
+      {
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/site-loading-speed.jpg",
         "heading": "Technical SEO",
         "content": "Site Loading Time or Page Speed is the major concern of all website publishers because you get few seconds to attract your website visitor and if the website doesn't load in the respctive time you lose a potential lead. Our SEO Experts optimize your sites page speed by various compression techniques."
-      },{
+      },
+      {
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/seo-content.jpg",
         "heading": "SEO friendly Content Optimization",
         "content": "The content on your website which is the major factor in deciding your site ranking on search engines. The content needs to be SEO friendly and appealing at the same time. ShootOrder has a dedicated team to make your content alive."
@@ -97,6 +98,283 @@
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-updates.jpg",
         "heading": "Daily Updates",
         "content": "As per the strategy, we custom design the creatives, infographics, videos and creative content to delight your targeted audience. We make sure your consumers appreciate your social media engagement."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Blog Marketing Agency",
+    "subheading": "Blogs generate 67% more leads for businesses compared to those without a blog. Enhance your online presence and engage your audience with ShootOrder's expert Blog Management & Marketing services. Our skilled team curates compelling content, optimizes SEO, and implements effective promotion strategies to drive traffic, boost conversions, and establish your brand as an industry authority. Maximize the impact of your blog with ShootOrder's comprehensive management and marketing solutions.",
+    "title": "Blog Management",
+    "slug": "blog-management",
+    "description": ".",
+    "imageUrl": "/images/services/blog-bg.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-strategy.png",
+        "heading": "Strategy Development",
+        "content": "Before diving into blog marketing, we take the time to understand your business goals, target audience, and industry landscape. Our team conducts thorough research to identify relevant topics, keywords, and trends that align with your brand's messaging. We then develop a comprehensive blog strategy that outlines the frequency of posting, content types, and promotional tactics"
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-content.png",
+        "heading": "Content Creation",
+        "content": "Our talented team of writers and content creators collaborate closely with you to develop engaging and high-quality blog content. We ensure that the content aligns with your brand voice and resonates with your target audience. Whether it's informative articles, how-to guides, industry insights, or thought leadership pieces, we create compelling blog posts that deliver value to your readers."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-seo.png",
+        "heading": "SEO Optimization",
+        "content": "Having great content is just the first step. To maximize the reach and visibility of your blog, we employ advanced search engine optimization (SEO) techniques. We conduct keyword research, optimize meta tags, headers, and URLs, and incorporate relevant internal and external links. By optimizing your blog posts for search engines, we increase the likelihood of ranking higher in search results, driving organic traffic to your website."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-distribution.png",
+        "heading": "Distribution and Promotion",
+        "content": "We believe that great content deserves to be seen. Our blog marketing and management services extend beyond publishing the blog posts on your website. We leverage various distribution channels, including social media platforms, email newsletters, and content syndication networks, to amplify the reach of your blog content. By promoting your blog across multiple channels, we ensure that it reaches a wider audience and drives targeted traffic back to your website."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-tracking.png",
+        "heading": "Performance Tracking and Analytics",
+        "content": "We believe in data-driven decision making. Our team closely monitors the performance of your blog posts using advanced analytics tools. We track key metrics such as website traffic, engagement, social shares, and conversions. By analyzing this data, we gain valuable insights into what's working and what can be improved. We provide regular reports and recommendations to optimize your blog marketing strategy and drive continuous growth."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-optimization.png",
+        "heading": "Ongoing Management and Optimization",
+        "content": "Blog marketing is an ongoing process. Our team takes care of all aspects of blog management, including publishing new posts, updating old content, and maintaining a consistent publishing schedule. We also keep an eye on the latest trends, industry news, and changes in search engine algorithms to ensure that your blog remains relevant and effective in reaching your target audience."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Website & Landing Page Design",
+    "subheading": "47% of users expect a webpage to load in 2 seconds or less, and 40% will abandon a website if it takes more than 3 seconds to load. A website is a medium through which SMB's can build their online reputation and use them as a plaform for customer to interact with them. Websites also serves as a medium through which viewers can access information regarding the company.",
+    "title": "Web Design",
+    "slug": "web-design",
+    "description": ".",
+    "imageUrl": "https://www.shootorder.com/templates/shoot/img/responsive-web-design-03.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/responsive-web-design-02.jpg",
+        "heading": "Responsive Web Design",
+        "content": "\nRevamp Your Online Presence\nTransform your website into a stunning online showcase with ShootOrder. Our expert designers combine creativity and functionality to craft visually captivating and user-friendly websites that captivate your audience. Enhance your brand image and drive conversions with our top-notch website design services. We make your site appealing & compatible in every device environment with our responsive web design services. Some of the features like Cross Browser Compatibility, SEO, W3C Validation makes your website bug free and always productive."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/cms-development.jpg",
+        "heading": "CMS/CRM Implementation",
+        "content": "Customized CMS Websites\nUnlock the power of streamlined business operations with ShootOrder, a trusted CMS/CRM implementation company. Maximize efficiency, enhance customer experiences, and achieve seamless data management with our expert solutions. Experience seamless integration and optimized workflows tailored to your business needs today. ShootOrder works on popular CMS/CRM Plaforms like Wordpress, Joomla, HubSpot, Salesforceetc. Features like security, flexible design, customized content management development, SEO etc. gives our client an additional edge to completely control their website."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/ecommerce-web-design.jpg",
+        "heading": "Ecommerce Implementation",
+        "content": "\nBoost Your Ecommerce Success\nStreamline your online business and maximize your ecommerce potential with ShootOrder. As a leading ecommerce implementation company, we offer expert solutions tailored to your unique requirements. From platform integration to user experience optimization, trust ShootOrder to transform your digital store into a thriving online destination for customers. ShootOrder works on major Ecommerce Plaforms like Shopify, Woocommerce, OpenCart etc. Our designed e-commerce websites are 100% responsive, flexible in browsing & equipped with mutiple payment options, SEO, prductive tools & plug-ins. Our mobile compatible Ecommerce Websites can help you grow your business while you are on mobile."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/web-api-development.jpg",
+        "heading": "Web Application Development",
+        "content": "\nApplication Development\nUnlock the true potential of your business with ShootOrder's innovative web application development services. From seamless user experiences to scalable solutions, our expert team crafts custom web applications tailored to your unique needs. Drive efficiency, engage users, and stay ahead of the competition with our top-notch development expertise. ShootOrder specialize on LAMP MEAN stacks. API based applications are the part of our web development capabilities. Facebook Apps, Twitter Apps, Google API are some of the API's we excel in and optimize our development."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Influencer Marketing Agency",
+    "subheading": "Influencer campaigns generate $5.20 in earned media value for every dollar spent. Elevate your brand's visibility and reach with ShootOrder, a trusted influencer marketing company. Our expert team connects you with influential personalities in your industry, driving authentic engagement and maximizing your brand's exposure. Leverage the power of influencer partnerships and enhance your online presence today.",
+    "title": "Influencers Marketing",
+    "slug": "influencers-marketing",
+    "description": ".",
+    "imageUrl": "/images/services/influencers-bg.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/i-research.png",
+        "heading": "Strategy Development",
+        "content": "We start by gaining a deep understanding of your brand, target audience, and marketing goals. Our team conducts thorough research to identify the right influencers who align with your brand values and have a strong connection with your target audience. We create a comprehensive influencer marketing strategy tailored to your specific objectives."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/i-profile.png",
+        "heading": "Influencer Identification and Vetting",
+        "content": "Our experienced team uses advanced tools and techniques to identify influencers who can amplify your brand message. We consider factors such as audience demographics, engagement rates, content quality, and brand fit. Each influencer is carefully vetted to ensure authenticity, credibility, and alignment with your brand values."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/i-influencers.png",
+        "heading": "Collaboration and Campaign Planning",
+        "content": "We foster strong relationships with influencers and collaborate with them to develop compelling campaign concepts. Our team works closely with influencers to align their creative ideas with your brand's messaging and objectives. We develop detailed campaign plans, including content formats, posting schedules, and key performance indicators (KPIs)."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/i-app.png",
+        "heading": "Content Creation and Management",
+        "content": "Our agency handles the entire content creation process. We provide creative direction to influencers while allowing them the freedom to express their unique style and voice. Our team ensures that all content produced aligns with your brand guidelines, maintains quality standards, and complies with relevant regulations. We manage content calendars, approvals, and revisions to streamline the process."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/i-engagement.png",
+        "heading": "Campaign Execution and Optimization",
+        "content": "We monitor influencer campaigns closely, tracking key metrics in real-time. Our team ensures that the content is published on schedule and engages your target audience effectively. We analyze campaign performance regularly and optimize strategies based on the insights gained. This iterative approach allows us to maximize the impact of influencer marketing for your brand."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/i-update.png",
+        "heading": "Performance Measurement and Reporting",
+        "content": "Transparency and accountability are paramount to our agency. We provide comprehensive reports detailing the performance of influencer campaigns. Our reports include key metrics, such as reach, impressions, engagement rates, conversions, and return on investment (ROI). These insights help us refine future influencer marketing strategies and demonstrate the value generated for your brand."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Best Email Marketing Company",
+    "subheading": "92% of adult internet users use emails as their communication media. ShootOrder is the leading email marketing company in India, with our managed email marketing services we offer industries best conversion rates through email campaigns.",
+    "title": "Email Marketing",
+    "slug": "email-marketing",
+    "description": ".",
+    "imageUrl": "/images/services/email-marketing-bg.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/understanding.jpg",
+        "heading": "Understanding & Strategy",
+        "content": "We value your ideas and imaginations, so making a photo copy of the same is the biggest challange and we accept the challenge. First step is to identify your needs which help us in strategising more effectively."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/email-template-designing.jpg",
+        "heading": "Email Template Design & Development",
+        "content": "ShootOrder being the leading web designing company also excel in email template designing. Our responsive email templates are compatible on all the devices and are appealing to the targeted audience. We also develop landing page for the email campaigns, so we don't miss out any opportunity of capturing a lead."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/AB-Testing-email-campaign.jpg",
+        "heading": "A/B Testing",
+        "content": "A/B testing is an important part of the process to run a successful email marketing campaign. It basically deals with email templates, subject lines, campaign schedule etc... We run an effective A/B testing for fruitful outputs."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/email-campaign.jpg",
+        "heading": "Email Campaign",
+        "content": "Managing your email campaigns on safe email server with proper frequency, timely response & quality is our top most priority. We dont miss a single email from your client and respond them in time on behalf of you. Your reputation is our reputation and we certainly care of our reputation."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/conversion-optimization-e-mail-marketing.jpg",
+        "heading": "Conversion Optimization",
+        "content": "We regularly optimize the landing pages & keep a track on the behavior of the targeted prospects by monitoring the open, click and conversion ratio. Also act accordingly with different tempalates for different segement of prospects."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/email-marketing-analysis.jpg",
+        "heading": "Reports & Analysis",
+        "content": "Without proper reports and analysis, an email marketing campaign is of no use. ShootOrder provides proper reporting to know about the behaviour of their targeted audience and plan effectively for better business growth. So lets start an email campaign!"
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Online Reputation Management",
+    "subheading": "70% of consumers trust online reviews and ratings, making Online Reputation Management (ORM) crucial for businesses. Take control of your online reputation with ShootOrder, the trusted ORM company. Safeguard your brand, manage reviews, and build trust with our comprehensive reputation management solutions. Elevate your online presence and cultivate a positive image in the digital landscape.",
+    "title": "ORM",
+    "slug": "orm",
+    "description": ".",
+    "imageUrl": "/images/services/blog-bg.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-strategy.png",
+        "heading": "Reputation Monitoring and Analysis",
+        "content": "ShootOrder provides comprehensive monitoring and analysis of your brand's online reputation. They track mentions, reviews, and comments across various online platforms and social media channels. By closely monitoring your online presence, ShootOrder helps you stay informed about your brand's reputation and take proactive measures to address any negative sentiment."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-content.png",
+        "heading": "Review Management",
+        "content": "ShootOrder specializes in managing online reviews to ensure a positive brand image. They actively engage with customers, respond to reviews (both positive and negative), and address customer concerns. Their skilled team works to resolve issues, mitigate damage, and turn negative experiences into positive ones, ultimately building trust and credibility for your brand."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-seo.png",
+        "heading": "Content Strategy and Development",
+        "content": "To enhance your online reputation, ShootOrder assists in crafting a compelling content strategy. They develop high-quality, engaging content that showcases your brand's values, expertise, and unique selling points. Through strategic content creation, ShootOrder aims to improve your brand's visibility, attract positive attention, and position your business as a trusted authority in your industry."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-distribution.png",
+        "heading": "Online Brand Protection",
+        "content": "ShootOrder helps protect your brand from online threats, including reputation attacks, false information, and negative publicity. They employ proactive strategies to identify and address potential risks, ensuring your brand's reputation remains intact. This includes monitoring trademark infringements, addressing false rumors or misinformation, and taking appropriate action to protect your brand's integrity."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-tracking.png",
+        "heading": "Search Engine Result Management (SERM)",
+        "content": "ShootOrder focuses on managing search engine results related to your brand. They work to optimize positive content, suppress negative search results, and enhance your brand's visibility in search engine rankings. By actively managing search engine results, ShootOrder helps control the narrative surrounding your brand and ensures that potential customers find positive information when searching for your business."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-optimization.png",
+        "heading": "Online Crisis Management",
+        "content": "In the event of a reputation crisis, ShootOrder offers expert assistance in managing and resolving the situation. They provide swift and effective crisis management strategies to mitigate damage, address public concerns, and restore trust in your brand. ShootOrder's experienced team guides you through challenging times, helping you regain control and protect your brand's reputation."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Marketing Automation",
+    "subheading": "Marketing automation can drive a 14.5% increase in sales productivity Unlock the power of automation and elevate your marketing efforts with ShootOrder, the trusted marketing automation company. Streamline your campaigns, drive targeted engagement, and maximize ROI with our comprehensive suite of automated solutions. Experience unparalleled efficiency and results today.",
+    "title": "Marketing Automation",
+    "slug": "marketing-automation",
+    "description": ".",
+    "imageUrl": "/images/services/email-marketing-bg.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/understanding.jpg",
+        "heading": "Understanding & Strategy",
+        "content": "We value your ideas and imaginations, so making a photo copy of the same is the biggest challange and we accept the challenge. First step is to identify your needs which help us in strategising more effectively."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/email-template-designing.jpg",
+        "heading": "Communication Templates",
+        "content": "Divide your audience into specific segments based on demographics, behavior, or preferences, enabling you to deliver highly targeted and relevant content. Deliver personalized experiences by dynamically tailoring content, recommendations, and offers based on individual preferences, browsing history, or purchase behavior."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/AB-Testing-email-campaign.jpg",
+        "heading": "A/B Testing",
+        "content": "Conduct experiments and optimize your marketing campaigns by testing different variations of content, subject lines, landing pages, and calls-to-action."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/email-campaign.jpg",
+        "heading": "Campaigns",
+        "content": "Automate email campaigns, including personalized messaging, drip campaigns, and triggered emails based on user behavior or specific actions. Automatically engage and nurture leads through targeted content, personalized emails, and automated follow-ups to move them through the sales funnel."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/conversion-optimization-e-mail-marketing.jpg",
+        "heading": "Conversion Optimization",
+        "content": "Assign scores to leads based on their engagement level, demographics, and behavior, helping you prioritize and focus on high-quality leads."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/email-marketing-analysis.jpg",
+        "heading": "Reports & Analysis",
+        "content": "Monitor and analyze the performance of your marketing campaigns, track conversions, and gain insights into customer behavior to optimize your strategies."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Analytics",
+    "subheading": "Blogs generate 67% more leads for businesses compared to those without a blog. Harness the power of data with ShootOrder, a leading web analytics company. Gain valuable insights, optimize performance, and drive data-informed decisions with our advanced analytics solutions. Elevate your digital strategy and maximize your online success.",
+    "title": "Analytics",
+    "slug": "analytics",
+    "description": ".",
+    "imageUrl": "/images/services/analytics.jpg",
+    "features": [
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-strategy.png",
+        "heading": "Web Analytics Implementation",
+        "content": "ShootOrder helps businesses set up and implement robust web analytics tools, such as Google Analytics or Adobe Analytics, to track and measure website performance. They ensure accurate data collection and proper configuration, allowing you to gather valuable insights about your website visitors, user behavior, and engagement metrics."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-content.png",
+        "heading": "Data Analysis and Reporting",
+        "content": "ShootOrder specializes in analyzing web data to uncover actionable insights. Their team of experts examines the analytics data collected from your website, interprets the findings, and generates comprehensive reports. These reports provide valuable information about user demographics, traffic sources, conversion rates, and other key performance indicators, helping you understand your audience and make informed business decisions."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-seo.png",
+        "heading": "Conversion Rate Optimization (CRO)",
+        "content": "ShootOrder focuses on improving website conversion rates through CRO strategies. They analyze user journeys, identify conversion bottlenecks, and implement optimization techniques to enhance user experience and increase conversions. By conducting A/B testing, user behavior analysis, and funnel analysis, ShootOrder helps you optimize your website for maximum conversion success."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-distribution.png",
+        "heading": "User Experience (UX) Analysis",
+        "content": "ShootOrder evaluates the user experience on your website to identify areas for improvement. They conduct usability testing, analyze user flows, and provide recommendations to enhance website usability and user engagement. By optimizing the UX, ShootOrder helps businesses create a seamless and intuitive website experience that keeps visitors engaged and encourages repeat visits."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-tracking.png",
+        "heading": "Data Visualization and Dashboarding",
+        "content": "ShootOrder creates visually appealing and insightful dashboards to present web analytics data in a user-friendly format. They use data visualization techniques to represent complex data sets in easy-to-understand charts, graphs, and visuals. These dashboards provide a snapshot of key metrics, allowing you to monitor performance trends, track goals, and make data-driven decisions."
+      },
+      {
+        "imageUrl": "https://www.shootorder.com/templates/shoot/img/b-optimization.png",
+        "heading": "Custom Analytics Solutions",
+        "content": "ShootOrder offers custom analytics solutions tailored to specific business needs. They understand that each business is unique, and they work closely with clients to develop customized analytics strategies and solutions. Whether it's advanced segmentation, event tracking, or advanced data analysis, ShootOrder can create a bespoke analytics framework that aligns with your business objectives."
       }
     ],
     "content": ""
