@@ -57,7 +57,7 @@ function ProcessCovered({ services }) {
 
           if (bgImage) {
             gsap.set(bgImage, { 
-              opacity: index === 0 ? 0.15 : 0 
+              // opacity: index === 0 ? 0.15 : 0 
             });
           }
         });
@@ -137,7 +137,7 @@ function ProcessCovered({ services }) {
                 backgroundImage: `url(${service.imageUrl || getPlaceholderImage(service.heading)})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                opacity: index === 0 ? 0.8 : 0
+                // opacity: index === 0 ? 0.1 : 0
               }}
             >
               {/* Fallback if image fails to load */}
