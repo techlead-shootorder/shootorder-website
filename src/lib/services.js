@@ -16,38 +16,47 @@ export async function getAllServices() {
       }
       
       // Create default services data
-      const defaultServices = [
-        {
-          slug: 'software-engineering',
-          title: 'Software Engineering',
-          description: 'Custom software solutions for businesses of all sizes.',
-          imageUrl: '/images/services/software-engineering.jpg',
-          features: [
-            'Full-stack development',
-            'Custom web applications',
-            'Mobile app development',
-            'API development',
-            'Legacy system modernization'
-          ],
-          content: '<p>Our software engineering services provide end-to-end solutions from concept to deployment.</p>'
-        },
-        {
-          slug: 'seo',
-          title: 'Web Development',
-          description: 'Professional web development services using the latest technologies.',
-          imageUrl: '/images/services/web-development.jpg',
-          features: [
-            'Responsive website design',
-            'E-commerce solutions',
-            'Content management systems',
-            'Progressive web apps',
-            'Website optimization'
-          ],
-          content: '<p>We build modern, fast, and secure websites that help your business stand out.</p>'
-        }
-      ];
+      const defaultServices = [{
+        slug: "seo-services",
+        title: "SEO Services",
+        heading: "Strategic SEO Solutions",
+        subheading: "Drive organic growth with data-driven SEO strategies",
+        imageUrl: "/images/services/seo-banner.jpg",
+        features: [
+          {
+            heading: "Technical SEO Optimization",
+            content: "Site architecture, crawlability, and core web vitals optimization for better search performance",
+            imageUrl: "/images/services/technical-seo.jpg"
+          },
+          {
+            heading: "Meta Tags Optimization",
+            content: "Strategic optimization of title tags, meta descriptions, and header tags for improved CTR",
+            imageUrl: "/images/services/meta-tags.jpg"
+          },
+          {
+            heading: "Rich Schema Markups",
+            content: "Implementation of structured data for enhanced SERP visibility and featured snippets",
+            imageUrl: "/images/services/schema.jpg"
+          },
+          {
+            heading: "Content Optimization",
+            content: "SEO-friendly content strategy with semantic relevance and user intent matching",
+            imageUrl: "/images/services/content.jpg"
+          },
+          {
+            heading: "Local SEO",
+            content: "Optimize your local presence with Google Business Profile and local citations",
+            imageUrl: "/images/services/local-seo.jpg"
+          },
+          {
+            heading: "Performance Analytics",
+            content: "Comprehensive tracking and analysis of SEO performance metrics",
+            imageUrl: "/images/services/analytics.jpg"
+          }
+        ]
+      }];
       
-      // Save default services
+      // Save default services data to file
       fs.writeFileSync(servicesFilePath, JSON.stringify(defaultServices, null, 2), 'utf8');
       return defaultServices;
     }

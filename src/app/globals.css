@@ -185,3 +185,7 @@ body::-webkit-scrollbar {
   -webkit-touch-callout: none;
   -webkit-overflow-scrolling: touch;
 }
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
