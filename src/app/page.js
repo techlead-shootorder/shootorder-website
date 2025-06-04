@@ -7,7 +7,7 @@ import Hire from "@/components/Home/Hire/Hire";
 import OurPartners from "@/components/Home/Partners/OurPartners";
 import ServiceFlow from "@/components/Home/ServiceFlow/ServiceFlow";
 import TalentForm from "@/components/Home/TalentForm/TalentForm";
-import ServiceTabs from "../../public/images/so-homepage-services/ServiceTabs";
+import ServiceTabs from "../components/Home/ServiceTabs/ServiceTabs";
 import "keen-slider/keen-slider.min.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

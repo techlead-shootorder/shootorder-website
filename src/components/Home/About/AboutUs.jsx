@@ -8,7 +8,7 @@ export default function AboutUs() {
           {/* Image Section */}
           <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/shootorder-digital-marketing-agency.jpg"              
+              src="/images/shootorder-digital-marketing-agency.jpg"
               alt="ShootOrder Office"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700"
@@ -65,7 +65,7 @@ export default function AboutUs() {
                 <h3 className="text-3xl font-bold text-[#9a0c28]">2</h3>
                 <p className="text-gray-800 font-medium">Major Locations</p>
               </div>
-               <div className="space-y-2 border-1 border-gray-300 p-3 rounded-xl text-center">
+              <div className="space-y-2 border-1 border-gray-300 p-3 rounded-xl text-center">
                 <h3 className="text-3xl font-bold text-[#9a0c28]">12 +</h3>
                 <p className="text-gray-800 font-medium">Years Of Experience</p>
               </div>
