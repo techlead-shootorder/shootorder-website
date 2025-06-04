@@ -96,7 +96,7 @@ export default function AnimatedIntro() {
               className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight"
               style={{ wordBreak: "keep-all", overflowWrap: "break-word" }}
             >
-              ShootOrder - Transforming Digital Presence Into Business Success
+              A Premier Google Ads digital marketing agency offering end-to-end services across the USA.
             </p>
           </div>
         </div>
