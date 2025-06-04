@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
-import Script from "next/script";
+import ClutchWidget from "./ClutchWidget";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,21 +53,7 @@ export default function CompanyInfo() {
 					className="w-full"
 					style={{ maxWidth: "1024px", margin: "0 auto" }}
 				>
-					<Script 
-						src="https://widget.clutch.co/static/js/widget.js"
-						strategy="lazyOnload"
-					/>
-					<div 
-						className="clutch-widget" 
-						data-url="https://widget.clutch.co" 
-						data-widget-type="12" 
-						data-height="375" 
-						data-nofollow="true" 
-						data-expandifr="true" 
-						data-scale="100" 
-						data-reviews="247350,246759,244398,158154,156901,62857,133614,84906,54268,53431,53070,73683" 
-						data-clutchcompany-id="51252"
-					/>
+					<ClutchWidget />
 				</div>
 			</div>
 		</section>
