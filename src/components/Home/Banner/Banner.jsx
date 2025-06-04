@@ -346,7 +346,7 @@ useEffect(() => {
       <div
         className="banner-background-image absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: "url('/images/background/home-bg2.png')",
+          backgroundImage: "url('/images/background/home-bg2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
