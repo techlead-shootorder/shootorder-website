@@ -18,356 +18,324 @@ export default function Banner() {
   const pathname = usePathname();
   const router = useRouter();
 
-  useEffect(() => {
-    // Make sure GSAP plugins are registered
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(SplitText, ScrollTrigger);
-    }
+  // Fixed useEffect with proper cleanup
+useEffect(() => {
+  // Make sure GSAP plugins are registered
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
+  }
 
-    // Create timeline for banner entrance animation
-    const tl = gsap.timeline();
+  // Create timeline for banner entrance animation
+  const tl = gsap.timeline();
+  
+  // Store references for cleanup
+  let mouseMoveHandler;
+  const touchHandlers = new Map();
+  let splitTextInstance;
 
-    // Add a small delay before starting animations
-    tl.set(".banner-overlay", { opacity: 0 });
+  // Add a small delay before starting animations
+  tl.set(".banner-overlay", { opacity: 0 });
 
-    // Animate banner background with scale effect
-    tl.fromTo(
-      ".banner-background-image",
-      {
-        scale: 1.3,
-        filter: "blur(10px)",
-      },
-      {
-        scale: 1,
-        filter: "blur(0px)",
-        duration: 1.8,
-        ease: "power3.out",
-      },
-      0
-    );
-
-    // Animate the banner overlay gradient
-    tl.to(
-      ".banner-overlay",
-      { opacity: 1, duration: 1.5, ease: "power1.inOut" },
-      0.2
-    );
-
-    // Text animations with SplitText if available
-    if (typeof SplitText !== "undefined" && headingRef.current) {
-      const headingSplit = new SplitText(headingRef.current, {
-        type: "words,chars",
-      });
-      const chars = headingSplit.chars;
-
-      // tl.fromTo(chars,
-      //   {
-      //     y: 100,
-      //     opacity: 0
-      //   },
-      //   {
-      //     y: 0,
-      //     opacity: 1,
-      //     stagger: 0.03,
-      //     duration: 1,
-      //     ease: "power3.out"
-      //   },
-      //   0.7
-      // );
-    } else {
-      // Fallback if SplitText is not available
-      // tl.fromTo(headingRef.current,
-      //   {
-      //     y: 100,
-      //     opacity: 0
-      //   },
-      //   {
-      //     y: 0,
-      //     opacity: 1,
-      //     duration: 1,
-      //     ease: "power2.out"
-      //   },
-      //   0.7
-      // );
-    }
-
-    // Animate description text
-    tl.fromTo(
-      descriptionRef.current,
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power2.out",
-      },
-      1
-    );
-
-    // Animate button
-    tl.fromTo(
-      buttonRef.current,
-      {
-        y: 30,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "back.out(1.7)",
-      },
-      1.2
-    );
-
-    // IMPROVED STAT BUBBLES ANIMATIONS
-    // Make them appear much earlier in the sequence
-    const bubbles = document.querySelectorAll(".stat-bubble");
-
-    // Show all bubbles immediately with a quick fade in
-    gsap.set(bubbles, {
-      opacity: 0,
-      scale: 0.9,
-      transformPerspective: 600,
-      transformOrigin: "center center",
-    });
-
-    // Immediately show the bubbles with a quick animation
-    gsap.to(bubbles, {
-      opacity: 1,
+  // Animate banner background with scale effect
+  tl.fromTo(
+    ".banner-background-image",
+    {
+      scale: 1.3,
+      filter: "blur(10px)",
+    },
+    {
       scale: 1,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "back.out(1.7)",
-      delay: 0.3, // Very short delay
-    });
+      filter: "blur(0px)",
+      duration: 1.8,
+      ease: "power3.out",
+    },
+    0
+  );
 
-    // Initialize counters to their final values immediately
+  // Animate the banner overlay gradient
+  tl.to(
+    ".banner-overlay",
+    { opacity: 1, duration: 1.5, ease: "power1.inOut" },
+    0.2
+  );
+
+  // Text animations with SplitText if available
+  if (typeof SplitText !== "undefined" && headingRef.current) {
+    splitTextInstance = new SplitText(headingRef.current, {
+      type: "words,chars",
+    });
+    // ... your text animation code
+  }
+
+  // Animate description text
+  tl.fromTo(
+    descriptionRef.current,
+    {
+      y: 50,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out",
+    },
+    1
+  );
+
+  // Animate button
+  tl.fromTo(
+    buttonRef.current,
+    {
+      y: 30,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+    },
+    1.2
+  );
+
+  // Get bubbles once and store reference
+  const bubbles = document.querySelectorAll(".stat-bubble");
+  const mobileStats = document.querySelectorAll(".mobile-stat");
+
+  // Show all bubbles immediately with a quick fade in
+  gsap.set(bubbles, {
+    opacity: 0,
+    scale: 0.9,
+    transformPerspective: 600,
+    transformOrigin: "center center",
+  });
+
+  gsap.to(bubbles, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "back.out(1.7)",
+    delay: 0.3,
+  });
+
+  // Initialize counters to their final values immediately
+  bubbles.forEach((bubble) => {
+    const valueElement = bubble.querySelector(".stat-value");
+    if (valueElement) {
+      const finalValue = parseInt(valueElement.getAttribute("data-value"));
+      valueElement.textContent = finalValue + "+";
+    }
+  });
+
+  // Function to animate the counter for each stat value
+  function animateCounter(element) {
+    const finalValue = parseInt(element.getAttribute("data-value"));
+    gsap.set(element, { textContent: "0" });
+    gsap.to(element, {
+      textContent: finalValue,
+      duration: 1,
+      ease: "power1.inOut",
+      snap: { textContent: 1 },
+      onUpdate: function () {
+        element.textContent =
+          Math.round(gsap.getProperty(element, "textContent")) + "+";
+      },
+    });
+  }
+
+  // Create mouse move handler function that we can properly remove
+  mouseMoveHandler = (e) => {
     bubbles.forEach((bubble) => {
       const valueElement = bubble.querySelector(".stat-value");
-      if (valueElement) {
-        const finalValue = parseInt(valueElement.getAttribute("data-value"));
-        valueElement.textContent = finalValue + "+";
+      let rect = bubble.getBoundingClientRect();
+      
+      const bubbleCenterX = rect.left + rect.width / 2;
+      const bubbleCenterY = rect.top + rect.height / 2;
+      const distX = e.clientX - bubbleCenterX;
+      const distY = e.clientY - bubbleCenterY;
+      const distance = Math.sqrt(distX * distX + distY * distY);
+      const maxDistance = 300;
+
+      if (distance < maxDistance) {
+        const intensity = 1 - distance / maxDistance;
+        const rotateY = distX * 0.05 * intensity;
+        const rotateX = -distY * 0.05 * intensity;
+
+        gsap.to(bubble, {
+          rotateY: rotateY,
+          rotateX: rotateX,
+          z: intensity * 30,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+
+        if (distance < 100 && valueElement) {
+          // Your counter animation logic here
+        }
+      } else {
+        gsap.to(bubble, {
+          rotateY: 0,
+          rotateX: 0,
+          z: 0,
+          duration: 1,
+          ease: "power2.out",
+        });
       }
     });
+  };
 
-    // Function to animate the counter for each stat value
-    // This will now be triggered on mouse events, not automatically
-    function animateCounter(element) {
-      const finalValue = parseInt(element.getAttribute("data-value"));
+  // Add mouse move event listener
+  document.addEventListener("mousemove", mouseMoveHandler);
 
-      // Reset to 0 first
-      gsap.set(element, { textContent: "0" });
+  // Mobile stats animation
+  gsap.set(mobileStats, {
+    opacity: 0,
+    y: 20,
+  });
 
-      // Then count up quickly
-      gsap.to(element, {
-        textContent: finalValue,
-        duration: 1,
-        ease: "power1.inOut",
-        snap: { textContent: 1 },
-        onUpdate: function () {
-          element.textContent =
-            Math.round(gsap.getProperty(element, "textContent")) + "+";
-        },
-      });
+  gsap.to(mobileStats, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "back.out(1.7)",
+    delay: 0.3,
+  });
+
+  // Initialize mobile counters
+  mobileStats.forEach((stat) => {
+    const valueElement = stat.querySelector(".mobile-value");
+    if (valueElement) {
+      const finalValue = parseInt(valueElement.getAttribute("data-value"));
+      valueElement.textContent = finalValue + "+";
+    }
+  });
+
+  // Handle touch events for mobile devices
+  mobileStats.forEach((stat) => {
+    const valueElement = stat.querySelector(".mobile-value");
+    let hasTriggeredCounter = false;
+
+    const touchHandler = () => {
+      if (valueElement && !hasTriggeredCounter) {
+        const finalValue = parseInt(valueElement.getAttribute("data-value"));
+        gsap.set(valueElement, { textContent: "0" });
+        gsap.to(valueElement, {
+          textContent: finalValue,
+          duration: 1,
+          ease: "power1.inOut",
+          snap: { textContent: 1 },
+          onUpdate: function () {
+            valueElement.textContent =
+              Math.round(gsap.getProperty(valueElement, "textContent")) + "+";
+          },
+        });
+
+        gsap.to(stat, {
+          scale: 1.05,
+          duration: 0.2,
+          ease: "power1.inOut",
+          onComplete: () => {
+            gsap.to(stat, {
+              scale: 1,
+              duration: 0.2,
+              ease: "power1.inOut",
+            });
+          },
+        });
+
+        hasTriggeredCounter = true;
+        setTimeout(() => {
+          hasTriggeredCounter = false;
+        }, 3000);
+      }
+    };
+
+    // Store the handler for cleanup
+    touchHandlers.set(stat, touchHandler);
+    stat.addEventListener("touchstart", touchHandler);
+  });
+
+  // Scroll animations
+  const scrollTriggers = [
+    ScrollTrigger.create({
+      animation: gsap.to(".banner-background-image", {
+        y: "25%",
+        ease: "none",
+      }),
+      trigger: bannerRef.current,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    }),
+    ScrollTrigger.create({
+      animation: gsap.to(".banner-content", {
+        y: "-15%",
+        ease: "none",
+      }),
+      trigger: bannerRef.current,
+      start: "top top",
+      end: "bottom top",
+      scrub: 0.5,
+    })
+  ];
+
+  // PROPER CLEANUP FUNCTION
+  return () => {
+    // Kill the main timeline
+    if (tl) {
+      tl.kill();
     }
 
-    // 3D mouse movement effect for stat bubbles
-    bubbles.forEach((bubble) => {
-      const valueElement = bubble.querySelector(".stat-value");
-      let hasTriggeredCounter = false;
-      let rect = bubble.getBoundingClientRect();
-
-      // Mouse move effect - make bubbles follow cursor in 3D space
-      document.addEventListener("mousemove", (e) => {
-        // Update the bounding rect in case of scroll or resize
-        rect = bubble.getBoundingClientRect();
-
-        // Calculate mouse position relative to the center of the bubble
-        const bubbleCenterX = rect.left + rect.width / 2;
-        const bubbleCenterY = rect.top + rect.height / 2;
-
-        // Calculate distance between mouse and bubble
-        const distX = e.clientX - bubbleCenterX;
-        const distY = e.clientY - bubbleCenterY;
-
-        // Calculate distance from mouse to bubble center
-        const distance = Math.sqrt(distX * distX + distY * distY);
-
-        // Only apply effect if mouse is within a certain range
-        const maxDistance = 300; // Adjust as needed
-
-        if (distance < maxDistance) {
-          // Calculate movement intensity based on distance (closer = stronger effect)
-          const intensity = 1 - distance / maxDistance;
-
-          // Calculate rotation amounts (max 15 degrees)
-          const rotateY = distX * 0.05 * intensity;
-          const rotateX = -distY * 0.05 * intensity;
-
-          // Apply the 3D transformation
-          gsap.to(bubble, {
-            rotateY: rotateY,
-            rotateX: rotateX,
-            z: intensity * 30, // Push forward slightly when mouse is close
-            duration: 0.5,
-            ease: "power2.out",
-          });
-
-          // If mouse is very close to bubble and counter hasn't been triggered yet
-          if (distance < 100 && !hasTriggeredCounter && valueElement) {
-            animateCounter(valueElement);
-            hasTriggeredCounter = true;
-
-            // Add a subtle pulse effect
-            gsap.to(bubble, {
-              scale: 1.05,
-              duration: 0.3,
-              ease: "power1.inOut",
-              onComplete: () => {
-                gsap.to(bubble, {
-                  scale: 1,
-                  duration: 0.3,
-                  ease: "power1.inOut",
-                });
-              },
-            });
-
-            // Reset the trigger after a delay to allow re-triggering
-            setTimeout(() => {
-              hasTriggeredCounter = false;
-            }, 5000);
-          }
-        } else {
-          // Reset to default state when mouse is far away
-          gsap.to(bubble, {
-            rotateY: 0,
-            rotateX: 0,
-            z: 0,
-            duration: 1,
-            ease: "power2.out",
-          });
-        }
-      });
-    });
-
-    // Mobile stats animation with immediate appearance
-    const mobileStats = document.querySelectorAll(".mobile-stat");
-    gsap.set(mobileStats, {
-      opacity: 0,
-      y: 20,
-    });
-
-    gsap.to(mobileStats, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "back.out(1.7)",
-      delay: 0.3,
-    });
-
-    // Initialize mobile counters to their final values
-    mobileStats.forEach((stat) => {
-      const valueElement = stat.querySelector(".mobile-value");
-      if (valueElement) {
-        const finalValue = parseInt(valueElement.getAttribute("data-value"));
-        valueElement.textContent = finalValue + "+";
+    // Kill all ScrollTriggers
+    scrollTriggers.forEach(trigger => {
+      if (trigger) {
+        trigger.kill();
       }
     });
 
-    // Scroll animations with enhanced parallax effect
-    gsap.to(".banner-background-image", {
-      y: "25%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: bannerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
+    // Kill all GSAP animations on elements
+    gsap.killTweensOf([
+      ".banner-background-image",
+      ".banner-overlay", 
+      ".banner-content",
+      bubbles,
+      mobileStats,
+      headingRef.current,
+      descriptionRef.current,
+      buttonRef.current
+    ]);
+
+    // Remove event listeners properly
+    if (mouseMoveHandler) {
+      document.removeEventListener("mousemove", mouseMoveHandler);
+    }
+
+    // Remove touch handlers
+    touchHandlers.forEach((handler, element) => {
+      if (element && handler) {
+        element.removeEventListener("touchstart", handler);
+      }
     });
 
-    gsap.to(".banner-content", {
-      y: "-15%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: bannerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5,
-      },
+    // Clear the touch handlers map
+    touchHandlers.clear();
+
+    // Revert SplitText if it was used
+    if (splitTextInstance) {
+      splitTextInstance.revert();
+    }
+
+    // Clear any remaining ScrollTriggers
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger) {
+        trigger.kill();
+      }
     });
-
-    // Handle touch events for mobile devices
-    mobileStats.forEach((stat) => {
-      const valueElement = stat.querySelector(".mobile-value");
-      let hasTriggeredCounter = false;
-
-      // Touch interaction for mobile stats
-      stat.addEventListener("touchstart", () => {
-        if (valueElement && !hasTriggeredCounter) {
-          // Get final value
-          const finalValue = parseInt(valueElement.getAttribute("data-value"));
-
-          // Reset to 0
-          gsap.set(valueElement, { textContent: "0" });
-
-          // Animate to final value
-          gsap.to(valueElement, {
-            textContent: finalValue,
-            duration: 1,
-            ease: "power1.inOut",
-            snap: { textContent: 1 },
-            onUpdate: function () {
-              valueElement.textContent =
-                Math.round(gsap.getProperty(valueElement, "textContent")) + "+";
-            },
-          });
-
-          // Add pulse effect
-          gsap.to(stat, {
-            scale: 1.05,
-            duration: 0.2,
-            ease: "power1.inOut",
-            onComplete: () => {
-              gsap.to(stat, {
-                scale: 1,
-                duration: 0.2,
-                ease: "power1.inOut",
-              });
-            },
-          });
-
-          hasTriggeredCounter = true;
-
-          // Reset after delay
-          setTimeout(() => {
-            hasTriggeredCounter = false;
-          }, 3000);
-        }
-      });
-    });
-
-    return () => {
-      // Clean up animations
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
-      // Remove event listeners to prevent memory leaks
-      document.removeEventListener("mousemove", () => {});
-      bubbles.forEach((bubble) => {
-        bubble.removeEventListener("mouseenter", () => {});
-        bubble.removeEventListener("mouseleave", () => {});
-      });
-      mobileStats.forEach((stat) => {
-        stat.removeEventListener("touchstart", () => {});
-      });
-    };
-  }, [pathname]);
+  };
+}, [pathname]);
 
   return (
     <section
@@ -403,7 +371,7 @@ export default function Banner() {
 
           {/* Badge Text */}
           <div className="inline-block px-4 py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20">
-            <p>Top 3% Digital Marketing Agency in India, #1 in Hyderabad - ShootOrder®</p>
+            <p>Top 3% Digital Marketing Agency in India</p>
           </div>
 
           {/* Main heading with responsive sizes */}

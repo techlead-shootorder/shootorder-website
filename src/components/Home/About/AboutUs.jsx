@@ -56,14 +56,18 @@ export default function AboutUs() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 pt-6">
-              <div className="space-y-2">
+            <div className="grid grid-cols-3 gap-8 pt-6">
+              <div className="space-y-2 border-1 border-gray-300 p-3 rounded-xl text-center">
                 <h3 className="text-3xl font-bold text-[#9a0c28]">300+</h3>
                 <p className="text-gray-800 font-medium">Global Clients</p>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 border-1 border-gray-300 p-3 rounded-xl text-center">
                 <h3 className="text-3xl font-bold text-[#9a0c28]">2</h3>
                 <p className="text-gray-800 font-medium">Major Locations</p>
+              </div>
+               <div className="space-y-2 border-1 border-gray-300 p-3 rounded-xl text-center">
+                <h3 className="text-3xl font-bold text-[#9a0c28]">12 +</h3>
+                <p className="text-gray-800 font-medium">Years Of Experience</p>
               </div>
             </div>
           </div>

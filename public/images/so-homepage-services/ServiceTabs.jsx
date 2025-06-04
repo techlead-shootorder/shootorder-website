@@ -84,7 +84,7 @@ const servicesData = {
     {
       title: "Analytics & Dashboards",
       desc: "Data-driven insights for informed decision making.",
-      image: "/images/so-homepage-services/analytics-and-dashboard.png",
+      image: "/images/so-homepage-services/analytics-and-dashboard.jpg",
       tags: ["Analytics", "Data", "Insights"],
       href: "/analytics",
     },

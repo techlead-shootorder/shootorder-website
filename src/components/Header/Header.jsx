@@ -1,533 +1,607 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
-
-import Link from "next/link";
-import { Button } from "../ui/button";
-import gsap from "gsap";
+import { FaBars, FaTimes, FaChevronDown, FaPhone, FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 
 // Service categories for mega menu
 const serviceCategories = [
-	{
-		title: "Branding",
-		icon: "✨",
-		links: [
-			{
-				name: "Identity Development",
-				href: "/branding/identity",
-				description: "Create a unique brand identity",
-			},
-			{
-				name: "Brand Audit",
-				href: "/branding/audit",
-				description: "Evaluate your brand's performance",
-			},
-			{
-				name: "Messaging & Tone",
-				href: "/branding/messaging",
-				description: "Develop your brand voice",
-			},
-			{
-				name: "Package & Design",
-				href: "/branding/design",
-				description: "Stunning visual brand assets",
-			},
-			{
-				name: "Brand Campaigns",
-				href: "/branding/campaigns",
-				description: "Launch your brand effectively",
-			},
-		],
-	},
-	{
-		title: "Digital Marketing",
-		icon: "🚀",
-		links: [
-			{
-				subtitle: "Owned Media",
-				items: [
-					{ name: "SEO", href: "/seo", description: "Organic search dominance" },
-					{
-						name: "Blog Management",
-						href: "/blog-management",
-						description: "Content that converts",
-					},
-					{
-						name: "Website Development",
-						href: "/web-design",
-						description: "High-performance websites",
-					},
-				],
-			},
-			{
-				subtitle: "Paid Media",
-				items: [
-					// { name: "Google Ads", href: "/google-ads", description: "PPC & Display advertising" },
-					{ name: "Email Marketing", href: "/email-marketing", description: "Email Marketing" },
-				],
-			},
-			// {
-			// 	subtitle: "Earned Media",
-			// 	items: [
-			// 		{
-			// 			name: "Digital PR",
-			// 			href: "/digital-pr",
-			// 			description: "Build brand authority & backlinks",
-			// 		},
-			// 		{
-			// 			name: "Influencer Marketing",
-			// 			href: "/influencers-marketing",
-			// 			description: "Leverage social proof & reach",
-			// 		},
-			// 	],
-			// },
-		],
-	},
-	{
-		title: "Growth Solutions",
-		icon: "📈",
-		links: [
-			// { name: "Digital PR", href: "/digital-pr", description: "Build online presence" },
-			{
-				name: "Influencer Marketing",
-				href: "/influencers-marketing",
-				description: "Leverage social proof",
-			},
-			// { name: "Growth Hacking", href: "/growth-hacking", description: "Rapid growth strategies" },
-			{ name: "Performance Marketing", href: "/performance-marketing", description: "High-converting pages" },
-			{
-				name: "Marketing Automation",
-				href: "/marketing-automation",
-				description: "Streamline your marketing",
-			},
-		],
-	},
-	{
-		title: "Analytics & Optimization",
-		icon: "📊",
-		links: [
-			// { name: "Smart Analytics", href: "/analytics", description: "Data-driven insights" },
-			// { name: "Performance Dashboards", href: "/dashboards", description: "Real-time monitoring" },
-			{ name: "ORM", href: "/orm", description: "Reputation management" },
-			{ name: "Data Analytics & Dashboard", href: "/analytics", description: "Visitor conversion tools" },
-		],
-	},
+  {
+    title: "Branding",
+    icon: "✨",
+    color: "bg-purple-50 border-purple-200 text-purple-700",
+    hoverColor: "hover:bg-purple-100",
+    links: [
+      {
+        name: "Identity Development",
+        href: "/branding/identity",
+        description: "Create a unique brand identity that stands out",
+      },
+      {
+        name: "Brand Audit",
+        href: "/branding/audit",
+        description: "Evaluate your brand's performance and positioning",
+      },
+      {
+        name: "Messaging & Tone",
+        href: "/branding/messaging",
+        description: "Develop your authentic brand voice",
+      },
+      {
+        name: "Package & Design",
+        href: "/branding/design",
+        description: "Stunning visual brand assets and materials",
+      },
+      {
+        name: "Brand Campaigns",
+        href: "/branding/campaigns",
+        description: "Launch your brand with impact",
+      },
+    ],
+  },
+  {
+    title: "Digital Marketing",
+    icon: "🚀",
+    color: "bg-blue-50 border-blue-200 text-blue-700",
+    hoverColor: "hover:bg-blue-100",
+    links: [
+      {
+        name: "SEO Optimization",
+        href: "/seo",
+        description: "Dominate organic search results",
+      },
+      {
+        name: "Blog Management",
+        href: "/blog-management",
+        description: "Content that converts and engages",
+      },
+      {
+        name: "Website Development",
+        href: "/web-design",
+        description: "High-performance, responsive websites",
+      },
+      {
+        name: "Email Marketing",
+        href: "/email-marketing",
+        description: "Targeted email campaigns that deliver",
+      },
+      {
+        name: "Social Media Marketing",
+        href: "/social-media",
+        description: "Build your social presence",
+      },
+      {
+        name: "Content Strategy",
+        href: "/content-strategy",
+        description: "Strategic content that drives results",
+      },
+    ],
+  },
+  {
+    title: "Growth Solutions",
+    icon: "📈",
+    color: "bg-green-50 border-green-200 text-green-700",
+    hoverColor: "hover:bg-green-100",
+    links: [
+      {
+        name: "Influencer Marketing",
+        href: "/influencers-marketing",
+        description: "Leverage authentic social proof",
+      },
+      {
+        name: "Performance Marketing",
+        href: "/performance-marketing",
+        description: "Data-driven growth strategies",
+      },
+      {
+        name: "Marketing Automation",
+        href: "/marketing-automation",
+        description: "Streamline and scale your marketing",
+      },
+      {
+        name: "Lead Generation",
+        href: "/lead-generation",
+        description: "Quality leads that convert",
+      },
+      {
+        name: "Conversion Optimization",
+        href: "/conversion-optimization",
+        description: "Maximize your conversion rates",
+      },
+    ],
+  },
+  {
+    title: "Analytics & Optimization",
+    icon: "📊",
+    color: "bg-orange-50 border-orange-200 text-orange-700",
+    hoverColor: "hover:bg-orange-100",
+    links: [
+      { 
+        name: "Online Reputation Management", 
+        href: "/orm", 
+        description: "Protect and enhance your online reputation" 
+      },
+      {
+        name: "Data Analytics & Dashboard",
+        href: "/analytics",
+        description: "Advanced analytics and reporting tools",
+      },
+      {
+        name: "Performance Tracking",
+        href: "/performance-tracking",
+        description: "Monitor and optimize campaign performance",
+      },
+      {
+        name: "Competitor Analysis",
+        href: "/competitor-analysis",
+        description: "Stay ahead of the competition",
+      },
+    ],
+  },
 ];
 
 // Company categories for mega menu
 const companyCategories = [
-	{
-		title: "Company Profile",
-		links: [
-			{ name: "About Us", href: "/about-us" },
-			{ name: "Work Flow", href: "/about/work-flow/" },
-			{ name: "Clients & Testimonials", href: "/about/clients/" },
-			{ name: "Case Studies", href: "/case-studies/" },
-		],
-	},
-	{
-		title: "Join Us?",
-		links: [
-			{ name: "Careers", href: "/careers/" },
-			{ name: "Training", href: "/training/" },
-		],
-	},
+  {
+    title: "Company Profile",
+    icon: "🏢",
+    color: "bg-indigo-50 border-indigo-200 text-indigo-700",
+    hoverColor: "hover:bg-indigo-100",
+    links: [
+      { name: "About Us", href: "/about-us", description: "Learn about our story and mission" },
+      { name: "Work Flow", href: "/about/work-flow/", description: "Our proven process and methodology" },
+      { name: "Clients & Testimonials", href: "/about/clients/", description: "Success stories from happy clients" },
+      { name: "Case Studies", href: "/case-studies/", description: "Detailed project breakdowns and results" },
+    ],
+  },
+  {
+    title: "Join Our Team",
+    icon: "👥",
+    color: "bg-teal-50 border-teal-200 text-teal-700",
+    hoverColor: "hover:bg-teal-100",
+    links: [
+      { name: "Careers", href: "/careers/", description: "Explore exciting career opportunities" },
+      { name: "Training Programs", href: "/training/", description: "Develop your skills with us" },
+    ],
+  },
 ];
 
 // Contact categories for mega menu
 const contactCategories = [
-	// {
-	//   title: "Useful Links",
-	//   links: [
-	//     { name: "Departments", href: "/submitticket/" },
-	//     { name: "Blog", href: "/blogs", external: true },
-	//   ],
-	// },
-	{
-		title: "Connect",
-		links: [
-			{ name: "Contact Us", href: "/contact-us/" },
-			{ name: "Careers", href: "/careers/" },
-			{ name: "Enquiry", href: "/enquiry/" },
-		],
-	},
+  {
+    title: "Get In Touch",
+    icon: "📞",
+    color: "bg-red-50 border-red-200 text-red-700",
+    hoverColor: "hover:bg-red-100",
+    links: [
+      { name: "Contact Us", href: "/contact-us/", description: "Get in touch with our team" },
+      { name: "Project Enquiry", href: "/enquiry/", description: "Start your project with us" },
+      { name: "Support", href: "/support/", description: "Get help when you need it" },
+    ],
+  },
 ];
 
 const navLinks = [
-	{ name: "Home", href: "/" },
-	{
-		name: "Services",
-		href: "#",
-		hasMegaMenu: true,
-		menuType: "services",
-	},
-	{ name: "Company", href: "/company", hasMegaMenu: true, menuType: "company" },
-	{ name: "Blogs", href: "/blogs" },
-	{ name: "Contact", href: "/contact", hasMegaMenu: true, menuType: "contact" },
+  { name: "Home", href: "/" },
+  {
+    name: "Services",
+    href: "#",
+    hasMegaMenu: true,
+    menuType: "services",
+  },
+  { name: "Company", href: "/company", hasMegaMenu: true, menuType: "company" },
+  { name: "Blogs", href: "/blogs" },
+  { name: "Contact", href: "/contact", hasMegaMenu: true, menuType: "contact" },
 ];
 
-// Add this helper function before the Header component
-const flattenMenuLinks = (category) => {
-	if (!category.links) return [];
-
-	return category.links.reduce((acc, link) => {
-		if (link.subtitle && link.items) {
-			return [...acc, ...link.items];
-		}
-		return [...acc, link];
-	}, []);
-};
-
 export default function Header() {
-	const [menuOpen, setMenuOpen] = useState(false);
-	const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-	const [activeMegaMenu, setActiveMegaMenu] = useState(null);
-	const megaMenuRef = useRef(null);
-	const navItemRefs = useRef({});
-	const timeoutRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [activeMegaMenu, setActiveMegaMenu] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const megaMenuRef = useRef(null);
+  const navItemRefs = useRef({});
+  const timeoutRef = useRef(null);
 
-	useEffect(() => {
-		// Initialize Lenis for smooth scrolling
-		const initLenis = async () => {
-			const Lenis = (await import("@studio-freight/lenis")).default;
-			const lenis = new Lenis({
-				duration: 1.2,
-				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-				smoothWheel: true,
-			});
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
 
-			function raf(time) {
-				lenis.raf(time);
-				requestAnimationFrame(raf);
-			}
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-			requestAnimationFrame(raf);
-		};
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        megaMenuRef.current &&
+        !megaMenuRef.current.contains(event.target) &&
+        !Object.values(navItemRefs.current).some(
+          (ref) => ref && ref.contains(event.target)
+        )
+      ) {
+        setMegaMenuOpen(false);
+        setActiveMegaMenu(null);
+        setActiveTab(0);
+      }
+    };
 
-		initLenis();
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
-		// Event listeners for clicks outside the mega menu
-		const handleClickOutside = (event) => {
-			if (
-				megaMenuRef.current &&
-				!megaMenuRef.current.contains(event.target) &&
-				!Object.values(navItemRefs.current).some(
-					(ref) => ref && ref.contains(event.target)
-				)
-			) {
-				setMegaMenuOpen(false);
-				setActiveMegaMenu(null);
-			}
-		};
+  const handleNavMouseEnter = (menuType) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setMegaMenuOpen(true);
+    setActiveMegaMenu(menuType);
+    setActiveTab(0); // Reset to first tab when opening menu
+  };
 
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-			if (timeoutRef.current) clearTimeout(timeoutRef.current);
-		};
-	}, []);
+  const handleNavMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setMegaMenuOpen(false);
+      setActiveMegaMenu(null);
+      setActiveTab(0);
+    }, 300);
+  };
 
-	// GSAP animation for mega menu
-	useEffect(() => {
-		if (megaMenuOpen) {
-			gsap.fromTo(
-				megaMenuRef.current,
-				{
-					opacity: 0,
-					y: -10,
-				},
-				{
-					opacity: 1,
-					y: 0,
-					duration: 0.3,
-					ease: "power2.out",
-				}
-			);
-		}
-	}, [megaMenuOpen]);
+  const handleMegaMenuMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
 
-	const handleNavMouseEnter = (menuType) => {
-		if (timeoutRef.current) clearTimeout(timeoutRef.current);
-		setMegaMenuOpen(true);
-		setActiveMegaMenu(menuType);
-	};
+  const handleMegaMenuMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setMegaMenuOpen(false);
+      setActiveMegaMenu(null);
+      setActiveTab(0);
+    }, 300);
+  };
 
-	const handleNavMouseLeave = () => {
-		timeoutRef.current = setTimeout(() => {
-			setMegaMenuOpen(false);
-			setActiveMegaMenu(null);
-		}, 300);
-	};
+  const handleLinkClick = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    
+    setMenuOpen(false);
+    setMegaMenuOpen(false);
+    setActiveMegaMenu(null);
+    setActiveTab(0);
+  };
 
-	const handleMegaMenuMouseEnter = () => {
-		if (timeoutRef.current) clearTimeout(timeoutRef.current);
-	};
+  const getCurrentMegaMenuData = () => {
+    switch (activeMegaMenu) {
+      case "services":
+        return serviceCategories;
+      case "company":
+        return companyCategories;
+      case "contact":
+        return contactCategories;
+      default:
+        return [];
+    }
+  };
 
-	const handleMegaMenuMouseLeave = () => {
-		timeoutRef.current = setTimeout(() => {
-			setMegaMenuOpen(false);
-			setActiveMegaMenu(null);
-		}, 300);
-	};
+  const getMobileMenuData = (menuType) => {
+    switch (menuType) {
+      case "services":
+        return serviceCategories;
+      case "company":
+        return companyCategories;
+      case "contact":
+        return contactCategories;
+      default:
+        return [];
+    }
+  };
 
-	const handleLinkClick = () => {
-		setMenuOpen(false);
-		setMegaMenuOpen(false);
-		setActiveMegaMenu(null);
-	};
+  const chunksOf3 = (array) => {
+    const chunks = [];
+    for (let i = 0; i < array.length; i += 3) {
+      chunks.push(array.slice(i, i + 3));
+    }
+    return chunks;
+  };
 
-	const getCurrentMegaMenuData = () => {
-		switch (activeMegaMenu) {
-			case "services":
-				return serviceCategories;
-			case "company":
-				return companyCategories;
-			case "contact":
-				return contactCategories;
-			default:
-				return [];
-		}
-	};
+  return (
+    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white shadow-sm'
+    }`}>
+      <div className="!max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20">
+        {/* Logo */}
+        <div className="flex items-center gap-12">
+          <a href="/" className="inline-block">
+            <img
+              src="/images/logo/shootorder-logo.svg"
+              alt="Logo"
+              className="h-12 w-auto transition-transform hover:scale-105"
+            />
+          </a>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex gap-8 items-center">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative">
+                <a
+                  href={link.href}
+                  className="text-gray-700 hover:text-[#9a0c28] transition-all duration-200 flex items-center gap-2 font-medium py-2 relative group"
+                  ref={(el) => {
+                    if (el) {
+                      navItemRefs.current[link.name] = el;
+                    }
+                  }}
+                  onMouseEnter={
+                    link.hasMegaMenu
+                      ? () => handleNavMouseEnter(link.menuType)
+                      : undefined
+                  }
+                  onMouseLeave={
+                    link.hasMegaMenu ? handleNavMouseLeave : undefined
+                  }
+                  onClick={handleLinkClick}
+                >
+                  {link.name}
+                  {link.hasMegaMenu && (
+                    <FaChevronDown className={`text-xs transition-transform duration-200 ${
+                      megaMenuOpen && activeMegaMenu === link.menuType ? 'rotate-180' : ''
+                    }`} />
+                  )}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9a0c28] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </div>
+            ))}
+          </nav>
+        </div>
 
-	const getMobileMenuData = (menuType) => {
-		switch (menuType) {
-			case "services":
-				return serviceCategories;
-			case "company":
-				return companyCategories;
-			case "contact":
-				return contactCategories;
-			default:
-				return [];
-		}
-	};
+        {/* Desktop CTA Section */}
+        <div className="hidden lg:flex items-center gap-6">
+          <a 
+            href="tel:+91-630-392-1512" 
+            className="flex items-center gap-2 text-gray-700 hover:text-[#9a0c28] transition-all duration-200 font-medium group"
+          >
+            <div className="p-2 rounded-full bg-[#9a0c28]/10 group-hover:bg-[#9a0c28] transition-all duration-200">
+              <FaPhoneAlt className="text-[#9a0c28] group-hover:text-white text-sm" />
+            </div>
+            <span className="group-hover:scale-105 transition-transform">+91-630-392-1512</span>
+          </a>
+          
+          <a href="/contact-us/">
+            <button className="bg-[#9a0c28] hover:bg-[#c4102e] text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 relative overflow-hidden group">
+              <span className="relative z-10 flex items-center gap-2">
+                Connect
+                <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#9a0c28] to-[#c4102e] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </a>
+        </div>
 
-	return (
-		<header className="w-full fixed top-0 left-0 z-50 bg-white shadow-sm">
-			<div className="!max-w-7xl mx-auto px-4 md:px-0 flex items-center justify-between">
-				{/* Logo */}
-				<div className="flex items-center gap-10 ">
-					<Link href="/" className=" inline-block">
-						<img
-							src="/images/logo/shootorder-logo.svg"
-							alt="Logo"
-							className="h-20 w-32 "
-						/>
-					</Link>
-					{/* Desktop Navigation */}
-					<nav className="hidden md:flex gap-6 items-center">
-						{navLinks.map((link) => (
-							<div key={link.name} className="relative">
-								<Link
-									href={link.href}
-									className="text-gray-800 hover:text-[#9a0c28] transition flex items-center gap-1"
-									ref={(el) => (navItemRefs.current[link.name] = el)}
-									onMouseEnter={
-										link.hasMegaMenu
-											? () => handleNavMouseEnter(link.menuType)
-											: undefined
-									}
-									onMouseLeave={
-										link.hasMegaMenu ? handleNavMouseLeave : undefined
-									}
-									onClick={handleLinkClick}
-								>
-									{link.name}
-									{link.hasMegaMenu && (
-										<span className="text-[#9a0c28] text-sm">
-											<FaChevronDown />
-										</span>
-									)}
-								</Link>
-							</div>
-						))}
-					</nav>
-				</div>
-				<div className="hidden md:flex items-center gap-4">
-					<Link href="tel:+91-630-392-1512" className=" md:block">
-						+91-630-392-1512
-					</Link>
-					<Link href="/contact-us/" className="md:block">
-						<Button variant="brand" className="w-full">
-							Enquire Now
-						</Button>
-					</Link>
-				</div>
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+        </button>
+      </div>
 
-				{/* Mobile Menu Button */}
-				<button
-					className="md:hidden text-gray-800"
-					onClick={() => setMenuOpen(!menuOpen)}
-					aria-label="Toggle Menu"
-				>
-					{menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-				</button>
-			</div>
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden bg-white border-t transition-all duration-300 ease-in-out ${
+          menuOpen
+            ? "max-h-screen opacity-100 shadow-lg"
+            : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
+        <div className="px-4 py-4 space-y-2">
+          {navLinks.map((link, linkIndex) => (
+            <div key={`mobile-${link.name}-${linkIndex}`} className="space-y-2">
+              <a
+                href={link.href || "#"}
+                className="block py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
+                onClick={handleLinkClick}
+              >
+                <div className="flex items-center justify-between">
+                  {link.name}
+                  {link.hasMegaMenu && (
+                    <FaChevronDown className="text-[#9a0c28] text-xs" />
+                  )}
+                </div>
+              </a>
 
-			{/* Mobile Menu */}
-			<div
-				className={`md:hidden bg-white px-4 pb-4 pt-2 transition-all duration-300 ease-in-out ${
-					menuOpen
-						? "max-h-screen opacity-100"
-						: "max-h-0 opacity-0 overflow-hidden"
-				}`}
-			>
-				{navLinks.map((link, linkIndex) => (
-					<div key={`mobile-${link.name}-${linkIndex}`} className="mb-2">
-						<Link
-							href={link.href || "#"}
-							className="block py-2 text-gray-800 hover:text-primary font-medium"
-							onClick={handleLinkClick}
-						>
-							{link.name}
-							{link.hasMegaMenu && <span className="!text-[#9a0c28] ml-1">♥</span>}
-						</Link>
+              {/* Mobile Submenu */}
+              {link.hasMegaMenu && (
+                <div className="bg-gray-50 rounded-lg p-4 ml-4 space-y-4">
+                  {getMobileMenuData(link.menuType).map(
+                    (category, categoryIndex) => (
+                      <div
+                        key={`mobile-${category.title}-${categoryIndex}`}
+                        className="space-y-2"
+                      >
+                        <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
+                          <span className="text-lg">{category.icon}</span>
+                          {category.title}
+                        </h3>
+                        <div className="space-y-1 pl-6">
+                          {category.links.map(
+                            (subLink, subLinkIndex) => (
+                              <a
+                                key={`mobile-${subLink.name}-${subLinkIndex}`}
+                                href={subLink.href || "#"}
+                                className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200"
+                                onClick={handleLinkClick}
+                              >
+                                {subLink.name}
+                              </a>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
 
-						{/* Mobile Submenu */}
-						{link.hasMegaMenu && activeMegaMenu === link.menuType && (
-							<div className="bg-gray-50 p-4 mt-2 rounded-lg">
-								<div className="grid grid-cols-1 gap-4">
-									{getMobileMenuData(link.menuType).map(
-										(category, categoryIndex) => (
-											<div
-												key={`mobile-${category.title}-${categoryIndex}`}
-												className="mb-4"
-											>
-												<h3 className="font-semibold text-sm mb-2 text-gray-900">
-													{category.title}
-												</h3>
-												<ul className="space-y-1">
-													{flattenMenuLinks(category).map((subLink, subLinkIndex) => (
-														<li key={`mobile-${subLink.name}-${subLinkIndex}`}>
-															<Link
-																href={subLink.href || "#"}
-																className="text-gray-700 text-sm hover:text-[#9a0c28] block py-1"
-																target={subLink.external ? "_blank" : undefined}
-																rel={subLink.external ? "noopener noreferrer" : undefined}
-																onClick={handleLinkClick}  // Add this line
-															>
-																{subLink.name}
-															</Link>
-														</li>
-													))}
-												</ul>
-											</div>
-										)
-									)}
-								</div>
-							</div>
-						)}
-					</div>
-				))}
+          {/* Mobile Contact Section */}
+          <div className="pt-4 border-t space-y-3">
+            <a 
+              href="tel:+91-630-392-1512" 
+              className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
+            >
+              <div className="p-2 rounded-full bg-[#9a0c28]/10">
+                <FaPhone className="text-[#9a0c28] text-sm" />
+              </div>
+              <span className="font-medium">+91-630-392-1512</span>
+            </a>
+            
+            <a href="/contact-us/" className="block">
+              <button className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold" onClick={handleLinkClick}>
+                <span className="flex items-center justify-center gap-2">
+                  Connect
+                  <FaArrowRight className="text-xs" />
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      {/* Desktop Mega Menu with Tabs */}
+      {megaMenuOpen && activeMegaMenu && (
+        <div
+          ref={megaMenuRef}
+          className="absolute left-0 w-full bg-white shadow-2xl border-t hidden lg:block"
+          style={{ zIndex: 40 }}
+          onMouseEnter={handleMegaMenuMouseEnter}
+          onMouseLeave={handleMegaMenuMouseLeave}
+        >
+          <div className="mx-auto" style={{ width: "min(1280px, 100%)" }}>
+            <div className="flex min-h-[500px]">
+              {/* Left Sidebar - Tabs */}
+              <div className="w-80 bg-gray-50 border-r border-gray-200 p-6">
+                <div className="space-y-2">
+                  {getCurrentMegaMenuData().map((category, index) => (
+                    <button
+                      key={category.title}
+                      className={`w-full text-left p-4 rounded-xl transition-all duration-200 border-2 ${
+                        activeTab === index
+                          ? `${category.color} border-current shadow-sm`
+                          : 'bg-white border-gray-100 hover:bg-gray-50 hover:border-gray-200'
+                      }`}
+                      onClick={() => setActiveTab(index)}
+                      onMouseEnter={() => setActiveTab(index)}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{category.icon}</span>
+                        <div>
+                          <h3 className={`font-semibold text-base ${
+                            activeTab === index ? 'text-current' : 'text-gray-900'
+                          }`}>
+                            {category.title}
+                          </h3>
+                          <p className="text-xs text-gray-500 mt-1">
+                            {category.links.length} services
+                          </p>
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-				{/* Mobile "Enquire Now" button */}
-				<Link href="/contact-us/" className="mt-4 block">
-					<Button variant="brand" className="w-full">
-						Enquire Now
-					</Button>
-				</Link>
-			</div>
-			{/* Mega Menu for Desktop */}
-			{megaMenuOpen && activeMegaMenu && (
-				<div
-					ref={megaMenuRef}
-					className="absolute left-0 w-full bg-white shadow-lg border-t border-gray-100 hidden md:block"
-					style={{ zIndex: 40 }}
-					onMouseEnter={handleMegaMenuMouseEnter}
-					onMouseLeave={handleMegaMenuMouseLeave}
-				>
-					<div className="mx-auto px-4" style={{ width: "min(1260px, 100%)" }}>
-						<div className="py-8">
-							<div className="grid grid-cols-4 gap-8">
-								{getCurrentMegaMenuData().map((category, categoryIndex) => (
-									<div key={`${category.title}-${categoryIndex}`} className="space-y-2">
-										<div className="flex items-center gap-2 pb-1 border-b border-gray-200/70">
-											<span className="text-2xl">{category.icon}</span>
-											<h3 className="font-bold text-lg text-gray-900">
-												{category.title}
-											</h3>
-										</div>
-										<div className="space-y-3">
-											{category.links.map((link, linkIndex) => {
-												if (link.subtitle) {
-													if (link.subtitle === "Owned Media" || link.subtitle === "Paid Media") {
-														return (
-															<div className="space-y-2" key={`${link.subtitle}-${linkIndex}`}>
-																<h4 className="font-semibold text-sm text-gray-700 border-b border-gray-200/50 pb-2">
-																	{link.subtitle}
-																</h4>
-																<div className="space-y-2">
-																	{link.items?.map((item, itemIndex) => (
-																		<Link
-																			key={`${item.name}-${itemIndex}`}
-																			href={item.href || '#'}
-																			className="block group hover:bg-[#9a0c28]/5 rounded-md p-2 transition-all duration-200"
-																			onClick={handleLinkClick}
-																		>
-																			<span className="text-gray-900 text-sm font-medium group-hover:text-[#9a0c28]">
-																				{item.name}
-																			</span>
-																			<p className="text-xs text-gray-500 group-hover:text-[#9a0c28] mt-0.5">
-																				{item.description}
-																			</p>
-																		</Link>
-																	))}
-																</div>
-															</div>
-														);
-													}
-													// Regular subtitle section
-													return (
-														<div className="space-y-2" key={`${link.subtitle}-${linkIndex}`}>
-															<h4 className="font-semibold text-sm text-gray-700 border-b border-gray-200/50 pb-2">
-																{link.subtitle}
-															</h4>
-															<div className="space-y-2">
-																{link.items?.map((item, itemIndex) => (
-																	<Link
-																		key={`${item.name}-${itemIndex}`}
-																		href={item.href || '#'}
-																		className="block group hover:bg-[#9a0c28]/5 rounded-md p-2 transition-all duration-200"
-																		onClick={handleLinkClick}
-																	>
-																		<span className="text-gray-900 text-sm font-medium group-hover:text-[#9a0c28]">
-																			{item.name}
-																		</span>
-																		<p className="text-xs text-gray-500 group-hover:text-[#9a0c28] mt-0.5">
-																			{item.description}
-																		</p>
-																	</Link>
-																))}
-															</div>
-														</div>
-													);
-												}
-												// Regular link without subtitle
-												return (
-													<Link
-														key={`${link.name}-${linkIndex}`}
-														href={link.href || '#'}
-														className="block group hover:bg-[#9a0c28]/5 rounded-md p-2 transition-all duration-200"
-														onClick={handleLinkClick}
-													>
-														<span className="text-gray-900 text-sm font-medium group-hover:text-[#9a0c28]">
-															{link.name}
-														</span>
-														<p className="text-xs text-gray-500 group-hover:text-[#9a0c28] mt-0.5">
-															{link.description}
-														</p>
-													</Link>
-												);
-											})}
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-			)}
-		</header>
-	);
+              {/* Right Content - Service Items in 3 Columns */}
+              <div className="flex-1 p-8">
+                {getCurrentMegaMenuData()[activeTab] && (
+                  <div>
+                    <div className="mb-8">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-3xl">
+                          {getCurrentMegaMenuData()[activeTab].icon}
+                        </span>
+                        <h2 className="text-2xl font-bold text-gray-900">
+                          {getCurrentMegaMenuData()[activeTab].title}
+                        </h2>
+                      </div>
+                      <p className="text-gray-600">
+                        Explore our comprehensive {getCurrentMegaMenuData()[activeTab].title.toLowerCase()} solutions
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-6">
+                      {chunksOf3(getCurrentMegaMenuData()[activeTab].links).map((chunk, chunkIndex) => (
+                        <div key={chunkIndex} className="space-y-4">
+                          {chunk.map((link, linkIndex) => (
+                            <a
+                              key={link.name}
+                              href={link.href || "#"}
+                              className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
+                              onClick={handleLinkClick}
+                            >
+                              <div className="space-y-2">
+                                <div className="flex items-start justify-between">
+                                  <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
+                                    {link.name}
+                                  </h4>
+                                  <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                                </div>
+                                <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                  {link.description}
+                                </p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Call to Action at the bottom */}
+                    <div className="mt-8 pt-6 border-t border-gray-200">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="font-semibold text-gray-900">
+                            Ready to get started?
+                          </h3>
+                          <p className="text-sm text-gray-600">
+                            Let's discuss how we can help grow your business
+                          </p>
+                        </div>
+                        <a href="/contact-us/">
+                          <button className="bg-[#9a0c28] hover:bg-[#c4102e] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 group">
+                            Get Started
+                            <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
 }
