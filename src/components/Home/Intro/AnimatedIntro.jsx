@@ -23,7 +23,7 @@ export default function AnimatedIntro() {
         wordSpan.style.display = "inline-block";
         wordSpan.style.marginRight = "0.25em";
 
-        if (word === "ShootOrder" || word === "India.") {
+        if (word === "Premier Google Ads" || word === "USA.") {
           wordSpan.style.color = "#9a0c28";
         }
 
@@ -73,8 +73,7 @@ export default function AnimatedIntro() {
           ref={paragraphRef}
           className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight"
         >
-          ShootOrder stands as the forefront leader in providing comprehensive
-          digital marketing solutions in India.
+          A Premier Google Ads digital marketing agency offering end-to-end services across the USA.
         </p>
       </div>
     </section>

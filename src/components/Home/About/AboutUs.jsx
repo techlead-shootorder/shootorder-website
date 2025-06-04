@@ -29,30 +29,19 @@ export default function AboutUs() {
                 About Us
               </h4>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Leading Digital Marketing Agency in India
+               	ShootOrder - Digital Marketing Agency
               </h2>
             </div>
 
             <div className="space-y-4 text-gray-600">
               <p className="leading-relaxed">
-                ShootOrder stands as the forefront leader in providing
-                comprehensive digital marketing solutions in Hyderabad, India.
-                Renowned as a premier agency, we have garnered a reputation for
-                delivering exceptional results to our extensive client base of
-                over 300 businesses worldwide.
+                ShootOrder is a leading full-service digital marketing agency helping businesses across the United States grow smarter and faster.
               </p>
               <p className="leading-relaxed">
-                Our unwavering commitment to excellence in services such as
-                Content Marketing, SEO, PPC Advertising, and Social Media has
-                firmly established us among the top-ranking digital marketing
-                companies.
+               Trusted by over 300 businesses worldwide, we&apos;ve built a strong reputation for delivering real results through proven strategies in Content Marketing, SEO, PPC Advertising, and Social Media Marketing.
               </p>
               <p className="leading-relaxed">
-                We take pride in being the driving force behind the remarkable
-                success stories of numerous internet start-ups, contributing to
-                their growth and triumph. With our branch office strategically
-                located in Noida (Delhi NCR), we are actively expanding our
-                reach across the entire nation.
+                Our team has been instrumental in scaling numerous internet startups, helping them transform into industry leaders. With our growing presence, we’re continuing to expand our impact across the U.S., bringing global expertise with a local edge.
               </p>
             </div>
 

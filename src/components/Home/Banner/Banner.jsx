@@ -371,7 +371,7 @@ useEffect(() => {
 
           {/* Badge Text */}
           <div className="inline-block px-4 py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20">
-            <p>Top 3% Digital Marketing Agency in India</p>
+            <p>In Top 3% Digital Marketing Agency</p>
           </div>
 
           {/* Main heading with responsive sizes */}
