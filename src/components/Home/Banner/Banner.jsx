@@ -498,9 +498,9 @@ useEffect(() => {
       </div>
 
       {/* Mobile Stats - Updated styling */}
-      <div className="block md:hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-4 w-full">
+      <div className="block md:hidden absolute bottom-10 left-0 right-0  px-2 py-4 w-full">
         <div className="grid grid-cols-3 gap-2">
-          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
+          <div className="mobile-stat bg-[#9a0c28] backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
             <FiBriefcase className="text-lg text-white mb-1" />
             <div className="text-base font-semibold text-white mobile-value" data-value="50">
               50+
@@ -508,7 +508,7 @@ useEffect(() => {
             <div className="text-[10px] text-white/80 text-center">Projects</div>
           </div>
 
-          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
+          <div className="mobile-stat bg-[#9a0c28] backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
             <FiClock className="text-lg text-white mb-1" />
             <div className="text-base font-semibold text-white mobile-value" data-value="12">
               12+
@@ -516,7 +516,7 @@ useEffect(() => {
             <div className="text-[10px] text-white/80 text-center">Experience</div>
           </div>
 
-          <div className="mobile-stat bg-white/10 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
+          <div className="mobile-stat bg-[#9a0c28] backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center">
             <FiUsers className="text-lg text-white mb-1" />
             <div className="text-base font-semibold text-white mobile-value" data-value="92">
               92+

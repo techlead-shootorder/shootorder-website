@@ -4,10 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes, FaChevronDown, FaPhone, FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 
 // Service categories for mega menu
-const serviceCategories = [
-  {
+const serviceCategories = [  {
     title: "Branding",
-    icon: "✨",
     color: "bg-purple-50 border-purple-200 text-purple-700",
     hoverColor: "hover:bg-purple-100",
     links: [
@@ -37,102 +35,121 @@ const serviceCategories = [
         description: "Launch your brand with impact",
       },
     ],
-  },
-  {
+  },  {
     title: "Digital Marketing",
-    icon: "🚀",
     color: "bg-blue-50 border-blue-200 text-blue-700",
     hoverColor: "hover:bg-blue-100",
-    links: [
+    columns: [
       {
-        name: "SEO Optimization",
-        href: "/seo",
-        description: "Dominate organic search results",
+        heading: "Owned Media",
+        links: [
+          {
+            name: "SEO Optimization",
+            href: "/seo",
+            description: "Dominate organic search results"
+          },
+          {
+            name: "Blog Management",
+            href: "/blog-management",
+            description: "Content that converts and engages"
+          },
+          {
+            name: "Website Development",
+            href: "/web-design",
+            description: "High-performance, responsive websites"
+          }
+        ]
       },
       {
-        name: "Blog Management",
-        href: "/blog-management",
-        description: "Content that converts and engages",
+        heading: "Paid Media",
+        links: [
+          {
+            name: "Google Ads",
+            href: "/google-ads",
+            description: "PPC campaigns that drive results"
+          },
+          {
+            name: "Meta Ads",
+            href: "/meta-ads",
+            description: "Effective social media advertising"
+          }
+        ]
       },
       {
-        name: "Website Development",
-        href: "/web-design",
-        description: "High-performance, responsive websites",
-      },
-      {
-        name: "Email Marketing",
-        href: "/email-marketing",
-        description: "Targeted email campaigns that deliver",
-      },
-      {
-        name: "Social Media Marketing",
-        href: "/social-media",
-        description: "Build your social presence",
-      },
-      {
-        name: "Content Strategy",
-        href: "/content-strategy",
-        description: "Strategic content that drives results",
-      },
-    ],
-  },
-  {
-    title: "Growth Solutions",
-    icon: "📈",
+        heading: "Earned Media",
+        links: [
+          {
+            name: "Digital PR",
+            href: "/digital-pr",
+            description: "Build your online presence"
+          },
+          {
+            name: "Influencer Marketing",
+            href: "/influencer-marketing",
+            description: "Connect with relevant influencers"
+          }
+        ]
+      }
+    ]
+  },  {
+    title: "Growth Hacking",
     color: "bg-green-50 border-green-200 text-green-700",
     hoverColor: "hover:bg-green-100",
     links: [
       {
-        name: "Influencer Marketing",
-        href: "/influencers-marketing",
-        description: "Leverage authentic social proof",
-      },
-      {
-        name: "Performance Marketing",
-        href: "/performance-marketing",
-        description: "Data-driven growth strategies",
-      },
-      {
-        name: "Marketing Automation",
-        href: "/marketing-automation",
-        description: "Streamline and scale your marketing",
-      },
-      {
-        name: "Lead Generation",
-        href: "/lead-generation",
+        name: "Landing Pages",
+        href: "/landing-pages",
         description: "Quality leads that convert",
       },
       {
-        name: "Conversion Optimization",
-        href: "/conversion-optimization",
-        description: "Maximize your conversion rates",
+        name: "On-site Engagement",
+        href: "/On-site-engagement",
+        description: "Data-driven growth strategies",
       },
-    ],
-  },
-  {
-    title: "Analytics & Optimization",
-    icon: "📊",
-    color: "bg-orange-50 border-orange-200 text-orange-700",
-    hoverColor: "hover:bg-orange-100",
-    links: [
-      { 
+       { 
         name: "Online Reputation Management", 
         href: "/orm", 
         description: "Protect and enhance your online reputation" 
       },
+      // {
+      //   name: "Marketing Automation",
+      //   href: "/marketing-automation",
+      //   description: "Streamline and scale your marketing",
+      // },
+      // {
+      //   name: "Lead Generation",
+      //   href: "/lead-generation",
+      //   description: "",
+      // },
+      // {
+      //   name: "Conversion Optimization",
+      //   href: "/conversion-optimization",
+      //   description: "Maximize your conversion rates",
+      // },
+    ],
+  },  {
+    title: "Marketing Automation",
+    color: "bg-orange-50 border-orange-200 text-orange-700",
+    hoverColor: "hover:bg-orange-100",
+    links: [
+      // { 
+      //   name: "Online Reputation Management", 
+      //   href: "/orm", 
+      //   description: "Protect and enhance your online reputation" 
+      // },
       {
         name: "Data Analytics & Dashboard",
         href: "/analytics",
         description: "Advanced analytics and reporting tools",
       },
+      // {
+      //   name: "Performance Tracking",
+      //   href: "/performance-tracking",
+      //   description: "Monitor and optimize campaign performance",
+      // },
       {
-        name: "Performance Tracking",
-        href: "/performance-tracking",
-        description: "Monitor and optimize campaign performance",
-      },
-      {
-        name: "Competitor Analysis",
-        href: "/competitor-analysis",
+        name: "Smart Analysis",
+        href: "/smart-analysis",
         description: "Stay ahead of the competition",
       },
     ],
@@ -140,10 +157,8 @@ const serviceCategories = [
 ];
 
 // Company categories for mega menu
-const companyCategories = [
-  {
+const companyCategories = [  {
     title: "Company Profile",
-    icon: "🏢",
     color: "bg-indigo-50 border-indigo-200 text-indigo-700",
     hoverColor: "hover:bg-indigo-100",
     links: [
@@ -153,9 +168,8 @@ const companyCategories = [
       { name: "Case Studies", href: "/case-studies/", description: "Detailed project breakdowns and results" },
     ],
   },
-  {
-    title: "Join Our Team",
-    icon: "👥",
+  {    title: "Join Our Team",
+    icon: "◆",
     color: "bg-teal-50 border-teal-200 text-teal-700",
     hoverColor: "hover:bg-teal-100",
     links: [
@@ -166,10 +180,9 @@ const companyCategories = [
 ];
 
 // Contact categories for mega menu
-const contactCategories = [
-  {
+const contactCategories = [  {
     title: "Get In Touch",
-    icon: "📞",
+    icon: "◯",
     color: "bg-red-50 border-red-200 text-red-700",
     hoverColor: "hover:bg-red-100",
     links: [
@@ -437,23 +450,44 @@ export default function Header() {
                       <div
                         key={`mobile-${category.title}-${categoryIndex}`}
                         className="space-y-2"
-                      >
-                        <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
+                      >                        <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
                           <span className="text-lg">{category.icon}</span>
                           {category.title}
                         </h3>
-                        <div className="space-y-1 pl-6">
-                          {category.links.map(
-                            (subLink, subLinkIndex) => (
-                              <a
-                                key={`mobile-${subLink.name}-${subLinkIndex}`}
-                                href={subLink.href || "#"}
-                                className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200"
-                                onClick={handleLinkClick}
-                              >
-                                {subLink.name}
-                              </a>
-                            )
+                        <div className="space-y-4 pl-6">
+                          {category.columns ? (
+                            // Render columned layout for Digital Marketing
+                            category.columns.map((column, columnIndex) => (
+                              <div key={columnIndex} className="space-y-2">
+                                <h4 className="font-medium text-sm text-gray-800">{column.heading}</h4>
+                                <div className="space-y-1">
+                                  {column.links.map((link, linkIndex) => (
+                                    <a
+                                      key={`mobile-column-${link.name}-${linkIndex}`}
+                                      href={link.href || "#"}
+                                      className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200"
+                                      onClick={handleLinkClick}
+                                    >
+                                      {link.name}
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            ))
+                          ) : (
+                            // Render regular layout for other categories
+                            <div className="space-y-1">
+                              {category.links.map((link, linkIndex) => (
+                                <a
+                                  key={`mobile-${link.name}-${linkIndex}`}
+                                  href={link.href || "#"}
+                                  className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200"
+                                  onClick={handleLinkClick}
+                                >
+                                  {link.name}
+                                </a>
+                              ))}
+                            </div>
                           )}
                         </div>
                       </div>
@@ -515,14 +549,15 @@ export default function Header() {
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{category.icon}</span>
-                        <div>
-                          <h3 className={`font-semibold text-base ${
+                        <div>                          <h3 className={`font-semibold text-base ${
                             activeTab === index ? 'text-current' : 'text-gray-900'
                           }`}>
                             {category.title}
                           </h3>
                           <p className="text-xs text-gray-500 mt-1">
-                            {category.links.length} services
+                            {category.columns 
+                              ? category.columns.reduce((total, col) => total + col.links.length, 0)
+                              : category.links.length} services
                           </p>
                         </div>
                       </div>
@@ -547,33 +582,61 @@ export default function Header() {
                       <p className="text-gray-600">
                         Explore our comprehensive {getCurrentMegaMenuData()[activeTab].title.toLowerCase()} solutions
                       </p>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-6">
-                      {chunksOf3(getCurrentMegaMenuData()[activeTab].links).map((chunk, chunkIndex) => (
-                        <div key={chunkIndex} className="space-y-4">
-                          {chunk.map((link, linkIndex) => (
-                            <a
-                              key={link.name}
-                              href={link.href || "#"}
-                              className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
-                              onClick={handleLinkClick}
-                            >
-                              <div className="space-y-2">
-                                <div className="flex items-start justify-between">
-                                  <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
-                                    {link.name}
-                                  </h4>
-                                  <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                    </div>                    <div className="grid grid-cols-3 gap-6">
+                      {getCurrentMegaMenuData()[activeTab].columns ? (
+                        // Render columned layout for Digital Marketing
+                        getCurrentMegaMenuData()[activeTab].columns.map((column, columnIndex) => (
+                          <div key={columnIndex} className="space-y-4">
+                            <h3 className="font-semibold text-gray-900 mb-4">{column.heading}</h3>
+                            {column.links.map((link, linkIndex) => (
+                              <a
+                                key={link.name}
+                                href={link.href || "#"}
+                                className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
+                                onClick={handleLinkClick}
+                              >
+                                <div className="space-y-2">
+                                  <div className="flex items-start justify-between">
+                                    <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
+                                      {link.name}
+                                    </h4>
+                                    <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                                  </div>
+                                  <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                    {link.description}
+                                  </p>
                                 </div>
-                                <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
-                                  {link.description}
-                                </p>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                      ))}
+                              </a>
+                            ))}
+                          </div>
+                        ))
+                      ) : (
+                        // Render regular layout for other categories
+                        chunksOf3(getCurrentMegaMenuData()[activeTab].links).map((chunk, chunkIndex) => (
+                          <div key={chunkIndex} className="space-y-4">
+                            {chunk.map((link, linkIndex) => (
+                              <a
+                                key={link.name}
+                                href={link.href || "#"}
+                                className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
+                                onClick={handleLinkClick}
+                              >
+                                <div className="space-y-2">
+                                  <div className="flex items-start justify-between">
+                                    <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
+                                      {link.name}
+                                    </h4>
+                                    <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                                  </div>
+                                  <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                    {link.description}
+                                  </p>
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        ))
+                      )}
                     </div>
 
                     {/* Call to Action at the bottom */}
