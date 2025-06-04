@@ -262,9 +262,65 @@ export default function Header() {
   const [activeMegaMenu, setActiveMegaMenu] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState({});
+  const menuRef = useRef(null);
   const megaMenuRef = useRef(null);
   const navItemRefs = useRef({});
   const timeoutRef = useRef(null);
+  const firstFocusableRef = useRef(null);
+  const lastFocusableRef = useRef(null);
+
+  // Focus trap effect
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      if (!firstFocusableRef.current || !lastFocusableRef.current) return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusableRef.current) {
+          lastFocusableRef.current.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastFocusableRef.current) {
+          firstFocusableRef.current.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Focus first element when menu opens
+    firstFocusableRef.current?.focus();
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  const toggleCategory = (categoryTitle) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [categoryTitle]: !prev[categoryTitle]
+    }));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -473,121 +529,206 @@ export default function Header() {
           className="lg:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
-        >
-          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+        >          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden bg-white border-t transition-all duration-300 ease-in-out ${
-          menuOpen
-            ? "max-h-screen opacity-100 shadow-lg"
-            : "max-h-0 opacity-0 overflow-hidden"
-        }`}
-      >
-        <div className="px-4 py-4 space-y-2">
-          {navLinks.map((link, linkIndex) => (
-            <div key={`mobile-${link.name}-${linkIndex}`} className="space-y-2">
-              <a
-                href={link.href || "#"}
-                className="block py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
-                onClick={handleLinkClick}
-              >
-                <div className="flex items-center justify-between">
-                  {link.name}
-                  {link.hasMegaMenu && (
-                    <FaChevronDown className="text-[#9a0c28] text-xs" />
-                  )}
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
+            menuOpen ? "visible" : "invisible"
+          }`}
+            ref={menuRef}
+          >
+            {/* Backdrop */}
+            <div 
+              className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
+                menuOpen ? "opacity-100" : "opacity-0"
+              }`}
+              onClick={() => setMenuOpen(false)}
+              aria-hidden="true"
+            />
+            
+            {/* Menu Content */}
+            <div 
+              className={`absolute inset-y-0 right-0 w-[85%] max-w-sm bg-white h-full transform transition-transform duration-300 ease-out shadow-xl ${
+                menuOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Main Menu"
+            >
+              <div className="relative z-50 h-full overflow-y-auto flex flex-col">
+                {/* User Section */}
+                <div className="p-6 bg-gray-50 border-b">
+                  <a href="/login" className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#9a0c28]/10 flex items-center justify-center">
+                      <img 
+                        src="/images/logo/avatar.svg" 
+                        alt="User" 
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900">Get Started</h3>
+                      <p className="text-sm text-gray-600">Sign in to ShootOrder</p>
+                    </div>
+                  </a>
                 </div>
-              </a>
 
-              {/* Mobile Submenu */}
-              {link.hasMegaMenu && (
-                <div className="bg-gray-50 rounded-lg p-4 ml-4 space-y-4">
-                  {getMobileMenuData(link.menuType).map(
-                    (category, categoryIndex) => (
-                      <div
-                        key={`mobile-${category.title}-${categoryIndex}`}
-                        className="space-y-2"
+                {/* Menu Items */}
+                <nav className="flex-1 p-4 space-y-2">
+                  {navLinks.map((link, linkIndex) => (
+                    <div key={`mobile-${link.name}-${linkIndex}`} className="space-y-2">
+                      <a
+                        href={link.href || "#"}
+                        className="block py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
+                        onClick={() => {
+                          if (link.hasMegaMenu) {
+                            toggleCategory(link.menuType);
+                          } else {
+                            handleLinkClick();
+                          }
+                        }}
                       >
-                        {" "}
-                        <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
-                          <span className="text-lg">{category.icon}</span>
-                          {category.title}
-                        </h3>
-                        <div className="space-y-4 pl-6">
-                          {category.columns ? (
-                            // Render columned layout for Digital Marketing
-                            category.columns.map((column, columnIndex) => (
-                              <div key={columnIndex} className="space-y-2">
-                                <h4 className="font-medium text-sm text-gray-800">
-                                  {column.heading}
-                                </h4>
-                                <div className="space-y-1">
-                                  {column.links.map((link, linkIndex) => (
-                                    <a
-                                      key={`mobile-column-${link.name}-${linkIndex}`}
-                                      href={link.href || "#"}
-                                      className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200"
-                                      onClick={handleLinkClick}
-                                    >
-                                      {link.name}
-                                    </a>
-                                  ))}
-                                </div>
-                              </div>
-                            ))
-                          ) : (
-                            // Render regular layout for other categories
-                            <div className="space-y-1">
-                              {category.links.map((link, linkIndex) => (
-                                <a
-                                  key={`mobile-${link.name}-${linkIndex}`}
-                                  href={link.href || "#"}
-                                  className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200"
-                                  onClick={handleLinkClick}
-                                >
-                                  {link.name}
-                                </a>
-                              ))}
-                            </div>
+                        <div className="flex items-center justify-between">
+                          {link.name}
+                          {link.hasMegaMenu && (
+                            <FaChevronDown 
+                              className={`text-[#9a0c28] text-xs transition-transform duration-200 ${
+                                expandedCategories[link.menuType] ? 'rotate-180' : ''
+                              }`} 
+                            />
                           )}
                         </div>
-                      </div>
-                    )
-                  )}
+                      </a>
+
+                      {/* Mobile Submenu with Accordion */}
+                      {link.hasMegaMenu && (
+                        <div 
+                          className={`bg-gray-50/80 rounded-lg overflow-hidden ml-4 transition-all duration-200 ${
+                            expandedCategories[link.menuType] ? 'block' : 'hidden'
+                          }`}
+                        >
+                          {getMobileMenuData(link.menuType).map((category, categoryIndex) => (
+                            <div
+                              key={`mobile-${category.title}-${categoryIndex}`}
+                              className="border-b border-gray-200 last:border-none"
+                            >
+                              <button
+                                className={`w-full ${category.color} p-4`}
+                                onClick={() => toggleCategory(category.title)}
+                                aria-expanded={expandedCategories[category.title]}
+                                aria-controls={`category-content-${category.title}`}
+                              >
+                                <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
+                                  <span className="text-lg">{category.icon}</span>
+                                  {category.title}
+                                  <FaChevronDown 
+                                    className={`ml-auto text-xs transform transition-transform duration-200 text-current ${
+                                      expandedCategories[category.title] ? 'rotate-180' : ''
+                                    }`} 
+                                  />
+                                </h3>
+                              </button>
+                              
+                              <div 
+                                id={`category-content-${category.title}`}
+                                className={`border-t border-gray-200 overflow-hidden transition-all duration-200 ${
+                                  expandedCategories[category.title] ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                                }`}
+                              >
+                                {category.columns ? (
+                                  // Columned layout for Digital Marketing
+                                  <div className="p-4 space-y-4">
+                                    {category.columns.map((column, columnIndex) => (
+                                      <div key={columnIndex}>
+                                        <h4 className="font-medium text-sm text-gray-800 mb-2">
+                                          {column.heading}
+                                        </h4>
+                                        <div className="space-y-1 pl-3">
+                                          {column.links.map((link, linkIndex) => (
+                                            <a
+                                              key={`mobile-col-${link.name}-${linkIndex}`}
+                                              href={link.href || "#"}
+                                              className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200 group"
+                                              onClick={handleLinkClick}
+                                              ref={linkIndex === 0 ? firstFocusableRef : undefined}
+                                            >
+                                              <span className="flex items-center">
+                                                {link.name}
+                                                <FaArrowRight className="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                                              </span>
+                                              {link.description && (
+                                                <span className="text-xs text-gray-500 mt-1 block">
+                                                  {link.description}
+                                                </span>
+                                              )}
+                                            </a>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  // Regular layout for other categories
+                                  <div className="p-4 space-y-1">
+                                    {category.links.map((link, linkIndex) => (
+                                      <a
+                                        key={`mobile-${link.name}-${linkIndex}`}
+                                        href={link.href || "#"}
+                                        className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200 group"
+                                        onClick={handleLinkClick}
+                                        ref={linkIndex === category.links.length - 1 ? lastFocusableRef : undefined}
+                                      >
+                                        <span className="flex items-center">
+                                          {link.name}
+                                          <FaArrowRight className="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                                        </span>
+                                        {link.description && (
+                                          <span className="text-xs text-gray-500 mt-1 block">
+                                            {link.description}
+                                          </span>
+                                        )}
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </nav>
+
+                {/* Mobile Contact Section */}
+                <div className="mt-auto p-4 border-t space-y-3">
+                  <a
+                    href="tel:+91-630-392-1512"
+                    className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
+                  >
+                    <div className="p-2 rounded-full bg-[#9a0c28]/10">
+                      <FaPhone className="text-[#9a0c28] text-sm" />
+                    </div>
+                    <span className="font-medium">+91-630-392-1512</span>
+                  </a>
+
+                  <a href="/contact-us/" className="block">
+                    <button
+                      className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold"
+                      onClick={handleLinkClick}
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        Connect
+                        <FaArrowRight className="text-xs" />
+                      </span>
+                    </button>
+                  </a>
                 </div>
-              )}
-            </div>
-          ))}
-
-          {/* Mobile Contact Section */}
-          <div className="pt-4 border-t space-y-3">
-            <a
-              href="tel:+91-630-392-1512"
-              className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
-            >
-              <div className="p-2 rounded-full bg-[#9a0c28]/10">
-                <FaPhone className="text-[#9a0c28] text-sm" />
               </div>
-              <span className="font-medium">+91-630-392-1512</span>
-            </a>
-
-            <a href="/contact-us/" className="block">
-              <button
-                className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold"
-                onClick={handleLinkClick}
-              >
-                <span className="flex items-center justify-center gap-2">
-                  Connect
-                  <FaArrowRight className="text-xs" />
-                </span>
-              </button>
-            </a>
+            </div>
           </div>
-        </div>
-      </div>
 
       {/* Desktop Mega Menu with Tabs */}
       {megaMenuOpen && activeMegaMenu && (
