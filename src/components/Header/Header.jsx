@@ -180,9 +180,7 @@ const companyCategories = [  {
 ];
 
 // Contact categories for mega menu
-const contactCategories = [  {
-    title: "Get In Touch",
-    icon: "◯",
+const contactCategories = [  {    title: "Get In Touch",
     color: "bg-red-50 border-red-200 text-red-700",
     hoverColor: "hover:bg-red-100",
     links: [
