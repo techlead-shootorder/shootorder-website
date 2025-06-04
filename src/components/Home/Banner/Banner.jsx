@@ -379,8 +379,8 @@ useEffect(() => {
             ref={headingRef}
             className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-white"
           >
-            Strategic Digital Growth with <br className="hidden sm:block" />
-            ShootOrder's Expertise
+            Awared #1 <br className="hidden sm:block" />
+            Digital Marketing Agency
           </h1>
 
           {/* Description with responsive sizing */}
@@ -388,8 +388,7 @@ useEffect(() => {
             ref={descriptionRef}
             className="max-w-xl mx-auto text-white/90 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 px-4 sm:px-0"
           >
-            ShootOrder stands as the forefront leader in providing comprehensive
-            digital marketing solutions in Hyderabad, India.
+            Marketing is not magic, there is a science to it. Connect with us to explore our expertise in SEO, Paid Search, Display Ads, Content Marketing, and Social Media.
           </p>
 
           <div ref={buttonRef}>
