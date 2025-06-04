@@ -70,7 +70,7 @@ function ProcessCovered({ services }) {
                   </p>
                   
                   {/* Learn More Button - Smaller Size */}
-                  <button className="inline-flex items-center gap-2 bg-[#9a0c28] text-white px-6 py-2.5 rounded-lg hover:bg-[#7a0920] transition-all duration-300 text-sm font-medium group/btn">
+                  {/* <button className="inline-flex items-center gap-2 bg-[#9a0c28] text-white px-6 py-2.5 rounded-lg hover:bg-[#7a0920] transition-all duration-300 text-sm font-medium group/btn">
                     <span>Learn More</span>
                     <svg 
                       className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" 
@@ -80,7 +80,7 @@ function ProcessCovered({ services }) {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

@@ -48,7 +48,7 @@ export default function AboutUs() {
               <p className="leading-relaxed">
                 Our team has been instrumental in scaling numerous internet
                 startups, helping them transform into industry leaders. With our
-                growing presence, we’re continuing to expand our impact across
+                growing presence, we&apos;re continuing to expand our impact across
                 the U.S., bringing global expertise with a local edge.
               </p>
             </div>
