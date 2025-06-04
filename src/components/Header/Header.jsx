@@ -1,10 +1,75 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { FaBars, FaTimes, FaChevronDown, FaPhone, FaArrowRight, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaChevronDown,
+  FaPhone,
+  FaArrowRight,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 // Service categories for mega menu
-const serviceCategories = [  {
+const serviceCategories = [
+  {
+    title: "Digital Marketing",
+    color: "bg-blue-50 border-blue-200 text-blue-700",
+    hoverColor: "hover:bg-blue-100",
+    columns: [
+      {
+        heading: "Owned Media",
+        links: [
+          {
+            name: "SEO Optimization",
+            href: "/seo",
+            description: "Dominate organic search results",
+          },
+          {
+            name: "Blog Management",
+            href: "/blog-management",
+            description: "Content that converts and engages",
+          },
+          {
+            name: "Website Development",
+            href: "/web-design",
+            description: "High-performance, responsive websites",
+          },
+        ],
+      },
+      {
+        heading: "Paid Media",
+        links: [
+          {
+            name: "Google Ads",
+            href: "/google-ads",
+            description: "PPC campaigns that drive results",
+          },
+          {
+            name: "Meta Ads",
+            href: "/meta-ads",
+            description: "Effective social media advertising",
+          },
+        ],
+      },
+      {
+        heading: "Earned Media",
+        links: [
+          {
+            name: "Digital PR",
+            href: "/digital-pr",
+            description: "Build your online presence",
+          },
+          {
+            name: "Influencer Marketing",
+            href: "/influencers-marketing",
+            description: "Connect with relevant influencers",
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: "Branding",
     color: "bg-purple-50 border-purple-200 text-purple-700",
     hoverColor: "hover:bg-purple-100",
@@ -35,63 +100,8 @@ const serviceCategories = [  {
         description: "Launch your brand with impact",
       },
     ],
-  },  {
-    title: "Digital Marketing",
-    color: "bg-blue-50 border-blue-200 text-blue-700",
-    hoverColor: "hover:bg-blue-100",
-    columns: [
-      {
-        heading: "Owned Media",
-        links: [
-          {
-            name: "SEO Optimization",
-            href: "/seo",
-            description: "Dominate organic search results"
-          },
-          {
-            name: "Blog Management",
-            href: "/blog-management",
-            description: "Content that converts and engages"
-          },
-          {
-            name: "Website Development",
-            href: "/web-design",
-            description: "High-performance, responsive websites"
-          }
-        ]
-      },
-      {
-        heading: "Paid Media",
-        links: [
-          {
-            name: "Google Ads",
-            href: "/google-ads",
-            description: "PPC campaigns that drive results"
-          },
-          {
-            name: "Meta Ads",
-            href: "/meta-ads",
-            description: "Effective social media advertising"
-          }
-        ]
-      },
-      {
-        heading: "Earned Media",
-        links: [
-          {
-            name: "Digital PR",
-            href: "/digital-pr",
-            description: "Build your online presence"
-          },
-          {
-            name: "Influencer Marketing",
-            href: "/influencer-marketing",
-            description: "Connect with relevant influencers"
-          }
-        ]
-      }
-    ]
-  },  {
+  },
+  {
     title: "Growth Hacking",
     color: "bg-green-50 border-green-200 text-green-700",
     hoverColor: "hover:bg-green-100",
@@ -106,10 +116,10 @@ const serviceCategories = [  {
         href: "/On-site-engagement",
         description: "Data-driven growth strategies",
       },
-       { 
-        name: "Online Reputation Management", 
-        href: "/orm", 
-        description: "Protect and enhance your online reputation" 
+      {
+        name: "Online Reputation Management",
+        href: "/orm",
+        description: "Protect and enhance your online reputation",
       },
       // {
       //   name: "Marketing Automation",
@@ -127,15 +137,16 @@ const serviceCategories = [  {
       //   description: "Maximize your conversion rates",
       // },
     ],
-  },  {
+  },
+  {
     title: "Marketing Automation",
     color: "bg-orange-50 border-orange-200 text-orange-700",
     hoverColor: "hover:bg-orange-100",
     links: [
-      // { 
-      //   name: "Online Reputation Management", 
-      //   href: "/orm", 
-      //   description: "Protect and enhance your online reputation" 
+      // {
+      //   name: "Online Reputation Management",
+      //   href: "/orm",
+      //   description: "Protect and enhance your online reputation"
       // },
       {
         name: "Data Analytics & Dashboard",
@@ -157,38 +168,77 @@ const serviceCategories = [  {
 ];
 
 // Company categories for mega menu
-const companyCategories = [  {
+const companyCategories = [
+  {
     title: "Company Profile",
     color: "bg-indigo-50 border-indigo-200 text-indigo-700",
     hoverColor: "hover:bg-indigo-100",
     links: [
-      { name: "About Us", href: "/about-us", description: "Learn about our story and mission" },
-      { name: "Work Flow", href: "/about/work-flow/", description: "Our proven process and methodology" },
-      { name: "Clients & Testimonials", href: "/about/clients/", description: "Success stories from happy clients" },
-      { name: "Case Studies", href: "/case-studies/", description: "Detailed project breakdowns and results" },
+      {
+        name: "About Us",
+        href: "/about-us",
+        description: "Learn about our story and mission",
+      },
+      {
+        name: "Work Flow",
+        href: "/about/work-flow/",
+        description: "Our proven process and methodology",
+      },
+      {
+        name: "Clients & Testimonials",
+        href: "/about/clients/",
+        description: "Success stories from happy clients",
+      },
+      {
+        name: "Case Studies",
+        href: "/case-studies/",
+        description: "Detailed project breakdowns and results",
+      },
     ],
   },
-  {    title: "Join Our Team",
+  {
+    title: "Join Our Team",
     icon: "◆",
     color: "bg-teal-50 border-teal-200 text-teal-700",
     hoverColor: "hover:bg-teal-100",
     links: [
-      { name: "Careers", href: "/careers/", description: "Explore exciting career opportunities" },
-      { name: "Training Programs", href: "/training/", description: "Develop your skills with us" },
+      {
+        name: "Careers",
+        href: "/careers/",
+        description: "Explore exciting career opportunities",
+      },
+      {
+        name: "Training Programs",
+        href: "/training/",
+        description: "Develop your skills with us",
+      },
     ],
   },
 ];
 
 // Contact categories for mega menu
-const contactCategories = [  {
+const contactCategories = [
+  {
     title: "Get In Touch",
     icon: "◯",
     color: "bg-red-50 border-red-200 text-red-700",
     hoverColor: "hover:bg-red-100",
     links: [
-      { name: "Contact Us", href: "/contact-us/", description: "Get in touch with our team" },
-      { name: "Project Enquiry", href: "/enquiry/", description: "Start your project with us" },
-      { name: "Support", href: "/support/", description: "Get help when you need it" },
+      {
+        name: "Contact Us",
+        href: "/contact-us/",
+        description: "Get in touch with our team",
+      },
+      {
+        name: "Project Enquiry",
+        href: "/enquiry/",
+        description: "Start your project with us",
+      },
+      {
+        name: "Support",
+        href: "/support/",
+        description: "Get help when you need it",
+      },
     ],
   },
 ];
@@ -221,8 +271,8 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -241,7 +291,7 @@ export default function Header() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       if (timeoutRef.current) {
@@ -294,7 +344,7 @@ export default function Header() {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-    
+
     setMenuOpen(false);
     setMegaMenuOpen(false);
     setActiveMegaMenu(null);
@@ -336,9 +386,13 @@ export default function Header() {
   };
 
   return (
-    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white shadow-sm'
-    }`}>
+    <header
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-white shadow-sm"
+      }`}
+    >
       <div className="!max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20">
         {/* Logo */}
         <div className="flex items-center gap-12">
@@ -349,7 +403,7 @@ export default function Header() {
               className="h-12 w-auto transition-transform hover:scale-105"
             />
           </a>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex gap-8 items-center">
             {navLinks.map((link) => (
@@ -374,9 +428,13 @@ export default function Header() {
                 >
                   {link.name}
                   {link.hasMegaMenu && (
-                    <FaChevronDown className={`text-xs transition-transform duration-200 ${
-                      megaMenuOpen && activeMegaMenu === link.menuType ? 'rotate-180' : ''
-                    }`} />
+                    <FaChevronDown
+                      className={`text-xs transition-transform duration-200 ${
+                        megaMenuOpen && activeMegaMenu === link.menuType
+                          ? "rotate-180"
+                          : ""
+                      }`}
+                    />
                   )}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#9a0c28] transition-all duration-300 group-hover:w-full"></span>
                 </a>
@@ -387,16 +445,18 @@ export default function Header() {
 
         {/* Desktop CTA Section */}
         <div className="hidden lg:flex items-center gap-6">
-          <a 
-            href="tel:+91-630-392-1512" 
+          <a
+            href="tel:+91-630-392-1512"
             className="flex items-center gap-2 text-gray-700 hover:text-[#9a0c28] transition-all duration-200 font-medium group"
           >
             <div className="p-2 rounded-full bg-[#9a0c28]/10 group-hover:bg-[#9a0c28] transition-all duration-200">
               <FaPhoneAlt className="text-[#9a0c28] group-hover:text-white text-sm" />
             </div>
-            <span className="group-hover:scale-105 transition-transform">+91-630-392-1512</span>
+            <span className="group-hover:scale-105 transition-transform">
+              +91-630-392-1512
+            </span>
           </a>
-          
+
           <a href="/contact-us/">
             <button className="bg-[#9a0c28] hover:bg-[#c4102e] text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 relative overflow-hidden group">
               <span className="relative z-10 flex items-center gap-2">
@@ -450,7 +510,9 @@ export default function Header() {
                       <div
                         key={`mobile-${category.title}-${categoryIndex}`}
                         className="space-y-2"
-                      >                        <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
+                      >
+                        {" "}
+                        <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
                           <span className="text-lg">{category.icon}</span>
                           {category.title}
                         </h3>
@@ -459,7 +521,9 @@ export default function Header() {
                             // Render columned layout for Digital Marketing
                             category.columns.map((column, columnIndex) => (
                               <div key={columnIndex} className="space-y-2">
-                                <h4 className="font-medium text-sm text-gray-800">{column.heading}</h4>
+                                <h4 className="font-medium text-sm text-gray-800">
+                                  {column.heading}
+                                </h4>
                                 <div className="space-y-1">
                                   {column.links.map((link, linkIndex) => (
                                     <a
@@ -500,8 +564,8 @@ export default function Header() {
 
           {/* Mobile Contact Section */}
           <div className="pt-4 border-t space-y-3">
-            <a 
-              href="tel:+91-630-392-1512" 
+            <a
+              href="tel:+91-630-392-1512"
               className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
             >
               <div className="p-2 rounded-full bg-[#9a0c28]/10">
@@ -509,9 +573,12 @@ export default function Header() {
               </div>
               <span className="font-medium">+91-630-392-1512</span>
             </a>
-            
+
             <a href="/contact-us/" className="block">
-              <button className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold" onClick={handleLinkClick}>
+              <button
+                className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold"
+                onClick={handleLinkClick}
+              >
                 <span className="flex items-center justify-center gap-2">
                   Connect
                   <FaArrowRight className="text-xs" />
@@ -521,7 +588,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      
+
       {/* Desktop Mega Menu with Tabs */}
       {megaMenuOpen && activeMegaMenu && (
         <div
@@ -542,22 +609,32 @@ export default function Header() {
                       className={`w-full text-left p-4 rounded-xl transition-all duration-200 border-2 ${
                         activeTab === index
                           ? `${category.color} border-current shadow-sm`
-                          : 'bg-white border-gray-100 hover:bg-gray-50 hover:border-gray-200'
+                          : "bg-white border-gray-100 hover:bg-gray-50 hover:border-gray-200"
                       }`}
                       onClick={() => setActiveTab(index)}
                       onMouseEnter={() => setActiveTab(index)}
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{category.icon}</span>
-                        <div>                          <h3 className={`font-semibold text-base ${
-                            activeTab === index ? 'text-current' : 'text-gray-900'
-                          }`}>
+                        <div>
+                          {" "}
+                          <h3
+                            className={`font-semibold text-base ${
+                              activeTab === index
+                                ? "text-current"
+                                : "text-gray-900"
+                            }`}
+                          >
                             {category.title}
                           </h3>
                           <p className="text-xs text-gray-500 mt-1">
-                            {category.columns 
-                              ? category.columns.reduce((total, col) => total + col.links.length, 0)
-                              : category.links.length} services
+                            {category.columns
+                              ? category.columns.reduce(
+                                  (total, col) => total + col.links.length,
+                                  0
+                                )
+                              : category.links.length}{" "}
+                            services
                           </p>
                         </div>
                       </div>
@@ -580,65 +657,73 @@ export default function Header() {
                         </h2>
                       </div>
                       <p className="text-gray-600">
-                        Explore our comprehensive {getCurrentMegaMenuData()[activeTab].title.toLowerCase()} solutions
+                        Explore our comprehensive{" "}
+                        {getCurrentMegaMenuData()[
+                          activeTab
+                        ].title.toLowerCase()}{" "}
+                        solutions
                       </p>
-                    </div>                    <div className="grid grid-cols-3 gap-6">
-                      {getCurrentMegaMenuData()[activeTab].columns ? (
-                        // Render columned layout for Digital Marketing
-                        getCurrentMegaMenuData()[activeTab].columns.map((column, columnIndex) => (
-                          <div key={columnIndex} className="space-y-4">
-                            <h3 className="font-semibold text-gray-900 mb-4">{column.heading}</h3>
-                            {column.links.map((link, linkIndex) => (
-                              <a
-                                key={link.name}
-                                href={link.href || "#"}
-                                className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
-                                onClick={handleLinkClick}
-                              >
-                                <div className="space-y-2">
-                                  <div className="flex items-start justify-between">
-                                    <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
-                                      {link.name}
-                                    </h4>
-                                    <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                    </div>{" "}
+                    <div className="grid grid-cols-3 gap-6">
+                      {getCurrentMegaMenuData()[activeTab].columns
+                        ? // Render columned layout for Digital Marketing
+                          getCurrentMegaMenuData()[activeTab].columns.map(
+                            (column, columnIndex) => (
+                              <div key={columnIndex} className="space-y-4">
+                                <h3 className="font-semibold text-gray-900 mb-4">
+                                  {column.heading}
+                                </h3>
+                                {column.links.map((link, linkIndex) => (
+                                  <a
+                                    key={link.name}
+                                    href={link.href || "#"}
+                                    className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
+                                    onClick={handleLinkClick}
+                                  >
+                                    <div className="space-y-2">
+                                      <div className="flex items-start justify-between">
+                                        <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
+                                          {link.name}
+                                        </h4>
+                                        <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                                      </div>
+                                      <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                        {link.description}
+                                      </p>
+                                    </div>
+                                  </a>
+                                ))}
+                              </div>
+                            )
+                          )
+                        : // Render regular layout for other categories
+                          chunksOf3(
+                            getCurrentMegaMenuData()[activeTab].links
+                          ).map((chunk, chunkIndex) => (
+                            <div key={chunkIndex} className="space-y-4">
+                              {chunk.map((link, linkIndex) => (
+                                <a
+                                  key={link.name}
+                                  href={link.href || "#"}
+                                  className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
+                                  onClick={handleLinkClick}
+                                >
+                                  <div className="space-y-2">
+                                    <div className="flex items-start justify-between">
+                                      <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
+                                        {link.name}
+                                      </h4>
+                                      <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                                    </div>
+                                    <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                      {link.description}
+                                    </p>
                                   </div>
-                                  <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
-                                    {link.description}
-                                  </p>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-                        ))
-                      ) : (
-                        // Render regular layout for other categories
-                        chunksOf3(getCurrentMegaMenuData()[activeTab].links).map((chunk, chunkIndex) => (
-                          <div key={chunkIndex} className="space-y-4">
-                            {chunk.map((link, linkIndex) => (
-                              <a
-                                key={link.name}
-                                href={link.href || "#"}
-                                className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
-                                onClick={handleLinkClick}
-                              >
-                                <div className="space-y-2">
-                                  <div className="flex items-start justify-between">
-                                    <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
-                                      {link.name}
-                                    </h4>
-                                    <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
-                                  </div>
-                                  <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
-                                    {link.description}
-                                  </p>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-                        ))
-                      )}
+                                </a>
+                              ))}
+                            </div>
+                          ))}
                     </div>
-
                     {/* Call to Action at the bottom */}
                     <div className="mt-8 pt-6 border-t border-gray-200">
                       <div className="flex items-center justify-between">

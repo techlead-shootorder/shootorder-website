@@ -1,203 +1,116 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React, { useState, useEffect } from "react";
 
 const getPlaceholderImage = (heading) => {
   const keywords = encodeURIComponent(heading.toLowerCase().replace(/\s+/g, '-'));
-  // Use different placeholder services randomly for variety
-  const placeholders = [
-    `https://source.unsplash.com/1600x900/?${keywords}`,
-    `https://picsum.photos/1600/900?random=${Math.random()}`,
-    `https://images.unsplash.com/photo-1${Math.floor(Math.random() * 1000)}?w=1600&h=900&fit=crop`
-  ];
-  return placeholders[Math.floor(Math.random() * placeholders.length)];
+  return `https://source.unsplash.com/600x400/?${keywords}`;
 };
 
 function ProcessCovered({ services }) {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    let ctx;
-    let triggers = [];
-
-    const initAnimations = () => {
-      gsap.registerPlugin(ScrollTrigger);
-      
-      ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "+=100%",
-            pin: true,
-            scrub: 1,
-            snap: {
-              snapTo: 1 / (services.features.length - 1),
-              duration: { min: 0.1, max: 0.3 },
-              delay: 0,
-            },
-          }
-        });
-
-        // Initialize slides
-        services?.features?.forEach((_, index) => {
-          const slide = document.querySelector(`[data-slide="${index}"]`);
-          if (!slide) return;
-          
-          const bgImage = slide.querySelector('[data-bg-image]');
-          
-          gsap.set(slide, {
-            xPercent: index === 0 ? 0 : 100,
-            opacity: index === 0 ? 1 : 0,
-            visibility: index === 0 ? "visible" : "hidden"
-          });
-
-          if (bgImage) {
-            // Set initial opacity for background images
-            gsap.set(bgImage, { 
-              opacity: index === 0 ? 0.8 : 0 // First image visible, others hidden initially
-            });
-          }
-        });
-
-        // Animate through slides
-        services?.features?.forEach((_, index) => {
-          if (index < services.features.length - 1) {
-            const currentSlide = document.querySelector(`[data-slide="${index}"]`);
-            const nextSlide = document.querySelector(`[data-slide="${index + 1}"]`);
-            if (!currentSlide || !nextSlide) return;
-
-            const currentBg = currentSlide.querySelector('[data-bg-image]');
-            const nextBg = nextSlide.querySelector('[data-bg-image]');
-
-            // Add animations to timeline
-            if (currentSlide && nextSlide) {
-              tl.to(currentSlide, {
-                xPercent: -100,
-                opacity: 0,
-                duration: 1,
-                ease: "power2.inOut"
-              }, index);
-
-              tl.fromTo(nextSlide, 
-                { xPercent: 100, opacity: 0, visibility: "visible" },
-                { xPercent: 0, opacity: 1, duration: 1, ease: "power2.inOut" },
-                index
-              );
-
-              if (currentBg && nextBg) {
-                tl.to(currentBg, {
-                  opacity: 0,
-                  duration: 0.5
-                }, index);
-
-                tl.fromTo(nextBg,
-                  { opacity: 0 },
-                  { opacity: 0.8, duration: 0.5 }, // Increased opacity to 0.8 for better visibility
-                  index
-                );
-              }
-            }
-          }
-        });
-
-        // Store ScrollTrigger instances
-        triggers = ScrollTrigger.getAll();
-      }, sectionRef);
-    };
-
-    const timer = setTimeout(initAnimations, 100);
-
-    return () => {
-      clearTimeout(timer);
-      triggers.forEach(trigger => trigger.kill());
-      ctx && ctx.revert();
-    };
-  }, [services]);
+    setIsVisible(true);
+  }, []);
 
   if (!services?.features) return null;
 
   return (
-    <div ref={sectionRef} className="h-[100vh] ">
-      <div className="sticky top-0 h-screen overflow-hidden bg-white ">
-        {services.features.map((service, index) => (
-          <div
-            key={index}
-            data-slide={index}
-            className="absolute inset-0 flex items-start pointer-events-none"
-            style={{ visibility: index === 0 ? "visible" : "hidden" }}
-          >
-            {/* Background Image with fallback */}
-            <div 
-              data-bg-image
-              className="absolute inset-0 w-full h-full transition-transform duration-1000"
-              style={{
-                backgroundImage: `url(${service.imageUrl || getPlaceholderImage(service.heading)})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                opacity: index === 0 ? 0.8 : 0 // Set initial opacity for first image
-              }}
+    <div className="min-h-screen bg-white py-20 px-6">
+      <div className="!max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className="text-center font-bold text-4xl mb-4">
+            Our Services
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Discover what we can do for you
+          </p>
+        </div>
+
+        {/* Awesome Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.features.map((service, index) => (
+            <div
+              key={index}
+              className={`group transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Fallback if image fails to load */}
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-[#9a0c28]/5 to-transparent opacity-50"
-                style={{ 
-                  backgroundSize: '200% 200%',
-                  animation: 'gradient 15s ease infinite'
-                }}
-              />
-            </div>
+              {/* Card */}
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-gray-200 hover:-translate-y-2">
+                
+                {/* Image Container */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={service.imageUrl || getPlaceholderImage(service.heading)}
+                    alt={service.heading}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    onError={(e) => {
+                      e.target.src = `https://picsum.photos/600/400?random=${index + 10}`;
+                    }}
+                  />
+                  
+                  {/* Subtle overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+                  
+                  {/* Number badge */}
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-[#9a0c28] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                    {index + 1}
+                  </div>
+                </div>
 
-            {/* Gradient Overlay - reduced opacity to show more of the background image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/20 z-10" />
-
-            <div className="w-full px-8 relative pt-[200px]">
-              {/* Background heading */}
-              <h2
-                data-heading
-                className="text-[15vw] font-bold text-[#9a0c28]/5 leading-none absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none"
-                style={{
-                  WebkitTextStroke: "1px rgba(154, 12, 40, 0.1)",
-                  top: "150px" // Position the background heading
-                }}
-              >
-                {service.heading}
-              </h2>
-
-              {/* Content section */}
-              <div
-                data-content
-                className="relative z-10 max-w-xl ml-[19.5%] text-left pointer-events-auto w-1/3"
-              >
-                <h3 className="text-5xl font-bold text-[#9a0c28] mb-6">
-                  {service.heading}
-                </h3>
-                <p className="text-gray-700 text-xl mb-8 leading-relaxed">
-                  {service.content}
-                </p>
-                <button className="bg-[#9a0c28] text-white px-8 py-4 rounded-lg hover:bg-[#7a0920] transition-colors text-lg">
-                  Learn More →
-                </button>
+                {/* Content */}
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#9a0c28] transition-colors duration-300">
+                    {service.heading}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+                    {service.content}
+                  </p>
+                  
+                  {/* Learn More Button - Smaller Size */}
+                  <button className="inline-flex items-center gap-2 bg-[#9a0c28] text-white px-6 py-2.5 rounded-lg hover:bg-[#7a0920] transition-all duration-300 text-sm font-medium group/btn">
+                    <span>Learn More</span>
+                    <svg 
+                      className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Optional: Add more services link */}
+        <div className={`text-center mt-16 transition-all duration-800 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <button className="inline-flex items-center gap-2 text-[#9a0c28] hover:text-[#7a0920] font-medium text-lg transition-colors duration-300 group">
+            <span>View All Services</span>
+            <svg 
+              className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Progress bar - moved up from bottom */}
-      {/* <div className="fixed bottom-8 left-0 right-0 h-1 bg-[#9a0c28]/10 z-50">
-        <div
-          className="h-full bg-[#9a0c28]"
-          ref={headingRef}
-          style={{
-            width: `${(1 / services.features.length) * 100}%`,
-            transition: "transform 0.3s ease-out",
-          }}
-        />
-      </div> */}
+      <style jsx>{`
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      `}</style>
     </div>
   );
 }

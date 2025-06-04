@@ -148,21 +148,15 @@ export default function CombinedServiceFlow() {
 
         {/* Tab Content - Mobile Optimized */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8">
-          {/* Left Column */}
+          {/* Left Column - Simplified Image */}
           <div className="lg:col-span-5">
             {activeTab === "Digital Marketing" ? (
-              <div className="space-y-8">
-                <div className="relative group w-full">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 to-blue-500/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                    <img
-                      src="/images/services/service-flow2.png"
-                      alt="Service Flow"
-                      className="w-full h-auto object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-                  </div>
-                </div>
+              <div className="h-full flex items-stretch">
+                <img
+                  src="/images/services/service-flow2.png"
+                  alt="Service Flow"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             ) : null}
           </div>
