@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "export": "next build",
+    "static": "next build && node generate-sitemap.js",
+    "deploy-prep": "npm run static && echo 'Ready to upload out/ folder'"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.13",
