@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function ContactForm() {
+export default function ContactForm({colorClass}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -99,8 +99,8 @@ export default function ContactForm() {
   return (
     <div className="py-16">
       <div className="w-full !max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-semibold mb-2">Contact Us</h2>
-        <p className="text-lg mb-8">
+        <h2 className={`text-3xl font-semibold mb-2 ${colorClass? 'text-white':'text-black'}`}>Contact Us</h2>
+        <p className={`text-lg mb-8 ${colorClass? 'text-white':'text-black'}`}>
           Fill in the form below to get in touch with our representative.
         </p>
 

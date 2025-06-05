@@ -36,7 +36,7 @@ export default function ContactUs() {
       <div className="!max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-6 my-12 rounded-3xl border p-4 md:p-4">
           {/* Left Section - Info */}
-          <div className="bg-[#F94839] rounded-3xl p-6 md:p-10">
+          <div className="bg-[#9a0c28] rounded-3xl p-6 md:p-10">
             <h3 className="font-semibold text-white text-lg mb-2">
               Contact Information
             </h3>
@@ -66,13 +66,13 @@ export default function ContactUs() {
 
             <div className="mt-6">
               <p className="text-white font-semibold mb-2">We are on Socials</p>
-              <div className="flex items-center justify-start gap-6 text-white text-lg">
-                <FaFacebookF />
-                <FaTwitter />
-                <FaPinterest />
-                <BsDribbble />
-                <BsBehance />
-                <BsLinkedin />
+              <div className="flex items-center justify-start gap-6 text-white text-lg ">
+                <FaFacebookF className="cursor-pointer" />
+                <FaTwitter className="cursor-pointer" />
+                <FaPinterest className="cursor-pointer" />
+                <BsDribbble className="cursor-pointer" />
+                <BsBehance className="cursor-pointer" />
+                <BsLinkedin className="cursor-pointer" />
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default function ContactUs() {
                   <input
                     type="radio"
                     name="regarding"
-                    className="accent-orange-700"
+                    className="bg-[#9a0c28] "
                   />{" "}
                   {item}
                 </label>
@@ -120,12 +120,9 @@ export default function ContactUs() {
               className="mt-6"
             />
             <div className="flex items-center justify-end">
-              <Button
-                className="mt-8 md:block  rounded-full px-12 py-2"
-                variant="default"
-              >
+              <button className="mt-8 md:block  rounded-full px-12 py-2 bg-[#9a0c28] text-white">
                 Send Message
-              </Button>
+              </button>
             </div>
           </div>
         </div>
