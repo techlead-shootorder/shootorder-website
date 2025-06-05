@@ -531,48 +531,47 @@ export default function Header() {
           aria-label="Toggle Menu"
         >          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
-            menuOpen ? "visible" : "invisible"
+      </div>      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 z-[100] lg:hidden ${
+          menuOpen ? "visible" : "invisible"
+        }`}
+        ref={menuRef}
+      >
+        {/* Backdrop */}
+        <div 
+          className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
+            menuOpen ? "opacity-100" : "opacity-0"
           }`}
-            ref={menuRef}
-          >
-            {/* Backdrop */}
-            <div 
-              className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
-                menuOpen ? "opacity-100" : "opacity-0"
-              }`}
-              onClick={() => setMenuOpen(false)}
-              aria-hidden="true"
-            />
-            
-            {/* Menu Content */}
-            <div 
-              className={`absolute inset-y-0 right-0 w-[85%] max-w-sm bg-white h-full transform transition-transform duration-300 ease-out shadow-xl ${
-                menuOpen ? "translate-x-0" : "translate-x-full"
-              }`}
-              role="dialog"
-              aria-modal="true"
-              aria-label="Main Menu"
-            >
-              <div className="relative z-50 h-full overflow-y-auto flex flex-col">
-                {/* User Section */}
-                <div className="p-6 bg-gray-50 border-b">
-                  <a href="/login" className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#9a0c28]/10 flex items-center justify-center">
-                      <img 
-                        src="/images/logo/avatar.svg" 
-                        alt="User" 
-                        className="w-6 h-6"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Get Started</h3>
-                      <p className="text-sm text-gray-600">Sign in to ShootOrder</p>
-                    </div>
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+        
+        {/* Menu Content */}
+        <div 
+          className={`fixed inset-y-0 right-0 w-[85%] max-w-sm bg-white shadow-xl transform transition-all duration-300 ease-out ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Main Menu"
+        ><div className="relative z-50 h-full overflow-y-auto flex flex-col">
+                {/* Logo Section */}
+                <div className="p-4 bg-white border-b flex items-center justify-between">
+                  <a href="/" className="inline-block">
+                    <img
+                      src="/images/logo/shootorder-logo.svg"
+                      alt="ShootOrder"
+                      className="h-10 w-auto"
+                    />
                   </a>
+                  <button
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    onClick={() => setMenuOpen(false)}
+                    aria-label="Close Menu"
+                  >
+                    <FaTimes size={20} className="text-gray-700" />
+                  </button>
                 </div>
 
                 {/* Menu Items */}
