@@ -19,13 +19,14 @@ export default function PartnerCarousel() {
     slides: { perView: 3, spacing: 12 },
   });
 
-  const partnerLogos = Array.from(
-    { length: 14 },
-    (_, i) => `/images/logo/${i + 1}.jpg`
-  );
+  // Full list from 1 to 14, excluding 1, 2, 5, 8, 10, 11, and 14
+  const excludedIndexes = [1, 2, 5, 8, 10, 11, 14];
+  const partnerLogos = Array.from({ length: 14 }, (_, i) => i + 1)
+    .filter((num) => !excludedIndexes.includes(num))
+    .map((num) => `/images/logo/${num}.jpg`);
 
   return (
-    <div className="relative max-w-7xl mx-auto py-16">
+    <div className="relative !max-w-7xl mx-auto py-16">
       <h2 className="text-2xl font-bold text-center mb-8">Our Partners</h2>
 
       {/* Left Arrow */}
@@ -43,7 +44,7 @@ export default function PartnerCarousel() {
             key={index}
             className="keen-slider__slide flex justify-center items-center"
           >
-            <div className=" p-4 rounded-md  w-full flex justify-center items-center">
+            <div className="p-4 rounded-md w-full flex justify-center items-center">
               <Image
                 src={logo}
                 alt={`Partner ${index + 1}`}

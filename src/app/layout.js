@@ -12,9 +12,9 @@ const ptSans = PT_Sans({
 
 export const metadata = {
   title:
-    "Top 3% Digital Marketing Agency in India, #1 in Hyderabad - ShootOrder®",
+    "Top 3% Digital Marketing Agency in USA, #1  - ShootOrder®",
   description:
-    "ShootOrder is one of the globally awarded digital marketing agency in Hyderabad, India. We are amongst the top ranked digital marketing companies with 300+ clients across the globe driving best results in digital marketing services like SEO, PPC, Content Marketing & Social Media.",
+    "ShootOrder is one of the globally awarded digital marketing agency , USA. We are amongst the top ranked digital marketing companies with 300+ clients across the globe driving best results in digital marketing services like SEO, PPC, Content Marketing & Social Media.",
   icons: {
     icon: "/images/favicon.ico",
     shortcut: "/images/favicon.ico",

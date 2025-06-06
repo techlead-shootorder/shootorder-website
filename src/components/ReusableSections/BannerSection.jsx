@@ -2,8 +2,13 @@ import React from 'react';
 
 const BannerSection = ({ children }) => {
   return (
-    <section className=" pt-24 pb-16 px-4 md:px-16 ">
-      <div className="!max-w-7xl bg-[#fff5f4] mx-auto text-center rounded-4xl">
+    <section
+      className="pt-48 pb-24 px-4 md:px-16 bg-cover bg-center bg-no-repeat rounded-3xl"
+      style={{
+        backgroundImage: "url('/images/background/home-bg2.png')", // <-- your banner image path
+      }}
+    >
+      <div className="w-full max-w-screen-2xl mx-auto text-end  rounded-3xl p-6 md:p-12 shadow-lg">
         {children}
       </div>
     </section>

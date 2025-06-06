@@ -66,7 +66,7 @@ const servicesData = {
       href: "/influencers-marketing",
     },
   ],
-  "Growth Solutions": [
+  "Growth Hacking": [
     {
       title: "Growth Hacking",
       desc: "Innovative strategies for rapid and sustainable growth.",
@@ -101,17 +101,17 @@ const servicesData = {
 const tabDescriptions = {
   Branding: "Build a strong brand identity",
   "Digital Marketing": "Drive growth through digital channels",
-  "Growth Solutions": "Scale and optimize your business",
+  "Growth Hacking": "Scale and optimize your business",
 };
 
 const tabIcons = {
   Branding: Target,
   "Digital Marketing": Users,
-  "Growth Solutions": Heart,
+  "Growth Hacking": Heart,
 };
 
 export default function CombinedServiceFlow() {
-  const categories = ["Branding", "Digital Marketing", "Growth Solutions"];
+  const categories = ["Branding", "Digital Marketing", "Growth Hacking"];
   const [activeTab, setActiveTab] = useState(categories[0]);
 
   const handleImageError = (e) => {
@@ -221,11 +221,11 @@ export default function CombinedServiceFlow() {
         </div>
 
         {/* Mobile-Optimized CTA */}
-        <div className="text-center mt-8 md:mt-12">
+        {/* <div className="text-center mt-8 md:mt-12">
           <button className="w-full md:w-auto bg-[#9a0c28] hover:bg-[#7a0920] text-white px-6 py-3.5 md:py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-base md:text-lg">
             Explore All Services
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

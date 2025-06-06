@@ -35,6 +35,11 @@ const serviceCategories = [
             href: "/web-design",
             description: "High-performance, responsive websites",
           },
+          {
+            name: "Social Media Marketing",
+            href: "/social-media-marketing",
+            description: "Build your social media presence",
+          },
         ],
       },
       {
@@ -85,7 +90,7 @@ const serviceCategories = [
         description: "Evaluate your brand's performance and positioning",
       },
       {
-        name: "Messaging & Tone",
+        name: "Brand Messaging & Tone of Voice",
         href: "/branding/messaging",
         description: "Develop your authentic brand voice",
       },
@@ -95,7 +100,7 @@ const serviceCategories = [
         description: "Stunning visual brand assets and materials",
       },
       {
-        name: "Brand Campaigns",
+        name: "Brand Launch & Campaigns",
         href: "/branding/campaigns",
         description: "Launch your brand with impact",
       },
@@ -109,33 +114,19 @@ const serviceCategories = [
       {
         name: "Landing Pages",
         href: "/landing-pages",
-        description: "Quality leads that convert",
+        description:
+          "High-converting landing pages that generate quality leads",
       },
       {
         name: "On-site Engagement",
-        href: "/On-site-engagement",
-        description: "Data-driven growth strategies",
+        href: "/on-site-engagement",
+        description: "Optimize user experience and engagement",
       },
       {
-        name: "Online Reputation Management",
+        name: "Online Reputation Management (ORM)",
         href: "/orm",
         description: "Protect and enhance your online reputation",
       },
-      // {
-      //   name: "Marketing Automation",
-      //   href: "/marketing-automation",
-      //   description: "Streamline and scale your marketing",
-      // },
-      // {
-      //   name: "Lead Generation",
-      //   href: "/lead-generation",
-      //   description: "",
-      // },
-      // {
-      //   name: "Conversion Optimization",
-      //   href: "/conversion-optimization",
-      //   description: "Maximize your conversion rates",
-      // },
     ],
   },
   {
@@ -143,25 +134,15 @@ const serviceCategories = [
     color: "bg-orange-50 border-orange-200 text-orange-700",
     hoverColor: "hover:bg-orange-100",
     links: [
-      // {
-      //   name: "Online Reputation Management",
-      //   href: "/orm",
-      //   description: "Protect and enhance your online reputation"
-      // },
       {
-        name: "Data Analytics & Dashboard",
-        href: "/analytics",
-        description: "Advanced analytics and reporting tools",
+        name: "Data Analytics & Dashboards",
+        href: "/analytics-dashboards",
+        description: "Advanced analytics and comprehensive reporting tools",
       },
-      // {
-      //   name: "Performance Tracking",
-      //   href: "/performance-tracking",
-      //   description: "Monitor and optimize campaign performance",
-      // },
       {
-        name: "Smart Analysis",
-        href: "/smart-analysis",
-        description: "Stay ahead of the competition",
+        name: "Smart Analytics",
+        href: "/smart-analytics",
+        description: "AI-powered insights to stay ahead of competition",
       },
     ],
   },
@@ -198,7 +179,6 @@ const companyCategories = [
   },
   {
     title: "Join Our Team",
-    icon: "◆",
     color: "bg-teal-50 border-teal-200 text-teal-700",
     hoverColor: "hover:bg-teal-100",
     links: [
@@ -216,11 +196,10 @@ const companyCategories = [
   },
 ];
 
-// Contact categories for mega menu
+// Contact categories for mega menu with icons
 const contactCategories = [
   {
     title: "Get In Touch",
-    icon: "◯",
     color: "bg-red-50 border-red-200 text-red-700",
     hoverColor: "hover:bg-red-100",
     links: [
@@ -228,16 +207,19 @@ const contactCategories = [
         name: "Contact Us",
         href: "/contact-us/",
         description: "Get in touch with our team",
+        icon: "",
       },
       {
         name: "Project Enquiry",
         href: "/enquiry/",
         description: "Start your project with us",
+        icon: "",
       },
       {
         name: "Support",
         href: "/support/",
         description: "Get help when you need it",
+        icon: "",
       },
     ],
   },
@@ -251,9 +233,9 @@ const navLinks = [
     hasMegaMenu: true,
     menuType: "services",
   },
-  { name: "Company", href: "/company", hasMegaMenu: true, menuType: "company" },
+  { name: "Company", href: "#", hasMegaMenu: true, menuType: "company" },
   { name: "Blogs", href: "/blogs" },
-  { name: "Contact", href: "/contact", hasMegaMenu: true, menuType: "contact" },
+  { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
 ];
 
 export default function Header() {
@@ -275,12 +257,12 @@ export default function Header() {
     if (!menuOpen) return;
 
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setMenuOpen(false);
         return;
       }
 
-      if (e.key !== 'Tab') return;
+      if (e.key !== "Tab") return;
 
       if (!firstFocusableRef.current || !lastFocusableRef.current) return;
 
@@ -303,22 +285,23 @@ export default function Header() {
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
 
     // Focus first element when menu opens
     firstFocusableRef.current?.focus();
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
 
+  // Fixed toggleCategory function
   const toggleCategory = (categoryTitle) => {
-    setExpandedCategories(prev => ({
+    setExpandedCategories((prev) => ({
       ...prev,
-      [categoryTitle]: !prev[categoryTitle]
+      [categoryTitle]: !prev[categoryTitle],
     }));
   };
 
@@ -405,6 +388,7 @@ export default function Header() {
     setMegaMenuOpen(false);
     setActiveMegaMenu(null);
     setActiveTab(0);
+    setExpandedCategories({}); // Reset expanded categories
   };
 
   const getCurrentMegaMenuData = () => {
@@ -439,6 +423,16 @@ export default function Header() {
       chunks.push(array.slice(i, i + 3));
     }
     return chunks;
+  };
+
+  // Fixed mobile menu item click handler
+  const handleMobileMenuClick = (e, link) => {
+    if (link.hasMegaMenu) {
+      e.preventDefault();
+      toggleCategory(link.menuType);
+    } else {
+      handleLinkClick();
+    }
   };
 
   return (
@@ -502,20 +496,20 @@ export default function Header() {
         {/* Desktop CTA Section */}
         <div className="hidden lg:flex items-center gap-6">
           <a
-            href="tel:+91-630-392-1512"
+            href="tel:1-855-217-4637"
             className="flex items-center gap-2 text-gray-700 hover:text-[#9a0c28] transition-all duration-200 font-medium group"
           >
             <div className="p-2 rounded-full bg-[#9a0c28]/10 group-hover:bg-[#9a0c28] transition-all duration-200">
               <FaPhoneAlt className="text-[#9a0c28] group-hover:text-white text-sm" />
             </div>
             <span className="group-hover:scale-105 transition-transform">
-              +91-630-392-1512
+              1-855-217-4637
             </span>
           </a>
 
           <a href="/contact-us/">
             <button className="bg-[#9a0c28] hover:bg-[#c4102e] text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 relative overflow-hidden group">
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-2 cursor-pointer">
                 Connect
                 <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
               </span>
@@ -529,144 +523,154 @@ export default function Header() {
           className="lg:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
-        >          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+        >
+          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
-      </div>      {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 z-[100] lg:hidden ${
-          menuOpen ? "visible" : "invisible"
+      </div>
+
+      {/* Debug Info - Remove this in production */}
+      {/* <div className="lg:hidden fixed top-20 left-0 right-0 bg-yellow-100 text-xs p-2 z-[99]">
+        Menu: {menuOpen ? "OPEN" : "CLOSED"} | Expanded:{" "}
+        {JSON.stringify(expandedCategories)}
+      </div> */}
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-[100] lg:hidden transition-all duration-300 ${
+          menuOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
         ref={menuRef}
       >
         {/* Backdrop */}
-        <div 
+        <div
           className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-300 ${
             menuOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setMenuOpen(false)}
           aria-hidden="true"
         />
-        
+
         {/* Menu Content */}
-        <div 
-          className={`fixed inset-y-0 right-0 w-[85%] max-w-sm bg-white shadow-xl transform transition-all duration-300 ease-out ${
+        <div
+          className={`fixed  right-0 z-50 w-[85%] max-w-sm bg-white shadow-xl transform transition-all duration-300 ease-out h-224 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           role="dialog"
           aria-modal="true"
           aria-label="Main Menu"
-        ><div className="relative z-50 h-full overflow-y-auto flex flex-col">
-                {/* Logo Section */}
-                <div className="p-4 bg-white border-b flex items-center justify-between">
-                  <a href="/" className="inline-block">
-                    <img
-                      src="/images/logo/shootorder-logo.svg"
-                      alt="ShootOrder"
-                      className="h-10 w-auto"
-                    />
-                  </a>
+        >
+          <div className="relative z-50 h-full overflow-y-auto flex flex-col">
+            {/* Logo Section */}
+            <div className="p-4 bg-white border-b flex items-center justify-between">
+              <a href="/" className="inline-block">
+                <img
+                  src="/images/logo/shootorder-logo.svg"
+                  alt="ShootOrder"
+                  className="h-10 w-auto"
+                />
+              </a>
+              <button
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close Menu"
+              >
+                <FaTimes size={20} className="text-gray-700" />
+              </button>
+            </div>
+
+            {/* Menu Items */}
+            <nav className="flex-1 p-4 space-y-2">
+              {navLinks.map((link, linkIndex) => (
+                <div
+                  key={`mobile-${link.name}-${linkIndex}`}
+                  className="space-y-2"
+                >
+                  {/* Main Menu Item */}
                   <button
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                    onClick={() => setMenuOpen(false)}
-                    aria-label="Close Menu"
+                    className="w-full text-left py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
+                    onClick={(e) => handleMobileMenuClick(e, link)}
                   >
-                    <FaTimes size={20} className="text-gray-700" />
-                  </button>
-                </div>
-
-                {/* Menu Items */}
-                <nav className="flex-1 p-4 space-y-2">
-                  {navLinks.map((link, linkIndex) => (
-                    <div key={`mobile-${link.name}-${linkIndex}`} className="space-y-2">
-                      <a
-                        href={link.href || "#"}
-                        className="block py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
-                        onClick={() => {
-                          if (link.hasMegaMenu) {
-                            toggleCategory(link.menuType);
-                          } else {
-                            handleLinkClick();
-                          }
-                        }}
-                      >
-                        <div className="flex items-center justify-between">
-                          {link.name}
-                          {link.hasMegaMenu && (
-                            <FaChevronDown 
-                              className={`text-[#9a0c28] text-xs transition-transform duration-200 ${
-                                expandedCategories[link.menuType] ? 'rotate-180' : ''
-                              }`} 
-                            />
-                          )}
-                        </div>
-                      </a>
-
-                      {/* Mobile Submenu with Accordion */}
+                    <div className="flex items-center justify-between">
+                      {link.name}
                       {link.hasMegaMenu && (
-                        <div 
-                          className={`bg-gray-50/80 rounded-lg overflow-hidden ml-4 transition-all duration-200 ${
-                            expandedCategories[link.menuType] ? 'block' : 'hidden'
+                        <FaChevronDown
+                          className={`text-[#9a0c28] text-xs transition-transform duration-200 ${
+                            expandedCategories[link.menuType]
+                              ? "rotate-180"
+                              : ""
                           }`}
-                        >
-                          {getMobileMenuData(link.menuType).map((category, categoryIndex) => (
-                            <div
-                              key={`mobile-${category.title}-${categoryIndex}`}
-                              className="border-b border-gray-200 last:border-none"
+                        />
+                      )}
+                    </div>
+                  </button>
+
+                  {/* Mobile Submenu with Accordion */}
+                  {link.hasMegaMenu && expandedCategories[link.menuType] && (
+                    <div className="bg-gray-50/80 rounded-lg overflow-hidden ml-4 transition-all duration-300">
+                      {getMobileMenuData(link.menuType).map(
+                        (category, categoryIndex) => (
+                          <div
+                            key={`mobile-${category.title}-${categoryIndex}`}
+                            className="border-b border-gray-200 last:border-none"
+                          >
+                            <button
+                              className={`w-full text-left ${category.color} p-4 transition-colors duration-200`}
+                              onClick={() => toggleCategory(category.title)}
+                              aria-expanded={expandedCategories[category.title]}
+                              aria-controls={`category-content-${category.title}`}
                             >
-                              <button
-                                className={`w-full ${category.color} p-4`}
-                                onClick={() => toggleCategory(category.title)}
-                                aria-expanded={expandedCategories[category.title]}
-                                aria-controls={`category-content-${category.title}`}
-                              >
-                                <h3 className="font-semibold text-sm text-gray-900 flex items-center gap-2">
-                                  <span className="text-lg">{category.icon}</span>
-                                  {category.title}
-                                  <FaChevronDown 
-                                    className={`ml-auto text-xs transform transition-transform duration-200 text-current ${
-                                      expandedCategories[category.title] ? 'rotate-180' : ''
-                                    }`} 
-                                  />
-                                </h3>
-                              </button>
-                              
-                              <div 
+                              <h3 className="font-semibold text-sm text-gray-900 flex items-center justify-between">
+                                {category.title}
+                                <FaChevronDown
+                                  className={`text-xs transform transition-transform duration-200 text-current ${
+                                    expandedCategories[category.title]
+                                      ? "rotate-180"
+                                      : ""
+                                  }`}
+                                />
+                              </h3>
+                            </button>
+
+                            {/* Category Content */}
+                            {expandedCategories[category.title] && (
+                              <div
                                 id={`category-content-${category.title}`}
-                                className={`border-t border-gray-200 overflow-hidden transition-all duration-200 ${
-                                  expandedCategories[category.title] ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                                }`}
+                                className="border-t border-gray-200 bg-white"
                               >
                                 {category.columns ? (
                                   // Columned layout for Digital Marketing
                                   <div className="p-4 space-y-4">
-                                    {category.columns.map((column, columnIndex) => (
-                                      <div key={columnIndex}>
-                                        <h4 className="font-medium text-sm text-gray-800 mb-2">
-                                          {column.heading}
-                                        </h4>
-                                        <div className="space-y-1 pl-3">
-                                          {column.links.map((link, linkIndex) => (
-                                            <a
-                                              key={`mobile-col-${link.name}-${linkIndex}`}
-                                              href={link.href || "#"}
-                                              className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200 group"
-                                              onClick={handleLinkClick}
-                                              ref={linkIndex === 0 ? firstFocusableRef : undefined}
-                                            >
-                                              <span className="flex items-center">
-                                                {link.name}
-                                                <FaArrowRight className="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200" />
-                                              </span>
-                                              {link.description && (
-                                                <span className="text-xs text-gray-500 mt-1 block">
-                                                  {link.description}
-                                                </span>
-                                              )}
-                                            </a>
-                                          ))}
+                                    {category.columns.map(
+                                      (column, columnIndex) => (
+                                        <div key={columnIndex}>
+                                          <h4 className="font-medium text-sm text-gray-800 mb-2">
+                                            {column.heading}
+                                          </h4>
+                                          <div className="space-y-1 pl-3">
+                                            {column.links.map(
+                                              (link, linkIndex) => (
+                                                <a
+                                                  key={`mobile-col-${link.name}-${linkIndex}`}
+                                                  href={link.href || "#"}
+                                                  className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-gray-50 rounded-md transition-all duration-200 group"
+                                                  onClick={handleLinkClick}
+                                                >
+                                                  <span className="flex items-center">
+                                                    {link.name}
+                                                    <FaArrowRight className="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                                                  </span>
+                                                  {link.description && (
+                                                    <span className="text-xs text-gray-500 mt-1 block">
+                                                      {link.description}
+                                                    </span>
+                                                  )}
+                                                </a>
+                                              )
+                                            )}
+                                          </div>
                                         </div>
-                                      </div>
-                                    ))}
+                                      )
+                                    )}
                                   </div>
                                 ) : (
                                   // Regular layout for other categories
@@ -675,11 +679,15 @@ export default function Header() {
                                       <a
                                         key={`mobile-${link.name}-${linkIndex}`}
                                         href={link.href || "#"}
-                                        className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-white rounded-md transition-all duration-200 group"
+                                        className="block text-gray-600 text-sm hover:text-[#9a0c28] py-2 px-3 hover:bg-gray-50 rounded-md transition-all duration-200 group"
                                         onClick={handleLinkClick}
-                                        ref={linkIndex === category.links.length - 1 ? lastFocusableRef : undefined}
                                       >
-                                        <span className="flex items-center">
+                                        <span className="flex items-center gap-2">
+                                          {link.icon && (
+                                            <span className="text-base">
+                                              {link.icon}
+                                            </span>
+                                          )}
                                           {link.name}
                                           <FaArrowRight className="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200" />
                                         </span>
@@ -693,41 +701,43 @@ export default function Header() {
                                   </div>
                                 )}
                               </div>
-                            </div>
-                          ))}
-                        </div>
+                            )}
+                          </div>
+                        )
                       )}
                     </div>
-                  ))}
-                </nav>
-
-                {/* Mobile Contact Section */}
-                <div className="mt-auto p-4 border-t space-y-3">
-                  <a
-                    href="tel:+91-630-392-1512"
-                    className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
-                  >
-                    <div className="p-2 rounded-full bg-[#9a0c28]/10">
-                      <FaPhone className="text-[#9a0c28] text-sm" />
-                    </div>
-                    <span className="font-medium">+91-630-392-1512</span>
-                  </a>
-
-                  <a href="/contact-us/" className="block">
-                    <button
-                      className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold"
-                      onClick={handleLinkClick}
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Connect
-                        <FaArrowRight className="text-xs" />
-                      </span>
-                    </button>
-                  </a>
+                  )}
                 </div>
-              </div>
+              ))}
+            </nav>
+
+            {/* Mobile Contact Section */}
+            <div className="mt-auto p-4 border-t space-y-3">
+              <a
+                href="tel:1-855-217-4637"
+                className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
+              >
+                <div className="p-2 rounded-full bg-[#9a0c28]/10">
+                  <FaPhoneAlt className="text-[#9a0c28] text-sm" />
+                </div>
+                <span className="font-medium">+1-855-217-4637</span>
+              </a>
+
+              <a href="/contact-us/" className="block">
+                <button
+                  className="w-full bg-[#9a0c28] text-white py-3 rounded-lg font-semibold"
+                  onClick={handleLinkClick}
+                >
+                  <span className="flex items-center justify-center gap-2 cursor-pointer">
+                    Connect
+                    <FaArrowRight className="text-xs" />
+                  </span>
+                </button>
+              </a>
             </div>
           </div>
+        </div>
+      </div>
 
       {/* Desktop Mega Menu with Tabs */}
       {megaMenuOpen && activeMegaMenu && (
@@ -755,9 +765,10 @@ export default function Header() {
                       onMouseEnter={() => setActiveTab(index)}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl">{category.icon}</span>
+                        {category.icon && (
+                          <span className="text-2xl">{category.icon}</span>
+                        )}
                         <div>
-                          {" "}
                           <h3
                             className={`font-semibold text-base ${
                               activeTab === index
@@ -767,15 +778,18 @@ export default function Header() {
                           >
                             {category.title}
                           </h3>
-                          <p className="text-xs text-gray-500 mt-1">
-                            {category.columns
-                              ? category.columns.reduce(
-                                  (total, col) => total + col.links.length,
-                                  0
-                                )
-                              : category.links.length}{" "}
-                            services
-                          </p>
+                          {/* Only show service count for services menu */}
+                          {activeMegaMenu === "services" && (
+                            <p className="text-xs text-gray-500 mt-1">
+                              {category.columns
+                                ? category.columns.reduce(
+                                    (total, col) => total + col.links.length,
+                                    0
+                                  )
+                                : category.links.length}{" "}
+                              services
+                            </p>
+                          )}
                         </div>
                       </div>
                     </button>
@@ -787,11 +801,14 @@ export default function Header() {
               <div className="flex-1 p-8">
                 {getCurrentMegaMenuData()[activeTab] && (
                   <div>
+                    {/* Header Section - Fixed alignment */}
                     <div className="mb-8">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-3xl">
-                          {getCurrentMegaMenuData()[activeTab].icon}
-                        </span>
+                      <div className="flex items-center gap-3 mb-3">
+                        {getCurrentMegaMenuData()[activeTab].icon && (
+                          <span className="text-3xl">
+                            {getCurrentMegaMenuData()[activeTab].icon}
+                          </span>
+                        )}
                         <h2 className="text-2xl font-bold text-gray-900">
                           {getCurrentMegaMenuData()[activeTab].title}
                         </h2>
@@ -803,40 +820,49 @@ export default function Header() {
                         ].title.toLowerCase()}{" "}
                         solutions
                       </p>
-                    </div>{" "}
-                    <div className="grid grid-cols-3 gap-6">
+                    </div>
+
+                    {/* Content Grid - Fixed alignment */}
+                    <div className="grid grid-cols-3 gap-8">
                       {getCurrentMegaMenuData()[activeTab].columns
-                        ? // Render columned layout for Digital Marketing
+                        ? // Digital Marketing with proper column headers
                           getCurrentMegaMenuData()[activeTab].columns.map(
                             (column, columnIndex) => (
-                              <div key={columnIndex} className="space-y-4">
-                                <h3 className="font-semibold text-gray-900 mb-4">
-                                  {column.heading}
-                                </h3>
-                                {column.links.map((link, linkIndex) => (
-                                  <a
-                                    key={link.name}
-                                    href={link.href || "#"}
-                                    className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
-                                    onClick={handleLinkClick}
-                                  >
-                                    <div className="space-y-2">
-                                      <div className="flex items-start justify-between">
-                                        <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
-                                          {link.name}
-                                        </h4>
-                                        <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                              <div key={columnIndex} className="space-y-6">
+                                {/* Column Header - Better styling */}
+                                <div className="border-b border-gray-200 pb-3">
+                                  <h3 className="font-bold text-lg text-gray-900 tracking-tight">
+                                    {column.heading}
+                                  </h3>
+                                </div>
+
+                                {/* Column Links */}
+                                <div className="space-y-4">
+                                  {column.links.map((link, linkIndex) => (
+                                    <a
+                                      key={link.name}
+                                      href={link.href || "#"}
+                                      className="block group hover:bg-gradient-to-r hover:from-gray-50 hover:to-transparent rounded-xl p-4 transition-all duration-300 hover:shadow-sm border border-transparent hover:border-gray-100"
+                                      onClick={handleLinkClick}
+                                    >
+                                      <div className="space-y-2">
+                                        <div className="flex items-start justify-between">
+                                          <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200">
+                                            {link.name}
+                                          </h4>
+                                          <FaArrowRight className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 group-hover:text-[#9a0c28] transition-all duration-200 transform group-hover:translate-x-1" />
+                                        </div>
+                                        <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">
+                                          {link.description}
+                                        </p>
                                       </div>
-                                      <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
-                                        {link.description}
-                                      </p>
-                                    </div>
-                                  </a>
-                                ))}
+                                    </a>
+                                  ))}
+                                </div>
                               </div>
                             )
                           )
-                        : // Render regular layout for other categories
+                        : // Other categories with regular grid layout
                           chunksOf3(
                             getCurrentMegaMenuData()[activeTab].links
                           ).map((chunk, chunkIndex) => (
@@ -850,12 +876,19 @@ export default function Header() {
                                 >
                                   <div className="space-y-2">
                                     <div className="flex items-start justify-between">
-                                      <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200 leading-tight">
-                                        {link.name}
-                                      </h4>
-                                      <FaArrowRight className="text-gray-400 group-hover:text-[#9a0c28] text-xs mt-1 transition-all duration-200 group-hover:translate-x-1 opacity-0 group-hover:opacity-100" />
+                                      <div className="flex items-center gap-3">
+                                        {link.icon && (
+                                          <span className="text-xl">
+                                            {link.icon}
+                                          </span>
+                                        )}
+                                        <h4 className="text-gray-900 font-semibold group-hover:text-[#9a0c28] transition-colors duration-200">
+                                          {link.name}
+                                        </h4>
+                                      </div>
+                                      <FaArrowRight className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 group-hover:text-[#9a0c28] transition-all duration-200 transform group-hover:translate-x-1" />
                                     </div>
-                                    <p className="text-sm text-gray-500 group-hover:text-gray-600 leading-relaxed">
+                                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">
                                       {link.description}
                                     </p>
                                   </div>
@@ -863,25 +896,6 @@ export default function Header() {
                               ))}
                             </div>
                           ))}
-                    </div>
-                    {/* Call to Action at the bottom */}
-                    <div className="mt-8 pt-6 border-t border-gray-200">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="font-semibold text-gray-900">
-                            Ready to get started?
-                          </h3>
-                          <p className="text-sm text-gray-600">
-                            Let's discuss how we can help grow your business
-                          </p>
-                        </div>
-                        <a href="/contact-us/">
-                          <button className="bg-[#9a0c28] hover:bg-[#c4102e] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 group">
-                            Get Started
-                            <FaArrowRight className="text-xs transition-transform group-hover:translate-x-1" />
-                          </button>
-                        </a>
-                      </div>
                     </div>
                   </div>
                 )}

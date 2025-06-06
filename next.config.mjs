@@ -9,6 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   
+  
   // Base path if deploying to subdirectory (remove if deploying to root domain)
   // basePath: '/your-subdirectory',
   
@@ -23,7 +24,9 @@ const nextConfig = {
     // Remove if you're not using app directory
     appDir: false
   },
-  
+   generateBuildId: async () => {
+    return 'static-build'
+  },
   // Custom webpack config if needed
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Add any custom webpack configurations here

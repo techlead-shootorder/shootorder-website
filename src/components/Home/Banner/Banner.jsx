@@ -53,13 +53,13 @@ export default function Banner() {
     tl.fromTo(
       ".banner-background-image",
       {
-        scale: isMobile ? 1.1 : 1.3,
+        scale: isMobile ? 1.05 : 1.3, // Reduced scale for mobile
         filter: "blur(10px)",
       },
       {
         scale: 1,
         filter: "blur(0px)",
-        duration: isMobile ? 1.2 : 1.8,
+        duration: isMobile ? 1.0 : 1.8, // Faster on mobile
         ease: "power3.out",
       },
       0
@@ -100,13 +100,13 @@ export default function Banner() {
       tl.fromTo(
         headingRef.current,
         {
-          y: 50,
+          y: 30, // Reduced for mobile
           opacity: 0,
         },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 0.6, // Faster on mobile
           ease: "power2.out",
         },
         0.8
@@ -117,13 +117,13 @@ export default function Banner() {
     tl.fromTo(
       descriptionRef.current,
       {
-        y: isMobile ? 30 : 50,
+        y: isMobile ? 20 : 50, // Much less movement on mobile
         opacity: 0,
       },
       {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: isMobile ? 0.6 : 0.8,
         ease: "power2.out",
       },
       isMobile ? 0.9 : 1
@@ -133,7 +133,7 @@ export default function Banner() {
     tl.fromTo(
       buttonRef.current,
       {
-        y: isMobile ? 20 : 30,
+        y: isMobile ? 15 : 30, // Less movement on mobile
         opacity: 0,
       },
       {
@@ -173,13 +173,15 @@ export default function Banner() {
         const valueElement = bubble.querySelector(".stat-value");
         if (valueElement) {
           const finalValue = parseInt(valueElement.getAttribute("data-value"));
-          valueElement.textContent = finalValue + "+";
+          const suffix = valueElement.getAttribute("data-suffix") || "+";
+          valueElement.textContent = finalValue + suffix;
         }
       });
 
       // Function to animate the counter for each stat value
       function animateCounter(element) {
         const finalValue = parseInt(element.getAttribute("data-value"));
+        const suffix = element.getAttribute("data-suffix") || "+";
         gsap.set(element, { textContent: "0" });
         gsap.to(element, {
           textContent: finalValue,
@@ -188,10 +190,11 @@ export default function Banner() {
           snap: { textContent: 1 },
           onUpdate: function () {
             element.textContent =
-              Math.round(gsap.getProperty(element, "textContent")) + "+";
+              Math.round(gsap.getProperty(element, "textContent")) + suffix;
           },
         });
       }
+      
 
       // Create mouse move handler function that we can properly remove (desktop only)
       mouseMoveHandler = (e) => {
@@ -243,26 +246,27 @@ export default function Banner() {
     if (mobileStats.length > 0) {
       gsap.set(mobileStats, {
         opacity: 0,
-        y: 20,
-        scale: 0.9,
+        y: 15, // Less movement on mobile
+        scale: 0.95,
       });
 
       gsap.to(mobileStats, {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.6,
+        duration: 0.5, // Faster animation
         stagger: 0.1,
         ease: "back.out(1.7)",
         delay: 0.5,
       });
 
-      // Initialize mobile counters
+      // Initialize mobile counters with proper suffixes
       mobileStats.forEach((stat) => {
         const valueElement = stat.querySelector(".mobile-value");
         if (valueElement) {
           const finalValue = parseInt(valueElement.getAttribute("data-value"));
-          valueElement.textContent = finalValue + "+";
+          const suffix = valueElement.getAttribute("data-suffix") || "+";
+          valueElement.textContent = finalValue + suffix;
         }
       });
 
@@ -274,6 +278,7 @@ export default function Banner() {
         const touchHandler = () => {
           if (valueElement && !hasTriggeredCounter) {
             const finalValue = parseInt(valueElement.getAttribute("data-value"));
+            const suffix = valueElement.getAttribute("data-suffix") || "+";
             gsap.set(valueElement, { textContent: "0" });
             gsap.to(valueElement, {
               textContent: finalValue,
@@ -282,7 +287,7 @@ export default function Banner() {
               snap: { textContent: 1 },
               onUpdate: function () {
                 valueElement.textContent =
-                  Math.round(gsap.getProperty(valueElement, "textContent")) + "+";
+                  Math.round(gsap.getProperty(valueElement, "textContent")) + suffix;
               },
             });
 
@@ -312,36 +317,64 @@ export default function Banner() {
       });
     }
 
-    // Scroll animations (different behavior for mobile and desktop)
+    // Scroll animations (optimized for mobile)
     const scrollTriggers = [];
     
-    // Background parallax (reduced for mobile)
-    scrollTriggers.push(
-      ScrollTrigger.create({
-        animation: gsap.to(".banner-background-image", {
-          y: isMobile ? "15%" : "25%",
-          ease: "none",
-        }),
-        trigger: bannerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      })
-    );
+    if (!isMobile) {
+      // Desktop parallax effects
+      scrollTriggers.push(
+        ScrollTrigger.create({
+          animation: gsap.to(".banner-background-image", {
+            y: "25%",
+            ease: "none",
+          }),
+          trigger: bannerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        })
+      );
 
-    // Content parallax (reduced for mobile)
-    scrollTriggers.push(
-      ScrollTrigger.create({
-        animation: gsap.to(".banner-content", {
-          y: isMobile ? "-8%" : "-15%",
-          ease: "none",
-        }),
-        trigger: bannerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: isMobile ? 1 : 0.5,
-      })
-    );
+      scrollTriggers.push(
+        ScrollTrigger.create({
+          animation: gsap.to(".banner-content", {
+            y: "-15%",
+            ease: "none",
+          }),
+          trigger: bannerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        })
+      );
+    } else {
+      // Mobile - much more subtle parallax to avoid performance issues
+      scrollTriggers.push(
+        ScrollTrigger.create({
+          animation: gsap.to(".banner-background-image", {
+            y: "10%", // Very subtle
+            ease: "none",
+          }),
+          trigger: bannerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 2, // Slower scrub for smoother performance
+        })
+      );
+
+      scrollTriggers.push(
+        ScrollTrigger.create({
+          animation: gsap.to(".banner-content", {
+            y: "-5%", // Very subtle
+            ease: "none",
+          }),
+          trigger: bannerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 2, // Slower scrub for smoother performance
+        })
+      );
+    }
 
     // PROPER CLEANUP FUNCTION
     return () => {
@@ -401,7 +434,7 @@ export default function Banner() {
   return (
     <section
       ref={bannerRef}
-      className="w-full bg-white relative overflow-hidden max-w-full"
+      className="w-full bg-white relative overflow-hidden max-w-full my-6"
       style={{
         minHeight: '100vh',
         height: '100vh'
@@ -412,10 +445,10 @@ export default function Banner() {
         className="banner-background-image absolute inset-0 w-full h-full"
         style={{
           backgroundImage: "url('/images/background/home-bg2.jpg')",
-          backgroundSize: isMobile ? "inherit" : "cover",
-          backgroundPosition: isMobile ? "center center" : "center center",
+          backgroundSize: isMobile ? "inherit" : "cover", // Changed to cover for mobile
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
-          backgroundAttachment: isMobile ? "fixed" : "scroll",
+          backgroundAttachment: isMobile ? "scroll" : "scroll", // Changed to scroll for mobile performance
         }}
       ></div>
 
@@ -428,14 +461,14 @@ export default function Banner() {
           {/* Google Partner Logo */}
           <div className="flex-shrink-0">
             <img 
-              width={isMobile ? 60 : 240} 
-              height={isMobile ? 60 : 100} 
-              className="mx-auto w-14 h-14 sm:w-16 sm:h-16 md:w-[240px] md:h-auto object-contain" 
+              width={isMobile ? 150 : 240} 
+              height={isMobile ? 100 : 100} 
+              className="mx-auto w-28 h-28 sm:w-16 sm:h-16 md:w-[240px] md:h-auto object-contain" 
               src="/images/logo/Google Premier Partner.webp"
               alt="Google Premier Partner"
             />
           </div>
-
+          
           {/* Badge Text */}
           <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20 flex-shrink-0">
             <p>In Top 3% Digital Marketing Agency</p>
@@ -446,14 +479,14 @@ export default function Banner() {
             ref={headingRef}
             className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold leading-tight text-white px-2 flex-shrink-0"
           >
-            Awared #1 <br className="hidden sm:block" />
+            Awarded #1 
             Digital Marketing Agency
           </h1>
 
           {/* Description with responsive sizing */}
           <p
             ref={descriptionRef}
-            className="max-w-xl mx-auto text-white/90 text-xs sm:text-sm md:text-lg px-4 sm:px-0 leading-relaxed flex-shrink-0"
+            className="!max-w-xl mx-auto text-white/90 text-xs sm:text-sm md:text-lg px-4 sm:px-0 leading-relaxed flex-shrink-0"
           >
             Marketing is not magic, there is a science to it. Connect with us to explore our expertise in SEO, Paid Search, Display Ads, Content Marketing, and Social Media.
           </p>
@@ -487,7 +520,7 @@ export default function Banner() {
                 }
               }}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-2 cursor-pointer">
                 Enquire Now
                 <svg 
                   className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" 
@@ -517,10 +550,11 @@ export default function Banner() {
           <div
             className="text-2xl font-bold text-white stat-value"
             data-value="50"
+            data-suffix="+"
           >
             50+
           </div>
-          <div className="text-sm text-white/90">Ongoing Projects</div>
+          <div className="text-sm text-white/90">rentaner ship</div>
         </div>
 
         <div
@@ -530,6 +564,7 @@ export default function Banner() {
           <div
             className="text-2xl font-bold text-white stat-value"
             data-value="12"
+            data-suffix="+"
           >
             12+
           </div>
@@ -543,8 +578,9 @@ export default function Banner() {
           <div
             className="text-2xl font-bold text-white stat-value"
             data-value="92"
+            data-suffix="%"
           >
-            92+
+            92%
           </div>
           <div className="text-sm text-white/90">Client Retention</div>
         </div>
@@ -572,15 +608,15 @@ export default function Banner() {
         <div className="grid grid-cols-3 gap-2 max-w-xs mx-auto">
           <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
             <FiBriefcase className="text-sm text-white mb-1" />
-            <div className="text-sm font-semibold text-white mobile-value" data-value="50">
+            <div className="text-sm font-semibold text-white mobile-value" data-value="50" data-suffix="+">
               50+
             </div>
-            <div className="text-[8px] text-white/80 text-center leading-tight">Projects</div>
+            <div className="text-[8px] text-white/80 text-center leading-tight">rentaner ship</div>
           </div>
 
           <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
             <FiClock className="text-sm text-white mb-1" />
-            <div className="text-sm font-semibold text-white mobile-value" data-value="12">
+            <div className="text-sm font-semibold text-white mobile-value" data-value="12" data-suffix="+">
               12+
             </div>
             <div className="text-[8px] text-white/80 text-center leading-tight">Experience</div>
@@ -588,8 +624,8 @@ export default function Banner() {
 
           <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
             <FiUsers className="text-sm text-white mb-1" />
-            <div className="text-sm font-semibold text-white mobile-value" data-value="92">
-              92+
+            <div className="text-sm font-semibold text-white mobile-value" data-value="92" data-suffix="%">
+              92%
             </div>
             <div className="text-[8px] text-white/80 text-center leading-tight">Retention</div>
           </div>
