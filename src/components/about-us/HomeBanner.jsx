@@ -5,7 +5,7 @@ import Image from "next/image";
 function HomeBanner() {
   return (
     <BannerSection>
-      <div className="flex flex-col items-center justify-start text-right">
+      <div className="flex flex-col items-center justify-start text-center md:text-right">
         <h2 className="text-2xl md:text-4xl font-bold mb-8 leading-tight text-white">
           We are among the top 3% in India
         </h2>
