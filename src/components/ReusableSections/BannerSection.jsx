@@ -3,7 +3,7 @@ import React from 'react';
 const BannerSection = ({ children }) => {
   return (
     <section
-      className="pt-48 pb-24 px-4 md:px-16 bg-cover bg-center bg-no-repeat rounded-3xl"
+      className="pt-24 pb-24 md:pt-48 md:pb-24 px-4 md:px-16 bg-inherit md:bg-cover bg-center bg-no-repeat rounded-3xl"
       style={{
         backgroundImage: "url('/images/background/home-bg2.png')", // <-- your banner image path
       }}

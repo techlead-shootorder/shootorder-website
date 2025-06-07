@@ -1,155 +1,120 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AnimatedIntro() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const paragraphRef = useRef(null);
   const bgRefs = useRef([]);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
-  // Detect mobile
+  // Mobile detection
   useEffect(() => {
     const checkMobile = () => {
       const mobile =
         window.innerWidth <= 768 ||
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
           navigator.userAgent
         );
       setIsMobile(mobile);
     };
-
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Intersection Observer for mobile animation trigger
+  // Mobile: IntersectionObserver
   useEffect(() => {
     if (!isMobile) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, [isMobile]);
 
-  // GSAP for desktop
+  // Desktop: GSAP animation
   useEffect(() => {
-    if (isMobile || typeof window === "undefined") return;
+    if (isMobile || !paragraphRef.current) return;
 
-    import("gsap").then(({ gsap }) => {
-      import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
-        gsap.registerPlugin(ScrollTrigger);
+    const element = paragraphRef.current;
+    const words = element.textContent.split(" ");
+    element.innerHTML = "";
 
-        const paragraph = paragraphRef.current;
+    words.forEach((word) => {
+      const wordSpan = document.createElement("span");
+      wordSpan.style.display = "inline-block";
+      wordSpan.style.marginRight = "0.25em";
 
-        const splitWords = (element) => {
-          const text = element.textContent;
-          const words = text.split(" ");
-          element.innerHTML = "";
+      if (["Premier", "Google", "Ads", "USA."].includes(word)) {
+        wordSpan.style.color = "#F94839";
+      }
 
-          words.forEach((word, wordIndex) => {
-            const wordSpan = document.createElement("span");
-            wordSpan.style.display = "inline-block";
-            wordSpan.style.marginRight = "0.25em";
-
-            if (["Premier", "Google", "Ads", "USA."].includes(word)) {
-              wordSpan.style.color = "#F94839";
-            }
-
-            word.split("").forEach((char, charIndex) => {
-              const span = document.createElement("span");
-              span.textContent = char;
-              span.style.opacity = "0";
-              span.style.display = "inline-block";
-              span.style.transform = "translateY(50px)";
-              span.classList.add("char");
-              span.dataset.wordIndex = wordIndex;
-              span.dataset.charIndex = charIndex;
-              wordSpan.appendChild(span);
-            });
-
-            element.appendChild(wordSpan);
-          });
-        };
-
-        splitWords(paragraph);
-        const chars = paragraph.querySelectorAll(".char");
-
-        gsap.to(chars, {
-          opacity: 1,
-          y: 0,
-          stagger: 0.05,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom+=1000 top",
-            scrub: true,
-            pin: true,
-            anticipatePin: 1,
-          },
-        });
-
-        // Floating background elements
-        bgRefs.current.forEach((ref, i) => {
-          if (ref) {
-            gsap.to(ref, {
-              y: "+=40",
-              x: "+=20",
-              repeat: -1,
-              yoyo: true,
-              duration: 6 + i,
-              ease: "sine.inOut",
-            });
-          }
-        });
+      word.split("").forEach((char) => {
+        const charSpan = document.createElement("span");
+        charSpan.textContent = char;
+        charSpan.style.opacity = "0";
+        charSpan.style.display = "inline-block";
+        charSpan.style.transform = "translateY(50px)";
+        charSpan.classList.add("char");
+        wordSpan.appendChild(charSpan);
       });
+
+      element.appendChild(wordSpan);
     });
 
-    return () => {
-      if (typeof window !== "undefined") {
-        import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
-          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    const chars = element.querySelectorAll(".char");
+
+    gsap.to(chars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.05,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "bottom+=1000 top",
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+
+    bgRefs.current.forEach((ref, i) => {
+      if (ref) {
+        gsap.to(ref, {
+          y: "+=40",
+          x: "+=20",
+          repeat: -1,
+          yoyo: true,
+          duration: 6 + i,
+          ease: "sine.inOut",
         });
       }
-    };
+    });
+
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, [isMobile]);
 
-  // Render animated text for mobile
   const renderMobileText = () => {
     const text =
       "A Premier Google Ads digital marketing agency offering end-to-end services across the USA.";
-    const words = text.split(" ");
-
-    return words.map((word, index) => {
+    return text.split(" ").map((word, index) => {
       const isHighlighted = ["Premier", "Google", "Ads", "USA."].includes(word);
       return (
         <span
           key={index}
           className={`inline-block mr-1 transition-all duration-500 transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          } ${isHighlighted ? "text-red-500" : "text-white"}`}
-          style={{
-            transitionDelay: `${index * 100}ms`,
-            animationDelay: `${index * 100}ms`,
-          }}
+          } ${isHighlighted ? "text-[#9a0c28]" : "text-white"}`}
+          style={{ transitionDelay: `${index * 100}ms` }}
         >
           {word}
         </span>
@@ -164,7 +129,7 @@ export default function AnimatedIntro() {
         isMobile ? "px-4 py-8" : ""
       }`}
     >
-      {/* Floating background bubbles */}
+      {/* Floating bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <div
@@ -198,25 +163,6 @@ export default function AnimatedIntro() {
             : "A Premier Google Ads digital marketing agency offering end-to-end services across the USA."}
         </div>
       </div>
-
-      {/* Keyframe for mobile floating effect */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .animate-float {
-            animation: float 3s ease-in-out infinite;
-          }
-
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-        }
-      `}</style>
     </section>
   );
 }
