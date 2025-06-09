@@ -10,69 +10,56 @@ import Testimonials from "@/components/Services/Testimonials";
 import Blogs from "@/components/Blogs/Blogs";
 
 export async function generateStaticParams() {
-  try {
-    const slugs = await getAllServiceSlugs();
-    console.log('Generating static params for slugs:', slugs);
-    
-    // Ensure we return all available slugs
-    const params = slugs.map((slug) => ({
-      slug: slug,
-    }));
-    
-    console.log('Generated params:', params);
-    return params;
-  } catch (error) {
-    console.error('Error generating static params:', error);
-    // Return empty array to prevent build errors
-    return [];
-  }
+  const slugs = await getAllServiceSlugs();
+
+  return slugs.map((slug) => ({
+    slug: slug,
+  }));
 }
 
 export async function generateMetadata({ params }) {
-  try {
-    const service = await getServiceBySlug(params.slug);
-    
-    if (!service) {
-      return {
-        title: "Service Not Found | ShootOrder",
-        description: "The requested service page could not be found.",
-      };
-    }
-    
+  const service = await getServiceBySlug(params.slug);
+
+  if (!service) {
     return {
-      title: `${service.title} | ShootOrder Services`,
-      description: service.subheading || service.description || `Learn more about our ${service.title} services`,
-    };
-  } catch (error) {
-    console.error('Error generating metadata:', error);
-    return {
-      title: "Service Not Found | ShootOrder",
-      description: "The requested service page could not be found.",
+      title: "Service Not Found",
     };
   }
+
+  return {
+    title: `${service.title} | ShootOrder Services`,
+    description: service.description,
+  };
 }
 
 export default async function ServicePage({ params }) {
-  try {
-    const service = await getServiceBySlug(params.slug);
-    
-    // If service doesn't exist, trigger 404
-    if (!service) {
-      notFound();
-    }
-    
-    return (
-      <>
-        <BannerForServices service={service} />
-        <ProcessCovered features={service.features} />
-        <WhyChooseSection />
-        <ClientGrid />
-        <Testimonials />
-        <Blogs />
-      </>
-    );
-  } catch (error) {
-    console.error('Error loading service page:', error);
+  const service = await getServiceBySlug(params.slug);
+
+  if (!service) {
     notFound();
   }
+  return (
+    <>
+      <BannerForServices
+        heading={service.heading}
+        subheading={service.subheading}
+        imageUrl={service.imageUrl}
+      />
+      <ProcessCovered services={service} />
+      <WhyChooseSection />
+      <section className="py-16">
+        <ClientGrid>
+          {/* <h3 className="text-3xl font-semibold mb-4 text-center">
+            Top Brand&apos;s We Have Worked With
+          </h3> */}
+        </ClientGrid>
+      </section>
+      <section className="bg-[#fffbe7]">
+        <Testimonials />
+      </section>
+      <section>
+        <Blogs />
+      </section>
+    </>
+  );
 }

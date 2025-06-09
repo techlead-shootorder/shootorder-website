@@ -11,7 +11,7 @@ function HomeBanner() {
         </h2>
         <div className="flex flex-col md:flex-row justify-end items-center gap-6">
           <Image
-            src="/images/logo/facebook-business-partner2.png"
+            src="/images/logo/meta.png"
             alt="Meta Badge"
             width={120}
             height={80}

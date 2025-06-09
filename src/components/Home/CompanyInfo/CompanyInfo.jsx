@@ -1,61 +1,69 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { usePathname } from "next/navigation";
-import ClutchWidget from "./ClutchWidget";
+import { useEffect, useRef, useState } from "react";
+import Script from "next/script";
 
-gsap.registerPlugin(ScrollTrigger);
+export default function ClutchWidget() {
+  const containerRef = useRef(null);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
-// Removed cardsData as we're using Clutch widget
+  const handleScriptLoad = () => {
+    setScriptLoaded(true);
 
-export default function CompanyInfo() {
-  const pathname = usePathname();
-  const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
+    // Initialize the widget after a short delay
+    setTimeout(() => {
+      if (
+        typeof window !== "undefined" &&
+        window.CLUTCH &&
+        containerRef.current
+      ) {
+        try {
+          window.CLUTCH.init();
+        } catch (error) {
+          console.error("Error initializing Clutch widget:", error);
+        }
+      }
+    }, 100);
+  };
 
-  useEffect(() => {
-    const cards = cardRefs.current;
+  const handleScriptError = (e) => {
+    console.error("Failed to load Clutch script:", e);
+  };
 
-    gsap.from(cards, {
-      x: 200,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none play none",
-      },
-    });
+  return (
+    <>
+      <Script
+        src="https://widget.clutch.co/static/js/widget.js"
+        strategy="afterInteractive"
+        onLoad={handleScriptLoad}
+        onError={handleScriptError}
+      />
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [pathname]);
-
-	return (
-		<section className="py-20 bg-gray-50">
-			<div ref={sectionRef} className="max-w-7xl mx-auto px-4">
-				{/* Header Section */}
-				<div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-					<h2 className="text-4xl font-bold text-gray-900">
-						Trusted by Growing Businesses
-					</h2>
-					<p className="text-lg text-gray-600">
-						See how we've helped businesses across industries achieve their
-						digital marketing goals and drive measurable results.
-					</p>
-				</div>				{/* Clutch Reviews Widget */}
-				<div
-					className="w-full"
-					style={{ maxWidth: "1024px", margin: "0 auto" }}
-				>
-					<ClutchWidget />
-				</div>
-			</div>
-		</section>
-	);
+      <div className="max-w-4xl mx-auto px-4 py-10">
+        <div
+          ref={containerRef}
+          className="clutch-widget"
+          data-url="https://widget.clutch.co"
+          data-widget-type="12"
+          data-height="375"
+          data-nofollow="true"
+          data-expandifr="true"
+          data-scale="100"
+          data-reviews="247350,246759,244398,158154,156901,62857,133614,84906,54268,53431,53070,73683"
+          data-clutchcompany-id="51252"
+          style={{
+            minHeight: "375px",
+            width: "100%",
+          }}
+        >
+          {!scriptLoaded && (
+            <div className="flex items-center justify-center h-full min-h-[375px] text-gray-500">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mr-3"></div>
+              Loading Clutch reviews...
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
 }
