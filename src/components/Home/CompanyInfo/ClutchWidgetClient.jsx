@@ -34,9 +34,9 @@ export default function ClutchWidgetClient() {
         }}
       />
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <div className="max-w-6xl mx-auto px-4 py-10">
         <div
-          className="clutch-widget border border-gray-300 rounded-lg shadow-md"
+          className="clutch-widget   rounded-lg "
           data-url="https://widget.clutch.co"
           data-widget-type="12"
           data-height="375"

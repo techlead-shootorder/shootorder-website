@@ -14,6 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useSmoothScroll from "@/utils/smooth-scroll";
 import AnimatedIntro from "@/components/Home/Intro/AnimatedIntro";
 import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
+import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -395,7 +396,7 @@ export default function Home() {
           <WhyTrustUs />
         </div>
         
-        <CompanyInfo />
+        <ClutchWidget />
         
         <section className="!bg-[#f8f6ee]">
           <div className="animate-section !max-w-7xl mx-auto" id="talent-form-section">
