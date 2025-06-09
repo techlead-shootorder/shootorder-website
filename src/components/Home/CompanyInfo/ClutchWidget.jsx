@@ -7,6 +7,6 @@ const ClutchWidgetClient = dynamic(
   { ssr: false }
 );
 
-export default function ClutchTestWidget() {
+export default function ClutchWidget() {
   return <ClutchWidgetClient />;
 }
