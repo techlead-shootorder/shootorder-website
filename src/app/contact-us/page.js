@@ -10,6 +10,8 @@ import {
 import { FiMail } from "react-icons/fi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BsLinkedin, BsDribbble, BsBehance } from "react-icons/bs";
+import Link from "next/link";
+import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function ContactUs() {
   return (
@@ -45,34 +47,34 @@ export default function ContactUs() {
             </p>
             <div className="text-white space-y-4">
               <p className="flex items-center gap-2">
-                <FaPhoneAlt /> +91-630-392-1512
+                <FaPhoneAlt /> 1-855-217-4637
               </p>
               <p className="flex items-center gap-2">
-                <FiMail /> info@shootorder.com
+                <FiMail /> hello@shootorder.us
               </p>
               <p className="flex items-start gap-2">
                 <HiOutlineLocationMarker className="mt-1" />
-                Ivent It Solutions Pvt. Ltd. (ShootOrder)
+                21 State Street,
                 <br />
-                Krishe Sapphire MSR Block,
-                <br />
-                1st Floor, SY No. 88,
-                <br />
-                Hitech City Main Rd, Madhapur,
-                <br />
-                Hyderabad, Telangana 500081
+                Waterbury, CT - 06702
               </p>
             </div>
 
             <div className="mt-6">
               <p className="text-white font-semibold mb-2">We are on Socials</p>
               <div className="flex items-center justify-start gap-6 text-white text-lg ">
-                <FaFacebookF className="cursor-pointer" />
-                <FaTwitter className="cursor-pointer" />
-                <FaPinterest className="cursor-pointer" />
-                <BsDribbble className="cursor-pointer" />
-                <BsBehance className="cursor-pointer" />
-                <BsLinkedin className="cursor-pointer" />
+                <Link href="https://www.facebook.com/shootorder">
+                  <FaFacebookF className="cursor-pointer" />
+                </Link>
+                <Link href="https://x.com/shootorder">
+                  <FaXTwitter className="cursor-pointer" />
+                </Link>
+                <Link href="https://www.instagram.com/shootorder/#">
+                  <FaInstagram className="cursor-pointer" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/shootorder/">
+                  <FaLinkedin className="cursor-pointer" />
+                </Link>
               </div>
             </div>
           </div>

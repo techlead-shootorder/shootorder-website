@@ -15,6 +15,7 @@ const digitalMarketingServices = {
         { name: "Blog Management", href: "/blog-management" },
         { name: "Website Development", href: "/web-design" },
         { name: "Social Media Marketing", href: "/social-media-marketing" },
+          { name: "GBP Management", href: "/gbp-management" },
       ],
     },
     {
@@ -42,6 +43,7 @@ const brandingServices = {
     { name: "Messaging & Tone", href: "/branding/messaging" },
     { name: "Package & Design", href: "/branding/design" },
     { name: "Brand Campaigns", href: "/branding/campaigns" },
+   
   ],
 };
 

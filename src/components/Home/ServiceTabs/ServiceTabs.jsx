@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { ArrowRight, Target, Users, Heart } from "lucide-react";
+import { ArrowRight, Target, Users, Heart, BarChart3 } from "lucide-react";
 import Image from "next/image";
 
 const PLACEHOLDER_IMAGE = "https://placehold.co/400x400/e2e8f0/475569?text=Service";
@@ -96,22 +96,40 @@ const servicesData = {
       href: "/orm",
     },
   ],
+  "Marketing Automation": [
+    {
+      title: "Data Analytics & Dashboard",
+      desc: "Transform raw data into actionable insights with custom dashboards for real-time monitoring.",
+      image: "https://placehold.co/400x400/3b82f6/ffffff?text=Data+Analytics",
+      tags: ["Analytics", "Dashboard", "Data"],
+      href: "/marketing-automation/data-analytics",
+    },
+    {
+      title: "Smart Analytics",
+      desc: "AI-powered analytics to predict trends and optimize performance with intelligent insights.",
+      image: "https://placehold.co/400x400/8b5cf6/ffffff?text=Smart+AI",
+      tags: ["AI", "Smart", "Prediction"],
+      href: "/marketing-automation/smart-analytics",
+    },
+  ],
 };
 
 const tabDescriptions = {
   Branding: "Build a strong brand identity",
   "Digital Marketing": "Drive growth through digital channels",
   "Growth Hacking": "Scale and optimize your business",
+  "Marketing Automation": "Automate and optimize marketing processes",
 };
 
 const tabIcons = {
   Branding: Target,
   "Digital Marketing": Users,
   "Growth Hacking": Heart,
+  "Marketing Automation": BarChart3,
 };
 
 export default function CombinedServiceFlow() {
-  const categories = ["Branding", "Digital Marketing", "Growth Hacking"];
+  const categories = ["Branding", "Digital Marketing", "Growth Hacking", "Marketing Automation"];
   const [activeTab, setActiveTab] = useState(categories[0]);
 
   const handleImageError = (e) => {
@@ -164,7 +182,7 @@ export default function CombinedServiceFlow() {
           {/* Right Column - Improved Mobile Service Cards */}
           <div className={`${activeTab === "Digital Marketing" ? "lg:col-span-7" : "lg:col-span-12"}`}>
             <div className={`grid grid-cols-1 gap-4 ${
-              activeTab === "Digital Marketing" ? "xl:grid-cols-2" : "xl:grid-cols-4"
+              activeTab === "Digital Marketing" ? "xl:grid-cols-2" : activeTab === "Marketing Automation" ? "md:grid-cols-2 xl:grid-cols-2" : "xl:grid-cols-4"
             }`}>
               {servicesData[activeTab].map((item, idx) => (
                 <div

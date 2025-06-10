@@ -5,9 +5,10 @@ import BannerSection from "@/components/ReusableSections/BannerSection";
 import BannerForServices from "@/components/Services/BannerForServices";
 import ProcessCovered from "@/components/Services/ProcessCovered";
 import WhyChooseSection from "@/components/about-us/WhyChooseUsSection";
-import ClientGrid from "@/components/about-us/ClientGrid";
-import Testimonials from "@/components/Services/Testimonials";
 import Blogs from "@/components/Blogs/Blogs";
+import PartnerCarousel from "@/components/Home/Partners/OurPartners";
+import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
+import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 
 export async function generateStaticParams() {
   const slugs = await getAllServiceSlugs();
@@ -48,15 +49,12 @@ export default async function ServicePage({ params }) {
       <ProcessCovered services={service} />
       <WhyChooseSection />
       <section className="py-16">
-        <ClientGrid>
-          {/* <h3 className="text-3xl font-semibold mb-4 text-center">
-            Top Brand&apos;s We Have Worked With
-          </h3> */}
-        </ClientGrid>
+        <PartnerCarousel />
       </section>
-      <section className="bg-[#fffbe7]">
-        <Testimonials />
-      </section>
+
+      <ClutchWidget />
+
+      <WhyTrustUs />
       <section>
         <Blogs />
       </section>

@@ -40,6 +40,11 @@ const serviceCategories = [
             href: "/social-media-marketing",
             description: "Build your social media presence",
           },
+          {
+            name: "GBP Management",
+            href: "/gbp-management",
+            description: "Build your social media presence",
+          },
         ],
       },
       {
@@ -215,12 +220,6 @@ const contactCategories = [
         description: "Start your project with us",
         icon: "",
       },
-      {
-        name: "Support",
-        href: "/support/",
-        description: "Get help when you need it",
-        icon: "",
-      },
     ],
   },
 ];
@@ -234,7 +233,7 @@ const navLinks = [
     menuType: "services",
   },
   { name: "Company", href: "#", hasMegaMenu: true, menuType: "company" },
-  { name: "Blogs", href: "/blogs" },
+  { name: "Blogs", href: "https://www.shootorder.com/blog/" },
   { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
 ];
 
@@ -460,6 +459,7 @@ export default function Header() {
               <div key={link.name} className="relative">
                 <a
                   href={link.href}
+                  target="_blank"
                   className="text-gray-700 hover:text-[#9a0c28] transition-all duration-200 flex items-center gap-2 font-medium py-2 relative group"
                   ref={(el) => {
                     if (el) {
