@@ -554,7 +554,7 @@ export default function Banner() {
           >
             50+
           </div>
-          <div className="text-sm text-white/90">rentaner ship</div>
+          <div className="text-sm text-white/90">Retainership</div>
         </div>
 
         <div
@@ -611,7 +611,7 @@ export default function Banner() {
             <div className="text-sm font-semibold text-white mobile-value" data-value="50" data-suffix="+">
               50+
             </div>
-            <div className="text-[8px] text-white/80 text-center leading-tight">rentaner ship</div>
+            <div className="text-[8px] text-white/80 text-center leading-tight">Retainership</div>
           </div>
 
           <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
