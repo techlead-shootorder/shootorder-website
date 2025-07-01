@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
-import { X } from 'lucide-react';
+import PopupModal from "@/components/Modal/PopupModal";
 
 export default function Banner() {
   const bannerRef = useRef(null);
@@ -33,20 +33,6 @@ export default function Banner() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  useEffect(() => {
-    // Load Pipedrive script when popup opens
-    if (isPopupOpen) {
-      const script = document.createElement('script');
-      script.src = 'https://webforms.pipedrive.com/f/loader';
-      script.async = true;
-      document.body.appendChild(script);
-
-      return () => {
-        // Cleanup script when popup closes
-        document.body.removeChild(script);
-      };
-    }
-  }, [isPopupOpen]);
 
   // Fixed useEffect with proper cleanup and mobile-specific animations
   useEffect(() => {
@@ -469,6 +455,7 @@ export default function Banner() {
   };
 
   return (
+    <>
     <section
       ref={bannerRef}
       className="w-full bg-white relative overflow-hidden max-w-full my-6"
@@ -561,38 +548,6 @@ export default function Banner() {
               </span>
             </Button>
 
-            {/* Popup Modal */}
-            {isPopupOpen && (
-              <div className="w-full inset-0 z-50 flex items-center justify-center p-4 border-2 border-black-500">
-                {/* Backdrop */}
-                <div
-                  className="w-full inset-0 bg-black bg-opacity-50 transition-opacity"
-                  onClick={closePopup}
-                ></div>
-
-                {/* Modal Content */}
-                <div className=" bg-white rounded-lg shadow-xl !w-full max-h-[90vh] overflow-hidden">
-                  {/* Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                    <h2 className="text-xl font-semibold text-gray-900">Get in Touch</h2>
-                    <button
-                      onClick={closePopup}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                    >
-                      <X className="w-5 h-5 text-gray-500" />
-                    </button>
-                  </div>
-
-                  {/* Form Container */}
-                  <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
-                    <div
-                      className="pipedriveWebForms"
-                      data-pd-webforms="https://webforms.pipedrive.com/f/c5jDNerzDMQECL59rqfE4Wz4WEVgegvAuzWdRYsUIFAOXVrpDKY8VAw5iVSRQSua0r"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            )}
 
           </div>
         </div>
@@ -692,5 +647,9 @@ export default function Banner() {
       
    
     </section>
+
+    {/* Popup Modal */}
+    <PopupModal isOpen={isPopupOpen} onClose={closePopup} />
+  </>
   );
 }
