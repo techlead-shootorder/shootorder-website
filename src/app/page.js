@@ -15,6 +15,7 @@ import useSmoothScroll from "@/utils/smooth-scroll";
 import AnimatedIntro from "@/components/Home/Intro/AnimatedIntro";
 import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
+import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -398,12 +399,14 @@ export default function Home() {
         
         <ClutchWidget />
         
-        <section className="!bg-[#f8f6ee]">
+        <section className="!bg-[#f8f6ee] py-10">
           <div className="animate-section !max-w-7xl mx-auto" id="talent-form-section">
             <div className="parallax-bg absolute inset-0 -z-10 w-full">
               <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
             </div>
-            <TalentForm />
+            <div className="w-full flex justify-center"> 
+            <PipeDriveForm />
+            </div>
           </div>
         </section>
       </div>
