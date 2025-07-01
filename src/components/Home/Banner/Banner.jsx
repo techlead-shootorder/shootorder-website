@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
+import { X } from 'lucide-react';
 
 export default function Banner() {
   const bannerRef = useRef(null);
@@ -18,18 +19,34 @@ export default function Banner() {
   const pathname = usePathname();
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   // Detect mobile device
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    // Load Pipedrive script when popup opens
+    if (isPopupOpen) {
+      const script = document.createElement('script');
+      script.src = 'https://webforms.pipedrive.com/f/loader';
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        // Cleanup script when popup closes
+        document.body.removeChild(script);
+      };
+    }
+  }, [isPopupOpen]);
 
   // Fixed useEffect with proper cleanup and mobile-specific animations
   useEffect(() => {
@@ -40,7 +57,7 @@ export default function Banner() {
 
     // Create timeline for banner entrance animation
     const tl = gsap.timeline();
-    
+
     // Store references for cleanup
     let mouseMoveHandler;
     const touchHandlers = new Map();
@@ -77,7 +94,7 @@ export default function Banner() {
       splitTextInstance = new SplitText(headingRef.current, {
         type: "words,chars",
       });
-      
+
       tl.fromTo(
         splitTextInstance.chars,
         {
@@ -194,14 +211,14 @@ export default function Banner() {
           },
         });
       }
-      
+
 
       // Create mouse move handler function that we can properly remove (desktop only)
       mouseMoveHandler = (e) => {
         bubbles.forEach((bubble) => {
           const valueElement = bubble.querySelector(".stat-value");
           let rect = bubble.getBoundingClientRect();
-          
+
           const bubbleCenterX = rect.left + rect.width / 2;
           const bubbleCenterY = rect.top + rect.height / 2;
           const distX = e.clientX - bubbleCenterX;
@@ -319,7 +336,7 @@ export default function Banner() {
 
     // Scroll animations (optimized for mobile)
     const scrollTriggers = [];
-    
+
     if (!isMobile) {
       // Desktop parallax effects
       scrollTriggers.push(
@@ -393,7 +410,7 @@ export default function Banner() {
       // Kill all GSAP animations on elements
       gsap.killTweensOf([
         ".banner-background-image",
-        ".banner-overlay", 
+        ".banner-overlay",
         ".banner-content",
         bubbles,
         mobileStats,
@@ -431,6 +448,26 @@ export default function Banner() {
     };
   }, [pathname, isMobile]);
 
+  const openPopup = (e) => {
+    // Create ripple effect
+    const ripple = document.createElement('div');
+    const rect = e.target.getBoundingClientRect();
+    ripple.className = 'absolute animate-ripple rounded-full bg-gray-200';
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+    e.target.appendChild(ripple);
+
+    // Remove ripple after animation
+    setTimeout(() => ripple.remove(), 1000);
+
+    // Open popup with slight delay for visual feedback
+    setTimeout(() => setIsPopupOpen(true), 200);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <section
       ref={bannerRef}
@@ -460,15 +497,15 @@ export default function Banner() {
         <div className="banner-content text-center w-full flex flex-col justify-center items-center h-full space-y-4 md:space-y-6">
           {/* Google Partner Logo */}
           <div className="flex-shrink-0">
-            <img 
-              width={isMobile ? 150 : 240} 
-              height={isMobile ? 100 : 100} 
-              className="mx-auto w-28 h-28 sm:w-16 sm:h-16 md:w-[240px] md:h-auto object-contain" 
+            <img
+              width={isMobile ? 150 : 240}
+              height={isMobile ? 100 : 100}
+              className="mx-auto w-28 h-28 sm:w-16 sm:h-16 md:w-[240px] md:h-auto object-contain"
               src="/images/logo/Google Premier Partner.webp"
               alt="Google Premier Partner"
             />
           </div>
-          
+
           {/* Badge Text */}
           <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20 flex-shrink-0">
             <p>In Top 3% Digital Marketing Agency</p>
@@ -479,7 +516,7 @@ export default function Banner() {
             ref={headingRef}
             className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold leading-tight text-white px-2 flex-shrink-0"
           >
-            Awarded #1 
+            Awarded #1
             Digital Marketing Agency
           </h1>
 
@@ -492,23 +529,9 @@ export default function Banner() {
           </p>
 
           <div ref={buttonRef} className="flex-shrink-0">
-            <Button 
+            <Button
               className="group relative overflow-hidden !bg-white !text-black font-semibold px-5 py-3 md:px-8 md:py-6 text-sm md:text-lg rounded-full shadow-lg transition-all duration-300 hover:shadow-xl active:scale-95"
-              onClick={(e) => {
-                // Create ripple effect
-                const ripple = document.createElement('div');
-                const rect = e.target.getBoundingClientRect();
-                ripple.className = 'absolute animate-ripple rounded-full bg-gray-200';
-                ripple.style.left = `${e.clientX - rect.left}px`;
-                ripple.style.top = `${e.clientY - rect.top}px`;
-                e.target.appendChild(ripple);
-                
-                // Remove ripple after animation
-                setTimeout(() => ripple.remove(), 1000);
-                
-                // Navigate with slight delay for visual feedback
-                setTimeout(() => router.push('/contact-us'), 200);
-              }}
+              onClick={openPopup}
               onMouseEnter={(e) => {
                 if (!isMobile) {
                   e.target.style.transform = 'translateY(-2px)';
@@ -522,21 +545,55 @@ export default function Banner() {
             >
               <span className="relative z-10 flex items-center gap-2 cursor-pointer">
                 Enquire Now
-                <svg 
-                  className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
               </span>
             </Button>
+
+            {/* Popup Modal */}
+            {isPopupOpen && (
+              <div className="w-full inset-0 z-50 flex items-center justify-center p-4 border-2 border-black-500">
+                {/* Backdrop */}
+                <div
+                  className="w-full inset-0 bg-black bg-opacity-50 transition-opacity"
+                  onClick={closePopup}
+                ></div>
+
+                {/* Modal Content */}
+                <div className=" bg-white rounded-lg shadow-xl !w-full max-h-[90vh] overflow-hidden">
+                  {/* Header */}
+                  <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                    <h2 className="text-xl font-semibold text-gray-900">Get in Touch</h2>
+                    <button
+                      onClick={closePopup}
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    >
+                      <X className="w-5 h-5 text-gray-500" />
+                    </button>
+                  </div>
+
+                  {/* Form Container */}
+                  <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
+                    <div
+                      className="pipedriveWebForms"
+                      data-pd-webforms="https://webforms.pipedrive.com/f/c5jDNerzDMQECL59rqfE4Wz4WEVgegvAuzWdRYsUIFAOXVrpDKY8VAw5iVSRQSua0r"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
       </div>
@@ -631,6 +688,9 @@ export default function Banner() {
           </div>
         </div>
       </div>
+
+      
+   
     </section>
   );
 }
