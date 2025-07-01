@@ -29,9 +29,7 @@ function ProcessCovered({ services, pageHeading }) {
           <h2 className="text-center font-bold text-4xl mb-4">
             {pageHeading ? pageHeading : "Our Services"}
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Discover what we can do for you
-          </p>
+        
         </div>
 
         {/* Awesome Grid Layout */}

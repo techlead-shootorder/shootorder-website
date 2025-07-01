@@ -1,6 +1,9 @@
+'use client'
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+
+
 import {
   FaPhoneAlt,
   FaTwitter,
@@ -12,6 +15,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BsLinkedin, BsDribbble, BsBehance } from "react-icons/bs";
 import Link from "next/link";
 import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
 
 export default function ContactUs() {
   return (
@@ -26,7 +30,7 @@ export default function ContactUs() {
 
       {/* Map */}
       <iframe
-        src="https://www.google.com/maps?q=Krishe%20Sapphire%20MSR%20Block,%201st%20Floor,%20SY%20No.%2088,%20HITEC%20City%20main%20road,%20Madhapur%20Hyderabad,%20Telangana%20500081&output=embed"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2985.5869791545597!2d-73.04755312393175!3d41.556539171278985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7c25bfdbbe735%3A0xfa790568b7c1a6cd!2sMaganti%20IT%20Resources%2C%20LLC!5e0!3m2!1sen!2sin!4v1751368664292!5m2!1sen!2sin%22"
         width="100%"
         height="250"
         style={{ border: 0 }}
@@ -50,7 +54,7 @@ export default function ContactUs() {
                 <FaPhoneAlt /> 1-855-217-4637
               </p>
               <p className="flex items-center gap-2">
-                <FiMail /> hello@shootorder.us
+                <FiMail /> info@shootorder.us
               </p>
               <p className="flex items-start gap-2">
                 <HiOutlineLocationMarker className="mt-1" />
@@ -86,47 +90,11 @@ export default function ContactUs() {
               We are always looking for a next great project
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Input placeholder="First Name" variant="underline" />
-              <Input placeholder="Last Name" variant="underline" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <Input placeholder="Email" variant="underline" />
-              <Input placeholder="Phone Number" variant="underline" />
-            </div>
-
-            <div className="mt-6 text-sm text-gray-600 font-bold">
-              Regarding
-            </div>
-            <div className="flex flex-wrap gap-4 mt-6 text-sm">
-              {[
-                "Looking for services",
-                "Partnerships & Collaborations",
-                "Message to CEO",
-                "Other",
-              ].map((item, idx) => (
-                <label key={idx} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="regarding"
-                    className="bg-[#9a0c28] "
-                  />{" "}
-                  {item}
-                </label>
-              ))}
-            </div>
-
-            <Textarea
-              placeholder="Message"
-              variant="underline"
-              className="mt-6"
-            />
-            <div className="flex items-center justify-end">
-              <button className="mt-8 md:block  rounded-full px-12 py-2 bg-[#9a0c28] text-white">
-                Send Message
-              </button>
-            </div>
+           <PipeDriveForm/>
           </div>
+
+
+
         </div>
       </div>
     </div>

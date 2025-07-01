@@ -45,8 +45,8 @@ export default function EnquiryPage() {
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "hello@shootorder.us",
-      link: "mailto:hello@shootorder.us",
+      value: "info@shootorder.us",
+      link: "mailto:info@shootorder.us",
     },
     {
       icon: <MapPin className="w-5 h-5" />,

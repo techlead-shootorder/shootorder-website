@@ -17,7 +17,7 @@ const CareerPage = () => {
       id: 1,
       title: "Group Account Manager",
       type: "Full-time",
-      location: "Hyderabad",
+      location: "USA",
       description:
         "he Group Account Manager is responsible for overseeing a portfolio of key client accounts, leading multiple account teams, and ensuring the successful delivery of marketing strategies and campaigns.",
       category: "Marketing",
@@ -26,7 +26,7 @@ const CareerPage = () => {
       id: 2,
       title: "Paid Ads Specialist",
       type: "Full-time",
-      location: "Hyderabad",
+      location: "USA",
       description:
         "We are looking for a results-driven Paid Ads Specialist to join our digital marketing team. In this role, you will be responsible for strategizing, executing, monitoring, and optimizing paid advertising campaigns across platforms such as Google Ads, Meta (Facebook & Instagram), LinkedIn, and more.",
       category: "Marketing",

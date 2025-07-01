@@ -72,12 +72,12 @@ export default function PopupModal({ isOpen, onClose }) {
 
   const modalContent = (
     <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
-      isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-    }`}>
+          isOpen ? 'bg-opacity-10 bg-black ' : 'bg-opacity-0'
+        }`}>
       {/* Backdrop */}
       <div
-        className={`absolute inset-0 bg-black transition-opacity duration-300 ${
-          isOpen ? 'bg-opacity-50' : 'bg-opacity-0'
+        className={`absolute inset-0 bg-black duration-300 ${
+          isOpen ? 'bg-opacity-10 ' : 'bg-opacity-0'
         }`}
         onClick={onClose}
       ></div>

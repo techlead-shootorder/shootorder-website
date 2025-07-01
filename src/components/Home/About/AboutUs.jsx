@@ -17,7 +17,7 @@ export default function AboutUs() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
               <div className="absolute bottom-6 left-6 text-white">
                 <p className="text-sm font-medium">Headquarters</p>
-                <p className="text-lg font-bold">Hyderabad, India</p>
+                <p className="text-lg font-bold">Connecticut, USA</p>
               </div>
             </div>
           </div>

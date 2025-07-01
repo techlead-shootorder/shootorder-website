@@ -131,7 +131,7 @@ const Footer = () => {
                     href="mailto:info@shootorder.com"
                     className="text-gray-700 hover:text-[#9a0c28] transition-colors"
                   >
-                    hello@shootorder.us
+                    info@shootorder.us
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
