@@ -337,6 +337,9 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} ShootOrder. All rights reserved
               by Ivent It Solutions Pvt. Ltd.
             </p>
+            <p className="text-gray-600 text-sm">
+              Ivent It Solutions Pvt with Shootorder
+            </p>
           </div>
         </div>
       </div>
