@@ -335,11 +335,9 @@ const Footer = () => {
           <div className="py-6 text-center">
             <p className="text-gray-600 text-sm">
               &copy; {new Date().getFullYear()} ShootOrder. All rights reserved
-              by Ivent It Solutions Pvt. Ltd.
+              by Shootorder.us
             </p>
-            <p className="text-gray-600 text-sm">
-              Ivent It Solutions Pvt with Shootorder
-            </p>
+           
           </div>
         </div>
       </div>
