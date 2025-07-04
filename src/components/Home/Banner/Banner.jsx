@@ -513,7 +513,7 @@ export default function Banner() {
             className="!max-w-xl mx-auto text-white/90 text-xs sm:text-sm md:text-lg px-4 sm:px-0 leading-relaxed flex-shrink-0"
           >
             Marketing isn&apos;t magic — it&apos;s strategy. <br/>
-            Elevate your brand with strategic SEO, Paid Media, Content, and Social expertise.
+            Elevate your brand with strategic <b>SEO, Paid Media, Content, and Social expertise.</b>
           </p>
 
           <div ref={buttonRef} className="flex-shrink-0">

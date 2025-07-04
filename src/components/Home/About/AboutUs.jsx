@@ -34,22 +34,26 @@ export default function AboutUs() {
             </div>
 
             <div className="space-y-4 text-gray-600">
-              <p className="leading-relaxed">
+              {/* <p className="leading-relaxed">
                 ShootOrder is a leading full-service digital marketing agency
                 helping businesses across the United States grow smarter and
                 faster.
-              </p>
-              <p className="leading-relaxed">
+              </p> */}
+              {/* <p className="leading-relaxed">
                 Trusted by over 300 businesses worldwide, we&apos;ve built a
                 strong reputation for delivering real results through proven
                 strategies in Content Marketing, SEO, PPC Advertising, and
                 Social Media Marketing.
-              </p>
-              <p className="leading-relaxed">
+              </p> */}
+              {/* <p className="leading-relaxed">
                 Our team has been instrumental in scaling numerous internet
                 startups, helping them transform into industry leaders. With our
                 growing presence, we&apos;re continuing to expand our impact
                 across the U.S., bringing global expertise with a local edge.
+              </p> */}
+
+              <p className="leading-relaxed">
+                Teaming with Maganti IT isn&apos;t just a strategic move — it&apos;s a powerful step forward. Together, we bring deep digital expertise and a shared commitment to delivering faster, smarter, and more impactful results. With Maganti IT&apos;s stronghold in tech and our pulse on performance marketing, we&apos;re helping businesses scale with clarity and confidence. This collaboration is all about raising the standard — and we&apos;re here to lead that charge. 
               </p>
             </div>
 
