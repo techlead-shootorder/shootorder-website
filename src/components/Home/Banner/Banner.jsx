@@ -468,7 +468,7 @@ export default function Banner() {
       <div
         className="banner-background-image absolute inset-0 w-full h-full"
         style={{
-          backgroundImage: "url('/images/background/home-bg2.jpg')",
+          backgroundImage: "url('/images/background/banner-red.webp')",
           backgroundSize: isMobile ? "inherit" : "cover", // Changed to cover for mobile
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
@@ -512,7 +512,8 @@ export default function Banner() {
             ref={descriptionRef}
             className="!max-w-xl mx-auto text-white/90 text-xs sm:text-sm md:text-lg px-4 sm:px-0 leading-relaxed flex-shrink-0"
           >
-            Marketing is not magic, there is a science to it. Connect with us to explore our expertise in SEO, Paid Search, Display Ads, Content Marketing, and Social Media.
+            Marketing isn&apos;t magic — it&apos;s strategy. <br/>
+            Elevate your brand with strategic SEO, Paid Media, Content, and Social expertise.
           </p>
 
           <div ref={buttonRef} className="flex-shrink-0">

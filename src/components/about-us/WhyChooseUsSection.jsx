@@ -46,33 +46,33 @@ const WhyChooseSection = () => {
   const features = [
     {
       icon: <BadgeCheck className="h-8 w-8 text-[#9a0c28]" />,
-      title: "Experienced Managers",
+      title: "Experience Managers",
       description:
-        "Every manager in ShootOrder's team is a google certified manager, our experience will not let you down!",
+        "Every manager on ShootOrder's team is a Google-certified manager; our experience will not let you down!",
     },
     {
       icon: <Users className="h-8 w-8 text-[#9a0c28]" />,
       title: "Dedicated Team",
       description:
-        "Our dedicated team has only one target, to get you business at the least possible cost and keep you always smiling.",
+        "Our dedicated team has one goal - to get you business at the lowest possible cost and keep you smiling.",
     },
     {
       icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
       title: "We are creative!",
       description:
-        "You don't have to outsource creative work to a third party vendor, we are a full service advertising agency and we are confident enough to provide you utmost creativity.",
+        "No need to outsource creatives — we’re a full-service agency delivering bold, original ideas with complete in-house expertise and confidence.",
     },
     {
       icon: <Wrench className="h-8 w-8 text-[#9a0c28]" />,
       title: "We will fix your website!",
       description:
-        "Urgh!!! Keeping your website bug free and with latest optimizations is a nightmare. With our Digital Marketing services, you dont have to go anywhere else. Until your website is optimized, our digital marketing services won't yield the expected results.",
+        "A buggy site kills results. We optimize your website first — because great digital marketing starts with a solid website.",
     },
     {
       icon: <Zap className="h-8 w-8 text-[#9a0c28]" />,
       title: "Quick Results",
       description:
-        "You don't have to wait month and months to get in positive ROI's, we do it quick!",
+        "No need to wait months for positive ROI — we deliver results faster with smart strategies and performance-driven execution.",
     },
     {
       icon: <Headphones className="h-8 w-8 text-[#9a0c28]" />,
@@ -84,13 +84,13 @@ const WhyChooseSection = () => {
       icon: <FileSignature className="h-8 w-8 text-[#9a0c28]" />,
       title: "No long term contracts!",
       description:
-        "We are always ready to sign NDA in case our clients want to set the bar of confidentiality higher. Also, no worries of long term contracts.",
+        "We’re NDA-ready for full confidentiality — and don’t worry, no long-term contracts required. Flexibility and trust come first.",
     },
     {
       icon: <HeartHandshake className="h-8 w-8 text-[#9a0c28]" />,
       title: "Complete Satisfaction",
       description:
-        "We value time & money of client for long term relationships. Client satisfaction is one of the most important aspect of our work.",
+        "We value your time and money — client satisfaction drives our work and builds lasting relationships.",
     },
   ];
 

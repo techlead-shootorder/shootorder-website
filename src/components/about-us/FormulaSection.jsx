@@ -50,7 +50,7 @@ const FormulaSection = () => {
       <div className="!max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className=" w-full h-80 rounded-xl">
           <img
-            src="/images/about-us/blog-bg.jpg"
+            src="/images/services/Our formula of success.webp"
             alt="Formula"
             className="w-full h-full object-cover rounded-xl"
           />
