@@ -16,6 +16,8 @@ import AnimatedIntro from "@/components/Home/Intro/AnimatedIntro";
 import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
 import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
+import ImageSection from "@/components/Home/PipeDrive/ImageSection";
+
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -107,7 +109,7 @@ export default function Home() {
       gsap.killTweensOf([
         ".page-loader",
         ".banner-background",
-        ".banner-content", 
+        ".banner-content",
         ".stat-bubble",
         ".animate-section",
         ".parallax-bg",
@@ -347,13 +349,13 @@ export default function Home() {
       <div className="page-loader fixed top-0 left-0 w-full h-full bg-black z-50 flex items-center justify-center">
         <div className="loader-content text-white text-3xl">ShootOrder</div>
       </div>
-      
+
       <div className="banner-section relative overflow-hidden max-w-7xl mx-auto">
         <div className="banner-background w-full">
           <Banner />
         </div>
       </div>
-      
+
       <div className="mx-auto">
         <div
           className="w-full"
@@ -367,7 +369,7 @@ export default function Home() {
             <AboutUs />
           </div>
         </div>
-        
+
         <div className="animate-section !max-w-7xl !mx-auto" id="company-section">
           <div className="parallax-bg absolute inset-0 -z-10 w-full">
             <div className="absolute top-1/4 left-1/4 w-1/4 h-1/4 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
@@ -379,7 +381,7 @@ export default function Home() {
             <OurPartners />
           </div>
         </div>
-        
+
         <section className="!bg-[#f8f6ee]">
           <div className="animate-section" id="service-tabs-section">
             <ServiceTabs />
@@ -390,22 +392,39 @@ export default function Home() {
           <div className="parallax-bg absolute inset-0 -z-10 w-full">
             <div className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-gradient-to-tl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
-          <Hire />
+          {/* <Hire /> */}
         </div>
-        
+
         <div className="!max-w-7xl mx-auto">
           <WhyTrustUs />
         </div>
-        
+
         <ClutchWidget />
-        
+
+        {/* Form section */}
         <section className="!bg-[#f8f6ee] py-10">
-          <div className="animate-section !max-w-7xl mx-auto" id="talent-form-section">
+          <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="talent-form-section">
             <div className="parallax-bg absolute inset-0 -z-10 w-full">
               <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
             </div>
-            <div className="w-full flex justify-center"> 
-            <PipeDriveForm />
+
+            {/* Main Content Container */}
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+
+              {/* Image Section - Left on desktop, Top on mobile */}
+              <div className="w-full lg:w-1/2 order-1 lg:order-1">
+                <ImageSection/>
+              </div>
+
+              {/* Form Section - Right on desktop, Bottom on mobile */}
+              <div className="w-full lg:w-1/2 order-2 lg:order-2">
+                <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+
+                  {/* Pipedrive Form */}
+                  <PipeDriveForm />
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

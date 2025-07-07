@@ -21,14 +21,11 @@ const PipeDriveForm = () => {
     return (
 
         <>
-           
-                  
+            {/* Pipedrive Form Container */}
+            <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/6xXTGQvjPMjzGFtz5pd0bxp8XLjp3yhFSs60ZPWI8wrrzmD8F0fpUJGY8Wqb2UTo3h">
+                <script src="https://webforms.pipedrive.com/f/loader"></script>
+            </div>
 
-                    {/* Pipedrive Form Container */}
-                    <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/6xXTGQvjPMjzGFtz5pd0bxp8XLjp3yhFSs60ZPWI8wrrzmD8F0fpUJGY8Wqb2UTo3h">
-                    <script src="https://webforms.pipedrive.com/f/loader"></script>
-                    </div>
-               
         </>
 
     )
