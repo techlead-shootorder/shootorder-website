@@ -60,19 +60,19 @@ const WhyChooseSection = () => {
       icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
       title: "We are creative!",
       description:
-        "No need to outsource creatives — we’re a full-service agency delivering bold, original ideas with complete in-house expertise and confidence.",
+        "No need to outsource creatives, we’re a full-service agency delivering bold, original ideas with complete in-house expertise and confidence.",
     },
     {
       icon: <Wrench className="h-8 w-8 text-[#9a0c28]" />,
       title: "We will fix your website!",
       description:
-        "A buggy site kills results. We optimize your website first — because great digital marketing starts with a solid website.",
+        "A buggy site kills results. We optimize your website first, because great digital marketing starts with a solid website.",
     },
     {
       icon: <Zap className="h-8 w-8 text-[#9a0c28]" />,
       title: "Quick Results",
       description:
-        "No need to wait months for positive ROI — we deliver results faster with smart strategies and performance-driven execution.",
+        "No need to wait months for positive ROI, we deliver results faster with smart strategies and performance-driven execution.",
     },
     {
       icon: <Headphones className="h-8 w-8 text-[#9a0c28]" />,
@@ -84,13 +84,13 @@ const WhyChooseSection = () => {
       icon: <FileSignature className="h-8 w-8 text-[#9a0c28]" />,
       title: "No long term contracts!",
       description:
-        "We’re NDA-ready for full confidentiality — and don’t worry, no long-term contracts required. Flexibility and trust come first.",
+        "We’re NDA-ready for full confidentiality and don’t worry, no long-term contracts required. Flexibility and trust come first.",
     },
     {
       icon: <HeartHandshake className="h-8 w-8 text-[#9a0c28]" />,
       title: "Complete Satisfaction",
       description:
-        "We value your time and money — client satisfaction drives our work and builds lasting relationships.",
+        "We value your time and money, client satisfaction drives our work and builds lasting relationships.",
     },
   ];
 
