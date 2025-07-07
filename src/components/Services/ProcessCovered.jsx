@@ -13,6 +13,19 @@ function ProcessCovered({ services, pageHeading }) {
 
   useEffect(() => {
     setIsVisible(true);
+
+    // Load Pipedrive script when component mounts
+    const script = document.createElement('script');
+    script.src = 'https://webforms.pipedrive.com/f/loader';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script when component unmounts
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
   }, []);
 
   if (!services?.features) return null;
@@ -22,14 +35,13 @@ function ProcessCovered({ services, pageHeading }) {
       <div className="!max-w-7xl mx-auto">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-800 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-16 transition-all duration-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <h2 className="text-center font-bold text-4xl mb-4">
             {pageHeading ? pageHeading : "Our Services"}
           </h2>
-        
+
         </div>
 
         {/* Awesome Grid Layout */}
@@ -37,11 +49,10 @@ function ProcessCovered({ services, pageHeading }) {
           {services.features.map((service, index) => (
             <div
               key={index}
-              className={`group transition-all duration-600 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-12"
-              }`}
+              className={`group transition-all duration-600 ${isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+                }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Card */}
@@ -55,9 +66,8 @@ function ProcessCovered({ services, pageHeading }) {
                     alt={service.heading}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
-                      e.target.src = `https://picsum.photos/600/400?random=${
-                        index + 10
-                      }`;
+                      e.target.src = `https://picsum.photos/600/400?random=${index + 10
+                        }`;
                     }}
                   />
 
@@ -96,13 +106,29 @@ function ProcessCovered({ services, pageHeading }) {
               </div>
             </div>
           ))}
+          <div
+            
+            className={`group transition-all p-4 duration-600 ${isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-12"
+              }`}
+
+
+            
+          >
+            <div className="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/6xW3vXFh88YtOB6VH0N0LoQCMcg9OnNfcQfdAwPL01GmGyEX7UxOGSc0KqwZHO7bqP">
+              <script src="https://webforms.pipedrive.com/f/loader"></script>
+            </div>
+          </div>
+
         </div>
+
+
 
         {/* Optional: Add more services link */}
         <div
-          className={`text-center mt-16 transition-all duration-800 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mt-16 transition-all duration-800 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <button className="inline-flex items-center gap-2 text-[#9a0c28] hover:text-[#7a0920] font-medium text-lg transition-colors duration-300 group">
             <span>View All Services</span>
