@@ -52,8 +52,17 @@ export default function AboutUs() {
                 across the U.S., bringing global expertise with a local edge.
               </p> */}
 
-              <p className="leading-relaxed">
-                Teaming with Maganti IT isn&apos;t just a strategic move, it&apos;s a powerful step forward. Together, we bring deep digital expertise and a shared commitment to delivering faster, smarter, and more impactful results. With Maganti IT&apos;s stronghold in tech and our pulse on performance marketing, we&apos;re helping businesses scale with clarity and confidence. This collaboration is all about raising the standard and we&apos;re here to lead that charge. 
+              <p className="leading-relaxed mb-2">
+                Teaming with Maganti IT isn’t just a strategic move, it’s a powerful step forward.
+              </p>
+              <p className="leading-relaxed mb-2">
+                Together, we bring deep digital expertise and a shared commitment to delivering faster, smarter, and more impactful results.
+              </p>
+              <p className="leading-relaxed mb-2">
+                With Maganti IT’s stronghold in tech and our pulse on performance marketing, we’re helping businesses scale with clarity and confidence.
+              </p>
+              <p className="leading-relaxed mb-2">
+                This collaboration is all about raising the standard and we’re here to lead that charge.
               </p>
             </div>
 
