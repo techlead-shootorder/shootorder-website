@@ -25,7 +25,7 @@ const TestimonialSection = () => {
                 {/* Image on Right */}
                 <div className="w-[450px] h-[450px] rounded-full ml-auto">
                     <Image
-                        src="/images/about-us/Rajat.jpg"
+                        src="/images/about-us/Sushma.webp"
                         alt="Gray Circle"
                         width={450}
                         height={450}

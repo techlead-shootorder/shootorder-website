@@ -8,7 +8,7 @@ const TestimonialSection = () => {
         {/* Gray Circle on Left */}
         <div className=" w-[450px] h-[450px] rounded-full bg-black">
           <Image
-            src="/images/about-us/Rajat.jpg"
+            src="/images/about-us/Rajat.webp"
             alt="Gray Circle"
             width={450}
             height={450}

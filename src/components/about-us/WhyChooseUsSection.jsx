@@ -60,7 +60,7 @@ const WhyChooseSection = () => {
       icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
       title: "We are creative!",
       description:
-        "No need to outsource creatives, we’re a full-service agency delivering bold, original ideas with complete in-house expertise and confidence.",
+        "No need to outsource creatives, we’re a full-service agency crafting bold, original ideas with in-house expertise.",
     },
     {
       icon: <Wrench className="h-8 w-8 text-[#9a0c28]" />,
@@ -72,7 +72,7 @@ const WhyChooseSection = () => {
       icon: <Zap className="h-8 w-8 text-[#9a0c28]" />,
       title: "Quick Results",
       description:
-        "No need to wait months for positive ROI, we deliver results faster with smart strategies and performance-driven execution.",
+        "No need to wait months for positive ROI, we drive ROI fast with smart performance-led strategies.",
     },
     {
       icon: <Headphones className="h-8 w-8 text-[#9a0c28]" />,
