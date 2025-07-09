@@ -7,7 +7,7 @@ function HomeBanner() {
     <BannerSection>
       <div className="flex flex-col items-center justify-start text-center md:text-right">
         <h2 className="text-2xl md:text-4xl font-bold mb-8 leading-tight text-white">
-          We are among the top 3% in India
+          We are among the top 3%
         </h2>
         <div className="flex flex-col md:flex-row justify-end items-center gap-6">
           <Image
