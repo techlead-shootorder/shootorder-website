@@ -123,7 +123,7 @@ function ProcessCovered({ services, pageHeading }) {
 
 
         {/* Optional: Add more services link */}
-        <div
+        {/* <div
           className={`text-center mt-16 transition-all duration-800 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
         >
@@ -143,7 +143,7 @@ function ProcessCovered({ services, pageHeading }) {
               />
             </svg>
           </button>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
