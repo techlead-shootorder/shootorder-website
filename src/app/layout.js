@@ -33,13 +33,13 @@ export default function RootLayout({ children }) {
           <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
         </div>
         <Footer />
-        {/* Pipedrive LeadBooster Script */}
-        <Script id="pipedrive-config" strategy="beforeInteractive">
+        {/* Updated Pipedrive LeadBooster Script */}
+        <Script id="pipedrive-leadbooster-config" strategy="beforeInteractive">
           {`
             window.pipedriveLeadboosterConfig = {
               base: 'leadbooster-chat.pipedrive.com',
-              companyId: 14039273,
-              playbookUuid: '3c499264-a106-4893-a20a-1218d096e819',
+              companyId: 14111626,
+              playbookUuid: 'a1c1352f-7b6c-4f7a-9065-1f7ecde7c714',
               version: 2
             };
             (function () {
@@ -64,6 +64,7 @@ export default function RootLayout({ children }) {
         <Script
           src="https://leadbooster-chat.pipedrive.com/assets/loader.js"
           strategy="afterInteractive"
+          async
         />
       </body>
     </html>
