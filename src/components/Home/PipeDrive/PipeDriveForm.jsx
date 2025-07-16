@@ -22,7 +22,7 @@ const PipeDriveForm = () => {
 
         <>
             {/* Pipedrive Form Container */}
-            <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/5VCnvCTTpciW8EOquxUa6rJouYdCSntaddqtJtsubY8coHqKW1j0JM38jvtMd5efej">
+            <div className="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/5VCnvCTTpciW8EOquxUa6rJouYdCSntaddqtJtsubY8coHqKW1j0JM38jvtMd5efej">
                 <script src="https://webforms.pipedrive.com/f/loader"></script>
             </div>
 
