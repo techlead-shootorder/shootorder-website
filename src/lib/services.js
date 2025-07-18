@@ -26,22 +26,22 @@ export async function getAllServices() {
           {
             heading: "Technical SEO Optimization",
             content: "Site architecture, crawlability, and core web vitals optimization for better search performance",
-            imageUrl: "/images/services/technical-seo.jpg"
+            imageUrl: "/images/services/SEO/Technical SEO.webp"
           },
           {
             heading: "Meta Tags Optimization",
             content: "Strategic optimization of title tags, meta descriptions, and header tags for improved CTR",
-            imageUrl: "/images/services/meta-tags.jpg"
+            imageUrl: "/images/services/SEO/Meta Tags Optimization.webp"
           },
           {
             heading: "Rich Schema Markups",
             content: "Implementation of structured data for enhanced SERP visibility and featured snippets",
-            imageUrl: "/images/services/schema.jpg"
+            imageUrl: "/images/services/SEO/Rich Mark-ups.webp"
           },
           {
             heading: "Content Optimization",
             content: "SEO-friendly content strategy with semantic relevance and user intent matching",
-            imageUrl: "/images/services/content.jpg"
+            imageUrl: "/images/services/SEO/SEO friendly Content Optimization.webp"
           },
           {
             heading: "Local SEO",
