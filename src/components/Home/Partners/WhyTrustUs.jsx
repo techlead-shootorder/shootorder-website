@@ -20,17 +20,12 @@ export default function WhyTrustUs() {
   });
 
   const partnerLogos = [
-    "a1",
-    "b1",
-    "c1",
-    "d1",
-    "e1",
-    "f1",
-    "g1",
-    "h1",
-    "i1",
-    "j1",
-  ].map((name) => `/images/clients/${name}.jpg`);
+    "Apollo Homecare",
+    "Carkia",
+    "Empire wines",
+    "IVF london",
+    "Travtips",
+  ].map((name) => `/images/clients/${name}.webp`);
 
   return (
     <div className="relative !max-w-7xl mx-auto py-16">
