@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import ClutchWidget from "../Home/CompanyInfo/ClutchWidget";
 
 function ClientGrid({ children }) {
   const containerRef = useRef(null);
@@ -15,8 +16,8 @@ function ClientGrid({ children }) {
 
   // Trust logos (10): a1.jpg to j1.jpg
   const trustLogos = [
-    "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1", "j1"
-  ].map((name) => `/images/clients/${name}.jpg`);
+    "a1.jpg", "b1.jpg", "Apollo Homecare.webp", "Carkia.webp", "e1.jpg", "f1.jpg", "Empire wines.webp", "h1.jpg", "i1.jpg", "IVF london.webp", "Travtips.webp"
+  ].map((name) => `/images/clients/${name}`);
 
   useEffect(() => {
     const handleLoad = () => {
@@ -62,12 +63,12 @@ function ClientGrid({ children }) {
   );
 
   return (
-    <div className="!max-w-7xl mx-auto py-16 overflow-hidden">
+    <div className="!max-w-7xl mx-auto py-10 overflow-hidden">
       {children}
 
       <div ref={containerRef} className="space-y-8">
         {/* Top Row Heading */}
-        <div>
+        {/* <div>
           <h2 className="text-center font-bold text-2xl mb-8">Our Partners</h2>
           <div className="relative">
             <div
@@ -79,21 +80,25 @@ function ClientGrid({ children }) {
               {partnerLogos.map((logo, index) => renderLogoCard(logo, index + 14))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Row Heading */}
         <div>
-          <h2 className="text-center font-bold text-2xl mb-8">Why Trust Us</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Why Trust Us</h2>
           <div className="relative">
             <div
               ref={bottomRowRef}
-              className="flex whitespace-nowrap"
+              className="grid grid-cols-3"
               style={{ width: "200%" }}
             >
               {trustLogos.map(renderLogoCard)}
               {trustLogos.map((logo, index) => renderLogoCard(logo, index + 10))}
             </div>
           </div>
+        </div>
+
+        <div>
+          <ClutchWidget/>
         </div>
       </div>
     </div>
