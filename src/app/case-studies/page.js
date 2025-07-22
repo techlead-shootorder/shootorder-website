@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ChevronRight, Users, TrendingUp, Award, Eye } from 'lucide-react';
+import { ChevronRight, Users, TrendingUp, Award, Eye, Download } from 'lucide-react';
 
 const CaseStudiesPage = () => {
   const router = useRouter();
@@ -14,7 +14,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Revolutionizing patient care through digital transformation',
       results: '150% increase in patient engagement',
-      color: 'from-slate-700 to-slate-800'
+      color: 'from-slate-700 to-slate-800',
+      pdfUrl: '/pdfs/case-studies/by-industry/Healthcare_Oasis-Fertility.pdf'
     },
     {
       id: 'fashion-beauty',
@@ -22,7 +23,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Boosting brand visibility in competitive beauty market',
       results: '300% growth in online sales',
-      color: 'from-purple-600 to-purple-700'
+      color: 'from-purple-600 to-purple-700',
+      // pdfUrl: '/pdfs/case-studies/by-industry/Healthcare_Oasis-Fertility.pdf'
     },
     {
       id: 'ecommerce-retail',
@@ -30,7 +32,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Scaling online retail operations for maximum ROI',
       results: '250% revenue increase',
-      color: 'from-blue-600 to-blue-700'
+      color: 'from-blue-600 to-blue-700',
+      pdfUrl: '/pdfs/case-studies/by-industry/Ecommerce_Nakshikathaa.pdf'
     },
     {
       id: 'it-technology',
@@ -38,7 +41,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Driving innovation in tech startup ecosystem',
       results: '400% user acquisition',
-      color: 'from-emerald-600 to-emerald-700'
+      color: 'from-emerald-600 to-emerald-700',
+      pdfUrl: '/pdfs/case-studies/by-industry/IT & Technology_Orchasp Limited.pdf'
     },
     {
       id: 'entertainment',
@@ -46,7 +50,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Amplifying reach for entertainment brands',
       results: '500% social engagement',
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-orange-500 to-orange-600',
+      pdfUrl: '/pdfs/case-studies/by-industry/Entertainment_Carawander.pdf'
     },
     {
       id: 'education',
@@ -54,7 +59,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Transforming learning experiences digitally',
       results: '200% student enrollment',
-      color: 'from-indigo-600 to-indigo-700'
+      color: 'from-indigo-600 to-indigo-700',
+      pdfUrl: '/pdfs/case-studies/by-industry/Education_ALPA Kids.pdf'
     },
     {
       id: 'real-estate',
@@ -62,7 +68,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Modernizing property marketing strategies',
       results: '180% faster sales',
-      color: 'from-teal-600 to-teal-700'
+      color: 'from-teal-600 to-teal-700',
+      // pdfUrl: '/pdfs/case-studies/by-industry/Healthcare_Oasis-Fertility.pdf'
     },
     {
       id: 'events',
@@ -70,7 +77,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Creating memorable event experiences',
       results: '300% attendance boost',
-      color: 'from-pink-500 to-pink-600'
+      color: 'from-pink-500 to-pink-600',
+      // pdfUrl: '/pdfs/case-studies/by-industry/Healthcare_Oasis-Fertility.pdf'
     },
     {
       id: 'others',
@@ -78,7 +86,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/400/300',
       description: 'Diverse solutions for unique challenges',
       results: 'Custom success metrics',
-      color: 'from-gray-600 to-gray-700'
+      color: 'from-gray-600 to-gray-700',
+      pdfUrl: '/pdfs/case-studies/by-industry/Others_Home Healthcare Services Company.pdf'
     }
   ];
 
@@ -89,7 +98,8 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/600/400',
       description: 'Dominating search rankings with strategic optimization',
       results: '400% organic traffic growth',
-      color: 'from-slate-700 to-slate-800'
+      color: 'from-slate-700 to-slate-800',
+      pdfUrl: '/pdfs/case-studies/by-service/SEO_Country Oven.pdf'
     },
     {
       id: 'ppc',
@@ -97,7 +107,9 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/600/400',
       description: 'Maximizing ROI through targeted advertising campaigns',
       results: '250% conversion rate improvement',
-      color: 'from-blue-600 to-blue-700'
+      color: 'from-blue-600 to-blue-700',
+      pdfUrl: '/pdfs/case-studies/by-service/PPC_IPI India Pvt. Ltd.pdf'
+      
     },
     {
       id: 'smm',
@@ -105,7 +117,9 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/600/400',
       description: 'Building communities and driving engagement',
       results: '600% follower growth',
-      color: 'from-purple-600 to-purple-700'
+      color: 'from-purple-600 to-purple-700',
+      pdfUrl: '/pdfs/case-studies/by-service/Social Media_Luxury Car Dealership.pdf'
+
     },
     {
       id: 'content',
@@ -113,13 +127,51 @@ const CaseStudiesPage = () => {
       image: '/api/placeholder/600/400',
       description: 'Crafting compelling narratives that convert',
       results: '300% lead generation increase',
-      color: 'from-emerald-600 to-emerald-700'
+      color: 'from-emerald-600 to-emerald-700',
+      pdfUrl: '/pdfs/case-studies/by-service/Content Marketing_Nakshikathaa.pdf'
     }
   ];
 
   const handleCaseStudyClick = (studyId) => {
     // Navigate to individual case study page
     router.push(`/case-studies/${studyId}`);
+  };
+
+  const handleDownloadPDF = async (pdfUrl, title, event) => {
+    event.stopPropagation(); // Prevent card click when button is clicked
+    
+    try {
+      // Option 1: Direct download using anchor element (works if PDF exists)
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = `${title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}-case-study.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Option 2: If you need to fetch the PDF first (uncomment if needed)
+      /*
+      const response = await fetch(pdfUrl);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}-case-study.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error('Failed to download PDF');
+        alert('Failed to download PDF. Please try again.');
+      }
+      */
+      
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+      alert('Error downloading PDF. Please try again.');
+    }
   };
 
   const CaseStudyCard = ({ study, isLarge = false }) => (
@@ -149,15 +201,26 @@ const CaseStudiesPage = () => {
           </p>
         </div>
         
-        <div className="space-y-2">
+        <div className="space-y-3">
           <div className="flex items-center space-x-2">
             <TrendingUp className="w-4 h-4" />
             <span className="text-sm font-medium">{study.results}</span>
           </div>
           
-          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300 text-sm font-medium">
-            <Eye className="w-4 h-4" />
-            <span>View Case Study</span>
+          <div className="flex space-x-2">
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300 text-sm font-medium flex-1">
+              <Eye className="w-4 h-4" />
+              <span>View Case Study</span>
+            </div>
+            
+           {study.pdfUrl && <button
+              onClick={(e) => handleDownloadPDF(study.pdfUrl, study.title, e)}
+              className="inline-flex items-center space-x-2 bg-[#9a0c28]/80 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-[#9a0c28] transition-all duration-300 text-sm font-medium"
+              title={`Download ${study.title} Case Study PDF`}
+            >
+              <Download className="w-4 h-4" />
+              <span className="hidden sm:inline">PDF</span>
+            </button>}
           </div>
         </div>
       </div>

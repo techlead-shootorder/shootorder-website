@@ -12,6 +12,7 @@ import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 
 export async function generateStaticParams() {
   const slugs = await getAllServiceSlugs();
+  console.log("slugs ------>", slugs);
 
   return slugs.map((slug) => ({
     slug: slug,

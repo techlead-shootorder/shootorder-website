@@ -830,5 +830,155 @@
       }
     ],
     "content": ""
+  },
+   {
+    "heading": "Onsite Engagement Solutions",
+    "subheading": "Turn in-person interactions into memorable brand experiences. We design and execute engaging onsite activations that captivate your audience, build brand recall, and drive meaningful connections.",
+    "title": "Onsite Engagement Solutions",
+    "slug": "on-site-engagement",
+    "description": ".",
+    "imageUrl": "/images/services/performance-marketing.jpg",
+    "features": [
+      {
+        "imageUrl": "/images/services/on-site-engagement/Onsite Engagement Strategy & Planning.webp",
+        "heading": "Onsite Engagement Strategy & Planning",
+        "content": "Custom engagement plans tailored to your event type, corporate meets, product launches, expos, or retail activations, with clear objectives and measurable outcomes."
+      },
+      {
+        "imageUrl": "/images/services/on-site-engagement/Interactive Booth & Experience Design.webp",
+        "heading": "Interactive Booth & Experience Design",
+        "content": "Creative booth designs, interactive installations, photo booths, and immersive setups that encourage footfall and participation."
+      },
+      {
+        "imageUrl": "/images/services/on-site-engagement/Live Activations & Gamification.webp",
+        "heading": "Live Activations & Gamification",
+        "content": "Fun, interactive activities such as spin-the-wheel, quizzes, AR/VR experiences, or branded games to engage visitors and collect valuable leads."
+      },
+      {
+        "imageUrl": "/images/services/on-site-engagement/Brand Ambassadors & Staffing.webp",
+        "heading": "Brand Ambassadors & Staffing",
+        "content": "Trained brand representatives, promoters, and hosts who embody your brand values and create positive, lasting impressions."
+      },
+      {
+       "imageUrl": "/images/services/on-site-engagement/Onsite Engagement Strategy & Planning.webp",
+        "heading": "Lead Capture & Data Collection",
+        "content": "Digital forms, QR codes, and on-the-spot contests to maximize lead collection and real-time engagement tracking."
+      },
+      {
+       "imageUrl": "/images/services/on-site-engagement/Post-Event Reporting & Analysis.webp",
+        "heading": "Post-Event Reporting & Analysis",
+        "content": "Detailed engagement reports, lead data summaries, and feedback insights to evaluate event success and plan future strategies."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Data Analytics & Dashboard Solutions ",
+    "subheading": "Transform raw data into actionable insights. We help businesses make smarter, faster decisions with customized analytics solutions and interactive dashboards that provide clarity and real-time performance tracking. ",
+    "title": "Data Analytics & Dashboard Solutions",
+    "slug": "analytics-dashboards",
+    "description": ".",
+    "imageUrl": "/images/services/performance-marketing.jpg",
+    "features": [
+      {
+        "imageUrl": "/images/services/analytics-dashboard/KPI Definition & Data Strategy.webp",
+        "heading": "KPI Definition & Data Strategy",
+        "content": "Identify business-critical metrics and create a structured approach to track performance effectively."
+      },
+      {
+       "imageUrl": "/images/services/analytics-dashboard/Custom Dashboard Design.webp",
+        "heading": "Custom Dashboard Design",
+        "content": "Interactive, visually engaging dashboards built on Power BI, Tableau, Google Data Studio, or custom platforms. "
+      },
+      {
+       "imageUrl": "/images/services/analytics-dashboard/Multi-Source Data Integration.webp",
+        "heading": "Multi-Source Data Integration",
+        "content": "Connect and unify data from CRMs, marketing tools, websites, and internal systems for a single view of performance."
+      },
+      {
+       "imageUrl": "/images/services/analytics-dashboard/Real-Time Reporting & Automation.webp",
+        "heading": "Real-Time Reporting & Automation",
+        "content": "Automated data updates and live reporting to reduce manual effort and enable quicker decisions. "
+      },
+      {
+       "imageUrl": "/images/services/analytics-dashboard/Advanced Analytics & Insights.webp",
+        "heading": "Advanced Analytics & Insights",
+        "content": "Deliver trend analysis, performance forecasting, and actionable business insights."
+      },
+      {
+        "imageUrl": "/images/services/analytics-dashboard/Training & Ongoing Support.webp",
+        "heading": "Training & Ongoing Support",
+        "content": "Hands-on dashboard training and continuous support to help teams make the most of their data."
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Smart Analytics Solutions ",
+    "subheading": "Unlock the true potential of your data with intelligent analytics. We empower businesses to make proactive, data-driven decisions through AI-powered insights, predictive modeling, and automated reporting that simplify complexity and drive growth.",
+    "title": "Smart Analytics Solutions",
+    "slug": "smart-analytics",
+    "description": ".",
+    "imageUrl": "/images/services/performance-marketing.jpg",
+    "features": [
+      {
+        "imageUrl": "/images/services/smart-analytics/Smart Data Strategy & Goal Alignment.webp",
+        "heading": "Smart Data Strategy & Goal Alignment",
+        "content": "Define clear business objectives, set intelligent KPIs, and design analytics strategies that focus on growth, efficiency, and profitability."
+      },
+      {
+        "imageUrl": "/images/services/smart-analytics/AI & Predictive Analytics.webp",
+        "heading": "AI & Predictive Analytics",
+        "content": "Utilize artificial intelligence and machine learning to forecast trends, predict customer behavior, and anticipate market shifts."
+      },
+      {
+        "imageUrl": "/images/services/smart-analytics/Real-Time Insights Dashboards.webp",
+        "heading": "Real-Time Insights Dashboards",
+        "content": "Dynamic, real-time dashboards that transform raw data into intuitive visualizations for quick, actionable insights. "
+      },
+      {
+         "imageUrl": "/images/services/smart-analytics/Cross-Platform Data Integration.webp",
+        "heading": "Cross-Platform Data Integration",
+        "content": "Aggregate and harmonize data from CRMs, marketing channels, websites, and internal tools into a single, smart analytics system."
+      },
+      {
+        "imageUrl": "/images/services/smart-analytics/Automated Reporting & Smart Alerts.webp",
+        "heading": "Automated Reporting & Smart Alerts",
+        "content": "Deliver automated reports and instant alerts that highlight anomalies, business opportunities, and performance risks in real-time. "
+      },
+      {
+        "imageUrl": "/images/services/smart-analytics/Optimization Recommendations & Continuous Improvement.webp",
+        "heading": "Optimization Recommendations & Continuous Improvement",
+        "content": "Provide AI-driven suggestions and optimization pathways to continuously enhance marketing, sales, and operational outcomes. "
+      }
+    ],
+    "content": ""
+  },
+  {
+    "heading": "Digital Marketing Training",
+    "subheading": "With the advent of mobile technology & internet, we have entered into the era of digitization. We search, talk, learn, watch, sleep & eat on internet these days. As there is a huge amount of people like us reliable on internet, it gives an opportunity for businessmen to market their products and increase their revenue. This is where people like us “Digital Marketing Experts” or “SEO Experts” or “Online Marketing Specialists” come into picture.",
+    "slug": "training",
+    "title": "Digital Marketing Tranining",
+    "description": ".",
+    "imageUrl": "/images/services/performance-marketing.jpg",
+    "features": [
+      {
+        "imageUrl": "/images/services/smart-analytics/Smart Data Strategy & Goal Alignment.webp",
+        "heading": "SEO Training",
+        "content": "On Page Optimization Keyword Research Off Page Optimization Link Building Tricks Advance SEO Maintaining & Monitoring"
+      },
+      {
+        "imageUrl": "/images/services/smart-analytics/AI & Predictive Analytics.webp",
+        "heading": "PPC Training",
+        "content": "Search Engine Marketing (Google Adwords Bing Ads) Display Advertising (Google + Youtube, Bing)Social Media Advertising (Facebook, LinkedIn, Twitter Pinterest) Mobile Advertising Advance Media Buying"
+      },
+      {
+        "imageUrl": "/images/services/smart-analytics/Real-Time Insights Dashboards.webp",
+        "heading": "Social Media Training",
+        "content": "Organic Management (Facebook, Twitter, Instagram...) Online Reputation Care Organic Growth (Likes/Followers) Advance Social Media Marketing"
+      }
+     
+    ],
+    "content": ""
   }
 ]
