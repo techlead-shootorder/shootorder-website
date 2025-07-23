@@ -18,20 +18,14 @@ const TestimonialSection = () => {
         {/* Content Row */}
         <div className="flex flex-col justify-center items-start">
            <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-black mb-4">Our Leadership</h1>
-          <p className="text-xl text-gray-600">Meet the visionaries driving our innovation forward</p>
+          {/* <h1 className="text-5xl font-bold text-black mb-4">Our Leadership</h1> */}
+          <p className="text-3xl font-bold text-black text-left">Rajat Jain: Where Strategy Meets Innovation in Digital Marketing</p>
         </div>
           <h2 className="text-6xl font-bold text-black ">“</h2>
           <p className="text-base text-gray-800 mb-2">
-            Teaming with Maganti IT isn’t just a strategic move, it’s a powerful step forward.
+            Rajat Jain is a digital strategist known for being able to connect creativity with performance. He is mainly involved in creating scalable marketing frameworks and generating business growth via innovation. He is also a very enthusiastic emerging technology and product thinking, and he continuously explores new ways to enhance digital outcomes.
             </p>
-             <p className="text-base text-gray-800 mb-2">
-         Together, we bring deep digital expertise and a shared commitment to delivering faster, smarter, and more impactful results.</p>
-         <p className="text-base text-gray-800 mb-2">
-          With Maganti IT’s stronghold in tech and our pulse on performance marketing, we’re helping businesses scale with clarity and confidence. </p>
-           <p className="text-base text-gray-800">
-          This collaboration is all about raising the standard, and we’re here to lead that charge.
-          </p>
+            
           <div className=" w-full flex items-center justify-end text-7xl font-bold text-black mt-2">
             ”
           </div>

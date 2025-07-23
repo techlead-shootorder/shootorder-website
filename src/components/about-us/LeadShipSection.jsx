@@ -7,17 +7,13 @@ const TestimonialSection = () => {
             <div className="relative !max-w-7xl mx-auto grid grid-cols-2 py-16 px-4 md:px-16 ">
                 {/* Content Row */}
                 <div className="flex flex-col justify-center items-start">
-                    <h1 className="text-4xl font-bold text-black mb-6">Leadership That Drives Innovation</h1>
+                    <h1 className="text-3xl font-bold text-black text-left mb-6">Sushma Maganti: Building the Future of Scalable, AI-Driven Success</h1>
                     <h2 className="text-6xl font-bold text-black ">"</h2>
-                    <p className="text-base text-gray-800 mb-2">
-                        Sushma Maganti helps businesses build custom AI solutions by finding the right people for the right roles at the right time.
-                        </p> 
+                  
                          <p className="text-base text-gray-800 mb-2">
-                        She brings together AI solutions and digital marketing to help companies grow faster, work better, and get real results.
+                        Sushma Maganti helps businesses build custom AI solutions by finding the right people for the right roles at the right time. She brings together AI solutions and digital marketing to help companies grow faster, work better, and get real results. With her strong focus on talent, right method and clear direction, Sushma makes it easier for teams to scale and succeed in today’s digital world.
                         </p>
-                        <p className="text-base text-gray-800 mb-2 ">
-                        With her strong focus on talent, right method and clear direction, Sushma makes it easier for teams to scale and succeed in today’s digital world.
-                    </p>
+                        
                     <div className=" w-full flex items-center justify-end text-7xl font-bold text-black mt-2">
                         "
                     </div>

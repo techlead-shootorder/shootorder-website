@@ -2,8 +2,8 @@ import React from 'react'
 
 const AboutDescription = () => {
     return (
-        <div className="relative !max-w-6xl mx-auto pt-16 pb-2">
-            <div className='pb-10 pt-16'>
+        <div className="relative !max-w-6xl mx-auto pt-16 pb-6">
+            <div className=' pt-16'>
                 <h2 className='text-center font-bold text-4xl mb-4'>About Shootorder</h2>
                 <div className='space-y-4 text-gray-600'>
                     <p className=''>ShootOrder is recognized by Google as a Premier Partner, ranking among the top 3% of digital marketing agencies. Founded by digital marketing expert Rajat Jain, we have established a strong reputation in performance-driven digital marketing, with a growing international presence. </p>
@@ -16,7 +16,7 @@ const AboutDescription = () => {
                 </div>
             </div>
 
-            <div className=''>
+            {/* <div className=''>
                 <h2 className='text-center font-bold text-4xl mb-4'>Our Leadership</h2>
                 <div className='space-y-4 text-gray-600'>
                     <h3 className='font-semibold text-xl '>Rajat Jain: Where Strategy Meets Innovation in Digital Marketing </h3>
@@ -24,7 +24,7 @@ const AboutDescription = () => {
                     <h3 className='font-semibold text-xl '>Sushma Maganti: Building the Future of Scalable, AI-Driven Success  </h3>
                     <p>Sushma Maganti helps businesses build custom AI solutions by finding the right people for the right roles at the right time. She brings together AI solutions and digital marketing to help companies grow faster, work better, and get real results. With her strong focus on talent, right method and clear direction, Sushma makes it easier for teams to scale and succeed in today’s digital world.</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
