@@ -56,18 +56,18 @@ const WhyChooseSection = () => {
       description:
         "Our dedicated team has one goal - to get you business at the lowest possible cost and keep you smiling.",
     },
-    {
-      icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
-      title: "We are creative!",
-      description:
-        "No need to outsource creatives, we’re a full-service agency crafting bold, original ideas with in-house expertise.",
-    },
-    {
-      icon: <Wrench className="h-8 w-8 text-[#9a0c28]" />,
-      title: "We will fix your website!",
-      description:
-        "A buggy site kills results. We optimize your website first, because great digital marketing starts with a solid website.",
-    },
+    // {
+    //   icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
+    //   title: "We are creative!",
+    //   description:
+    //     "No need to outsource creatives, we’re a full-service agency crafting bold, original ideas with in-house expertise.",
+    // },
+    // {
+    //   icon: <Wrench className="h-8 w-8 text-[#9a0c28]" />,
+    //   title: "We will fix your website!",
+    //   description:
+    //     "A buggy site kills results. We optimize your website first, because great digital marketing starts with a solid website.",
+    // },
     {
       icon: <Zap className="h-8 w-8 text-[#9a0c28]" />,
       title: "Quick Results",
@@ -76,13 +76,13 @@ const WhyChooseSection = () => {
     },
     {
       icon: <Headphones className="h-8 w-8 text-[#9a0c28]" />,
-      title: "Always available for you!",
+      title: "24/7 Support",
       description:
         "Our client servicing team is always available at your service with industries best turnaround time.",
     },
     {
       icon: <FileSignature className="h-8 w-8 text-[#9a0c28]" />,
-      title: "No long term contracts!",
+      title: "No Lock-In Contracts",
       description:
         "We’re NDA-ready for full confidentiality and don’t worry, no long-term contracts required. Flexibility and trust come first.",
     },
@@ -95,7 +95,7 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-[#fffbe7] to-white py-20 px-4 md:px-8">
+    <div className="w-full bg-[#9a0c28]  py-20 px-4 md:px-8">
       <motion.div
         className="!max-w-6xl mx-auto"
         initial={{ opacity: 0 }}
@@ -103,14 +103,14 @@ const WhyChooseSection = () => {
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-center font-bold text-4xl mb-4"
+          className="text-center font-bold text-4xl mb-4 text-white"
           initial={{ y: -20 }}
           whileInView={{ y: 0 }}
         >
           Why Choose Shootorder
         </motion.h2>
         <motion.p
-          className="text-center text-gray-600 mb-12 max-w-2xl mx-auto"
+          className="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-white"
           initial={{ y: -10 }}
           whileInView={{ y: 0 }}
         >

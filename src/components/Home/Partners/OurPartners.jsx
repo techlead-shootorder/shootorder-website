@@ -26,8 +26,8 @@ export default function PartnerCarousel() {
     .map((num) => `/images/logo/${num}.jpg`);
 
   return (
-    <div className="relative !max-w-7xl mx-auto py-16">
-      <h2 className="text-4xl font-bold text-center mb-8">Our Partners</h2>
+    <div className="relative !max-w-7xl mx-auto " >
+      <h2 className="text-4xl font-bold text-center mb-8 text-white">Our Partners</h2>
 
       {/* Left Arrow */}
       <button

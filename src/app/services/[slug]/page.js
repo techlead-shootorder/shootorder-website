@@ -96,7 +96,7 @@ export default async function ServicePage({ params }) {
       <BannerForServices />
       <ProcessCovered services={service} />
       <WhyChooseSection />
-      <section className="py-16">
+      <section className="py-4 bg-[#9A0C28]">
         <ClientGrid>
           <h3 className="text-3xl font-semibold mb-4 text-center">
             Top Brand&apos;s We Have Worked With
@@ -106,9 +106,7 @@ export default async function ServicePage({ params }) {
       <section className="bg-[#fffbe7]">
         <Testimonials/>
       </section>
-      <section>
-        <Blogs/>
-      </section>
+     
 
     </>
   );

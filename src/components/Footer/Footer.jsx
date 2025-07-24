@@ -9,27 +9,27 @@ const digitalMarketingServices = {
   title: "Digital Marketing",
   sections: [
     {
-      heading: "Owned Media",
+      // heading: "Owned Media",
       links: [
         { name: "SEO Optimization", href: "/seo" },
-        { name: "Blog Management", href: "/blog-management" },
-        { name: "Website Development", href: "/web-design" },
+        { name: "Paid Advertising", href: "/google-ads" },
+        { name: "Brand Positioning", href: "/social-media-marketing" },
         { name: "Social Media Marketing", href: "/social-media-marketing" },
-          { name: "GBP Management", href: "/gbp-management" },
+        //   { name: "GBP Management", href: "/gbp-management" },
       ],
     },
     {
-      heading: "Paid Media",
+      // heading: "Paid Media",
       links: [
-        { name: "Google Ads", href: "/google-ads" },
-        { name: "Meta Ads", href: "/meta-ads" },
+        // { name: "Google Ads", href: "/google-ads" },
+        // { name: "Meta Ads", href: "/meta-ads" },
       ],
     },
     {
-      heading: "Earned Media",
+      // heading: "Earned Media",
       links: [
-        { name: "Digital PR", href: "/digital-pr" },
-        { name: "Influencer Marketing", href: "/influencers-marketing" },
+        // { name: "Digital PR", href: "/digital-pr" },
+        // { name: "Influencer Marketing", href: "/influencers-marketing" },
       ],
     },
   ],
@@ -47,42 +47,40 @@ const brandingServices = {
   ],
 };
 
-const growthHackingServices = {
-  title: "Growth Hacking",
-  links: [
-    { name: "Landing Pages", href: "/landing-pages" },
-    { name: "On-site Engagement", href: "/On-site-engagement" },
-    { name: "Online Reputation Management", href: "/orm" },
-  ],
-};
+// const growthHackingServices = {
+//   title: "Growth Hacking",
+//   links: [
+//     { name: "Landing Pages", href: "/landing-pages" },
+//     { name: "On-site Engagement", href: "/On-site-engagement" },
+//     { name: "Online Reputation Management", href: "/orm" },
+//   ],
+// };
 
-const marketingAutomationServices = {
-  title: "Marketing Automation",
-  links: [
-    { name: "Data Analytics & Dashboard", href: "/analytics" },
-    { name: "Smart Analysis", href: "/smart-analysis" },
-  ],
-};
+// const marketingAutomationServices = {
+//   title: "Marketing Automation",
+//   links: [
+//     { name: "Data Analytics & Dashboard", href: "/analytics" },
+//     { name: "Smart Analysis", href: "/smart-analysis" },
+//   ],
+// };
 
 const companyLinks = [
   { name: "About Us", href: "/about-us" },
   { name: "Work Flow", href: "/about/work-flow/" },
-  { name: "Clients & Testimonials", href: "/about/clients/" },
   { name: "Case Studies", href: "/case-studies/" },
-  { name: "Careers", href: "/careers/" },
-  { name: "Training Programs", href: "/training/" },
+   { name: "Clients & Testimonials", href: "/about/clients/" },
+
 ];
 
-const contactLinks = [
-  { name: "Contact Us", href: "/contact-us/" },
-  { name: "Project Enquiry", href: "/enquiry/" },
-  { name: "Support", href: "/support/" },
-];
+
 
 const quickLinks = [
-  { name: "Privacy Policy", href: "/privacy-policy" },
+ 
+ 
+  { name: "Support", href: "/support/" },
+  { name: "Contact Us", href: "/contact-us/" },
+   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms & Conditions", href: "/terms" },
-  { name: "Blogs", href: "/blogs" },
 ];
 
 const socialLinks = [
@@ -114,38 +112,10 @@ const Footer = () => {
                 </p>
               </div>
 
-              {/* Contact Information */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#9a0c28]" />
-                  <a
-                    href="tel:18552174637"
-                    className="text-gray-700 hover:text-[#9a0c28] transition-colors"
-                  >
-                    1-855-217-4637
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-[#9a0c28]" />
-                  <a
-                    href="mailto:info@shootorder.com"
-                    className="text-gray-700 hover:text-[#9a0c28] transition-colors"
-                  >
-                    info@shootorder.us
-                  </a>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#9a0c28] mt-1" />
-                  <address className="not-italic text-gray-600">
-                    21 State Street,
-                    <br />
-                    Waterbury, CT - 06702
-                  </address>
-                </div>
-              </div>
+             
 
               {/* Social Links */}
-              <div className="flex gap-4 mb-8">
+              {/* <div className="flex gap-4 mb-8">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
@@ -156,10 +126,10 @@ const Footer = () => {
                     <social.icon className="w-5 h-5" />
                   </a>
                 ))}
-              </div>
+              </div> */}
 
               {/* Partner Logos */}
-              <div className="flex items-center gap-6 flex-wrap">
+              {/* <div className="flex items-center gap-6 flex-wrap">
                 <Image
                   src="/images/logo/meta.png"
                   alt="Meta Partner"
@@ -184,7 +154,7 @@ const Footer = () => {
                   className="hover:scale-105 transition-transform"
                   style={{ objectFit: "contain" }}
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* Right Section - Links */}
@@ -220,27 +190,13 @@ const Footer = () => {
                 </div>
 
                 {/* Column 2 - Branding & Growth */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-6 text-gray-900">
-                    Branding
-                  </h3>
-                  <ul className="space-y-3 mb-8">
-                    {brandingServices.links.map((link) => (
-                      <li key={link.name}>
-                        <Link
-                          href={link.href}
-                          className="text-gray-600 hover:text-[#9a0c28] transition-colors text-sm"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+               
+                 
 
-                  <h3 className="text-lg font-semibold mb-6 text-gray-900">
+                  {/* <h3 className="text-lg font-semibold mb-6 text-gray-900">
                     Growth Hacking
-                  </h3>
-                  <ul className="space-y-3">
+                  </h3> */}
+                  {/* <ul className="space-y-3">
                     {growthHackingServices.links.map((link) => (
                       <li key={link.name}>
                         <Link
@@ -251,15 +207,15 @@ const Footer = () => {
                         </Link>
                       </li>
                     ))}
-                  </ul>
-                </div>
+                  </ul> */}
+             
 
                 {/* Column 3 - Marketing Automation & Company */}
                 <div className="col-span-2 md:col-span-1">
-                  <h3 className="text-lg font-semibold mb-6 text-gray-900">
+                  {/* <h3 className="text-lg font-semibold mb-6 text-gray-900">
                     Marketing Automation
-                  </h3>
-                  <ul className="space-y-3 mb-8">
+                  </h3> */}
+                  {/* <ul className="space-y-3 mb-8">
                     {marketingAutomationServices.links.map((link) => (
                       <li key={link.name}>
                         <Link
@@ -270,7 +226,7 @@ const Footer = () => {
                         </Link>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
 
                   <h3 className="text-lg font-semibold mb-6 text-gray-900">
                     Company
@@ -290,7 +246,7 @@ const Footer = () => {
                 </div>
 
                 {/* Column 4 - Contact & Quick Links */}
-                <div className="col-span-2 md:col-span-1">
+                {/* <div className="col-span-2 md:col-span-1">
                   <h3 className="text-lg font-semibold mb-6 text-gray-900">
                     Get In Touch
                   </h3>
@@ -306,6 +262,12 @@ const Footer = () => {
                       </li>
                     ))}
                   </ul>
+
+                  
+                 
+                </div> */}
+                  <div className="col-span-2 md:col-span-1">
+                
 
                   <h3 className="text-lg font-semibold mb-6 text-gray-900">
                     Quick Links
@@ -323,6 +285,40 @@ const Footer = () => {
                     ))}
                   </ul>
                 </div>
+                <div className="col-span-2 md:col-span-1">
+                  <h3 className="text-lg font-semibold mb-6 text-gray-900">
+                    Contact Us
+                  </h3>
+                   {/* Contact Information */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-[#9a0c28]" />
+                  <a
+                    href="tel:18552174637"
+                    className="text-gray-700 hover:text-[#9a0c28] transition-colors"
+                  >
+                    1-855-217-4637
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-[#9a0c28]" />
+                  <a
+                    href="mailto:info@shootorder.com"
+                    className="text-gray-700 hover:text-[#9a0c28] transition-colors"
+                  >
+                    info@shootorder.us
+                  </a>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-[#9a0c28] mt-1" />
+                  <address className="not-italic text-gray-600">
+                    21 State Street,
+                    <br />
+                    Waterbury, CT - 06702
+                  </address>
+                </div>
+              </div>
+                  </div>    
               </div>
             </div>
           </div>

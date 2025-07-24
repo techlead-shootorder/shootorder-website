@@ -347,7 +347,7 @@ export default async function CaseStudyPage({ params }) {
       </div>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-900 to-purple-900 text-white">
+      <div className="relative bg-[#9A0C28] text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -365,7 +365,7 @@ export default async function CaseStudyPage({ params }) {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               {caseStudy.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-6 text-blue-200 mb-8">
+            <div className="flex flex-wrap items-center gap-6 text-white mb-8">
               <div className="flex items-center space-x-2">
                 <User className="w-5 h-5" />
                 <span>{caseStudy.client}</span>
@@ -483,14 +483,14 @@ export default async function CaseStudyPage({ params }) {
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-xl text-white">
+            <div className="bg-[#9A0C28] p-6 rounded-xl text-white">
               <h3 className="text-xl font-bold mb-3">Ready for Similar Results?</h3>
               <p className="text-blue-100 mb-4">
                 Let&apos;s discuss how we can help transform your business.
               </p>
               <Link 
-                href="/contact"
-                className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors block text-center"
+                href="/contact-us"
+                className="w-full bg-white text-black  px-4 py-2 rounded-lg font-semibold  transition-colors block text-center"
               >
                 Get Started
               </Link>

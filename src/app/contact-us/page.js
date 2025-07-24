@@ -85,10 +85,10 @@ export default function ContactUs() {
 
           {/* Right Section - Form */}
           <div>
-            <h3 className="text-xl font-semibold mb-2">Drop Us a Line</h3>
+            {/* <h3 className="text-xl font-semibold mb-2">Drop Us a Line</h3>
             <p className="text-sm text-gray-500 mb-6">
               We are always looking for a next great project
-            </p>
+            </p> */}
 
            <PipeDriveForm/>
           </div>

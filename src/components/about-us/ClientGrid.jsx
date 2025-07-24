@@ -63,7 +63,7 @@ function ClientGrid({ children }) {
   );
 
   return (
-    <div className="!max-w-7xl mx-auto py-10 overflow-hidden">
+    <div className="!max-w-7xl mx-auto py-10 overflow-hidden bg-[#9A0C28]">
       {children}
 
       <div ref={containerRef} className="space-y-8">

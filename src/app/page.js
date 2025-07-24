@@ -376,40 +376,63 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto" id="partners-section">
+        <div className="max-w-7xl mx-auto" id="partners-section" style={{ background: "#9A0C28" }}>
           <div id="partners-container" className="!max-w-7xl mx-auto">
             <OurPartners />
           </div>
         </div>
 
-        <section className="!bg-[#f8f6ee]">
-          <div className="animate-section" id="service-tabs-section">
-            <ServiceTabs />
+
+        
+
+        <section className="!bg-[#f8f6ee] py-8 md:py-16 px-4">
+          <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
+             <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
+          <p className="text-base md:text-lg text-gray-600 px-2">
+            Comprehensive digital solutions for your business growth
+          </p>
+        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+              <a href="/seo/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+                <h3 className="font-semibold text-lg">SEO Optimization</h3>
+              </a>
+              <a href="/google-ads/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+                <h3 className="font-semibold text-lg">Paid Advertising</h3>
+              </a>
+              <a href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+                <h3 className="font-semibold text-lg">Brand Positioning</h3>
+              </a>
+              <a href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+                <h3 className="font-semibold text-lg">Social Media Marketing</h3>
+              </a>
+            </div>
+            {/* <ServiceTabs /> */}
           </div>
         </section>
 
-        <div className="animate-section !max-w-7xl mx-auto" id="hire-section">
+        <div className="animate-section !max-w-7xl mx-auto" id="hire-section" style={{ background: "#9A0C28" }}>
           <div className="parallax-bg absolute inset-0 -z-10 w-full">
             <div className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-gradient-to-tl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
           {/* <Hire /> */}
         </div>
 
-        <div className="!max-w-7xl mx-auto">
+        <div className="mx-auto" style={{ background: "#9A0C28" }}>
           <WhyTrustUs />
         </div>
 
         <ClutchWidget />
 
         {/* Form section */}
-        <section className="!bg-[#f8f6ee] py-10">
+        <section className="py-10" style={{ background: "#9A0C28" }}>
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="talent-form-section">
             <div className="parallax-bg absolute inset-0 -z-10 w-full">
               <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
             </div>
 
             {/* Main Content Container */}
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 " >
 
               {/* Image Section - Left on desktop, Top on mobile */}
               <div className="w-full lg:w-1/2 order-1 lg:order-1">

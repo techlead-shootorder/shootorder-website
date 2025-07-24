@@ -13,141 +13,46 @@ import {
 // Service categories for mega menu
 const serviceCategories = [
   {
-    title: "Digital Marketing",
+    title: "Digital Services",
     color: "bg-blue-50 border-blue-200 text-blue-700",
     hoverColor: "hover:bg-blue-100",
     columns: [
       {
-        heading: "Owned Media",
+        heading: "",
         links: [
           {
             name: "SEO Optimization",
-            href: "/seo",
-            description: "Dominate organic search results",
+            href: "/seo/",
+            description: "Search engine optimization and content marketing",
           },
+          //   {
+          //   name: "Brand Positioning",
+          //   href: "/social-media-marketing/",
+          //   description: "Strategic brand positioning and identity",
+          // },
+          
+        ],
+      },
+      {
+        heading: "",
+        links: [
+        
           {
-            name: "Blog Management",
-            href: "/blog-management",
-            description: "Content that converts and engages",
+            name: "Paid Advertising",
+            href: "/google-ads/",
+            description: "Google Ads and paid advertising campaigns",
           },
-          {
-            name: "Website Development",
-            href: "/web-design",
-            description: "High-performance, responsive websites",
-          },
+        ],
+      },
+      {
+        heading: "",
+        links: [
           {
             name: "Social Media Marketing",
-            href: "/social-media-marketing",
-            description: "Build your social media presence",
-          },
-          {
-            name: "GBP Management",
-            href: "/gbp-management",
-            description: "Build your social media presence",
+            href: "/social-media-marketing/",
+            description: "Complete social media strategy and management",
           },
         ],
-      },
-      {
-        heading: "Paid Media",
-        links: [
-          {
-            name: "Google Ads",
-            href: "/google-ads",
-            description: "PPC campaigns that drive results",
-          },
-          {
-            name: "Meta Ads",
-            href: "/meta-ads",
-            description: "Effective social media advertising",
-          },
-        ],
-      },
-      {
-        heading: "Earned Media",
-        links: [
-          {
-            name: "Digital PR",
-            href: "/digital-pr",
-            description: "Build your online presence",
-          },
-          {
-            name: "Influencer Marketing",
-            href: "/influencers-marketing",
-            description: "Connect with relevant influencers",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Branding",
-    color: "bg-purple-50 border-purple-200 text-purple-700",
-    hoverColor: "hover:bg-purple-100",
-    links: [
-      {
-        name: "Identity Development",
-        href: "/branding/identity",
-        description: "Create a unique brand identity that stands out",
-      },
-      {
-        name: "Brand Audit",
-        href: "/branding/audit",
-        description: "Evaluate your brand's performance and positioning",
-      },
-      {
-        name: "Brand Messaging & Tone of Voice",
-        href: "/branding/messaging",
-        description: "Develop your authentic brand voice",
-      },
-      {
-        name: "Package & Design",
-        href: "/branding/design",
-        description: "Stunning visual brand assets and materials",
-      },
-      {
-        name: "Brand Launch & Campaigns",
-        href: "/branding/campaigns",
-        description: "Launch your brand with impact",
-      },
-    ],
-  },
-  {
-    title: "Growth Hacking",
-    color: "bg-green-50 border-green-200 text-green-700",
-    hoverColor: "hover:bg-green-100",
-    links: [
-      {
-        name: "Landing Pages",
-        href: "/landing-pages",
-        description:
-          "High-converting landing pages that generate quality leads",
-      },
-      {
-        name: "On-site Engagement",
-        href: "/on-site-engagement",
-        description: "Optimize user experience and engagement",
-      },
-      {
-        name: "Online Reputation Management (ORM)",
-        href: "/orm",
-        description: "Protect and enhance your online reputation",
-      },
-    ],
-  },
-  {
-    title: "Marketing Automation",
-    color: "bg-orange-50 border-orange-200 text-orange-700",
-    hoverColor: "hover:bg-orange-100",
-    links: [
-      {
-        name: "Data Analytics & Dashboards",
-        href: "/analytics-dashboards",
-        description: "Advanced analytics and comprehensive reporting tools",
-      },
-      {
-        name: "Smart Analytics",
-        href: "/smart-analytics",
-        description: "AI-powered insights to stay ahead of competition",
       },
     ],
   },
@@ -159,46 +64,57 @@ const companyCategories = [
     title: "Company Profile",
     color: "bg-indigo-50 border-indigo-200 text-indigo-700",
     hoverColor: "hover:bg-indigo-100",
-    links: [
+    columns: [
       {
-        name: "About Us",
-        href: "/about-us",
-        description: "Learn about our story and mission",
+        heading: "",
+        links: [
+          {
+            name: "Case Studies",
+            href: "/case-studies/",
+            description: "Detailed project breakdowns and results",
+          },
+          {
+            name: "Work Flow",
+            href: "/about/work-flow/",
+            description: "Our proven process and methodology",
+          },
+        ],
       },
       {
-        name: "Work Flow",
-        href: "/about/work-flow/",
-        description: "Our proven process and methodology",
+        heading: "",
+        links: [
+          {
+            name: "Clients & Testimonials",
+            href: "/about/clients/",
+            description: "Success stories from happy clients",
+          },
+           {
+            name: "About Us",
+            href: "/about-us",
+            description: "Learn about our story and mission",
+          },
+        ],
       },
-      {
-        name: "Clients & Testimonials",
-        href: "/about/clients/",
-        description: "Success stories from happy clients",
-      },
-      {
-        name: "Case Studies",
-        href: "/case-studies/",
-        description: "Detailed project breakdowns and results",
-      },
+     
     ],
   },
-  {
-    title: "Join Our Team",
-    color: "bg-teal-50 border-teal-200 text-teal-700",
-    hoverColor: "hover:bg-teal-100",
-    links: [
-      {
-        name: "Careers",
-        href: "/careers/",
-        description: "Explore exciting career opportunities",
-      },
-      {
-        name: "Training Programs",
-        href: "/training/",
-        description: "Develop your skills with us",
-      },
-    ],
-  },
+  // {
+  //   title: "Join Our Team",
+  //   color: "bg-teal-50 border-teal-200 text-teal-700",
+  //   hoverColor: "hover:bg-teal-100",
+  //   links: [
+  //     {
+  //       name: "Careers",
+  //       href: "/careers/",
+  //       description: "Explore exciting career opportunities",
+  //     },
+  //     {
+  //       name: "Training Programs",
+  //       href: "/training/",
+  //       description: "Develop your skills with us",
+  //     },
+  //   ],
+  // },
 ];
 
 // Contact categories for mega menu with icons
@@ -234,7 +150,7 @@ const navLinks = [
   },
   { name: "Company", href: "#", hasMegaMenu: true, menuType: "company" },
   // { name: "Blogs", href: "https://www.shootorder.com/blog/" },
-  { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
+  // { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
 ];
 
 export default function Header() {
@@ -396,8 +312,7 @@ export default function Header() {
         return serviceCategories;
       case "company":
         return companyCategories;
-      case "contact":
-        return contactCategories;
+     
       default:
         return [];
     }
@@ -409,8 +324,7 @@ export default function Header() {
         return serviceCategories;
       case "company":
         return companyCategories;
-      case "contact":
-        return contactCategories;
+     
       default:
         return [];
     }
@@ -495,17 +409,7 @@ export default function Header() {
 
         {/* Desktop CTA Section */}
         <div className="hidden lg:flex items-center gap-6">
-          <a
-            href="tel:1-855-217-4637"
-            className="flex items-center gap-2 text-gray-700 hover:text-[#9a0c28] transition-all duration-200 font-medium group"
-          >
-            <div className="p-2 rounded-full bg-[#9a0c28]/10 group-hover:bg-[#9a0c28] transition-all duration-200">
-              <FaPhoneAlt className="text-[#9a0c28] group-hover:text-white text-sm" />
-            </div>
-            <span className="group-hover:scale-105 transition-transform">
-              1-855-217-4637
-            </span>
-          </a>
+         
 
           <a href="/contact-us/">
             <button className="bg-[#9a0c28] hover:bg-[#c4102e] text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 relative overflow-hidden group">
