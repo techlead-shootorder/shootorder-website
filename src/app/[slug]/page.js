@@ -10,6 +10,7 @@ import PartnerCarousel from "@/components/Home/Partners/OurPartners";
 import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
 import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 import CaseStudyComponent from "@/components/CaseStudies/CaseStudyComponent";
+import PricingSection from "@/components/Services/PricingSection";
 
 export async function generateStaticParams() {
   const slugs = await getAllServiceSlugs();
@@ -58,6 +59,9 @@ export default async function ServicePage({ params }) {
 
       {/* <WhyTrustUs /> */}
       <CaseStudyComponent service={params.slug}/>
+      
+      {/* Pricing Section */}
+      <PricingSection />
 
       <section>
         {/* <Blogs /> */}
