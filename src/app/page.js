@@ -17,6 +17,7 @@ import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
 import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
 import ImageSection from "@/components/Home/PipeDrive/ImageSection";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -394,18 +395,18 @@ export default function Home() {
           </p>
         </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-              <a href="/seo/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+              <Link href="/seo/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">SEO Optimization</h3>
-              </a>
-              <a href="/google-ads/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+              </Link> 
+              <Link href="/google-ads/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">Paid Advertising</h3>
-              </a>
-              <a href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+              </Link> 
+              <Link href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">Brand Positioning</h3>
-              </a>
-              <a href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
+              </Link> 
+              <Link href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">Social Media Marketing</h3>
-              </a>
+              </Link> 
             </div>
             {/* <ServiceTabs /> */}
           </div>
