@@ -9,6 +9,7 @@ import Blogs from "@/components/Blogs/Blogs";
 import PartnerCarousel from "@/components/Home/Partners/OurPartners";
 import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
 import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
+import CaseStudyComponent from "@/components/CaseStudies/CaseStudyComponent";
 
 export async function generateStaticParams() {
   const slugs = await getAllServiceSlugs();
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ServicePage({ params }) {
   const service = await getServiceBySlug(params.slug);
-
+  console.log("servieces", service);
   if (!service) {
     notFound();
   }
@@ -55,9 +56,11 @@ export default async function ServicePage({ params }) {
 
       <ClutchWidget />
 
-      <WhyTrustUs />
+      {/* <WhyTrustUs /> */}
+      <CaseStudyComponent service={params.slug}/>
+
       <section>
-        <Blogs />
+        {/* <Blogs /> */}
       </section>
     </>
   );

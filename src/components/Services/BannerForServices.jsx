@@ -1,14 +1,36 @@
 "use client";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, {useState, useRef } from "react";
 import ServiceModal from "../Modal/ServiceModal";
 import { motion, useScroll, useTransform } from "framer-motion";
+import PopupModal from "@/components/Modal/PopupModal";
 
 const BannerForServices = ({ imageUrl, subheading, heading }) => {
   const modalRef = useRef();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const openPopup = (e) => {
+    // Create ripple effect
+    const ripple = document.createElement('div');
+    const rect = e.target.getBoundingClientRect();
+    ripple.className = 'absolute animate-ripple rounded-full bg-gray-200';
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+    e.target.appendChild(ripple);
+
+    // Remove ripple after animation
+    setTimeout(() => ripple.remove(), 1000);
+
+    // Open popup with slight delay for visual feedback
+    setTimeout(() => setIsPopupOpen(true), 200);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   return (
     <section className="relative w-full min-h-[80vh] overflow-hidden">
@@ -96,7 +118,8 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => modalRef.current?.open()}
+              // onClick={() => modalRef.current?.open()}
+              onClick={openPopup}
               className="bg-[#9a0c28] text-white px-8 py-4 rounded-full font-medium hover:bg-[#7a0920] transition-colors shadow-lg inline-flex items-center justify-center gap-2 group"
             >
               Get Started Now
@@ -114,6 +137,8 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
           </motion.div>
         </div>
       </motion.div>
+
+       <PopupModal isOpen={isPopupOpen} onClose={closePopup} />
 
       <ServiceModal ref={modalRef} />
     </section>

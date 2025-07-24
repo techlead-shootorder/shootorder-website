@@ -495,7 +495,7 @@ export default function Banner() {
 
           {/* Badge Text */}
           <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20 flex-shrink-0">
-            <p>In Top 3% Digital Marketing Agency</p>
+            <p>In Top 3% Digital Growth Partner</p>
           </div>
 
           {/* Main heading with responsive sizes */}
@@ -504,7 +504,7 @@ export default function Banner() {
             className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold leading-tight text-white px-2 flex-shrink-0"
           >
             Awarded #1
-            Digital Marketing Agency
+            Digital Growth Partner
           </h1>
 
           {/* Description with responsive sizing */}

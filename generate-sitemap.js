@@ -234,7 +234,7 @@ const generateAdditionalFiles = (outputPath) => {
     const manifest = {
         name: "ShootOrder",
         short_name: "ShootOrder",
-        description: "Digital Marketing Agency",
+        description: "Digital Growth Partner",
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",

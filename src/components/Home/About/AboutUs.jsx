@@ -29,13 +29,13 @@ export default function AboutUs() {
                 About Us
               </h4>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                ShootOrder - Digital Marketing Agency
+                ShootOrder - Digital Growth Partner
               </h2>
             </div>
 
             <div className="space-y-4 text-gray-600">
               {/* <p className="leading-relaxed">
-                ShootOrder is a leading full-service digital marketing agency
+                ShootOrder is a leading full-service Digital Growth Partner
                 helping businesses across the United States grow smarter and
                 faster.
               </p> */}
