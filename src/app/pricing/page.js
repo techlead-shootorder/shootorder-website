@@ -3,6 +3,7 @@ import React from 'react';
 import PricingHero from '@/components/Pricing/PricingHero';
 import PricingPlans from '@/components/Pricing/PricingPlans';
 import PricingFAQ from '@/components/Pricing/PricingFAQ';
+import PricingCustomQuote from '@/components/Pricing/PricingCustomQuote';
 
 export const metadata = {
   title: 'Pricing | ShootOrder - Digital Marketing Services',
@@ -14,6 +15,7 @@ const PricingPage = () => {
     <main>
       <PricingHero />
       <PricingPlans />
+      <PricingCustomQuote/>
       {/* <PricingFAQ /> */}
     </main>
   );

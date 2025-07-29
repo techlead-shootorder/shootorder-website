@@ -1,145 +1,191 @@
 // components/Pricing/PricingPlans.jsx
+'use client'
 import React from 'react';
 import { 
   Search, 
   TrendingUp, 
   Smartphone, 
-  Monitor, 
-  Palette, 
-  Settings, 
-  Users, 
-  ShoppingCart,
-  Phone,
-  ArrowRight 
+  Check,
+  Star
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const PricingPlans = () => {
+  const router = useRouter();
   const services = [
     {
       category: "SEO & Content Marketing",
-      price: "Starting from $1,000/month",
-      inclusions: "10 keywords, 4 blogs, on-page optimization, GMB management",
-      icon: Search
+      price: "Starting from $1,000",
+      duration: "/month",
+      tagline: "Dominate Search Rankings",
+      description: "Boost your organic visibility and drive qualified traffic with our comprehensive SEO strategies.",
+      icon: Search,
+      popular: false,
+      features: [
+        "10 Target Keywords Research & Optimization",
+        "4 High-Quality Blog Posts Monthly",
+        "Complete On-Page SEO Optimization",
+        "Google My Business Management",
+        "Technical SEO Audit & Fixes",
+        "Local SEO Optimization",
+        "Monthly Performance Reports",
+        "Competitor Analysis & Strategy"
+      ],
+      results: "Average 150% increase in organic traffic within 6 months"
     },
     {
-      category: "Performance Marketing",
-      price: "Starting from $1,000/month",
-      inclusions: "Google Ads + Meta Ads management, ad creatives, audience setup",
-      icon: TrendingUp
+      category: "Performance Marketing (PPC)",
+      price: "Starting from $1,200",
+      duration: "/month",
+      tagline: "Maximize Your ROI",
+      description: "Drive immediate results with expertly managed Google Ads and Meta advertising campaigns.",
+      icon: TrendingUp,
+      popular: true,
+      features: [
+        "Google Ads Campaign Setup & Management",
+        "Meta Ads (Facebook & Instagram)",
+        "Custom Ad Creative Design",
+        "Advanced Audience Targeting",
+        "A/B Testing & Optimization",
+        "Conversion Tracking Setup",
+        "Landing Page Optimization",
+        "Weekly Performance Reports",
+        "Remarketing Campaigns"
+      ],
+      results: "Average 300% ROAS across all managed campaigns"
     },
     {
       category: "Social Media Marketing",
-      price: "Starting from $1,000/month",
-      inclusions: "Creative + Content + Scheduling for 3 platforms",
-      icon: Smartphone
-    },
-    {
-      category: "Website Development",
-      price: "Starting from $1,500/project",
-      inclusions: "Custom WordPress / Shopify / Laravel / Webflow design",
-      icon: Monitor
-    },
-    {
-      category: "Branding & Design",
-      price: "Starting from $1,200/project",
-      inclusions: "Logo, color palette, tone of voice, brand guidelines",
-      icon: Palette
-    },
-    {
-      category: "Marketing Automation",
-      price: "Starting from $1,000/month",
-      inclusions: "CRM setup, lead capture forms, data dashboards, email workflows",
-      icon: Settings
-    },
-    {
-      category: "Digital PR & Influencers",
-      price: "Starting from $900/month",
-      inclusions: "Outreach to relevant publishers/influencers, link building",
-      icon: Users
-    },
-    {
-      category: "E-commerce Marketing",
-      price: "Custom Quote",
-      inclusions: "Marketplace SEO, paid campaigns, remarketing, retention strategies",
-      icon: ShoppingCart
+      price: "Starting from $900",
+      duration: "/month",
+      tagline: "Build Your Brand Community",
+      description: "Engage your audience and build brand loyalty across multiple social media platforms.",
+      icon: Smartphone,
+      popular: false,
+      features: [
+        "Content Strategy for 3 Platforms",
+        "20 Custom Graphics & Visuals Monthly",
+        "Daily Post Scheduling & Publishing",
+        "Community Management & Engagement",
+        "Instagram Stories & Reels Creation",
+        "Hashtag Research & Strategy",
+        "Influencer Collaboration Setup",
+        "Monthly Analytics & Insights Report"
+      ],
+      results: "Average 250% growth in social media engagement"
     }
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="!max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center bg-[#9a0c28] bg-opacity-10 px-4 py-2 rounded-full mb-6">
+            <Star className="w-5 h-5 text-[#9a0c28] mr-2" />
+            <span className="text-white font-semibold">Premium Digital Marketing Services</span>
+          </div>
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
             ShootOrder Pricing Plans
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-0 leading-relaxed">
             <span className="font-semibold text-[#9a0c28]">Hire Top 3% Digital Marketing Talent.</span>{' '}
-            Transparent Plans. ROI-Driven Execution.
+            Transparent pricing, proven results, and ROI-driven execution for your business growth.
           </p>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Whether you're a Start-up or an Enterprise, scale your digital marketing with the 
+            Whether you're a startup or an enterprise, scale your digital marketing with the 
             flexibility you need, without long-term contracts.
           </p>
         </div>
 
-        {/* Section Subtitle */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">Our Pricing Structure</h3>
-        </div>
-
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 mt-24">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div 
                 key={index}
-                className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:border-[#9a0c28] group"
+                className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
+                  service.popular ? 'ring-2 ring-[#9a0c28] scale-105' : 'border border-gray-200'
+                }`}
               >
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-[#9a0c28] bg-opacity-10 rounded-lg flex items-center justify-center mr-3 group-hover:bg-[#9a0c28] transition-colors duration-300">
-                    <IconComponent className="w-6 h-6 text-[#9a0c28] group-hover:text-white transition-colors duration-300" />
+                {/* Popular Badge */}
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-[#9a0c28] to-[#b91c3c] text-white px-6 py-2 rounded-full text-sm font-semibold">
+                      Most Popular
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 leading-tight">
-                    {service.category}
-                  </h3>
-                </div>
-                
-                <div className="mb-4">
-                  <p className="text-xl font-bold text-[#9a0c28] mb-2">
-                    {service.price}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {service.inclusions}
-                  </p>
+                )}
+
+                <div className="p-8">
+                  {/* Service Header */}
+                  <div className="text-center mb-6">
+                    <div className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center mb-4 ${
+                      service.popular 
+                        ? 'bg-gradient-to-br from-[#9a0c28] to-[#b91c3c]' 
+                        : 'bg-[#9a0c28] bg-opacity-10'
+                    }`}>
+                      <IconComponent className={`w-10 h-10 ${
+                        service.popular ? 'text-white' : 'text-[#9a0c28]'
+                      }`} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {service.category}
+                    </h3>
+                    <p className="text-[#9a0c28] font-semibold text-lg mb-2">
+                      {service.tagline}
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Pricing */}
+                  <div className="text-center mb-6 pb-6 border-b border-gray-100">
+                    <div className="flex items-baseline justify-center">
+                      <span className="text-4xl font-bold text-gray-900">
+                        {service.price}
+                      </span>
+                      <span className="text-gray-600 ml-1">
+                        {service.duration}
+                      </span>
+                    </div>
+                    <p className="text-sm text-[#9a0c28] font-medium mt-2">
+                      {service.results}
+                    </p>
+                  </div>
+
+                  {/* Features List */}
+                  <div className="space-y-3 mb-8">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start">
+                        <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                          <Check className="w-3 h-3 text-green-600" />
+                        </div>
+                        <span className="ml-3 text-gray-700 text-sm leading-relaxed">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${
+                    service.popular
+                      ? 'bg-gradient-to-r from-[#9a0c28] to-[#b91c3c] text-white hover:shadow-lg transform hover:scale-105'
+                      : 'bg-gray-900 text-white hover:bg-[#9a0c28]'
+                  }`}
+                  onClick={()=> router.push("/contact-us")}
+                  >
+                    Get Started Today
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Custom Quote CTA */}
-        <div className="bg-gradient-to-r from-[#9a0c28] to-[#b91c3c] rounded-2xl p-8 text-center text-white">
-          <div className="max-w-2xl mx-auto">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <Phone className="w-8 h-8 text-white" />
-              </div>
-            </div>
-            <h3 className="text-3xl font-bold mb-4">
-              🧠 Want a Custom Quote?
-            </h3>
-            <p className="text-xl mb-6 opacity-90">
-              Your business is unique and so is our approach. Book a free strategy call 
-              to get a tailor-made quote based on your goals and timelines.
-            </p>
-            <button className="bg-white text-[#9a0c28] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 inline-flex items-center">
-              Contact Us
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );

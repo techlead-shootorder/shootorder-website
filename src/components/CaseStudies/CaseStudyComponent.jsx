@@ -19,6 +19,24 @@ const CaseStudyComponent = ({service}) => {
       pdfUrl: '/pdfs/case-studies/by-service/SEO_Country Oven.pdf'
     },
     {
+      id: 'seo',
+      title: 'SEO',
+      image: '/api/placeholder/600/400',
+      description: 'Dominating search rankings with strategic optimization',
+      results: '400% organic traffic growth',
+      color: 'from-slate-700 to-slate-800',
+      pdfUrl: '/pdfs/case-studies/by-service/SEO_Country Oven.pdf'
+    },
+    {
+      id: 'seo',
+      title: 'SEO',
+      image: '/api/placeholder/600/400',
+      description: 'Dominating search rankings with strategic optimization',
+      results: '400% organic traffic growth',
+      color: 'from-slate-700 to-slate-800',
+      pdfUrl: '/pdfs/case-studies/by-service/SEO_Country Oven.pdf'
+    },
+    {
       id: 'google-ads',
       title: 'Pay Per Click Advertising',
       image: '/api/placeholder/600/400',
@@ -27,6 +45,46 @@ const CaseStudyComponent = ({service}) => {
       color: 'from-blue-600 to-blue-700',
       pdfUrl: '/pdfs/case-studies/by-service/PPC_IPI India Pvt. Ltd.pdf'
       
+    },
+    {
+      id: 'google-ads',
+      title: 'Pay Per Click Advertising',
+      image: '/api/placeholder/600/400',
+      description: 'Maximizing ROI through targeted advertising campaigns',
+      results: '250% conversion rate improvement',
+      color: 'from-blue-600 to-blue-700',
+      pdfUrl: '/pdfs/case-studies/by-service/PPC_IPI India Pvt. Ltd.pdf'
+      
+    },
+    {
+      id: 'google-ads',
+      title: 'Pay Per Click Advertising',
+      image: '/api/placeholder/600/400',
+      description: 'Maximizing ROI through targeted advertising campaigns',
+      results: '250% conversion rate improvement',
+      color: 'from-blue-600 to-blue-700',
+      pdfUrl: '/pdfs/case-studies/by-service/PPC_IPI India Pvt. Ltd.pdf'
+      
+    },
+    {
+      id: 'social-media-marketing',
+      title: 'Social Media Marketing',
+      image: '/api/placeholder/600/400',
+      description: 'Building communities and driving engagement',
+      results: '600% follower growth',
+      color: 'from-purple-600 to-purple-700',
+      pdfUrl: '/pdfs/case-studies/by-service/Social Media_Luxury Car Dealership.pdf'
+
+    },
+    {
+      id: 'social-media-marketing',
+      title: 'Social Media Marketing',
+      image: '/api/placeholder/600/400',
+      description: 'Building communities and driving engagement',
+      results: '600% follower growth',
+      color: 'from-purple-600 to-purple-700',
+      pdfUrl: '/pdfs/case-studies/by-service/Social Media_Luxury Car Dealership.pdf'
+
     },
     {
       id: 'social-media-marketing',
@@ -50,7 +108,7 @@ const CaseStudyComponent = ({service}) => {
   ];
 
   // Find the matching case study based on service prop
-  const relevantStudy = processStudies.find(study => study.id === service);
+  const relevantStudy = processStudies.filter(study => study.id === service);
 
   // If no matching service found, don't render anything
   if (!relevantStudy) {
@@ -99,9 +157,9 @@ const CaseStudyComponent = ({service}) => {
     }
   };
 
-  const CaseStudyCard = ({ study }) => (
-    <div 
-      className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer bg-white border border-gray-100 h-96 max-w-2xl mx-auto"
+  const CaseStudyCard = ({ study, index }) => (
+    <div key={index}
+      className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer bg-white border border-gray-100"
     //   onClick={() => handleCaseStudyClick(study.id)}
     >
       {/* <div className={`absolute inset-0 bg-gradient-to-br ${study.color} opacity-90`}></div> */}
@@ -112,7 +170,7 @@ const CaseStudyComponent = ({service}) => {
         style={{ backgroundImage: `url(${study.image})` }}
       ></div>
       
-      <div className="relative h-full flex flex-col justify-between p-6 text-black">
+      <div className="relative h-full flex flex-col p-6 text-black">
         <div>
           <div className="flex items-center justify-between mb-4">
             <Award className="w-6 h-6 opacity-80" />
@@ -128,7 +186,7 @@ const CaseStudyComponent = ({service}) => {
           </p>
         </div>
         
-        <div className="space-y-3">
+        <div className="space-y-3 mt-4">
           <div className="flex items-center space-x-2">
             <TrendingUp className="w-4 h-4" />
             <span className="text-sm font-medium">{study.results}</span>
@@ -160,8 +218,11 @@ const CaseStudyComponent = ({service}) => {
       <div className="!max-w-7xl mx-auto px-4 py-16">
         <h1 className='text-center font-bold text-4xl mb-10 text-white'>Case Study</h1>
         {/* Single Case Study */}
-        <div className="flex justify-center">
-          <CaseStudyCard study={relevantStudy} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {relevantStudy.map((study, index) => (
+            <CaseStudyCard study={study} index={index} />
+          ))}
+         
         </div>
       </div>
     </div>

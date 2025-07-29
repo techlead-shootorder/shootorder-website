@@ -1,13 +1,16 @@
 // components/Pricing/PricingHero.jsx
+'use client'
 import React from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const PricingHero = () => {
+  const router = useRouter();
   return (
     <section className="bg-gradient-to-br from-gray-50 to-white py-16  lg:py-20">
       <div className="!max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mt-10">
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+        <div className="text-center mt-16">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Pricing That Matches Your{' '}
             <span className="text-[#9a0c28]">Business Needs</span>
           </h1>
@@ -21,13 +24,17 @@ const PricingHero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="bg-[#9a0c28] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#7a0a20] transition-colors duration-300 inline-flex items-center">
+            <button 
+            className="bg-[#9a0c28] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#7a0a20] transition-colors duration-300 inline-flex items-center"
+            onClick={()=> router.push("/contact-us")}
+            >
+
               Get Started
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
-            <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-[#9a0c28] hover:text-[#9a0c28] transition-colors duration-300">
+            {/* <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-[#9a0c28] hover:text-[#9a0c28] transition-colors duration-300">
               View All Services
-            </button>
+            </button> */}
           </div>
 
           {/* Trust indicators */}
