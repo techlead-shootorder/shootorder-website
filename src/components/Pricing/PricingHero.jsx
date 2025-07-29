@@ -25,7 +25,7 @@ const PricingHero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button 
-            className="bg-[#9a0c28] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#7a0a20] transition-colors duration-300 inline-flex items-center"
+            className="bg-[#9a0c28] text-white px-8 py-3 rounded-lg font-semibold cursor-pointer hover:bg-[#7a0a20] transition-colors duration-300 inline-flex items-center"
             onClick={()=> router.push("/contact-us")}
             >
 
