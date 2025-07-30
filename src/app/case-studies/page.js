@@ -480,7 +480,10 @@ const CaseStudiesPage = () => {
           <p className="text-xl mb-8 text-gray-800">
             Let&apos;s discuss how we can help transform your business with proven strategies and innovative solutions.
           </p>
-          <button className="bg-gradient-to-r from-[#9a0c28] to-[#b91c47] text-white px-8 py-4 rounded-lg font-semibold hover:from-[#b91c47] hover:to-[#9a0c28] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <button 
+          className="cursor-pointer bg-gradient-to-r from-[#9a0c28] to-[#b91c47] text-white px-8 py-4 rounded-lg font-semibold hover:from-[#b91c47] hover:to-[#9a0c28] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          onClick={()=> router.push('/contact-us')}
+          >
             Start Your Project Today
           </button>
         </div>

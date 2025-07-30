@@ -1,40 +1,12 @@
-// app/terms-and-conditions/page.js
 import Link from 'next/link';
 
 export default function page() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <nav className="flex justify-between items-center py-4">
-            <Link href="/" className="text-2xl font-bold text-[#9a0c28]">
-              ShootOrder
-            </Link>
-            <div className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-[#9a0c28] font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/services" className="text-gray-700 hover:text-[#9a0c28] font-medium transition-colors">
-                Services
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-[#9a0c28] font-medium transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-[#9a0c28] font-medium transition-colors">
-                Contact
-              </Link>
-            </div>
-            <Link href="/contact" 
-                  className="bg-[#9a0c28] text-white px-6 py-2 rounded-md font-medium hover:bg-[#7a0a20] transition-colors">
-              Get Started
-            </Link>
-          </nav>
-        </div>
-      </header>
+     
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#9a0c28] to-[#7a0a20] text-white py-16">
+      <section className="bg-gradient-to-br from-[#9a0c28] to-[#7a0a20] text-white py-16 mt-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Terms and Conditions
@@ -57,25 +29,16 @@ export default function page() {
               </p>
             </div>
 
-            {/* Table of Contents */}
-            {/* <div className="mb-8 p-6 bg-gray-50 rounded-lg">
-              <h2 className="text-xl font-semibold text-[#9a0c28] mb-4">Table of Contents</h2>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#acceptance" className="text-blue-600 hover:text-[#9a0c28] transition-colors">1. Acceptance of Terms</a></li>
-                <li><a href="#services" className="text-blue-600 hover:text-[#9a0c28] transition-colors">2. Description of Services</a></li>
-                <li><a href="#user-accounts" className="text-blue-600 hover:text-[#9a0c28] transition-colors">3. User Accounts and Registration</a></li>
-                <li><a href="#user-conduct" className="text-blue-600 hover:text-[#9a0c28] transition-colors">4. User Conduct and Responsibilities</a></li>
-                <li><a href="#payment" className="text-blue-600 hover:text-[#9a0c28] transition-colors">5. Payment Terms and Billing</a></li>
-                <li><a href="#intellectual-property" className="text-blue-600 hover:text-[#9a0c28] transition-colors">6. Intellectual Property Rights</a></li>
-                <li><a href="#privacy" className="text-blue-600 hover:text-[#9a0c28] transition-colors">7. Privacy and Data Protection</a></li>
-                <li><a href="#limitation" className="text-blue-600 hover:text-[#9a0c28] transition-colors">8. Limitation of Liability</a></li>
-                <li><a href="#termination" className="text-blue-600 hover:text-[#9a0c28] transition-colors">9. Termination</a></li>
-                <li><a href="#changes" className="text-blue-600 hover:text-[#9a0c28] transition-colors">10. Changes to Terms</a></li>
-                <li><a href="#contact" className="text-blue-600 hover:text-[#9a0c28] transition-colors">11. Contact Information</a></li>
-              </ul>
-            </div> */}
-
-            
+            {/* Important Notice */}
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-md">
+              <h3 className="text-lg font-semibold text-blue-800 mb-2">Important Notice</h3>
+              <p className="text-blue-700 text-sm">
+                <strong>Please Note:</strong> Ivent IT Solutions Private Limited is the parent company of shootorder.com. 
+                Services are provided by Ivent IT Solutions Private Limited under the shootorder.com brand name. 
+                This is a binding contract between shootorder.com and you. If you have any questions, 
+                please contact us at <a href="mailto:support@shootorder.com" className="text-blue-800 underline">support@shootorder.com</a>.
+              </p>
+            </div>
 
             {/* Terms Sections */}
             <div className="space-y-8">
@@ -84,12 +47,12 @@ export default function page() {
               <section id="acceptance" className="border-b border-gray-200 pb-6">
                 <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-700 mb-4">
-                  By accessing and using ShootOrder&apos;s website and services, you accept and agree to be bound by the terms and provision of this agreement. 
+                  By accessing and using ShootOrder's website and services, you accept and agree to be bound by the terms and provision of this agreement. 
                   If you do not agree to abide by the above, please do not use this service.
                 </p>
                 <p className="text-gray-700">
                   These terms apply to all visitors, users, and others who access or use our digital marketing services, 
-                  including but not limited to our Google Ads management, SEO services, and digital growth consulting.
+                  web hosting services, and all other services provided under the ShootOrder brand.
                 </p>
               </section>
 
@@ -98,20 +61,84 @@ export default function page() {
                 <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">2. Description of Services</h2>
                 <p className="text-gray-700 mb-4">
                   ShootOrder provides comprehensive digital marketing services including Google Ads management, 
-                  search engine optimization (SEO), social media marketing, and digital growth consulting.
+                  search engine optimization (SEO), social media marketing, digital growth consulting, and web hosting services.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Our services are designed to help businesses grow their online presence and achieve measurable results. 
-                  We reserve the right to modify, suspend, or discontinue any part of our services at any time.
+                  <strong>Web Hosting Services:</strong> In exchange for the fees you pay in advance, we will host your website on one or more of our servers, 
+                  so long as you abide by the terms and conditions set out on this page. We will provide the services according to the specifications 
+                  listed for the hosting package you select during the signup process.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  We reserve the right to modify, suspend, or discontinue any part of our services at any time. 
+                  Service availability may vary by location and is subject to our current service offerings and capacity.
                 </p>
                 <p className="text-gray-700">
-                  Service availability may vary by location and is subject to our current service offerings and capacity.
+                  For hosting services, the term "services" refers to the web hosting services that we will provide to you and, 
+                  if you are an Affiliate, the services we provide to you in connection with that program.
                 </p>
               </section>
 
               {/* Section 3 */}
+              <section id="hosting-content" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">3. Permission to Host Your Content</h2>
+                <p className="text-gray-700 mb-4">
+                  For us to host your website, it is necessary for you to upload your content to our servers. 
+                  When you do this uploading, you are creating one or more copies of your content on our system.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  By purchasing hosting services from us, you acknowledge that these copies are being made, and give us the permission 
+                  (a license) to maintain these copies and make them available to users of the Internet.
+                </p>
+                <p className="text-gray-700">
+                  You are solely responsible for providing all of the content and other data that make up your website.
+                </p>
+              </section>
+
+              {/* Section 4 */}
+              <section id="service-availability" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">4. When Services Will be Available</h2>
+                <p className="text-gray-700 mb-4">
+                  We will attempt to provide the services 24 hours a day, 7 days a week for as long as you have paid for them. 
+                  However, for a number of reasons, the services may occasionally be unavailable to you.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  You must recognize and acknowledge that due to the nature of web hosting technology, occasional unavailability 
+                  of the services cannot be avoided. This may include equipment malfunctions, periodic maintenance procedures, 
+                  repairs, power failures, interruption or failure of telecommunication links, hostile network attacks, 
+                  network traffic congestion, and other occurrences beyond our control.
+                </p>
+                <p className="text-gray-700">
+                  We have not promised to provide you with uninterrupted service.
+                </p>
+              </section>
+
+              {/* Section 5 */}
+              <section id="technical-support" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">5. Free Technical Support</h2>
+                <p className="text-gray-700 mb-4">
+                  ShootOrder's Free Technical Support is limited to issues that are directly related to your Web Hosting Account. 
+                  We do not provide website maintenance services in respect of any Hosted Website.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  Our Technical Support does not include maintenance of issues such as HTML coding, Website Programming, 
+                  Content/Data Migration, file uploads/downloads, website troubleshooting, adding new files to your website, 
+                  or configuring scripts. These services incur additional costs not covered within your web hosting plan.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  During National Holidays and some Sundays, our Technical Support will be limited. We will still provide 
+                  Basic Non-Technical Support via Phone and Live Chat, though with reduced staffing.
+                </p>
+                <p className="text-gray-700">
+                  For urgent queries or technical support, you can submit tickets via our support system at 
+                  <a href="https://www.shootorder.com/submitticket.php" className="text-[#9a0c28] underline">
+                    https://www.shootorder.com/submitticket.php
+                  </a>
+                </p>
+              </section>
+
+              {/* Section 6 */}
               <section id="user-accounts" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">3. User Accounts and Registration</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">6. User Accounts and Registration</h2>
                 <p className="text-gray-700 mb-4">
                   To access certain features of our services, you may be required to create an account. 
                   You are responsible for maintaining the confidentiality of your account credentials.
@@ -126,70 +153,135 @@ export default function page() {
                 </p>
               </section>
 
-              {/* Section 4 */}
-              <section id="user-conduct" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">4. User Conduct and Responsibilities</h2>
+              {/* Section 7 - Acceptable Use Policy */}
+              <section id="acceptable-use" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">7. Acceptable Use Policy</h2>
                 <p className="text-gray-700 mb-4">
-                  You agree to use our services only for lawful purposes and in accordance with these Terms. 
-                  You are prohibited from using our services to transmit, distribute, or store material that is unlawful, 
-                  harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable.
+                  ShootOrder strives to maintain a high level of service. By using our hosting services, 
+                  you agree to abide by our Acceptable Use Policy strictly.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  You shall not attempt to gain unauthorized access to any portion of our services, other accounts, 
-                  computer systems, or networks connected to our services through hacking, password mining, or any other means.
+                  <strong>We will not provide services for:</strong>
                 </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-2 text-sm">
+                    <li>• Unacceptable or inappropriate material as determined by ShootOrder</li>
+                    <li>• Topsites, IRC Scripts/Bots, Proxy Scripts/Anonymizers, Pirated Software/Warez</li>
+                    <li>• Image Hosting Scripts, AutoSurf/PTC/PTS/PPC sites, IP Scanners, Brute-force Programs</li>
+                    <li>• Mail Bombers/Spam Scripts, Banner-Ad services, File Dump/Mirror Scripts</li>
+                    <li>• Commercial Audio Streaming, Escrow/Bank Debentures, High-Yield Interest Programs (HYIP)</li>
+                    <li>• Investment Sites (FOREX, E-Gold Exchange, MLM/Pyramid Schemes)</li>
+                    <li>• Sale of controlled substances without proper permits, Prime Banks Programs, Lottery Sites</li>
+                    <li>• MUDs/RPGs/PPBGs, Hateful/Racist/Harassment oriented sites, Hacker focused sites</li>
+                    <li>• Sites promoting illegal activities, Forums distributing warez/pirated content</li>
+                    <li>• Fraudulent Sites, Port scans, stealth scans, and credit card "phishing"</li>
+                  </ul>
+                </div>
+                <p className="text-gray-700 mb-4">
+                  <strong>Additional Restrictions:</strong>
+                </p>
+                <div className="bg-gray-50 p-6 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-2 text-sm">
+                    <li>• No hosting, storing, or distributing pornographic material or child pornography</li>
+                    <li>• No spamming or sending bulk unsolicited email</li>
+                    <li>• No copyright or intellectual property infringement</li>
+                    <li>• No long-running server-side processes, bots, or daemons</li>
+                    <li>• No web spiders, indexers, or IRC network interfaces</li>
+                    <li>• No P2P clients, trackers, or file-sharing networks</li>
+                    <li>• No gaming servers or backup/storage use</li>
+                    <li>• Maximum 100,000 files per account</li>
+                    <li>• No use of system resources over 8% for longer than 180 seconds in any 6-hour period</li>
+                    <li>• No MySQL queries longer than 15 seconds</li>
+                  </ul>
+                </div>
                 <p className="text-gray-700">
-                  Any violation of these conduct rules may result in immediate termination of your account and access to our services.
+                  Violation of this Acceptable Use Policy may result in suspension or immediate termination 
+                  of your account without prior notice.
                 </p>
               </section>
 
-              {/* Section 5 */}
+              {/* Section 8 */}
               <section id="payment" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">5. Payment Terms and Billing</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">8. Payment Terms and Billing</h2>
                 <p className="text-gray-700 mb-4">
                   Payment for services is due according to the terms specified in your service agreement. 
-                  We accept various payment methods including credit cards, bank transfers, and other approved payment systems.
+                  All prices displayed on our website are based on Indian Rupees (₹ INR).
                 </p>
                 <p className="text-gray-700 mb-4">
-                  All fees are non-refundable unless otherwise specified in writing. Late payments may result in 
-                  service suspension and additional fees. You are responsible for all taxes associated with your use of our services.
+                  <strong>Currency Options:</strong> You may choose different currencies from our drop-down menu. 
+                  However, prices in INR are fixed and other currencies do not follow exchange rates. 
+                  We cannot provide partial refunds based on currency exchange rate differences.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Automatic Renewal:</strong> Your account will be enabled with auto-renewal. 
+                  You must cancel 14 days prior to your renewal date to avoid automatic billing. 
+                  If you fail to cancel 14 days prior to renewal, your account will be renewed for a new term.
                 </p>
                 <p className="text-gray-700">
-                  We reserve the right to change our pricing with thirty (30) days written notice. 
-                  Continued use of services after price changes constitutes acceptance of new pricing.
+                  <strong>Suspension Policy:</strong> If payment is not received within 14 days of invoice date, 
+                  your account will be suspended. If payment is not made within 100 days of suspension, 
+                  all data will be permanently deleted.
                 </p>
               </section>
 
-              {/* Section 6 */}
-              <section id="intellectual-property" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">6. Intellectual Property Rights</h2>
+              {/* Section 9 */}
+              <section id="refund-policy" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">9. Cancellation and Refund Policy</h2>
                 <p className="text-gray-700 mb-4">
-                  The service and its original content, features, and functionality are and will remain the exclusive 
-                  property of ShootOrder and its licensors. The service is protected by copyright, trademark, 
-                  and other laws of both the United States and foreign countries.
+                  We offer a money-back guarantee on all shared hosting plans if you cancel within the first 100 days after signup. 
+                  For reseller hosting plans, we offer a money-back guarantee within the first 30 days after signup.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Our trademarks and trade dress may not be used in connection with any product or service 
-                  without our prior written consent. You retain ownership of content you provide to us, 
-                  but grant us a license to use such content for service delivery purposes.
+                  To cancel your account, you must submit a ticket at ShootOrder.com with a valid detailed reason. 
+                  We are the sole arbiter of whether your reason is valid and if all possible steps were taken to correct the situation.
                 </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>No Money-Back Guarantee for:</strong>
+                </p>
+                <div className="bg-red-50 p-4 rounded-lg mb-4">
+                  <ul className="text-red-700 space-y-1 text-sm">
+                    <li>• Violations of our Acceptable Use Policy</li>
+                    <li>• Setup fees, bank transfer charges, domain services</li>
+                    <li>• Hosting renewals, upgrades, SSL certificates</li>
+                    <li>• Email marketing plans, dedicated servers, VPS plans</li>
+                    <li>• Misunderstanding of features displayed on our website</li>
+                  </ul>
+                </div>
                 <p className="text-gray-700">
-                  Any strategies, campaigns, or methodologies developed specifically for your business remain your property, 
-                  though we reserve the right to use general knowledge and experience gained from our work.
+                  All refunds are subject to verification by our billing department and may take up to 30 days for processing.
                 </p>
               </section>
 
-              {/* Section 7 */}
+              {/* Section 10 */}
+              <section id="unlimited-resources" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">10. Unlimited Disk Space and Data Transfer</h2>
+                <p className="text-gray-700 mb-4">
+                  There are no set limits on disk space or data transfer (bandwidth) for plans marked "unlimited." 
+                  However, all customers must be fully compliant with our Terms of Service and utilize resources 
+                  related to normal operation of a personal or small business website.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Normal Usage:</strong> This means operating a personal or small business website that utilizes 
+                  resources similarly to most of our other customers. Storage of large numbers of multimedia files 
+                  not linked to your website is not considered normal usage.
+                </p>
+                <p className="text-gray-700">
+                  We monitor customer and server activity through our Network Monitoring Center (NMC). 
+                  Accounts not in compliance or negatively impacting system performance may be temporarily suspended.
+                </p>
+              </section>
+
+              {/* Section 11 */}
               <section id="privacy" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">7. Privacy and Data Protection</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">11. Privacy and Data Protection</h2>
                 <p className="text-gray-700 mb-4">
-                  Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect 
-                  your information when you use our services. By using our services, you agree to the collection 
-                  and use of information in accordance with our Privacy Policy.
+                  When you place an order for our services, your personal information, including credit card information, 
+                  is transmitted via Secure Socket Layer technology, the industry standard for encrypting sensitive information.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  We implement appropriate technical and organizational measures to protect your personal data 
-                  against unauthorized access, alteration, disclosure, or destruction.
+                  We take your privacy very seriously and will not sell your personal information to third parties 
+                  (other than a company that may purchase ShootOrder). We will take reasonable steps to keep 
+                  your information from being disclosed to any third party.
                 </p>
                 <p className="text-gray-700">
                   We comply with applicable data protection laws including GDPR and CCPA where applicable. 
@@ -197,34 +289,112 @@ export default function page() {
                 </p>
               </section>
 
-              {/* Section 8 */}
-              <section id="limitation" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">8. Limitation of Liability</h2>
+              {/* Section 12 */}
+              <section id="intellectual-property" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">12. Intellectual Property Rights</h2>
                 <p className="text-gray-700 mb-4">
-                  In no event shall ShootOrder, nor its directors, employees, partners, agents, suppliers, or affiliates, 
-                  be liable for any indirect, incidental, special, consequential, or punitive damages, including without 
-                  limitation, loss of profits, data, use, goodwill, or other intangible losses.
+                  The service and its original content, features, and functionality are and will remain the exclusive 
+                  property of ShootOrder and its licensors. The service is protected by copyright, trademark, 
+                  and other applicable laws.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Our total liability to you for all damages, losses, and causes of action shall not exceed 
-                  the amount paid by you to ShootOrder in the twelve (12) months preceding the claim.
-                </p>
-                <p className="text-gray-700">
-                  Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability 
-                  for consequential or incidental damages, so the above limitations may not apply to you.
+                  Our trademarks and trade dress may not be used in connection with any product or service 
+                  without our prior written consent. You retain ownership of content you provide to us, 
+                  but grant us a license to use such content for service delivery purposes.
                 </p>
               </section>
 
-              {/* Section 9 */}
+              {/* Section 13 - DMCA */}
+              <section id="dmca" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">13. DMCA Copyright Infringement</h2>
+                <p className="text-gray-700 mb-4">
+                  In accordance with the Digital Millennium Copyright Act, we have adopted a policy to suspend or terminate 
+                  accounts of website owners found to be in violation of copyright.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  If you believe your work has been copied in a way that constitutes copyright infringement, 
+                  please provide our Abuse Desk with the following:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <ol className="text-gray-700 space-y-2 text-sm list-decimal list-inside">
+                    <li>Electronic or physical signature of the authorized person</li>
+                    <li>Description of the copyrighted work or intellectual property claimed to be infringed</li>
+                    <li>Description of where the infringing material is located on the site</li>
+                    <li>Your address, telephone number, and email address</li>
+                    <li>A statement of good faith belief that the use is not authorized</li>
+                    <li>A statement made under penalty of perjury that the information is accurate</li>
+                  </ol>
+                </div>
+                <p className="text-gray-700">
+                  Our Abuse Desk can be reached at <a href="mailto:support@shootorder.com" className="text-[#9a0c28] underline">support@shootorder.com</a>
+                </p>
+              </section>
+
+              {/* Section 14 */}
+              <section id="indemnification" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">14. Indemnification</h2>
+                <p className="text-gray-700 mb-4">
+                  If ShootOrder is sued or threatened with a lawsuit from a third party because of something you do with the services, 
+                  you agree to indemnify ShootOrder if we are found liable or pay to settle the dispute.
+                </p>
+                <p className="text-gray-700">
+                  You agree to reimburse ShootOrder for judgments or settlements, and pay our reasonable attorney's fees 
+                  and all other costs we incur in defending ourselves.
+                </p>
+              </section>
+
+              {/* Section 15 */}
+              <section id="warranties" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">15. Disclaimer of Warranties</h2>
+                <div className="bg-yellow-50 p-6 rounded-lg mb-4">
+                  <p className="text-gray-700 text-sm uppercase font-semibold">
+                    SHOOTORDER EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, 
+                    BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. 
+                    SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS.
+                  </p>
+                </div>
+                <p className="text-gray-700">
+                  We make no warranty that our services will meet your requirements, or that the services will be 
+                  uninterrupted, timely, secure, or error-free, or that defects will be corrected.
+                </p>
+              </section>
+
+              {/* Section 16 */}
+              <section id="limitation" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">16. Limitation of Liability</h2>
+                <div className="bg-yellow-50 p-6 rounded-lg mb-4">
+                  <p className="text-gray-700 text-sm uppercase font-semibold">
+                    IN NO EVENT SHALL SHOOTORDER BE LIABLE TO YOU OR ANY OTHER PERSON FOR ANY INDIRECT, INCIDENTAL, 
+                    CONSEQUENTIAL, SPECIAL, EXEMPLARY OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFIT OR GOODWILL, 
+                    FOR ANY MATTER, WHETHER SUCH LIABILITY IS ASSERTED ON THE BASIS OF CONTRACT, TORT, BREACH OF WARRANTIES, 
+                    OR OTHERWISE, EVEN IF SHOOTORDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+                  </p>
+                </div>
+                <p className="text-gray-700">
+                  Our maximum aggregate liability shall not exceed the total amount paid by you for the services in dispute.
+                </p>
+              </section>
+
+              {/* Section 17 */}
+              <section id="governing-law" className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">17. Governing Law</h2>
+                <p className="text-gray-700 mb-4">
+                  The laws of India will govern this Agreement, without reference to rules governing choice of laws. 
+                  Any action relating to this Agreement must be brought in the court located in Hyderabad, Telangana, India.
+                </p>
+              </section>
+
+              {/* Section 18 */}
               <section id="termination" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">9. Termination</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">18. Termination</h2>
                 <p className="text-gray-700 mb-4">
                   We may terminate or suspend your account immediately, without prior notice or liability, 
                   for any reason whatsoever, including without limitation if you breach the Terms.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  You may terminate your account at any time by contacting us. Upon termination, 
-                  your right to use the service will cease immediately, though certain provisions of these Terms will survive termination.
+                  ShootOrder reserves the right to cancel your account any time with no money-back, 
+                  should proper evidence exist that a customer was exceptionally arrogant, rude, or vulgar 
+                  in communications with our staff.
                 </p>
                 <p className="text-gray-700">
                   Upon termination, we will provide you with any final reports and transfer ownership of any 
@@ -232,41 +402,37 @@ export default function page() {
                 </p>
               </section>
 
-              {/* Section 10 */}
+              {/* Section 19 */}
               <section id="changes" className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">10. Changes to Terms</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">19. Changes to Terms</h2>
                 <p className="text-gray-700 mb-4">
-                  We reserve the right, at our sole discretion, to modify or replace these Terms at any time. 
-                  If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  What constitutes a material change will be determined at our sole discretion. 
-                  By continuing to access or use our service after those revisions become effective, 
-                  you agree to be bound by the revised terms.
+                  Due to our evolving business and the changing nature of the industry, these terms of service may change. 
+                  We will post the changes here, and your continued use of the service means you accept the changes we have made.
                 </p>
                 <p className="text-gray-700">
                   If you do not agree to the new terms, please stop using the service. 
-                  We will post any changes to these Terms on this page and update the &quot;Last Updated&quot; date.
+                  We will update the "Last Updated" date when changes are made.
                 </p>
               </section>
 
-              {/* Section 11 */}
+              {/* Section 20 */}
               <section id="contact">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">11. Contact Information</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">20. Contact Information</h2>
                 <p className="text-gray-700 mb-4">
                   If you have any questions about these Terms and Conditions, please contact us:
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="space-y-2 text-gray-700">
-                    <p><strong>Email:</strong> legal@shootorder.com</p>
-                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>Address:</strong> 123 Digital Marketing Street, Business District, City, State 12345</p>
-                    <p><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM EST</p>
+                    <p><strong>Email:</strong> support@shootorder.com</p>
+                    <p><strong>Legal Email:</strong> legal@shootorder.com</p>
+                    <p><strong>Phone:</strong> +91 (555) 123-4567</p>
+                    <p><strong>Support Tickets:</strong> <a href="https://www.shootorder.com/submitticket.php" className="text-[#9a0c28] underline">https://www.shootorder.com/submitticket.php</a></p>
+                    <p><strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM IST</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mt-4">
                   We aim to respond to all inquiries within 2 business days. For urgent matters, 
-                  please call our main business line during regular business hours.
+                  please call our main business line during regular business hours or submit a support ticket.
                 </p>
               </section>
 
@@ -275,21 +441,21 @@ export default function page() {
             {/* Additional Legal Notice */}
             <div className="mt-12 p-6 bg-[#9a0c28] text-white rounded-lg">
               <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
-              <p className="text-sm opacity-90">
+              <p className="text-sm opacity-90 mb-4">
                 These terms and conditions constitute the entire agreement between you and ShootOrder concerning 
-                the use of our services. If any provision of these Terms is deemed invalid or unenforceable, 
-                the remaining provisions shall remain in full force and effect. These Terms are governed by 
-                and construed in accordance with the laws of the jurisdiction in which ShootOrder operates, 
-                without regard to conflict of law principles.
+                the use of our services. This agreement becomes effective once you submit your order with us or open an account 
+                with us for any services (shared hosting, reseller hosting, VPS, dedicated servers, digital marketing, etc.) 
+                or open an affiliate account.
+              </p>
+              <p className="text-sm opacity-90">
+                If any provision of these Terms is deemed invalid or unenforceable, the remaining provisions shall remain 
+                in full force and effect. By using ShootOrder.com you agree to the above Terms of Service.
               </p>
             </div>
 
           </div>
         </div>
       </main>
-
-
-
     </div>
   )
 }
