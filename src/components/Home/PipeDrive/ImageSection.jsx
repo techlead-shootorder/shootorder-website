@@ -5,9 +5,9 @@ import Image from "next/image";
 const ImageSection = () => {
 
     return (
-        <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative h-[813px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-                src="/images/about-us/About US.webp"
+                src="/images/background/home page contact.webp"
                 alt="ShootOrder Office"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"

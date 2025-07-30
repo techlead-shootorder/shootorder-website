@@ -384,29 +384,29 @@ export default function Home() {
         </div>
 
 
-        
+
 
         <section className="!bg-[#f8f6ee] py-8 md:py-16 px-4">
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
-             <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
-          <p className="text-base md:text-lg text-gray-600 px-2">
-            Comprehensive digital solutions for your business growth
-          </p>
-        </div>
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
+              <p className="text-base md:text-lg text-gray-600 px-2">
+                Comprehensive digital solutions for your business growth
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
               <Link href="/seo/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">SEO Optimization</h3>
-              </Link> 
+              </Link>
               <Link href="/google-ads/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">Paid Advertising</h3>
-              </Link> 
+              </Link>
               <Link href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">Brand Positioning</h3>
-              </Link> 
+              </Link>
               <Link href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
                 <h3 className="font-semibold text-lg">Social Media Marketing</h3>
-              </Link> 
+              </Link>
             </div>
             {/* <ServiceTabs /> */}
           </div>
@@ -426,30 +426,33 @@ export default function Home() {
         <ClutchWidget />
 
         {/* Form section */}
-        <section className="py-10" style={{ background: "#9A0C28" }}>
+        <section className="py-20" style={{ background: "#9A0C28" }}>
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="talent-form-section">
             <div className="parallax-bg absolute inset-0 -z-10 w-full">
               <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
             </div>
 
             {/* Main Content Container */}
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 " >
+            <>
+              <h2 className="text-4xl font-bold text-center mb-8 text-white">Contact us</h2>
+              <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12" >
 
-              {/* Image Section - Left on desktop, Top on mobile */}
-              <div className="w-full lg:w-1/2 order-1 lg:order-1">
-                <ImageSection/>
-              </div>
-
-              {/* Form Section - Right on desktop, Bottom on mobile */}
-              <div className="w-full lg:w-1/2 order-2 lg:order-2">
-                <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-
-                  {/* Pipedrive Form */}
-                  <PipeDriveForm />
+                {/* Image Section - Left on desktop, Top on mobile */}
+                <div className="w-full lg:w-1/2 h-full order-1 lg:order-1">
+                  <ImageSection />
                 </div>
-              </div>
 
-            </div>
+                {/* Form Section - Right on desktop, Bottom on mobile */}
+                <div className="w-full lg:w-1/2 order-2 lg:order-2">
+                  <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+
+                    {/* Pipedrive Form */}
+                    <PipeDriveForm />
+                  </div>
+                </div>
+
+              </div>
+            </>
           </div>
         </section>
       </div>

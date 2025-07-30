@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import PopupModal from "@/components/Modal/PopupModal";
 
 const BannerForServices = ({ imageUrl, subheading, heading }) => {
+  console.log("image url of service banner", imageUrl)
   const modalRef = useRef();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
@@ -45,12 +46,10 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(${
-              imageUrl || "/images/services/banners/seo-banner.jpg"
-            })`,
+            backgroundImage: `url('${imageUrl}')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" /> */}
       </motion.div>
 
       {/* Floating Elements */}

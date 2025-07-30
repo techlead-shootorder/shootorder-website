@@ -20,7 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "clutch-widget-nextjs": "^2.0.2",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.23.11",
     "gsap": "^3.13.0",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.509.0",

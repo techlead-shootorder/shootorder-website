@@ -5,7 +5,7 @@
     "slug": "seo",
     "title": "SEO",
     "description": "Professional web development services using the latest technologies.",
-    "imageUrl": "https://www.shootorder.com/templates/shoot/img/seo-01.jpg",
+    "imageUrl": "/images/services/banners/SEO Banner.webp",
     "features": [
       {
         "imageUrl": "/images/services/SEO/Keyword Optimization.webp",
@@ -41,7 +41,7 @@
     "title": "Performance Marketing",
     "slug": "advertise",
     "description": "Introducing our award-winning PPC & Performance Marketing services\nWe handle your performance marketing requirements as if they were our own. With over 50 performance marketing specialists, our paid ads services are growth-driven. Our account strategists bring in a deep understanding of business, with their precise targeting and effective messaging, this combination makes us the best in the market.",
-    "imageUrl": "https://www.shootorder.com/templates/shoot/img/shootorder-digital-marketing-agency.jpg",
+    "imageUrl": "/images/services/banners/PPC Banner.webp",
     "features": [
       {
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/search-engine-advertising-so.jpg",
@@ -78,11 +78,11 @@
   },
   {
     "heading": "Social Media Marketing Company",
-    "subheading": "The future of business is social! ShootOrder ranks among the top social media marketing companies in India. We've earned top rankings from major social marketing hubs and magazines. Our services encompass Instagram, Facebook, Twitter, LinkedIn marketing, and many more",
+    "subheading": "Beyond likes and follows, our social media marketing strategies spark real engagement and brand loyalty. From scroll-stopping content to data-driven campaigns, we craft experiences that connect, convert, and keep your audience coming back for more.",
     "title": "Social Media Marketing",
     "slug": "social-media-marketing",
     "description": "hello",
-    "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-01.jpg",
+    "imageUrl": "/images/services/banners/SMM Banner.webp",
     "features": [
       {
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/social-media-strategy.jpg",
@@ -494,12 +494,12 @@
     "content": ""
   },
   {
-    "heading": "Performance Marketing Agency",
+    "heading": "Performance Marketing Growth",
     "subheading": "Every click should count; our performance marketing strategies are built to drive measurable results. From laser-targeted ads to conversion-optimized campaigns, we transform your marketing spend into scalable growth and ROI that's measurable.",
     "title": "Performance Marketing",
     "slug": "google-ads",
     "description": ".",
-    "imageUrl": "/images/services/performance-marketing.jpg",
+    "imageUrl": "/images/services/banners/PPC Banner.webp",
     "features": [
       {
         "imageUrl": "https://www.shootorder.com/templates/shoot/img/search-engine-advertising-so.jpg",
