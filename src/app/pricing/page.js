@@ -2,7 +2,7 @@
 import React from 'react';
 import PricingHero from '@/components/Pricing/PricingHero';
 import PricingPlans from '@/components/Pricing/PricingPlans';
-import PricingFAQ from '@/components/Pricing/PricingFAQ';
+// import PricingFAQ from '@/components/Pricing/PricingFAQ';
 import PricingCustomQuote from '@/components/Pricing/PricingCustomQuote';
 
 export const metadata = {
