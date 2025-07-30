@@ -295,6 +295,450 @@ const caseStudyData = {
     timeline: "3 months",
     tags: ["PPC", "Google Ads", "Conversion Optimization"],
   },
+  // below is the updated case studies
+  "ppc-fertility-provider": {
+    title: "Digital Marketing for Fertility Provider",
+    client: "Oasis Fertility",
+    industry: "Healthcare",
+    date: "2024",
+    heroImage: "",
+    challenge: "The fertility provider needed to generate more qualified leads at a lower cost per lead while maintaining quality and improving overall ROI from their digital marketing efforts.",
+    solution: "ShootOrder handled comprehensive digital marketing requirements including paid campaigns and SEO, with bi-monthly strategy meetings, website landing page optimization, and social media asset management with dedicated account management.",
+    results: [
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Reduced cost per lead (CPL) to expected levels",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Increased return on investment (ROI)",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Improved lead quality and conversion",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Enhanced digital marketing performance across all channels",
+      },
+    ],
+    testimonial: {
+      quote:
+        "They reduced CPL and increased ROI. Cost effective, Good Performance.",
+      author: "Sreeram Kandula",
+      position: "Digital Marketing Manager, Oasis Fertility",
+    },
+    services: [
+      "Search Engine Optimization",
+      "Paid Campaigns Management",
+    ],
+    timeline: "Jan. 2018 - Ongoing",
+    tags: ["HealthCare", "Fertility", "IUI", "IVF"],
+  },
+  "ppc-edtech-company": {
+    title: "Facebook & Google Ads Campaign for EdTech Company",
+    client: "ALPA Kids",
+    industry: "Software",
+    date: "Feb. 2021 - Ongoing",
+    heroImage: "",
+    challenge: "ALPA Kids, successful in Estonia (70% of parents and 50% of kindergartens), needed to expand to the Indian market after being contacted by local kindergarten owners requiring digital teaching aids for Hindi language instruction.",
+    solution: "After evaluating multiple approaches, ShootOrder focused on running targeted Google and Facebook Ads campaigns while managing advertising accounts, creating ad creatives, and providing dedicated account management.",
+    results: [
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "400,000 app downloads achieved in India",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Successful expansion from Estonia to Indian market",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Multiple high-quality video ads created",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Content suitable for both Indian and Estonian applications",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Content suitable for both Indian and Estonian applications",
+      author: "Janek Jaago",
+      position: "CCO, ALPA Kids",
+    },
+    services: [
+      "Other Digital Marketing",
+      "Pay Per Click",
+      "Search Engine Optimization"
+    ],
+    timeline: "Feb. 2021 - Ongoing",
+    tags: ["Education"],
+  },
+  "ppc-health-wellness": {
+    title: "SEO, PPC, Social Media Marketing for Health & Wellness Firm",
+    client: "IPI India Pvt. Ltd.",
+    industry: "Consumer Products",
+    date: "May. 2019 - Ongoing",
+    heroImage: "",
+    challenge: "International Pharmaceuticals Inc. (IPI India) was doing only offline marketing with no digital presence. They needed to extend their product offerings into the digital space and gain recognition online.",
+    solution: "International Pharmaceuticals Inc. (IPI India) was doing only offline marketing with no digital presence. They needed to extend their product offerings into the digital space and gain recognition online.",
+    results: [
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Online orders increased from $100 to $1,000 per month",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Achieved first page Google rankings for target keywords",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Significant increase in Facebook likes and impressions",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Successful integration with Amazon store for order tracking",
+      },
+    ],
+    testimonial: {
+      quote:
+        "They're pretty serious about their job, and they optimize the cash we give them. They identify parts of the media spend that are unnecessary and advise us about it.",
+      author: "Nishanth Jain",
+      position: "Brand Manager, IPI India Pvt. Ltd.",
+    },
+    services: [
+      "Search Engine Optimization",
+      "Google Ads Management",
+      "Social Media Marketing"
+    ],
+    timeline: "May. 2019 - Ongoing",
+    tags: ["Healthcare"],
+  },
+  // seo
+  "seo-cake-company": {
+    title: "SEO for Cake Company",
+    client: "CountryOven.com",
+    industry: "Bakery & E-commerce",
+    date: "Feb. 2015 - Ongoing",
+    heroImage: "",
+    challenge: "Within e-commerce, there are major channels for which we get visitors to the website. SEM [search engine marketing] has provided for a large reason for our traffic. Before ShootOrder, we did not have these kinds of results.",
+    solution: "ShootOrder helped achieve top positions for most cake-related keywords through strategic SEO and SEM services. They work closely with the technology team to implement required changes and maintain consistent communication.",
+    results: [
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Achieved top rankings for all desired cake-related keywords",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Significant growth in search engine traffic year-over-year",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Cakes represent 80% of revenue with improved organic visibility",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Consistent monthly performance improvements",
+      },
+    ],
+    testimonial: {
+      quote:
+        "I feel they're [ShootOrder] well-organized, stick to the timelines, and their promises. The head of ShootOrder is a young guy and is very hungry for business. He's always on the go.",
+      author: "Vamseedhar Reddy",
+      position: "CEO at CountryOven.com",
+    },
+    services: [
+      "Search Engine Optimization",
+      "Search Engine Marketing"
+    ],
+    timeline: "Feb. 2015 - Ongoing",
+    tags: ["Bakery", "Dilicious Cakes", "Chocolate"],
+  },
+  "seo-caravan-rental": {
+    title: "Web Dev, SEO & Marketing for Caravan Rental Company",
+    client: "Carawander Pvt Ltd",
+    industry: "Hospitality & leisure",
+    date: "Feb. 2021 - Ongoing",
+    heroImage: "",
+    challenge: "The client needed comprehensive digital services including website development, SEO optimization, and effective marketing strategies to grow their caravan and motorhome rental business.",
+    solution: "ShootOrder provided end-to-end services including website development, social media marketing campaigns, SEO optimization, and ongoing website updates. The team assigned 2-5 employees to handle different aspects of the project with dedicated project management.",
+    results: [
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Sales increased significantly",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Profits increased substantially",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Improved website performance and optimization",
+      },
+      {
+        metric: "Online Sales",
+        value: "300%",
+        description: "Successful ongoing marketing campaigns",
+      },
+    ],
+    testimonial: {
+      quote:
+        "They are goal-oriented and always ready to deliver the request at any time. Work dedication is great.",
+      author: "Siddharth Arya Jolly",
+      position: "CEO, Carawander Pvt Ltd",
+    },
+    services: [
+      "Content Marketing",
+      "Search Engine Optimization",
+      "Social Media Marketing"
+    ],
+    timeline: "Feb. 2021 - Ongoing",
+    tags: [""],
+  },
+  "seo-travel-company": {
+    title: "Digital Marketing, SEO & Web Dev for Travel Company",
+    client: "Travel Company (Dubai)",
+    industry: "Hospitality & leisure",
+    location: "Dubai, United Arab Emirates",
+    date: "Mar. 2018 - Ongoing",
+    duration: "Mar. 2018 - Ongoing",
+    investment: "$10,000 to $49,999",
+    monthlySpend: "Around $15,000 total investment",
+    heroImage: "",
+    challenge: "The client was looking for a kickstart in social media campaigns to grow their business on platforms like Facebook, Instagram, and Google. They also needed their creative collateral to meet professional standards.",
+    solution: "ShootOrder provided end-to-end social media digital platform services including planning promotions, creative timing decisions, target audience identification, Google Ads management, SEO, and complete WordPress website development with a new look and feel.",
+    results: [
+      {
+        metric: "Lead Generation",
+        value: "Significant growth",
+        description: "Significant growth in lead generation",
+      },
+      {
+        metric: "Business Growth",
+        value: "Enhanced",
+        description: "Enhanced business growth and customer feedback",
+      },
+      {
+        metric: "Social Media",
+        value: "Successful",
+        description: "Successful social media campaigns on Facebook and Instagram",
+      },
+      {
+        metric: "Lead Conversion",
+        value: "Improved",
+        description: "Improved lead conversion rates",
+      },
+      {
+        metric: "Website",
+        value: "Complete redesign",
+        description: "Complete website redesign on WordPress",
+      }
+    ],
+    testimonial: {
+      quote: "For anyone who wants to grow their business digitally, Shoot Order is a reliable company and cost-effective. ShootOrder used to come with a lot of their initiatives and established with a proper plan.",
+      author: "Founder",
+      position: "Travel Company CEO",
+    },
+    services: [
+      "Other Digital Marketing",
+      "Social Media Marketing",
+      "Web Development"
+    ],
+    clientRatings: {
+      quality: 3.5,
+      schedule: 3.5,
+      cost: 4,
+      wouldRefer: 5,
+      overallScore: 4
+    },
+    timeline: "Mar. 2018 - Ongoing",
+    tags: ["travel", "dubai", "social-media", "web-development"],
+  },
+  // smm
+  "smm-luxury-car-brand": {
+    title: "Social Media Marketing & Google Ads for Luxury Car Brand",
+    client: "Luxury Car Dealership",
+    industry: "Automotive",
+    location: "Hyderabad, India",
+    date: "Sep. 2016 - Ongoing",
+    duration: "Sep. 2016 - Ongoing",
+    investment: "Confidential",
+    monthlySpend: "Confidential",
+    heroImage: "",
+    challenge: "The luxury car dealership was looking for a comprehensive marketing agency to take over all their traditional marketing projects and enhance their digital presence.",
+    solution: "ShootOrder took over all traditional marketing projects including Google Ads and social media management, with a team of 4 people including CEO Rajat and project lead Naveen (Digital Marketing Consultant), providing weekly and fortnightly reports on keywords and social media activity.",
+    results: [
+      {
+        metric: "Digital Presence",
+        value: "Increased",
+        description: "Increased presence across multiple digital spaces",
+      },
+      {
+        metric: "Content Delivery",
+        value: "Quick",
+        description: "Quick content delivery and updates",
+      },
+      {
+        metric: "Lead Generation",
+        value: "Innovative",
+        description: "Innovative lead generation and customer engagement strategies",
+      },
+      {
+        metric: "Budget Optimization",
+        value: "Streamlined",
+        description: "Streamlined budget optimization for lead generation",
+      }
+    ],
+    testimonial: {
+      quote: "ShootOrder has performed very well. In the digital space, ROI is very important. ShootOrder always encourages me to streamline the budget for generating leads. Their team looks at what's working and what isn't on different platforms.",
+      author: "Marketing Manager",
+      position: "Luxury Car Dealership",
+    },
+    services: [
+      "Social Media Marketing",
+      "Google Ads Management",
+      "Traditional Marketing"
+    ],
+    clientRatings: {
+      quality: 4.5,
+      schedule: 4.5,
+      cost: 4,
+      wouldRefer: 5,
+      overallScore: 4.5
+    },
+    timeline: "Sep. 2016 - Ongoing",
+    tags: ["luxury-cars", "automotive", "google-ads", "social-media", "hyderabad"],
+  },
+  "smm-auto-dealership": {
+    title: "Digital Platform Management for Auto Dealership",
+    client: "Auto Dealership",
+    industry: "Automotive",
+    location: "Hyderabad, India",
+    date: "Nov. 2019 - Ongoing",
+    duration: "Nov. 2019 - Ongoing",
+    investment: "$50,000 to $199,999",
+    monthlySpend: "Around $100,000 total investment",
+    heroImage: "",
+    challenge: "The auto dealership needed someone to comprehensively manage their digital platforms to attract more customers and improve their online presence.",
+    solution: "ShootOrder manages all digital platforms including SEO, PPC, and Google business assets with a 5-person team, conducting monthly audits and improvements while working independently after initial guidance.",
+    results: [
+      {
+        metric: "Digital Campaigns",
+        value: "20%",
+        description: "Digital campaigns attract 20% of total bookings",
+      },
+      {
+        metric: "Traffic & Inquiries",
+        value: "Increased",
+        description: "Increased traffic and inquiries for vehicle bookings",
+      },
+      {
+        metric: "SEO Performance",
+        value: "Significant boost",
+        description: "Significant boost in SEO performance on search results",
+      },
+      {
+        metric: "Continuous Improvement",
+        value: "Monthly auditing",
+        description: "Monthly auditing and continuous improvement implemented",
+      }
+    ],
+    testimonial: {
+      quote: "They're quite professional in their approach. We've been happy so far because their digital campaigns attract traffic and inquiries for booking our vehicles. Their work accounts for about 20% of our bookings.",
+      author: "Managing Director",
+      position: "Auto Dealership",
+    },
+    services: [
+      "Other Digital Marketing",
+      "SEO",
+      "PPC",
+      "Google Business Management"
+    ],
+    clientRatings: {
+      quality: 4,
+      schedule: 4,
+      cost: 5,
+      wouldRefer: 5,
+      overallScore: 5
+    },
+    timeline: "Nov. 2019 - Ongoing",
+    tags: ["auto-dealership", "automotive", "seo", "ppc", "google-business", "hyderabad"],
+  },
+  "smm-it-services": {
+    title: "Content Marketing & SMM for IT Services Company",
+    client: "Orchasp Limited",
+    industry: "IT Services",
+    location: "Hyderabad, India",
+    date: "Apr. 2025 - Ongoing",
+    duration: "Apr. 2025 - Ongoing",
+    investment: "Less than $10,000",
+    monthlySpend: "Around 30,000 Indian rupees per month",
+    heroImage: "",
+    challenge: "Orchasp Limited built an electronic health record platform and wanted to market it effectively on social media to reach prospective customers.",
+    solution: "ShootOrder created social media accounts on Facebook, Instagram, and LinkedIn, developed three different content versions (static posts, carousels, and videos) to educate customers about the EHR platform, with scheduled posting and WhatsApp/Google Meet communication.",
+    results: [
+      {
+        metric: "Website Traffic",
+        value: "Increased",
+        description: "Increased website traffic",
+      },
+      {
+        metric: "Content Formats",
+        value: "Multiple",
+        description: "Multiple content formats: static posts, carousels, and videos",
+      },
+      {
+        metric: "Visuals & Videos",
+        value: "Impressive",
+        description: "Impressive visuals and videos created",
+      },
+      {
+        metric: "Content Distribution",
+        value: "Scheduled",
+        description: "Scheduled content posting across Facebook, Instagram, and LinkedIn",
+      }
+    ],
+    testimonial: {
+      quote: "The visuals and videos they've created are impressive. ShootOrder has done a good job on the visuals and creative work.",
+      author: "Chandra Sekhar Pattaparathi",
+      position: "Managing Director & CEO, Orchasp Limited",
+    },
+    services: [
+      "Content Marketing",
+      "Social Media Marketing"
+    ],
+    clientRatings: {
+      quality: 3.5,
+      schedule: 3,
+      cost: 3,
+      wouldRefer: 4,
+      overallScore: 4
+    },
+    timeline: "Apr. 2025 - Ongoing",
+    tags: ["it-services", "ehr-platform", "content-marketing", "social-media", "hyderabad"],
+  }
+
+
 };
 
 // Generate static params for all case study slugs
@@ -308,7 +752,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const caseStudy = caseStudyData[slug];
-  
+
   if (!caseStudy) {
     return {
       title: 'Case Study Not Found',
@@ -349,7 +793,7 @@ export default async function CaseStudyPage({ params }) {
       {/* Hero Section */}
       <div className="relative bg-[#9A0C28] text-white">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${caseStudy.heroImage})` }}
         ></div>
@@ -488,7 +932,7 @@ export default async function CaseStudyPage({ params }) {
               <p className="text-blue-100 mb-4">
                 Let&apos;s discuss how we can help transform your business.
               </p>
-              <Link 
+              <Link
                 href="/contact-us"
                 className="w-full bg-white text-black  px-4 py-2 rounded-lg font-semibold  transition-colors block text-center"
               >

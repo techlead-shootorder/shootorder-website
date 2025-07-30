@@ -52,18 +52,18 @@ function ClientGrid({ children }) {
 
   const renderLogoCard = (logo, index) => (
     <div key={index} className="flex-shrink-0 mx-4">
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center ">
         <img
           src={logo}
           alt={`Logo ${index + 1}`}
-          className="object-contain h-16 w-16 md:h-40 md:w-40"
+          className="object-contain h-16 w-16 md:h-40 md:w-40 shadow-xl"
         />
       </div>
     </div>
   );
 
   return (
-    <div className="!max-w-7xl mx-auto py-10 overflow-hidden bg-[#9A0C28]">
+    <div className="!max-w-7xl mx-auto py-10 overflow-hidden">
       {children}
 
       <div ref={containerRef} className="space-y-8">
@@ -88,10 +88,10 @@ function ClientGrid({ children }) {
           <div className="relative">
             <div
               ref={bottomRowRef}
-              className="grid grid-cols-3"
+              className="grid items-center grid-cols-2 md:grid-cols-3  lg:grid-cols-5 "
               style={{ width: "200%" }}
             >
-              {trustLogos.map(renderLogoCard)}
+              {/* {trustLogos.map(renderLogoCard)} */}
               {trustLogos.map((logo, index) => renderLogoCard(logo, index + 10))}
             </div>
           </div>

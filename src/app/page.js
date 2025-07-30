@@ -18,6 +18,9 @@ import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
 import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
 import ImageSection from "@/components/Home/PipeDrive/ImageSection";
 import Link from "next/link";
+import { Search, MousePointer, Share2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 
 
 export default function Home() {
@@ -25,6 +28,8 @@ export default function Home() {
   const timelineRef = useRef(null);
   const scrollTriggersRef = useRef([]);
   const isCleanedUpRef = useRef(false);
+
+  const router = useRouter();
 
   // Use the smooth scroll hook
   useSmoothScroll();
@@ -344,6 +349,10 @@ export default function Home() {
     }
   };
 
+  const handleNavigation = (service)=>{
+    router.push(`/${service}`);
+  }
+
   return (
     <div className="smooth-scroll-container overflow-hidden">
       {/* Page Loader */}
@@ -377,7 +386,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto" id="partners-section" style={{ background: "#9A0C28" }}>
+        <div className="max-w-7xl mx-auto" id="partners-section">
           <div id="partners-container" className="!max-w-7xl mx-auto">
             <OurPartners />
           </div>
@@ -386,7 +395,7 @@ export default function Home() {
 
 
 
-        <section className="!bg-[#f8f6ee] py-8 md:py-16 px-4">
+        <section className=" py-8 md:py-16 px-4">
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
@@ -394,19 +403,34 @@ export default function Home() {
                 Comprehensive digital solutions for your business growth
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-              <Link href="/seo/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
-                <h3 className="font-semibold text-lg">SEO Optimization</h3>
-              </Link>
-              <Link href="/google-ads/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
-                <h3 className="font-semibold text-lg">Paid Advertising</h3>
-              </Link>
-              <Link href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
-                <h3 className="font-semibold text-lg">Brand Positioning</h3>
-              </Link>
-              <Link href="/social-media-marketing/" className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center">
-                <h3 className="font-semibold text-lg">Social Media Marketing</h3>
-              </Link>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+              <div className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
+              onClick={()=>handleNavigation('seo')}
+              >
+                <Search className="w-8 h-8 mx-auto mb-3" />
+                <h3 className="font-semibold text-lg mb-2">SEO Optimization</h3>
+                <p className="text-sm opacity-90">Improve your search rankings and drive organic traffic to your website</p>
+              </div>
+
+              <div 
+              className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
+              onClick={()=>handleNavigation('google-ads')}
+              
+              >
+                <MousePointer className="w-8 h-8 mx-auto mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Paid Advertising</h3>
+                <p className="text-sm opacity-90">Maximize ROI with targeted Google Ads and PPC campaigns</p>
+              </div>
+
+              <div 
+              className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
+              onClick={()=>handleNavigation('social-media-marketing')}
+              
+              >
+                <Share2 className="w-8 h-8 mx-auto mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Social Media Marketing</h3>
+                <p className="text-sm opacity-90">Build brand awareness and engage with your audience across social platforms</p>
+              </div>
             </div>
             {/* <ServiceTabs /> */}
           </div>
@@ -419,7 +443,7 @@ export default function Home() {
           {/* <Hire /> */}
         </div>
 
-        <div className="mx-auto" style={{ background: "#9A0C28" }}>
+        <div className="mx-auto" >
           <WhyTrustUs />
         </div>
 

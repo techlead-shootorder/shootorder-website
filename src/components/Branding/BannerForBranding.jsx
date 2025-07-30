@@ -55,7 +55,7 @@ const BannerForBranding = ({ imageUrl, subheading, heading }) => {
       >
         <div className="!max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -64,7 +64,7 @@ const BannerForBranding = ({ imageUrl, subheading, heading }) => {
             <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 text-sm">
               Expert Digital Solutions
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Heading */}
           <motion.h1

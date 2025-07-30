@@ -28,10 +28,10 @@ const CaseStudyDetail = ({ caseStudy, serviceSlug }) => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#9a0c28] via-[#b91c47] to-[#9a0c28]">
+        <div className="min-h-screen bg-gray-600">
            
                 {/* Header */}
-                <div className="bg-black/20 backdrop-blur-sm border-b border-white/10 mt-20">
+                <div className=" backdrop-blur-sm mt-20 bg-[#9a0c28]">
                     <div className="!max-w-7xl mx-auto px-4 py-6">
                         <button
                             onClick={() => router.back()}

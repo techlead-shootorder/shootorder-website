@@ -144,11 +144,14 @@ const navLinks = [
   { name: "Home", href: "/" },
   {
     name: "Services",
-    href: "#",
+    // href: "#",
     hasMegaMenu: true,
     menuType: "services",
   },
-  { name: "Company", href: "#", hasMegaMenu: true, menuType: "company" },
+  { name: "Company", 
+    // href: "#",
+    hasMegaMenu: true,
+    menuType: "company" },
   // { name: "Blogs", href: "https://www.shootorder.com/blog/" },
   // { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
 ];
