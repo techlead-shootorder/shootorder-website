@@ -13,7 +13,7 @@ const digitalMarketingServices = {
       links: [
         { name: "SEO Optimization", href: "/seo" },
         { name: "Paid Advertising", href: "/google-ads" },
-        { name: "Brand Positioning", href: "/social-media-marketing" },
+        // { name: "Brand Positioning", href: "/social-media-marketing" },
         { name: "Social Media Marketing", href: "/social-media-marketing" },
         //   { name: "GBP Management", href: "/gbp-management" },
       ],
@@ -80,7 +80,7 @@ const quickLinks = [
   { name: "Support", href: "/support/" },
   { name: "Contact Us", href: "/contact-us/" },
    { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Terms & Conditions", href: "/terms" },
+  { name: "Terms & Conditions", href: "/terms-condition" },
 ];
 
 const socialLinks = [
