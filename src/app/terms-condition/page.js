@@ -47,7 +47,7 @@ export default function page() {
               <section id="acceptance" className="border-b border-gray-200 pb-6">
                 <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">1. Acceptance of Terms</h2>
                 <p className="text-gray-700 mb-4">
-                  By accessing and using ShootOrder's website and services, you accept and agree to be bound by the terms and provision of this agreement. 
+                  By accessing and using ShootOrder&apos;s website and services, you accept and agree to be bound by the terms and provision of this agreement. 
                   If you do not agree to abide by the above, please do not use this service.
                 </p>
                 <p className="text-gray-700">
@@ -73,7 +73,7 @@ export default function page() {
                   Service availability may vary by location and is subject to our current service offerings and capacity.
                 </p>
                 <p className="text-gray-700">
-                  For hosting services, the term "services" refers to the web hosting services that we will provide to you and, 
+                  For hosting services, the term &quot;services&quot; refers to the web hosting services that we will provide to you and, 
                   if you are an Affiliate, the services we provide to you in connection with that program.
                 </p>
               </section>
@@ -116,7 +116,7 @@ export default function page() {
               <section id="technical-support" className="border-b border-gray-200 pb-6">
                 <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">5. Free Technical Support</h2>
                 <p className="text-gray-700 mb-4">
-                  ShootOrder's Free Technical Support is limited to issues that are directly related to your Web Hosting Account. 
+                  ShootOrder&apos;s Free Technical Support is limited to issues that are directly related to your Web Hosting Account. 
                   We do not provide website maintenance services in respect of any Hosted Website.
                 </p>
                 <p className="text-gray-700 mb-4">
@@ -174,7 +174,7 @@ export default function page() {
                     <li>• Sale of controlled substances without proper permits, Prime Banks Programs, Lottery Sites</li>
                     <li>• MUDs/RPGs/PPBGs, Hateful/Racist/Harassment oriented sites, Hacker focused sites</li>
                     <li>• Sites promoting illegal activities, Forums distributing warez/pirated content</li>
-                    <li>• Fraudulent Sites, Port scans, stealth scans, and credit card "phishing"</li>
+                    <li>• Fraudulent Sites, Port scans, stealth scans, and credit card &quot;phishing&quot;</li>
                   </ul>
                 </div>
                 <p className="text-gray-700 mb-4">
@@ -256,7 +256,7 @@ export default function page() {
               <section id="unlimited-resources" className="border-b border-gray-200 pb-6">
                 <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">10. Unlimited Disk Space and Data Transfer</h2>
                 <p className="text-gray-700 mb-4">
-                  There are no set limits on disk space or data transfer (bandwidth) for plans marked "unlimited." 
+                  There are no set limits on disk space or data transfer (bandwidth) for plans marked &quot;unlimited.&quot; 
                   However, all customers must be fully compliant with our Terms of Service and utilize resources 
                   related to normal operation of a personal or small business website.
                 </p>
@@ -338,7 +338,7 @@ export default function page() {
                   you agree to indemnify ShootOrder if we are found liable or pay to settle the dispute.
                 </p>
                 <p className="text-gray-700">
-                  You agree to reimburse ShootOrder for judgments or settlements, and pay our reasonable attorney's fees 
+                  You agree to reimburse ShootOrder for judgments or settlements, and pay our reasonable attorney&apos;s fees 
                   and all other costs we incur in defending ourselves.
                 </p>
               </section>
@@ -350,7 +350,7 @@ export default function page() {
                   <p className="text-gray-700 text-sm uppercase font-semibold">
                     SHOOTORDER EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, 
                     BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. 
-                    SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS.
+                    SERVICES ARE PROVIDED ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS.
                   </p>
                 </div>
                 <p className="text-gray-700">
@@ -411,7 +411,7 @@ export default function page() {
                 </p>
                 <p className="text-gray-700">
                   If you do not agree to the new terms, please stop using the service. 
-                  We will update the "Last Updated" date when changes are made.
+                  We will update the &quot;Last Updated&quot; date when changes are made.
                 </p>
               </section>
 

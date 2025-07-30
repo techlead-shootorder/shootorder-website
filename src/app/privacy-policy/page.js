@@ -96,7 +96,7 @@ export default function page() {
                     <li>• To our authorized officers and agents for network administration or billing purposes</li>
                     <li>• To trusted service providers who assist us in operating our website (such as Google Ads and analytics platforms)</li>
                     <li>• Under compulsion of law (e.g., warrant or court order)</li>
-                    <li>• To lessen or prevent a serious and imminent threat to an individual's life or health</li>
+                    <li>• To lessen or prevent a serious and imminent threat to an individual&apos;s life or health</li>
                     <li>• To you or with your explicit consent</li>
                     <li>• When required by law or to protect our rights and safety</li>
                   </ul>
@@ -169,12 +169,12 @@ export default function page() {
                   </ul>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  If you're in the EU, you have additional rights under GDPR including data portability 
+                  If you&apos;re in the EU, you have additional rights under GDPR including data portability 
                   and the right to object to processing.
                 </p>
                 <p className="text-gray-700">
                   Access to your personal information may be refused if providing access would pose a serious 
-                  threat to life or health, create unreasonable impact on others' privacy, or if the request 
+                  threat to life or health, create unreasonable impact on others privacy, or if the request 
                   is frivolous or vexatious.
                 </p>
               </section>
