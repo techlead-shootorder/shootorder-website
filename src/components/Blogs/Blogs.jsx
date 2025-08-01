@@ -7,7 +7,7 @@ import Link from "next/link";
 // Function to fetch and parse WordPress RSS feed
 async function getWordPressBlogs() {
   try {
-    const response = await fetch("https://www.shootorder.com/blog/feed/", {
+    const response = await fetch("https://www.ShootOrder.com/blog/feed/", {
       next: { revalidate: 3600 }, // Revalidate every hour
     });
     
@@ -62,7 +62,7 @@ async function getWordPressBlogs() {
           if (imageUrl.startsWith('//')) {
             imageUrl = 'https:' + imageUrl;
           } else if (imageUrl.startsWith('/')) {
-            imageUrl = 'https://www.shootorder.com' + imageUrl;
+            imageUrl = 'https://www.ShootOrder.com' + imageUrl;
           }
           break;
         }

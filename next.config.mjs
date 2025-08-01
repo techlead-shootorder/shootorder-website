@@ -35,7 +35,7 @@ const nextConfig = {
   
   // Environment variables that should be available in the browser
   env: {
-    SITE_URL: process.env.SITE_URL || 'https://shootorder.us',
+    SITE_URL: process.env.SITE_URL || 'https://ShootOrder.us',
   },
 };
 

@@ -152,7 +152,7 @@ const navLinks = [
     // href: "#",
     hasMegaMenu: true,
     menuType: "company" },
-  // { name: "Blogs", href: "https://www.shootorder.com/blog/" },
+  // { name: "Blogs", href: "https://www.ShootOrder.com/blog/" },
   // { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
 ];
 
@@ -363,7 +363,7 @@ export default function Header() {
         <div className="flex items-center gap-12">
           <a href="/" className="inline-block">
             <img
-              src="/images/logo/shootorder-logo.svg"
+              src="/images/logo/ShootOrder-logo.svg"
               alt="Logo"
               className="h-12 w-auto transition-transform hover:scale-105"
             />
@@ -470,7 +470,7 @@ export default function Header() {
             <div className="p-4 bg-white border-b flex items-center justify-between">
               <a href="/" className="inline-block">
                 <img
-                  src="/images/logo/shootorder-logo.svg"
+                  src="/images/logo/ShootOrder-logo.svg"
                   alt="ShootOrder"
                   className="h-10 w-auto"
                 />

@@ -67,16 +67,16 @@ export default function ContactUs() {
             <div className="mt-6">
               <p className="text-white font-semibold mb-2">We are on Socials</p>
               <div className="flex items-center justify-start gap-6 text-white text-lg ">
-                <Link href="https://www.facebook.com/shootorder">
+                <Link href="https://www.facebook.com/ShootOrder">
                   <FaFacebookF className="cursor-pointer" />
                 </Link>
-                <Link href="https://x.com/shootorder">
+                <Link href="https://x.com/ShootOrder">
                   <FaXTwitter className="cursor-pointer" />
                 </Link>
-                <Link href="https://www.instagram.com/shootorder/#">
+                <Link href="https://www.instagram.com/ShootOrder/#">
                   <FaInstagram className="cursor-pointer" />
                 </Link>
-                <Link href="https://www.linkedin.com/company/shootorder/">
+                <Link href="https://www.linkedin.com/company/ShootOrder/">
                   <FaLinkedin className="cursor-pointer" />
                 </Link>
               </div>

@@ -54,7 +54,7 @@ const WhyChooseSection = () => {
       icon: <Users className="h-8 w-8 text-[#9a0c28]" />,
       title: "Dedicated Team",
       description:
-        "Our dedicated team has one goal - to get you business at the lowest possible cost and keep you smiling.",
+        "Our team is dedicated to one mission: delivering consistent business results that keep you happy and thriving.",
     },
     // {
     //   icon: <Star className="h-8 w-8 text-[#9a0c28]" />,
@@ -107,7 +107,7 @@ const WhyChooseSection = () => {
           initial={{ y: -20 }}
           whileInView={{ y: 0 }}
         >
-          Why Choose Shootorder
+          Why Choose ShootOrder
         </motion.h2>
         <motion.p
           className="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-white"

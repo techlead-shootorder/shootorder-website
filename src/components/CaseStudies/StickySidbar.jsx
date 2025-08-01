@@ -12,7 +12,7 @@ const StickySidebar = () => {
             Case Study
           </h3>
           <h2 className="text-xl font-bold text-gray-900">
-            Shootorder - SEO
+            ShootOrder - SEO
           </h2>
         </div>
 

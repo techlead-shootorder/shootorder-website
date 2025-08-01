@@ -386,16 +386,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto" id="partners-section">
-          <div id="partners-container" className="!max-w-7xl mx-auto">
-            <OurPartners />
-          </div>
-        </div>
-
-
-
-
-        <section className=" py-8 md:py-16 px-4">
+         <section className=" py-8 md:py-16 px-4">
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
@@ -436,6 +427,17 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="max-w-7xl mx-auto" id="partners-section">
+          <div id="partners-container" className="!max-w-7xl mx-auto">
+            <OurPartners />
+          </div>
+        </div>
+
+
+
+
+       
+
         <div className="animate-section !max-w-7xl mx-auto" id="hire-section" style={{ background: "#9A0C28" }}>
           <div className="parallax-bg absolute inset-0 -z-10 w-full">
             <div className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-gradient-to-tl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
@@ -443,11 +445,13 @@ export default function Home() {
           {/* <Hire /> */}
         </div>
 
-        <div className="mx-auto" >
-          <WhyTrustUs />
-        </div>
+       
 
         <ClutchWidget />
+
+         <div className="mx-auto" >
+          <WhyTrustUs />
+        </div>
 
         {/* Form section */}
         <section className="py-20" style={{ background: "#9A0C28" }}>

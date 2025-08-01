@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SITE_URL = 'https://shootorder.us/';
+const SITE_URL = 'https://ShootOrder.us/';
 const OUTPUT_DIR = 'out'; // Next.js static export output directory
 const EXCLUDE = ['/404', '/500'];
 
@@ -241,7 +241,7 @@ const generateAdditionalFiles = (outputPath) => {
         theme_color: "#9a0c28",
         icons: [
             {
-                src: "/images/logo/shootorder-logo.svg",
+                src: "/images/logo/ShootOrder-logo.svg",
                 sizes: "192x192",
                 type: "image/svg+xml"
             }

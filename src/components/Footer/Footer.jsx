@@ -84,10 +84,10 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: FaFacebook, href: "https://www.facebook.com/shootorder" },
-  { name: "Twitter", icon: FaXTwitter, href: "https://x.com/shootorder" },
-  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/shootorder/#" },
-  { name: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/company/shootorder/" },
+  { name: "Facebook", icon: FaFacebook, href: "https://www.facebook.com/ShootOrder" },
+  { name: "Twitter", icon: FaXTwitter, href: "https://x.com/ShootOrder" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/ShootOrder/#" },
+  { name: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/company/ShootOrder/" },
 ];
 
 const Footer = () => {
@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="lg:col-span-4">
               <div className="mb-8">
                 <Image
-                  src="/images/logo/shootorder-logo.svg"
+                  src="/images/logo/ShootOrder-logo.svg"
                   alt="ShootOrder"
                   width={200}
                   height={60}
@@ -303,7 +303,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-[#9a0c28]" />
                   <a
-                    href="mailto:info@shootorder.com"
+                    href="mailto:info@ShootOrder.com"
                     className="text-gray-700 hover:text-[#9a0c28] transition-colors"
                   >
                     info@shootorder.us
@@ -331,7 +331,7 @@ const Footer = () => {
           <div className="py-6 text-center">
             <p className="text-gray-600 text-sm">
               &copy; {new Date().getFullYear()} ShootOrder. All rights reserved
-              by Shootorder.us
+              by ShootOrder.us
             </p>
            
           </div>

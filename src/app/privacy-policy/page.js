@@ -34,212 +34,212 @@ export default function page() {
             {/* Privacy Sections */}
             <div className="space-y-8">
               
-              {/* Section 1 */}
+              {/* General Privacy Policy */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">General Privacy Policy</h2>
+                <p className="text-gray-700 mb-4">
+                  This policy governs the use and disclosure by us of personal information of our users and outlines how users can access that information. It is only applicable on the assumption that:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• You provide us with all information marked as compulsory on the relevant application forms</li>
+                    <li>• You warrant that all information provided to us is complete, accurate and up to date at all times</li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* Information that is collected */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Information that is collected</h2>
+                <p className="text-gray-700 mb-4">
+                  We collect or maintain the following personal information about our users:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• Name</li>
+                    <li>• Address</li>
+                    <li>• Telephone Number</li>
+                    <li>• Email Address</li>
+                    <li>• Username & Password</li>
+                    <li>• Credit Card details (if applicable)</li>
+                  </ul>
+                </div>
+                <p className="text-gray-700 mb-4">
+                  This information will be collected with your knowledge and participation. If you choose not to provide this information we may decline to accept your registration. It will not be possible for you to deal with us anonymously.
+                </p>
+              </section>
+
+              {/* Cookies */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Cookies</h2>
+                <p className="text-gray-700 mb-4">
+                  Our website may track user access sessions using cookies, without your specific knowledge or participation, by automated means in the course of your use of our network. Cookies are a Web browser technology that is used to improve your experience of using our website, but are not used to record any personal information. You may disable cookies in your Web browser at the cost of some possible loss of functionality in your use of our website.
+                </p>
+              </section>
+
+              {/* Sensitive information */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Sensitive information</h2>
+                <p className="text-gray-700 mb-4">
+                  We will not collect information revealing your racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, or details of health, disability or sexual activity or orientation, unless compelled to do so by law. The personal information we collect may be used for the following purposes:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• To administer our network</li>
+                    <li>• For billing purposes</li>
+                    <li>• For any other purpose for which you would reasonably expect your personal information to be used</li>
+                    <li>• For any other purpose authorised by the National Privacy Principles set out in the Privacy Act of 1988</li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* Disclosure of your personal information */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Disclosure of your personal information</h2>
+                <p className="text-gray-700 mb-4">
+                  Your personal information may be disclosed in the following circumstances:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• To our authorised officers and our agents for the purpose of administering our network or for billing or credit collection purposes</li>
+                    <li>• Under compulsion of law, for example if a warrant or court order is received</li>
+                    <li>• To lessen or prevent a serious and imminent threat to an individual&apos;s life or health</li>
+                    <li>• To you or with your consent</li>
+                    <li>• For any other purpose authorised by the National Privacy Principles set out in the Privacy Act of 1988</li>
+                  </ul>
+                </div>
+                <p className="text-gray-700">
+                  Otherwise we will use reasonable endeavours to avoid the disclosure of your personal information, save that aggregated demographic information may be disclosed so long as the information is unable to identify you or any other individual.
+                </p>
+              </section>
+
+              {/* Accessing your personal information */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Accessing your personal information</h2>
+                <p className="text-gray-700">
+                  You can contact us to request a copy of your personal information by emailing our Privacy Officer at admin@shootorder.com. The Privacy Officer shall attend to your request on a confidential basis within 14 days of the request being received. No fee will be levied for access to this information.
+                </p>
+              </section>
+
+              {/* Refusal of access */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Refusal of access</h2>
+                <p className="text-gray-700 mb-4">
+                  Access of your personal information may be refused if:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• Providing access would pose a serious and imminent threat to life or health of a person</li>
+                    <li>• Providing access would create an unreasonable impact on the privacy of others</li>
+                    <li>• The request is frivolous and vexatious</li>
+                    <li>• Denial of access is authorised or required by law</li>
+                    <li>• For any other reason authorised by the National Privacy Principles set out in the Privacy Act of 1988</li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* Data quality */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Data quality</h2>
+                <p className="text-gray-700">
+                  We will use all reasonable endeavours to ensure the accuracy and quality of the information collected about you. Should personal information that you know has been collected about you change, it is your responsibility to bring the changes to our attention which you may do by email to the Privacy Officer at admin@shootorder.com
+                </p>
+              </section>
+
+              {/* Data security */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Data security</h2>
+                <p className="text-gray-700">
+                  We will endeavour to keep your personal information as secure as reasonably possible. Without limitation, registration information is not accessible over the Internet, but only from a secure password-protected internal workstation. Our Internet server utilises a modern Linux-based operating system that is maintained with the latest available security patches and updates.
+                </p>
+              </section>
+
+              {/* Information We Collect */}
               <section className="border-b border-gray-200 pb-6">
                 <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Information We Collect</h2>
                 <p className="text-gray-700 mb-4">
-                  We collect information you provide directly to us, such as when you create an account, 
-                  contact us, or use our services. This information will be collected with your knowledge 
-                  and participation, and may include:
+                  We may collect the following data from users:
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <ul className="text-gray-700 space-y-1">
-                    <li>• Name and business information</li>
-                    <li>• Email address and phone number</li>
-                    <li>• Physical address</li>
-                    <li>• Username and password</li>
-                    <li>• Credit card details (when applicable)</li>
-                    <li>• Profile picture and Facebook Page data (with explicit consent)</li>
-                  </ul>
-                </div>
-                <p className="text-gray-700 mb-4">
-                  We also automatically collect certain information about your device and how you interact 
-                  with our website, including IP address, browser type, and usage data through cookies and similar technologies.
-                </p>
-                <p className="text-gray-700">
-                  If you choose not to provide compulsory information, we may decline to accept your registration. 
-                  It will not be possible for you to deal with us anonymously.
-                </p>
-              </section>
-
-              {/* Section 2 */}
-              <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">How We Use Your Information</h2>
-                <p className="text-gray-700 mb-4">
-                  We use your information to provide, maintain, and improve our digital marketing services, 
-                  communicate with you, process payments, and send you relevant updates about our services.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  Specifically, your personal information may be used for:
-                </p>
-                <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Administering our network and services</li>
-                    <li>• Billing and credit collection purposes</li>
-                    <li>• Managing and publishing content to Facebook Pages (with user consent)</li>
-                    <li>• Responding to user inquiries and support requests</li>
-                    <li>• Personalizing your experience and analyzing website usage</li>
-                    <li>• Developing better marketing strategies for your business</li>
+                    <li>• Name</li>
+                    <li>• Email address</li>
+                    <li>• Profile picture</li>
+                    <li>• Facebook Page data (if user grants access)</li>
+                    <li>• Other public Facebook information (only when permission is explicitly given)</li>
                   </ul>
                 </div>
               </section>
 
-              {/* Section 3 */}
+              {/* How We Use the Information */}
               <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Information Sharing and Disclosure</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">How We Use the Information</h2>
                 <p className="text-gray-700 mb-4">
-                  We do not sell, trade, or rent your personal information to third parties. 
-                  Your personal information may only be disclosed in the following circumstances:
+                  We use the collected information to:
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <ul className="text-gray-700 space-y-1">
-                    <li>• To our authorized officers and agents for network administration or billing purposes</li>
-                    <li>• To trusted service providers who assist us in operating our website (such as Google Ads and analytics platforms)</li>
-                    <li>• Under compulsion of law (e.g., warrant or court order)</li>
-                    <li>• To lessen or prevent a serious and imminent threat to an individual&apos;s life or health</li>
-                    <li>• To you or with your explicit consent</li>
-                    <li>• When required by law or to protect our rights and safety</li>
+                    <li>• Provide and improve our services</li>
+                    <li>• Manage and publish content to Facebook Pages (with user consent)</li>
+                    <li>• Respond to user inquiries and support requests</li>
                   </ul>
                 </div>
+              </section>
+
+              {/* Facebook Platform Data Usage */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Facebook Platform Data Usage</h2>
+                <p className="text-gray-700 mb-4">
+                  We only access, use, store, and share Facebook Platform Data in accordance with the Meta Platform Terms and Developer Policies.
+                </p>
                 <p className="text-gray-700">
-                  We may disclose aggregated demographic information that cannot identify you or any other individual. 
-                  We only access, use, store, and share Facebook Platform Data in accordance with Meta Platform Terms and Developer Policies.
+                  We do not sell or share your Facebook data with third parties.
                 </p>
               </section>
 
-              {/* Section 4 */}
+              {/* Data Sharing */}
               <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Data Security</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Data Sharing</h2>
                 <p className="text-gray-700 mb-4">
-                  We implement appropriate technical and organizational measures to protect your personal 
-                  information against unauthorized access, alteration, disclosure, or destruction. Our security measures include:
+                  We do not share your personal information with third parties except:
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <ul className="text-gray-700 space-y-1">
-                    <li>• Registration information is not accessible over the Internet</li>
-                    <li>• Access only from secure password-protected internal workstations</li>
-                    <li>• Modern Linux-based operating system with latest security patches</li>
-                    <li>• Appropriate technical measures for data protection</li>
+                    <li>• When required by law</li>
+                    <li>• With your consent</li>
+                    <li>• To provide services you&apos;ve requested</li>
                   </ul>
                 </div>
+              </section>
+
+              {/* Data Retention and Security */}
+              <section className="border-b border-gray-200 pb-6">
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Data Retention and Security</h2>
                 <p className="text-gray-700">
-                  However, no method of transmission over the internet is 100% secure, and we cannot 
-                  guarantee absolute security of your information.
+                  We retain your data only as long as necessary for the stated purposes and secure it with appropriate technical measures.
                 </p>
               </section>
 
-              {/* Section 5 */}
+              {/* Your Rights */}
               <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Cookies and Tracking</h2>
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Your Rights</h2>
                 <p className="text-gray-700 mb-4">
-                  We use cookies and similar tracking technologies to enhance your browsing experience, 
-                  analyze website traffic, and understand user preferences. Our website may track user 
-                  access sessions using cookies by automated means during your use of our network.
-                </p>
-                <p className="text-gray-700">
-                  Cookies are used to improve your experience but are not used to record personal information. 
-                  You can control cookie settings through your browser preferences, though disabling 
-                  cookies may affect some website functionality.
-                </p>
-              </section>
-
-              {/* Section 6 */}
-              <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Sensitive Information</h2>
-                <p className="text-gray-700">
-                  We will not collect information revealing your racial or ethnic origin, political opinions, 
-                  religious or philosophical beliefs, trade-union membership, or details of health, disability 
-                  or sexual activity or orientation, unless compelled to do so by law.
-                </p>
-              </section>
-
-              {/* Section 7 */}
-              <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Your Rights and Data Access</h2>
-                <p className="text-gray-700 mb-4">
-                  You have the right to access, update, or delete your personal information. 
-                  You can also opt-out of marketing communications at any time. Specifically, you can:
+                  You can:
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <ul className="text-gray-700 space-y-1">
                     <li>• Request to view or delete your data</li>
                     <li>• Withdraw Facebook permissions at any time via your Facebook account settings</li>
-                    <li>• Update your personal information when it changes</li>
-                    <li>• Access your personal information without fee within 14 days of request</li>
-                  </ul>
-                </div>
-                <p className="text-gray-700 mb-4">
-                  If you&apos;re in the EU, you have additional rights under GDPR including data portability 
-                  and the right to object to processing.
-                </p>
-                <p className="text-gray-700">
-                  Access to your personal information may be refused if providing access would pose a serious 
-                  threat to life or health, create unreasonable impact on others privacy, or if the request 
-                  is frivolous or vexatious.
-                </p>
-              </section>
-
-              {/* Section 8 */}
-              <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Data Quality and Retention</h2>
-                <p className="text-gray-700 mb-4">
-                  We will use all reasonable endeavors to ensure the accuracy and quality of the information 
-                  collected about you. You warrant that all information provided to us is complete, accurate 
-                  and up to date at all times.
-                </p>
-                <p className="text-gray-700">
-                  We retain your data only as long as necessary for the stated purposes. Should personal 
-                  information that you know has been collected about you change, it is your responsibility 
-                  to bring the changes to our attention.
-                </p>
-              </section>
-
-              {/* Section 9 */}
-              <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Facebook Platform Data Usage</h2>
-                <p className="text-gray-700 mb-4">
-                  When you grant us access to your Facebook Page data, we:
-                </p>
-                <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Only access public Facebook information with explicit permission</li>
-                    <li>• Manage and publish content to Facebook Pages with user consent</li>
-                    <li>• Comply with Meta Platform Terms and Developer Policies</li>
-                    <li>• Do not sell or share your Facebook data with third parties</li>
                   </ul>
                 </div>
               </section>
 
-              {/* Section 10 */}
-              <section className="border-b border-gray-200 pb-6">
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Third-Party Services</h2>
-                <p className="text-gray-700 mb-4">
-                  Our website may contain links to third-party websites and services, including Google Ads, 
-                  Facebook, and other platforms. We are not responsible for their privacy practices.
-                </p>
-                <p className="text-gray-700">
-                  We recommend reviewing the privacy policies of any third-party services you interact with.
-                </p>
-              </section>
-
-              {/* Section 11 */}
+              {/* Changes to This Policy */}
               <section>
-                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Contact Us</h2>
-                <p className="text-gray-700 mb-4">
-                  If you have questions about this Privacy Policy or how we handle your information, 
-                  please contact us:
+                <h2 className="text-2xl font-bold text-[#9a0c28] mb-4">Changes to This Policy</h2>
+                <p className="text-gray-700">
+                  We may update this policy. Changes will be posted here with a new effective date.
                 </p>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="space-y-2 text-gray-700">
-                    <p><strong>Privacy Officer Email:</strong> admin@shootorder.com</p>
-                    <p><strong>General Email:</strong> privacy@shootorder.com</p>
-                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>Address:</strong> 123 Digital Marketing Street, Business District, City, State 12345</p>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-4">
-                    The Privacy Officer will attend to your request on a confidential basis within 14 days of the request being received.
-                  </p>
-                </div>
               </section>
 
             </div>

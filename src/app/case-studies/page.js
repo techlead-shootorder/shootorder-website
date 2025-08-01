@@ -93,7 +93,7 @@ const CaseStudiesPage = () => {
     {
       id: 'seo',
       serviceKey: 'seo',
-      title: 'SEO',
+      title: 'SEO Optimization',
       image: '/api/placeholder/600/400',
       description: 'Dominating search rankings with strategic optimization',
       results: '400% organic traffic growth',
@@ -103,7 +103,7 @@ const CaseStudiesPage = () => {
     {
       id: 'ppc',
       serviceKey: 'google-ads',
-      title: 'Performance Marketing Growth',
+      title: 'Paid Advertising',
       image: '/api/placeholder/600/400',
       description: 'Maximizing ROI through targeted advertising campaigns',
       results: '250% conversion rate improvement',
@@ -206,8 +206,8 @@ const CaseStudiesPage = () => {
 
   const getServiceTitle = () => {
     switch(selectedService) {
-      case 'seo': return 'SEO';
-      case 'google-ads': return 'Pay Per Click Advertising';
+      case 'seo': return 'SEO Optimization';
+      case 'google-ads': return 'Paid Advertising';
       case 'social-media-marketing': return 'Social Media Marketing';
       default: return 'Case Studies';
     }

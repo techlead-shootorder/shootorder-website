@@ -19,7 +19,7 @@ function page() {
       <LeaderShipSection/>
       <WhyTrustUs/>
       <WhyChooseSection />
-      <FormulaSection/>
+      {/* <FormulaSection/> */}
     </>
   );
 }
