@@ -137,7 +137,7 @@ const CaseStudiesPage = () => {
 
   const handleDownloadPDF = async (pdfUrl, title, event) => {
     event.stopPropagation();
-    
+
     try {
       const link = document.createElement('a');
       link.href = pdfUrl;
@@ -152,7 +152,7 @@ const CaseStudiesPage = () => {
   };
 
   const CaseStudyCard = ({ study, isLarge = false, isServiceCard = false }) => (
-    <div 
+    <div
       className={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer bg-white border border-gray-100`}
       onClick={() => isServiceCard ? handleServiceClick(study.serviceKey) : handleCaseStudyClick(study.id)}
     >
@@ -161,36 +161,36 @@ const CaseStudiesPage = () => {
         className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-40 transition-opacity duration-500"
         style={{ backgroundImage: `url(${study.image})` }}
       ></div> */}
-      
+
       <div className="relative flex flex-col p-6 text-white">
         <div className='mb-4'>
           <div className="flex items-center justify-between mb-4">
             <Award className="w-6 h-6 opacity-80" />
             <ChevronRight className="w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
           </div>
-          
+
           <h3 className={`font-bold mb-3 transition-colors duration-300 ${isLarge ? 'text-2xl' : 'text-xl'}`}>
             {study.title}
           </h3>
-          
+
           <p className={`text-white/90 mb-4 ${isLarge ? 'text-base' : 'text-sm'}`}>
             {study.description}
           </p>
         </div>
-        
+
         <div className="space-y-3">
           <div className="flex items-center space-x-2">
             <TrendingUp className="w-4 h-4" />
             <span className="text-sm font-medium">{study.results}</span>
           </div>
-          
+
           <div className="flex space-x-2">
             <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-all duration-300 text-sm font-medium flex-1">
               <Eye className="w-4 h-4" />
               <span>View Case Study</span>
             </div>
-            
-           {study.pdfUrl && !isServiceCard && <button
+
+            {study.pdfUrl && !isServiceCard && <button
               onClick={(e) => handleDownloadPDF(study.pdfUrl, study.title, e)}
               className="inline-flex items-center space-x-2 bg-[#9a0c28]/80 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-[#9a0c28] transition-all duration-300 text-sm font-medium"
               title={`Download ${study.title} Case Study PDF`}
@@ -205,7 +205,7 @@ const CaseStudiesPage = () => {
   );
 
   const getServiceTitle = () => {
-    switch(selectedService) {
+    switch (selectedService) {
       case 'seo': return 'SEO Optimization';
       case 'google-ads': return 'Paid Advertising';
       case 'social-media-marketing': return 'Social Media Marketing';
@@ -402,11 +402,17 @@ const CaseStudiesPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-slate-50">
       {/* Hero Section */}
-      <div className="relative bg-[#9a0c28] text-white">
+      <div
+        className="relative text-white mt-20"
+        style={{
+          backgroundImage: "url('/images/CaseStudies/Case study banner.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'top',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         {/* <div className="absolute inset-0 bg-gradient-to-r from-[#9a0c28]/20 to-[#b91c47]/20"></div> */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
+
         <div className="relative !max-w-7xl mx-auto px-4 py-32">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-red-200 bg-clip-text text-transparent">
@@ -480,9 +486,9 @@ const CaseStudiesPage = () => {
           <p className="text-xl mb-8 text-gray-800">
             Let&apos;s discuss how we can help transform your business with proven strategies and innovative solutions.
           </p>
-          <button 
-          className="cursor-pointer bg-gradient-to-r from-[#9a0c28] to-[#b91c47] text-white px-8 py-4 rounded-lg font-semibold hover:from-[#b91c47] hover:to-[#9a0c28] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          onClick={()=> router.push('/contact-us')}
+          <button
+            className="cursor-pointer bg-gradient-to-r from-[#9a0c28] to-[#b91c47] text-white px-8 py-4 rounded-lg font-semibold hover:from-[#b91c47] hover:to-[#9a0c28] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            onClick={() => router.push('/contact-us')}
           >
             Start Your Project Today
           </button>

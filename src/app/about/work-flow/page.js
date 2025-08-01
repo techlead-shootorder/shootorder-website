@@ -16,7 +16,7 @@ function page() {
         heading: "Request Analyzation",
         content:
           "Depending upon the project, project manager communicates to the point of contact to understand in depth about the IT infrastructure (or) and other related functionalities of the client's organization.",
-        imageUrl: "/images/services/Work flow/Requisite Collection & Onboarding.webp",
+        imageUrl: "/images/services/Work flow/Discovery Call & Requirement Gathering.webp",
       },
       {
         heading: "Quality & Assurance",

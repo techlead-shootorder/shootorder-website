@@ -19,7 +19,8 @@ const TestimonialSection = () => {
         <div className="flex flex-col justify-center items-start">
            <div className="text-center mb-12">
           {/* <h1 className="text-5xl font-bold text-black mb-4">Our Leadership</h1> */}
-          <p className="text-3xl font-bold text-black text-left">Rajat Jain: Where Strategy Meets Innovation in Digital Marketing</p>
+          <p className="text-3xl font-bold text-black text-center mb-2">Rajat Jain</p>
+          <p className="text-2xl font-bold text-gray-700 text-center">Where Strategy Meets Innovation in Digital Marketing</p>
         </div>
           <h2 className="text-6xl font-bold text-black ">“</h2>
           <p className="text-base text-gray-800 mb-2">

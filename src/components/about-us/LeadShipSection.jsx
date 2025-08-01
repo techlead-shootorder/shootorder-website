@@ -6,8 +6,9 @@ const TestimonialSection = () => {
         <section className=" bg-gray-100">
             <div className="relative !max-w-7xl mx-auto grid grid-cols-2 py-16 px-4 md:px-16 ">
                 {/* Content Row */}
-                <div className="flex flex-col justify-center items-start">
-                    <h1 className="text-3xl font-bold text-black text-left mb-6">Sushma Maganti: Building the Future of Scalable, AI-Driven Success</h1>
+                <div className="flex flex-col justify-center">
+                    <h1 className="text-3xl font-bold text-black text-center mb-4">Sushma Maganti</h1>
+                    <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">Building the Future of Scalable, AI-Driven Success</h2>
                     <h2 className="text-6xl font-bold text-black ">"</h2>
                   
                          <p className="text-base text-gray-800 mb-2">
