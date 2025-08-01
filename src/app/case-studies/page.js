@@ -424,7 +424,7 @@ const CaseStudiesPage = () => {
             <div className="flex items-center justify-center space-x-8 text-gray-300">
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Users className="w-6 h-6 text-white" />
-                <span className="text-lg">300+ Clients</span>
+                <span className="text-lg">50+ Retainership</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Award className="w-6 h-6 text-white" />
@@ -432,7 +432,7 @@ const CaseStudiesPage = () => {
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <TrendingUp className="w-6 h-6 text-white" />
-                <span className="text-lg">300% Avg Growth</span>
+                <span className="text-lg">12+ Years of Experience</span>
               </div>
             </div>
           </div>
