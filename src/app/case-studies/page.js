@@ -419,7 +419,7 @@ const CaseStudiesPage = () => {
               Our Success Stories
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Discover how we&apos;ve transformed businesses across industries with innovative digital solutions
+              Discover How We&apos;ve Transformed Businesses Across Industries With Innovative Digital Solutions
             </p>
             <div className="flex items-center justify-center space-x-8 text-gray-300">
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">

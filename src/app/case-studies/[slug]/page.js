@@ -1577,10 +1577,10 @@ export default async function CaseStudyPage({ params }) {
                   <span className="text-gray-600">Schedule</span>
                   <span className="font-semibold">{caseStudy.ratings.schedule}/5</span>
                 </div>
-                <div className="flex justify-between items-center">
+                {/* <div className="flex justify-between items-center">
                   <span className="text-gray-600">Cost</span>
                   <span className="font-semibold">{caseStudy.ratings.cost}/5</span>
-                </div>
+                </div> */}
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Would Refer</span>
                   <span className="font-semibold">{caseStudy.ratings.wouldRefer}/5</span>
@@ -1612,10 +1612,10 @@ export default async function CaseStudyPage({ params }) {
                   <p className="text-sm text-gray-500 mb-1">Total Budget</p>
                   <p className="font-semibold text-gray-800">{caseStudy.budget}</p>
                 </div>
-                <div>
+                {/* <div>
                   <p className="text-sm text-gray-500 mb-1">Location</p>
                   <p className="font-semibold text-gray-800">{caseStudy.location}</p>
-                </div>
+                </div> */}
               </div>
             </div>
 

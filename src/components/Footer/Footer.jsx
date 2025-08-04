@@ -99,7 +99,7 @@ const Footer = () => {
             {/* Left Section - Company Info */}
             <div className="lg:col-span-4">
               <div className="mb-8">
-                <Image
+                <img
                   src="/images/logo/ShootOrder-logo.svg"
                   alt="ShootOrder"
                   width={200}

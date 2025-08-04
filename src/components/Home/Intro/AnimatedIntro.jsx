@@ -160,7 +160,7 @@ export default function AnimatedIntro() {
         >
           {isMobile
             ? renderMobileText()
-            : "A Google Ads Premier Partner delivering 360° Digital Growth Partner across the USA."}
+            : "A Google Ads Premier Partner delivering 360° Digital Growth Marketing across the USA."}
         </div>
       </div>
     </section>
