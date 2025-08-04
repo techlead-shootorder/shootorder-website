@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="lg:col-span-4">
               <div className="mb-8">
                 <img
-                  src="/images/logo/ShootOrder-logo.svg"
+                  src="/images/logo/shootorder-logo.svg"
                   alt="ShootOrder"
                   width={200}
                   height={60}

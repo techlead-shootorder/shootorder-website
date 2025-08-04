@@ -363,7 +363,7 @@ export default function Header() {
         <div className="flex items-center gap-12">
           <a href="/" className="inline-block">
             <img
-              src="/images/logo/ShootOrder-logo.svg"
+              src="/images/logo/shootorder-logo.svg"
               alt="Logo"
               className="h-12 w-auto transition-transform hover:scale-105"
             />
@@ -470,7 +470,7 @@ export default function Header() {
             <div className="p-4 bg-white border-b flex items-center justify-between">
               <a href="/" className="inline-block">
                 <img
-                  src="/images/logo/ShootOrder-logo.svg"
+                  src="/images/logo/shootorder-logo.svg"
                   alt="ShootOrder"
                   className="h-10 w-auto"
                 />
