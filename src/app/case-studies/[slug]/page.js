@@ -709,7 +709,7 @@ const caseStudyData = {
     // Measurement from PDF
     measurement: "We use Google Analytics to measure metrics. There has been good growth in our search engine traffic over a year on year basis. The numbers are much better now.",
   },
-  "seo-carvan-rental": {
+  "seo-caravan-rental": {
     title: "Web Dev, SEO & Marketing for Caravan Rental Company",
     client: "Carawander Pvt Ltd",
     industry: "Hospitality & leisure",

@@ -144,9 +144,9 @@ const CaseStudyComponent = ({ service }) => {
 
   const handleCaseStudyClick = (studySlug) => {
     // Navigate to individual case study page with the service context
-    router.push(`/${service}/case-studies/${studySlug}`);
+    // router.push(`/${service}/case-studies/${studySlug}`);
 
-    // router.push(`/case-studies/${studySlug}`);
+    router.push(`/case-studies/${studySlug}`);
     
   };
 
