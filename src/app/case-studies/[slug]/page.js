@@ -301,7 +301,7 @@ const caseStudyData = {
   // },
   // below is the updated case studies
  "ppc-fertility-provider": {
-  title: "Digital Marketing for Fertility Provider",
+  title: "How ShootOrder Boosted ROI for Oasis Fertility",
   client: "Oasis Fertility",
   industry: "Healthcare",
   date: "Jan. 2018 - Ongoing",
@@ -398,7 +398,7 @@ const caseStudyData = {
   measurement: "Cost per lead was reduced and the return on investment was increased because of ShootOrder. Their team was cost-effective and performed well, although they could finish the jobs more within deadlines.",
 },
   "ppc-edtech-company": {
- title: "Facebook & Google Ads Campaign for EdTech Company",
+ title: "With standout visuals and consistent social media campaigns, ShootOrder amplified visibility for Orchasp’s healthcare tech across Facebook, Instagram, and LinkedIn. ",
  client: "ALPA Kids",
  industry: "Software",
  date: "Feb. 2021 - Ongoing",
@@ -508,7 +508,7 @@ const caseStudyData = {
  measurement: "Despite the limited budget, ShootOrder has helped the client record 400,000 app downloads in India. They've also delivered several good video ads that the client can use for both their Indian and Estonian apps. Moreover, they facilitate a smooth workflow and hold bi-weekly standup meetings.",
 },
  "ppc-health-wellness": {
-  title: "SEO, PPC, Social Media Marketing for Health & Wellness Firm",
+  title: "Powering IPI Growth with Precision PPC",
   client: "IPI India Pvt. Ltd.",
   industry: "Consumer Products",
   date: "May. 2019 - Ongoing",
@@ -615,7 +615,7 @@ const caseStudyData = {
 },  
   // seo
   "seo-cake-company": {
-    title: "SEO for Cake Company",
+    title: "Baking Up Success: How SEO Helped CountryOven Climb the Ranks",
     client: "CountryOven.com",
     industry: "Bakery & E-commerce",
     date: "Feb. 2015 - Ongoing",
@@ -710,7 +710,7 @@ const caseStudyData = {
     measurement: "We use Google Analytics to measure metrics. There has been good growth in our search engine traffic over a year on year basis. The numbers are much better now.",
   },
   "seo-caravan-rental": {
-    title: "Web Dev, SEO & Marketing for Caravan Rental Company",
+    title: "On the Road to Success: How SEO Fueled Carawander’s Journey",
     client: "Carawander Pvt Ltd",
     industry: "Hospitality & leisure",
     date: "Feb. 2021 - Ongoing",
@@ -824,7 +824,7 @@ const caseStudyData = {
     measurement: "With the help of ShootOrder, the client's sales and profit have increased. The goal-oriented team delivers tasks on time and is responsive to queries.",
   },
   "seo-travel-company": {
-    title: "Digital Marketing, SEO & Web Dev for Travel Company",
+    title: "Driven by Search: How SEO Accelerated a Travel Brand's Growth",
     client: "Travel Company",
     industry: "Hospitality & leisure",
     date: "Mar. 2018 - Ongoing",
@@ -936,7 +936,7 @@ const caseStudyData = {
   },
   // smm
   "smm-luxury-car-brand": {
-    title: "Social Media Marketing & Google Ads for Luxury Car Brand",
+    title: "How Strategic Social Media Marketing Fueled a Luxury Car Brand",
     client: "Luxury Car Dealership",
     industry: "Automotive",
     date: "Sep. 2016 - Ongoing",
@@ -1051,7 +1051,7 @@ const caseStudyData = {
     measurement: "ShootOrder exceeded expectations, providing innovative strategies and tips for marketing and lead generation. Their quick responsiveness complemented their communication style. They're knowledgable about the digital space.",
   },
  "smm-auto-dealership": {
- title: "Digital Platform Management for Auto Dealership",
+ title: "Driving Digital: How ShootOrder Steered Online Growth for an Auto Brand",
  client: "Auto Dealership",
  industry: "Automotive",
  date: "Nov. 2019 - Ongoing",
@@ -1162,7 +1162,7 @@ const caseStudyData = {
  measurement: "With their work attracting 20 percent of the client's current customers, ShootOrder has thoroughly satisfied the client. After initial instruction, they have been able to work independently as the project has progressed.",
 },
   "smm-it-services": {
- title: "Content Marketing & SMM for IT Services Company",
+ title: "With standout visuals and consistent social media campaigns, ShootOrder amplified visibility for Orchasp’s healthcare tech across Facebook, Instagram, and LinkedIn. ",
  client: "Orchasp Limited",
  industry: "IT Services",
  date: "Apr. 2025 - Ongoing",

@@ -5,76 +5,82 @@ const ClientReviews = () => {
   const reviews = [
     {
       id: 1,
-      name: "Vamseedhar Reddy",
-      title: "CEO at CountryOven.com",
-      review: "I feel they're [ShootOrder] well-organized, stick to the timelines, and their promises. The head of ShootOrder is a young guy and is very hungry for business. He's always on the go.",
+      name: "Kiran Gadela",
+      title: "CEO, Oasis Fertility",
+      heading: "They reduced CPL and increased ROI.",
+      review: "Cost per lead was reduced and the return on investment was increased because of ShootOrder. Their team was cost-effective and performed well, although they could finish the jobs more within deadlines.",
       rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
+      image: "/images/clients/kiran-gadela.jpg" // Replace with actual image path
     },
     {
       id: 2,
-      name: "Siddharth Arya Jolly",
-      title: "CEO, Carawander Pvt Ltd",
-      review: "They are goal-oriented and always ready to deliver the request at any time. Work dedication is great",
+      name: "Janek Jaago",
+      title: "CCO, ALPA Kids",
+      heading: "They have the best price-quality ratio.",
+      review: "Despite the limited budget, ShootOrder has helped the client record 400,000 app downloads in India. They've also delivered several good video ads that the client can use for both their Indian and Estonian apps. Moreover, they facilitate a smooth workflow and hold bi-weekly standup meetings.",
       rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
+      image: "/images/clients/janek-jaago.png" // Replace with actual image path
     },
     {
       id: 3,
-      name: "Travel Company Founder",
-      title: "Founder and CEO of a travel company",
-      review: "For anyone who wants to grow their business digitally, Shoot Order is a reliable company and cost-effective.",
+      name: "Arnab Ghosh",
+      title: "Head of Marketing & Co-Founder, Nakshikathaa",
+      heading: "ShootOrder is very understanding, and they’re in sync with our brand. They know exactly what we require.",
+      review: "ShootOrder has been able to provide great results to the client, including an increase in sales and engagement and a decrease in the dropout rate. The team is very communicative, understanding, and flexible, and they excel at meeting deadlines due to their structured approach.",
       rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
+      image: "/images/clients/arnab-ghosh.jpg" // Replace with actual image path
     },
     {
       id: 4,
-      name: "Janek Jaago",
-      title: "CCO, ALPA Kids",
-      review: "They have the best price-quality ratio. Lots of people helping the client to achieve their target.",
+      name: "Suraj Mainat",
+      title: "CEO, Travtips - Dubai",
+      heading: "For anyone who wants to grow their business digitally, Shoot Order is a reliable company and cost-effective.",
+      review: "The partner's lead generation and business have both grown. What's more, their lead conversion rate has increased as well. ShootOrder delivers effective results and successfully reaches the correct target audience. They produce thorough reports and also provide strategic planning efforts.",
       rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
+      image: "/images/clients/suraj-mainat.jpg" // Replace with actual image path
     },
     {
       id: 5,
-      name: "Sreeram Kandula",
-      title: "Digital Marketing Manager, Oasis Fertility",
-      review: "They reduced CPL and increased ROI.",
+      name: "Vinupama",
+      title: "Marketing Manager, BMW Kun Exclusive",
+      heading: "ShootOrder has performed very well.",
+      review: "ShootOrder exceeded expectations, providing innovative strategies and tips for marketing and lead generation. Their quick responsiveness complemented their communication style. They're knowledgable about the digital space.",
       rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
+      image: "/images/clients/dummy.jpg" // Replace with actual image path
     },
     {
       id: 6,
       name: "Nishanth Jain",
       title: "Brand Manager, IPI India Pvt. Ltd.",
-      review: "They're pretty serious about their job, and they optimize the cash we give them.",
+      heading: "They’re pretty serious about their job, and they optimize the cash we give them.",
+      review: "Social media engagement and online-based revenue have increased significantly since ShootOrder came onboard. They provide detail-oriented project management through extensive documentation and use of Google Drive technologies. Customers can expect a cost-conscious partner.",
       rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
+      image: "/images/clients/dummy.jpg" // Replace with actual image path
     },
-    {
-      id: 7,
-      name: "Marketing Manager",
-      title: "Marketing Manager of an auto dealer",
-      review: "ShootOrder has performed very well. They're able to deliver content and make quick updates. Their team gives us innovative ideas on lead generation and customer engagement.",
-      rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
-    },
-    {
-      id: 8,
-      name: "Managing Director",
-      title: "Managing director of an auto dealership",
-      review: "They're quite professional in their approach. There's some hand-holding in the beginning, but that goes away with time.",
-      rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
-    },
-    {
-      id: 9,
-      name: "Chandra Sekhar Pattapurathi",
-      title: "Managing Director & CEO, Orchasp Limited",
-      review: "The visuals and videos they've created are impressive. ShootOrder has done a good job on the visuals and creative work.",
-      rating: 5,
-      image: "/api/placeholder/200/200" // Replace with actual image path
-    }
+    // {
+    //   id: 7,
+    //   name: "Marketing Manager",
+    //   title: "Marketing Manager of an auto dealer",
+    //   review: "ShootOrder has performed very well. They're able to deliver content and make quick updates. Their team gives us innovative ideas on lead generation and customer engagement.",
+    //   rating: 5,
+    //   image: "/api/placeholder/200/200" // Replace with actual image path
+    // },
+    // {
+    //   id: 8,
+    //   name: "Managing Director",
+    //   title: "Managing director of an auto dealership",
+    //   review: "They're quite professional in their approach. There's some hand-holding in the beginning, but that goes away with time.",
+    //   rating: 5,
+    //   image: "/api/placeholder/200/200" // Replace with actual image path
+    // },
+    // {
+    //   id: 9,
+    //   name: "Chandra Sekhar Pattapurathi",
+    //   title: "Managing Director & CEO, Orchasp Limited",
+    //   review: "The visuals and videos they've created are impressive. ShootOrder has done a good job on the visuals and creative work.",
+    //   rating: 5,
+    //   image: "/api/placeholder/200/200" // Replace with actual image path
+    // }
   ];
 
   const StarRating = ({ rating }) => {
@@ -148,6 +154,8 @@ const ClientReviews = () => {
                     </div>
                   </div>
 
+                  <h2 className='text-black text-lg font-semibold'>{review.heading}</h2>
+
                   {/* Review Text */}
                   <blockquote className="text-gray-700 text-lg leading-relaxed mb-6 italic">
                     "{review.review}"
@@ -177,9 +185,9 @@ const ClientReviews = () => {
           <div className="bg-gradient-to-r from-[#9a0c28] to-[#c41e3a] rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Join Our Success Stories?</h3>
             <p className="text-lg mb-6 opacity-90">Let's create your digital success story together</p>
-            <button className="bg-white cursor-pointer text-[#9a0c28] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+            <a href='/contact-us' className="bg-white cursor-pointer text-[#9a0c28] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
               Get Started Today
-            </button>
+            </a>
           </div>
         </div>
       </div>

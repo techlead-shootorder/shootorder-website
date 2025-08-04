@@ -4,8 +4,8 @@ export const allCaseStudies = [
   {
     id: 'seo',
     slug: 'seo-cake-company',
-    title: 'SEO for Cake Company',
-    description: 'Dominating search rankings with strategic optimization',
+    title: 'Baking Up Success: How SEO Helped CountryOven Climb the Ranks',
+    description: 'With targeted SEO efforts, CountryOven witnessed sustained traffic growth and 100% keyword visibility in 12 months.',
     client: 'CountryOven.com',
     industry: 'Bakery & E-commerce',
     location: 'Hyderabad, India',
@@ -39,8 +39,8 @@ export const allCaseStudies = [
   {
     id: 'seo',
     slug: 'seo-caravan-rental',
-    title: 'Web Dev, SEO & Marketing for Caravan Rental Company',
-    description: 'Comprehensive digital transformation with strategic optimization',
+    title: 'On the Road to Success: How SEO Fueled Carawander’s Journey',
+    description: 'With consistent SEO efforts, ShootOrder helped Carawander boost web-driven sales and profits by over 40% since 2021.',
     client: 'Caravan Adventures Ltd',
     industry: 'Travel & Tourism',
     location: 'Melbourne, Australia',
@@ -74,7 +74,7 @@ export const allCaseStudies = [
   {
     id: 'seo',
     slug: 'seo-travel-company',
-    title: 'Digital Marketing, SEO & Web Dev for Travel Company',
+    title: "Driven by Search: How SEO Accelerated a Travel Brand's Growth",
     description: 'Complete digital ecosystem for travel industry success',
     client: 'Global Travel Solutions',
     industry: 'Travel & Tourism',

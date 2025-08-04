@@ -7,8 +7,8 @@ const allCaseStudies = [
     {
         id: 'seo',
         slug: 'seo-cake-company',
-        title: 'SEO for Cake Company',
-        description: 'Dominating search rankings with strategic optimization',
+        title: 'Baking Up Success: How SEO Helped CountryOven Climb the Ranks',
+        description: 'With targeted SEO efforts, CountryOven witnessed sustained traffic growth and 100% keyword visibility in 12 months.',
         client: 'CountryOven.com',
         industry: 'Bakery & E-commerce',
         location: 'Hyderabad, India',
@@ -42,8 +42,8 @@ const allCaseStudies = [
     {
         id: 'seo',
         slug: 'seo-caravan-rental',
-        title: 'Web Dev, SEO & Marketing for Caravan Rental Company',
-        description: 'Comprehensive digital transformation with strategic optimization',
+        title: 'On the Road to Success: How SEO Fueled Carawander’s Journey',
+        description: 'With consistent SEO efforts, ShootOrder helped Carawander boost web-driven sales and profits by over 40% since 2021.',
         client: 'Carawander Pvt Ltd',
         industry: 'Hospitality & leisure',
         location: 'India',
@@ -77,8 +77,8 @@ const allCaseStudies = [
     {
         id: 'seo',
         slug: 'seo-travel-company',
-        title: 'Digital Marketing, SEO & Web Dev for Travel Company',
-        description: 'Complete digital ecosystem for travel industry success',
+        title: "Driven by Search: How SEO Accelerated a Travel Brand's Growth",
+        description: 'Targeted SEO strategies helped a Dubai-based travel company boost lead generation and grow its business. ',
         client: 'Travel Company (Dubai)',
         industry: 'Hospitality & leisure',
         location: 'Dubai, United Arab Emirates',
@@ -113,8 +113,8 @@ const allCaseStudies = [
     {
         id: 'google-ads',
         slug: 'ppc-edtech-company',
-        title: 'Facebook & Google Ads Campaign for EdTech Company',
-        description: 'Maximizing ROI through targeted advertising campaigns',
+       title: 'Creative Content That Clicks: Social Success for an EHR Platform',
+        description: 'With sharp Facebook and Google Ads tailored for India, ShootOrder helped ALPA Kids achieve 400K+ app downloads—proving big impact doesn’t need a big budget. ',
         client: 'ALPA Kids',
         industry: 'Software',
         location: 'Tallinn, Estonia',
@@ -148,7 +148,7 @@ const allCaseStudies = [
     {
         id: 'google-ads',
         slug: 'ppc-fertility-provider',
-        title: 'Digital Marketing for Fertility Provider',
+        title: 'How ShootOrder Boosted ROI for Oasis Fertility',
         description: 'Cost-effective lead generation with improved ROI',
         client: 'Oasis Fertility',
         industry: 'Healthcare',
@@ -183,7 +183,7 @@ const allCaseStudies = [
     {
         id: 'google-ads',
         slug: 'ppc-health-wellness',
-        title: 'SEO, PPC, Social Media Marketing for Health & Wellness Firm',
+        title: 'Powering IPI Growth with Precision PPC',
         description: 'Complete digital transformation from offline to online presence',
         client: 'IPI India Pvt. Ltd.',
         industry: 'Consumer Products',
@@ -218,8 +218,8 @@ const allCaseStudies = [
     {
         id: 'social-media-marketing',
         slug: 'smm-luxury-car-brand',
-        title: 'Social Media Marketing & Google Ads for Luxury Car Brand',
-        description: 'Premium brand positioning through strategic social presence',
+        title: 'How Strategic Social Media Marketing Fueled a Luxury Car Brand',
+        description: 'With tailored campaigns and consistent engagement, ShootOrder elevated digital visibility and lead generation across key social platforms.',
         client: 'Luxury Car Dealership',
         industry: 'Automotive',
         location: 'Hyderabad, India',
@@ -253,7 +253,7 @@ const allCaseStudies = [
     {
         id: 'social-media-marketing',
         slug: 'smm-auto-dealership',
-        title: 'Digital Platform Management for Auto Dealership',
+        title: 'Driving Digital: How ShootOrder Steered Online Growth for an Auto Brand',
         description: 'Comprehensive digital platform optimization and management',
         client: 'Auto Dealership',
         industry: 'Automotive',
@@ -288,7 +288,7 @@ const allCaseStudies = [
     {
         id: 'social-media-marketing',
         slug: 'smm-it-services',
-        title: 'Content Marketing & SMM for IT Services Company',
+       title: 'Creative Content That Clicks: Social Success for an EHR Platform',
         description: 'Strategic social media promotion for EHR platform',
         client: 'Orchasp Limited',
         industry: 'IT Services',
