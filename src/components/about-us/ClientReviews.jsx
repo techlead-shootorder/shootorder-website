@@ -46,7 +46,7 @@ const ClientReviews = () => {
       heading: "ShootOrder has performed very well.",
       review: "ShootOrder exceeded expectations, providing innovative strategies and tips for marketing and lead generation. Their quick responsiveness complemented their communication style. They're knowledgable about the digital space.",
       rating: 5,
-      image: "/images/clients/dummy.jpg" // Replace with actual image path
+      image: "/images/clients/nishanth-jain.webp" // Replace with actual image path
     },
     {
       id: 6,
@@ -55,7 +55,7 @@ const ClientReviews = () => {
       heading: "They’re pretty serious about their job, and they optimize the cash we give them.",
       review: "Social media engagement and online-based revenue have increased significantly since ShootOrder came onboard. They provide detail-oriented project management through extensive documentation and use of Google Drive technologies. Customers can expect a cost-conscious partner.",
       rating: 5,
-      image: "/images/clients/dummy.jpg" // Replace with actual image path
+      image: "/images/clients/vinupama.webp" // Replace with actual image path
     },
     // {
     //   id: 7,

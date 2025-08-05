@@ -105,7 +105,7 @@ export default function AnimatedIntro() {
 
   const renderMobileText = () => {
     const text =
-      "A Google Ads Premier Partner delivering 360° Digital Growth Partner across the USA.";
+      "A Google Ads Premier Partner delivering 360° Digital Growth across the USA.";
     return text.split(" ").map((word, index) => {
       const isHighlighted = ["Premier", "Google", "Ads", "USA."].includes(word);
       return (

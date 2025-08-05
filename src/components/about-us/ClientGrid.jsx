@@ -51,12 +51,12 @@ function ClientGrid({ children }) {
   }, []);
 
   const renderLogoCard = (logo, index) => (
-    <div key={index} className="flex-shrink-0 mx-4">
-      <div className="flex justify-center items-center ">
+    <div key={index} className="flex-shrink-0 mx-2 sm:mx-4">
+      <div className="flex justify-center items-center p-3 sm:p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
         <img
           src={logo}
           alt={`Logo ${index + 1}`}
-          className="object-contain h-16 w-16 md:h-40 md:w-40 shadow-xl"
+          className="object-contain h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-40 lg:w-40"
         />
       </div>
     </div>
@@ -84,15 +84,16 @@ function ClientGrid({ children }) {
 
         {/* Bottom Row Heading */}
         <div>
-          <h2 className="text-3xl font-bold mb-4 text-center">Why Trust Us</h2>
-          <div className="relative">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">Why Trust Us</h2>
+          <div className="relative overflow-hidden">
             <div
               ref={bottomRowRef}
-              className="grid items-center grid-cols-2 md:grid-cols-3  lg:grid-cols-5 "
+              className="grid items-center grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6"
               style={{ width: "200%" }}
             >
-              {/* {trustLogos.map(renderLogoCard)} */}
-              {trustLogos.map((logo, index) => renderLogoCard(logo, index + 10))}
+              {trustLogos.map((logo, index) => renderLogoCard(logo, index))}
+              {/* Duplicate for seamless scrolling */}
+              {trustLogos.map((logo, index) => renderLogoCard(logo, index + trustLogos.length))}
             </div>
           </div>
         </div>

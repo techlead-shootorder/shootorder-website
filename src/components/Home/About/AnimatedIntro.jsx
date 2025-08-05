@@ -40,7 +40,7 @@ export default function AnimatedIntro() {
     return () => observer.disconnect();
   }, [isMobile]);
 
-  // Desktop: GSAP animation
+  // Desktop: GSAP animation - FIXED FOR MOBILE PERFORMANCE
   useEffect(() => {
     if (isMobile || !paragraphRef.current) return;
 
@@ -54,7 +54,7 @@ export default function AnimatedIntro() {
       wordSpan.style.marginRight = "0.25em";
 
       if (["Premier", "Google", "Ads", "USA."].includes(word)) {
-        wordSpan.style.color = "#F94839";
+        wordSpan.style.color = "#9a0c28";
       }
 
       word.split("").forEach((char) => {
@@ -72,6 +72,7 @@ export default function AnimatedIntro() {
 
     const chars = element.querySelectorAll(".char");
 
+    // FIXED: Removed pin and scrub for better mobile performance
     gsap.to(chars, {
       opacity: 1,
       y: 0,
@@ -79,14 +80,14 @@ export default function AnimatedIntro() {
       ease: "power2.out",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom+=1000 top",
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
+        start: "top 80%",
+        end: "bottom 20%",
+        // Removed pin: true and scrub: true - these cause mobile scroll issues
+        toggleActions: "play none none reverse",
       },
     });
 
+    // Simplified background animations
     bgRefs.current.forEach((ref, i) => {
       if (ref) {
         gsap.to(ref, {
@@ -105,7 +106,7 @@ export default function AnimatedIntro() {
 
   const renderMobileText = () => {
     const text =
-      "A Google Ads Premier Partner delivering 360° Digital Growth Marketing across the USA.";
+      "A Google Ads Premier Partner delivering 360° Digital Growth across the USA.";
     return text.split(" ").map((word, index) => {
       const isHighlighted = ["Premier", "Google", "Ads", "USA."].includes(word);
       return (
@@ -113,8 +114,8 @@ export default function AnimatedIntro() {
           key={index}
           className={`inline-block mr-1 transition-all duration-500 transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          } ${isHighlighted ? "text-[#9a0c28]" : "text-white"}`}
-          style={{ transitionDelay: `${index * 100}ms` }}
+          } ${isHighlighted ? "text-[#9a0c28]" : "text-black"}`}
+          style={{ transitionDelay: `${index * 50}ms` }}
         >
           {word}
         </span>
@@ -125,18 +126,23 @@ export default function AnimatedIntro() {
   return (
     <section
       ref={sectionRef}
-      className={`relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden ${
-        isMobile ? "px-4 py-8" : ""
-      }`}
+      className={`relative ${
+        isMobile ? "h-auto min-h-[60vh] px-4 py-16" : "h-3/4 md:min-h-screen"
+      } flex items-center justify-center overflow-hidden`}
+      style={{
+        // Add smooth scrolling properties for mobile
+        WebkitOverflowScrolling: 'touch',
+        scrollBehavior: 'smooth'
+      }}
     >
-      {/* Floating bubbles */}
+      {/* Floating bubbles - Reduced for mobile performance */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(isMobile ? 3 : 6)].map((_, i) => (
           <div
             key={i}
             ref={(el) => (bgRefs.current[i] = el)}
-            className={`absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 backdrop-blur-sm ${
-              isMobile ? "animate-pulse" : ""
+            className={`absolute rounded-full ${
+              isMobile ? "animate-pulse opacity-30" : ""
             }`}
             style={{
               width: `${60 + i * 20}px`,
@@ -145,22 +151,28 @@ export default function AnimatedIntro() {
               top: `${Math.random() * 80}%`,
               animationDelay: `${i * 2}s`,
               animationDuration: `${4 + i}s`,
+              // Reduce GPU usage on mobile
+              willChange: isMobile ? 'auto' : 'transform',
             }}
           />
         ))}
       </div>
 
       {/* Text content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 !max-w-7xl mx-auto text-center">
         <div
           ref={paragraphRef}
-          className={`text-white font-bold leading-relaxed ${
+          className={`text-black font-bold leading-relaxed ${
             isMobile ? "text-2xl sm:text-3xl px-4" : "text-4xl lg:text-6xl"
           }`}
+          style={{
+            // Optimize for mobile scrolling
+            willChange: isMobile ? 'auto' : 'transform',
+          }}
         >
           {isMobile
             ? renderMobileText()
-            : "A Google Ads Premier Partner delivering 360° Digital Growth Partner across the USA."}
+            : "A Google Ads Premier Partner delivering 360° Digital Growth Marketing across the USA."}
         </div>
       </div>
     </section>
