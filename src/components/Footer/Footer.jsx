@@ -77,7 +77,7 @@ const companyLinks = [
 const quickLinks = [
  
  
-  { name: "Support", href: "/support/" },
+  // { name: "Support", href: "/support/" },
   { name: "Contact Us", href: "/contact-us/" },
    { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms & Conditions", href: "/terms-condition" },
@@ -330,8 +330,8 @@ const Footer = () => {
         <div className="container mx-auto px-4" style={{ maxWidth: "1280px" }}>
           <div className="py-6 text-center">
             <p className="text-gray-600 text-sm">
-              &copy; {new Date().getFullYear()} ShootOrder. All rights reserved
-              by ShootOrder.us
+              &copy; {new Date().getFullYear()} ShootOrder.&nbsp;All rights reserved
+              by ShootOrder Ivent It Solutions Pvt Ltd
             </p>
            
           </div>
