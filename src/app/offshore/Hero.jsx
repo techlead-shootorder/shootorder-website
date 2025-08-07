@@ -3,15 +3,13 @@ export default function OffshoreHero() {
     <section className="bg-[#9a0c28] py-16 text-center px-4 mt-12">
       <div className="!max-w-7xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-          Pricing That Matches Your Hiring Needs
+          Pick Your Talent, Pay What Fits 
         </h1>
         <p className="text-gray-200 text-base md:text-lg mb-2">
-          India isn’t a one-size-fits-all hiring market. Your hiring cost depends on your preferences, whether you need an
-          engineer from a top university, a startup-ready builder, or an AI expert.
+          India has a diverse talent landscape, and so do your hiring goals. Whether you're looking for a top-tier engineer, a startup-savvy problem solver, or an AI specialist, our hiring cost is based on your specific needs. 
         </p>
         <p className="text-gray-200 text-base md:text-lg">
-          Instead of fixed pricing, we’ve created preference-based personas that reflect the most common hiring needs.
-          Pick the persona that fits your company’s requirements, and we’ll match you with the right talent.
+          Rather than offering one-size-fits-all rates, we’ve developed role-based personas tailored to common hiring preferences. Simply select the persona that aligns with your company’s goals, and we’ll connect you with the ideal talent. 
         </p>
       </div>
     </section>
