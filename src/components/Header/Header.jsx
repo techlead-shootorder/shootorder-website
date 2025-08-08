@@ -54,6 +54,16 @@ const serviceCategories = [
           },
         ],
       },
+      {
+        heading: "",
+        links: [
+          {
+            name: "Offshore",
+            href: "/offshore/",
+            description: "Offshore Expertise, Aligned with Your Goals.",
+          },
+        ],
+      },
     ],
   },
 ];

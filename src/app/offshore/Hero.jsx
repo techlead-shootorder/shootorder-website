@@ -1,17 +1,31 @@
+import BannerForServices from "@/components/Services/BannerForServices";
+
 export default function OffshoreHero() {
+
+  let service = {
+    heading: 'Pick Your Talent, Pay What Fits ',
+    subheading: 'India’s talent pool is diverse, and so are your hiring needs. Instead of one-size-fits-all rates, we offer role-based personas tailored to your goals. Just pick the right fit, and we’ll match you with top talent. ',
+    imageUrl: '/images/background/Offshore services.webp'
+  }
   return (
-    <section className="bg-[#9a0c28] py-16 text-center px-4 mt-12">
-      <div className="!max-w-7xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-          Pick Your Talent, Pay What Fits 
-        </h1>
-        <p className="text-gray-200 text-base md:text-lg mb-2">
-          India has a diverse talent landscape, and so do your hiring goals. Whether you're looking for a top-tier engineer, a startup-savvy problem solver, or an AI specialist, our hiring cost is based on your specific needs. 
-        </p>
-        <p className="text-gray-200 text-base md:text-lg">
-          Rather than offering one-size-fits-all rates, we’ve developed role-based personas tailored to common hiring preferences. Simply select the persona that aligns with your company’s goals, and we’ll connect you with the ideal talent. 
-        </p>
-      </div>
+    // <section className="bg-[#9a0c28] py-16 text-center px-4 mt-12">
+    //   <div className="!max-w-7xl mx-auto">
+    //     <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
+    //       Pick Your Talent, Pay What Fits 
+    //     </h1>
+    //     <p className="text-gray-200 text-base md:text-lg mb-2">
+    //       India’s talent pool is diverse, and so are your hiring needs. Instead of one-size-fits-all rates, we offer role-based personas tailored to your goals. Just pick the right fit, and we’ll match you with top talent. 
+    //     </p>
+       
+    //   </div>
+    // </section>
+
+    <section>
+      <BannerForServices
+        heading={service.heading}
+        subheading={service.subheading}
+        imageUrl={service.imageUrl}
+      />
     </section>
   );
 }

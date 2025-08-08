@@ -119,7 +119,7 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
               whileTap={{ scale: 0.95 }}
               // onClick={() => modalRef.current?.open()}
               onClick={openPopup}
-              className="bg-[#9a0c28] text-white px-8 py-4 rounded-full font-medium hover:bg-[#7a0920] transition-colors shadow-lg inline-flex items-center justify-center gap-2 group"
+              className="bg-[#9a0c28] cursor-pointer text-white px-8 py-4 rounded-full font-medium hover:bg-[#7a0920] transition-colors shadow-lg inline-flex items-center justify-center gap-2 group"
             >
               Get Started Now
               <motion.span
