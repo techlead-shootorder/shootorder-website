@@ -139,8 +139,10 @@ export default function Home() {
     };
   }, []);
 
+  // In your Home component, update the setupSectionAnimations function:
+
   const setupSectionAnimations = () => {
-    if (isCleanedUpRef.current) return; // Don't setup if already cleaned up
+    if (isCleanedUpRef.current) return;
 
     try {
       // Clear previous ScrollTriggers
@@ -151,195 +153,144 @@ export default function Home() {
       });
       scrollTriggersRef.current = [];
 
-      // Banner parallax effect - improved smoothness
-      const bannerBgTrigger = ScrollTrigger.create({
-        animation: gsap.to(".banner-background", {
-          yPercent: 25,
-          ease: "none",
-        }),
-        trigger: ".banner-section",
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.8,
-      });
-      scrollTriggersRef.current.push(bannerBgTrigger);
+      // FIXED: Only apply parallax to banner if explicitly needed and with lighter scrub values
+      const isMobile = window.innerWidth < 768;
 
-      const bannerContentTrigger = ScrollTrigger.create({
-        animation: gsap.to(".banner-content", {
-          yPercent: -15,
-          ease: "none",
-        }),
-        trigger: ".banner-section",
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.8,
-      });
-      scrollTriggersRef.current.push(bannerContentTrigger);
+      if (!isMobile) {
+        // Much lighter parallax effect for banner background
+        const bannerBgTrigger = ScrollTrigger.create({
+          animation: gsap.to(".banner-background-image", {
+            yPercent: 10, // Reduced from 25
+            ease: "none",
+          }),
+          trigger: ".banner-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: 2, // Increased for smoother effect
+        });
+        scrollTriggersRef.current.push(bannerBgTrigger);
 
-      // Stat bubbles floating animation - smoother movement
-      const bubbleAnimation = gsap.to(".stat-bubble", {
-        y: "random(-12, 12)",
-        x: "random(-8, 8)",
-        rotation: "random(-3, 3)",
-        duration: "random(3, 5)",
+        // Much lighter parallax effect for banner content
+        const bannerContentTrigger = ScrollTrigger.create({
+          animation: gsap.to(".banner-content", {
+            yPercent: -5, // Reduced from -15
+            ease: "none",
+          }),
+          trigger: ".banner-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: 2, // Increased for smoother effect
+        });
+        scrollTriggersRef.current.push(bannerContentTrigger);
+      }
+
+      // FIXED: Much simpler stat bubbles animation
+      gsap.to(".stat-bubble", {
+        y: "random(-5, 5)", // Reduced movement
+        x: "random(-3, 3)", // Reduced movement
+        rotation: "random(-1, 1)", // Less rotation
+        duration: "random(4, 6)", // Slower
         ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
-        stagger: 0.3,
+        stagger: 0.5, // More staggered
       });
 
-      // Apply animations to each section - improved smoothness
+      // Apply animations to sections - IMPROVED performance
       const sections = document.querySelectorAll(".animate-section");
       sections.forEach((section, index) => {
         if (isCleanedUpRef.current) return;
 
-        const isEven = index % 2 === 0;
-        const direction = isEven ? 1 : -1;
-
-        // Create section entrance animation
+        // Much simpler section entrance
         const sectionTrigger = ScrollTrigger.create({
           animation: gsap.fromTo(
             section,
-            {
-              y: 80,
-              opacity: 0,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.2,
-              ease: "power3.out",
-            }
+            { y: 30, opacity: 0 }, // Reduced movement
+            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" } // Faster
           ),
           trigger: section,
-          start: "top bottom-=120",
-          end: "top center",
-          scrub: 1.2,
+          start: "top bottom-=100", // Earlier trigger
+          toggleActions: "play none none reverse",
         });
         scrollTriggersRef.current.push(sectionTrigger);
 
-        // Create parallax effect for background elements
-        const backgrounds = section.querySelectorAll(".parallax-bg");
-        backgrounds.forEach((bg) => {
-          const bgTrigger = ScrollTrigger.create({
-            animation: gsap.fromTo(
-              bg,
-              { y: 0 },
-              {
-                y: -30 * direction,
-                ease: "power1.inOut",
-              }
-            ),
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.2,
-          });
-          scrollTriggersRef.current.push(bgTrigger);
-        });
+        // REMOVED complex parallax for backgrounds - this was causing issues
 
-        // Create reveal animations for text elements
+        // Simplified text reveals
         const textElements = section.querySelectorAll(".reveal-text");
-        textElements.forEach((el, i) => {
+        if (textElements.length > 0) {
           const textTrigger = ScrollTrigger.create({
             animation: gsap.fromTo(
-              el,
-              {
-                y: 40,
-                opacity: 0,
-              },
+              textElements,
+              { y: 20, opacity: 0 },
               {
                 y: 0,
                 opacity: 1,
-                duration: 1,
-                delay: i * 0.12,
+                duration: 0.6,
+                stagger: 0.1,
                 ease: "power2.out",
               }
             ),
             trigger: section,
-            start: "top bottom-=180",
+            start: "top bottom-=120",
             toggleActions: "play none none reverse",
           });
           scrollTriggersRef.current.push(textTrigger);
-        });
+        }
       });
 
-      // Updated OurPartners animation
+      // Simplified partners animation
       const partnersElement = document.querySelector("#partners-container");
       if (partnersElement) {
         const partnersTrigger = ScrollTrigger.create({
           animation: gsap.fromTo(
             "#partners-container",
-            {
-              y: 80,
-              opacity: 0,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.2,
-              ease: "power3.out",
-            }
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
           ),
           trigger: "#partners-container",
-          start: "top bottom-=120",
+          start: "top bottom-=100",
           toggleActions: "play none none reverse",
         });
         scrollTriggersRef.current.push(partnersTrigger);
       }
 
-      // Service tabs staggered reveal
+      // Simplified service tabs
       const tabs = document.querySelectorAll(".service-tab");
       if (tabs.length > 0) {
         const tabsTrigger = ScrollTrigger.create({
           animation: gsap.fromTo(
             tabs,
-            {
-              scale: 0.85,
-              opacity: 0,
-            },
+            { scale: 0.9, opacity: 0 },
             {
               scale: 1,
               opacity: 1,
-              duration: 0.7,
-              stagger: 0.2,
-              ease: "back.out(1.5)",
+              duration: 0.5,
+              stagger: 0.1,
+              ease: "power2.out",
             }
           ),
           trigger: "#service-tabs-section",
-          start: "top bottom-=120",
+          start: "top bottom-=100",
           toggleActions: "play none none reverse",
         });
         scrollTriggersRef.current.push(tabsTrigger);
       }
 
-      // Masked reveal effect for images
+      // Simplified image reveals
       const revealImages = document.querySelectorAll(".reveal-image");
       revealImages.forEach((img) => {
         if (isCleanedUpRef.current) return;
 
-        const clipPath = gsap.utils.random([
-          "circle(0% at 50% 50%)",
-          "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)",
-        ]);
-
         const imageTrigger = ScrollTrigger.create({
           animation: gsap.fromTo(
             img,
-            {
-              clipPath: clipPath,
-              scale: 1.08,
-            },
-            {
-              clipPath: "circle(100% at 50% 50%)",
-              scale: 1,
-              duration: 1.8,
-              ease: "power3.inOut",
-            }
+            { scale: 1.05, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 1, ease: "power2.out" }
           ),
           trigger: img,
-          start: "top bottom-=120",
-          toggleActions: "play none none none",
+          start: "top bottom-=100",
+          toggleActions: "play none none reverse",
         });
         scrollTriggersRef.current.push(imageTrigger);
       });
@@ -349,7 +300,7 @@ export default function Home() {
     }
   };
 
-  const handleNavigation = (service)=>{
+  const handleNavigation = (service) => {
     router.push(`/${service}`);
   }
 
@@ -386,7 +337,7 @@ export default function Home() {
           </div>
         </div>
 
-         <section className=" py-8 md:py-16 px-4">
+        <section className=" py-8 md:py-16 px-4">
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
@@ -396,27 +347,27 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
               <div className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
-              onClick={()=>handleNavigation('seo')}
+                onClick={() => handleNavigation('seo')}
               >
                 <Search className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold text-lg mb-2">SEO Optimization</h3>
                 <p className="text-sm opacity-90">Improve your search rankings and drive organic traffic to your website</p>
               </div>
 
-              <div 
-              className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
-              onClick={()=>handleNavigation('google-ads')}
-              
+              <div
+                className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
+                onClick={() => handleNavigation('google-ads')}
+
               >
                 <MousePointer className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold text-lg mb-2">Paid Advertising</h3>
                 <p className="text-sm opacity-90">Maximize ROI with targeted Google Ads and PPC campaigns</p>
               </div>
 
-              <div 
-              className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
-              onClick={()=>handleNavigation('social-media-marketing')}
-              
+              <div
+                className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
+                onClick={() => handleNavigation('social-media-marketing')}
+
               >
                 <Share2 className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold text-lg mb-2">Social Media Marketing</h3>
@@ -436,7 +387,7 @@ export default function Home() {
 
 
 
-       
+
 
         <div className="animate-section !max-w-7xl mx-auto" id="hire-section" style={{ background: "#9A0C28" }}>
           <div className="parallax-bg absolute inset-0 -z-10 w-full">
@@ -445,11 +396,11 @@ export default function Home() {
           {/* <Hire /> */}
         </div>
 
-       
+
 
         <ClutchWidget />
 
-         <div className="mx-auto" >
+        <div className="mx-auto" >
           <WhyTrustUs />
         </div>
 

@@ -15,11 +15,15 @@ export default function Banner() {
   const headingRef = useRef(null);
   const descriptionRef = useRef(null);
   const buttonRef = useRef(null);
-  const statBubblesRef = useRef([]); // Reference for all stat bubbles
+  const statBubblesRef = useRef([]);
   const pathname = usePathname();
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  
+  // Store all animations for cleanup
+  const animationsRef = useRef([]);
+  const scrollTriggersRef = useRef([]);
 
   // Detect mobile device
   useEffect(() => {
@@ -33,145 +37,123 @@ export default function Banner() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-
-  // Fixed useEffect with proper cleanup and mobile-specific animations
   useEffect(() => {
-    // Make sure GSAP plugins are registered
+    // Register GSAP plugins
     if (typeof window !== "undefined") {
       gsap.registerPlugin(SplitText, ScrollTrigger);
     }
 
-    // Create timeline for banner entrance animation
-    const tl = gsap.timeline();
+    // Clear previous animations
+    animationsRef.current.forEach(anim => anim && anim.kill && anim.kill());
+    scrollTriggersRef.current.forEach(trigger => trigger && trigger.kill && trigger.kill());
+    animationsRef.current = [];
+    scrollTriggersRef.current = [];
+
+    // Create main timeline for entrance animation
+    const tl = gsap.timeline({ paused: true });
+    animationsRef.current.push(tl);
 
     // Store references for cleanup
     let mouseMoveHandler;
     const touchHandlers = new Map();
     let splitTextInstance;
 
-    // Add a small delay before starting animations
-    tl.set(".banner-overlay", { opacity: 0 });
+    // Initial setup
+    gsap.set(".banner-overlay", { opacity: 0 });
 
-    // Animate banner background with scale effect (reduced for mobile)
-    tl.fromTo(
+    // Background animation - much more subtle
+    const bgAnim = gsap.fromTo(
       ".banner-background-image",
       {
-        scale: isMobile ? 1.05 : 1.3, // Reduced scale for mobile
-        filter: "blur(10px)",
+        scale: isMobile ? 1.02 : 1.1, // Much more subtle
+        filter: "blur(5px)", // Less blur
       },
       {
         scale: 1,
         filter: "blur(0px)",
-        duration: isMobile ? 1.0 : 1.8, // Faster on mobile
-        ease: "power3.out",
-      },
-      0
+        duration: isMobile ? 0.8 : 1.2, // Faster
+        ease: "power2.out", // Smoother ease
+      }
     );
+    tl.add(bgAnim, 0);
 
-    // Animate the banner overlay gradient
-    tl.to(
-      ".banner-overlay",
-      { opacity: 1, duration: 1.5, ease: "power1.inOut" },
-      0.2
-    );
+    // Overlay animation
+    const overlayAnim = gsap.to(".banner-overlay", { 
+      opacity: 1, 
+      duration: 1, 
+      ease: "power1.inOut" 
+    });
+    tl.add(overlayAnim, 0.2);
 
-    // Text animations with SplitText if available (desktop only for performance)
+    // Text animations
     if (typeof SplitText !== "undefined" && headingRef.current && !isMobile) {
       splitTextInstance = new SplitText(headingRef.current, {
         type: "words,chars",
       });
 
-      tl.fromTo(
+      const headingAnim = gsap.fromTo(
         splitTextInstance.chars,
         {
-          y: 100,
+          y: 50, // Reduced movement
           opacity: 0,
-          rotateX: -90,
+          rotateX: -45, // Less rotation
         },
         {
           y: 0,
           opacity: 1,
           rotateX: 0,
-          duration: 0.8,
-          stagger: 0.02,
-          ease: "back.out(1.7)",
-        },
-        0.8
+          duration: 0.6,
+          stagger: 0.015, // Faster stagger
+          ease: "back.out(1.4)", // Less bouncy
+        }
       );
+      tl.add(headingAnim, 0.6);
     } else if (headingRef.current) {
-      // Simple animation for mobile or when SplitText is not available
-      tl.fromTo(
+      const headingAnim = gsap.fromTo(
         headingRef.current,
-        {
-          y: 30, // Reduced for mobile
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6, // Faster on mobile
-          ease: "power2.out",
-        },
-        0.8
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
       );
+      tl.add(headingAnim, 0.6);
     }
 
-    // Animate description text
-    tl.fromTo(
-      descriptionRef.current,
-      {
-        y: isMobile ? 20 : 50, // Much less movement on mobile
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: isMobile ? 0.6 : 0.8,
-        ease: "power2.out",
-      },
-      isMobile ? 0.9 : 1
-    );
+    // Description animation
+    if (descriptionRef.current) {
+      const descAnim = gsap.fromTo(
+        descriptionRef.current,
+        { y: isMobile ? 15 : 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
+      );
+      tl.add(descAnim, 0.8);
+    }
 
-    // Animate button
-    tl.fromTo(
-      buttonRef.current,
-      {
-        y: isMobile ? 15 : 30, // Less movement on mobile
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "back.out(1.7)",
-      },
-      isMobile ? 1.1 : 1.2
-    );
+    // Button animation
+    if (buttonRef.current) {
+      const buttonAnim = gsap.fromTo(
+        buttonRef.current,
+        { y: isMobile ? 10 : 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }
+      );
+      tl.add(buttonAnim, 0.9);
+    }
 
-    // Get bubbles once and store reference
+    // Stats animations - much simpler
     const bubbles = document.querySelectorAll(".stat-bubble");
     const mobileStats = document.querySelectorAll(".mobile-stat");
 
-    // Desktop bubble animations
     if (!isMobile && bubbles.length > 0) {
-      // Show all bubbles immediately with a quick fade in
-      gsap.set(bubbles, {
-        opacity: 0,
-        scale: 0.9,
-        transformPerspective: 600,
-        transformOrigin: "center center",
-      });
-
-      gsap.to(bubbles, {
+      // Simple fade in for bubbles
+      gsap.set(bubbles, { opacity: 0, scale: 0.95 });
+      const bubblesAnim = gsap.to(bubbles, {
         opacity: 1,
         scale: 1,
-        duration: 0.6,
+        duration: 0.5,
         stagger: 0.1,
-        ease: "back.out(1.7)",
-        delay: 0.3,
+        ease: "power2.out",
       });
+      tl.add(bubblesAnim, 0.8);
 
-      // Initialize counters to their final values immediately
+      // Initialize counter values immediately
       bubbles.forEach((bubble) => {
         const valueElement = bubble.querySelector(".stat-value");
         if (valueElement) {
@@ -181,89 +163,39 @@ export default function Banner() {
         }
       });
 
-      // Function to animate the counter for each stat value
-      function animateCounter(element) {
-        const finalValue = parseInt(element.getAttribute("data-value"));
-        const suffix = element.getAttribute("data-suffix") || "+";
-        gsap.set(element, { textContent: "0" });
-        gsap.to(element, {
-          textContent: finalValue,
-          duration: 1,
-          ease: "power1.inOut",
-          snap: { textContent: 1 },
-          onUpdate: function () {
-            element.textContent =
-              Math.round(gsap.getProperty(element, "textContent")) + suffix;
-          },
+      // Much simpler mouse interaction - only on hover
+      bubbles.forEach((bubble) => {
+        bubble.addEventListener('mouseenter', () => {
+          gsap.to(bubble, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out"
+          });
         });
-      }
 
-
-      // Create mouse move handler function that we can properly remove (desktop only)
-      mouseMoveHandler = (e) => {
-        bubbles.forEach((bubble) => {
-          const valueElement = bubble.querySelector(".stat-value");
-          let rect = bubble.getBoundingClientRect();
-
-          const bubbleCenterX = rect.left + rect.width / 2;
-          const bubbleCenterY = rect.top + rect.height / 2;
-          const distX = e.clientX - bubbleCenterX;
-          const distY = e.clientY - bubbleCenterY;
-          const distance = Math.sqrt(distX * distX + distY * distY);
-          const maxDistance = 300;
-
-          if (distance < maxDistance) {
-            const intensity = 1 - distance / maxDistance;
-            const rotateY = distX * 0.05 * intensity;
-            const rotateX = -distY * 0.05 * intensity;
-
-            gsap.to(bubble, {
-              rotateY: rotateY,
-              rotateX: rotateX,
-              z: intensity * 30,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-
-            if (distance < 100 && valueElement) {
-              // Counter animation on hover
-              animateCounter(valueElement);
-            }
-          } else {
-            gsap.to(bubble, {
-              rotateY: 0,
-              rotateX: 0,
-              z: 0,
-              duration: 1,
-              ease: "power2.out",
-            });
-          }
+        bubble.addEventListener('mouseleave', () => {
+          gsap.to(bubble, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
         });
-      };
-
-      // Add mouse move event listener (desktop only)
-      document.addEventListener("mousemove", mouseMoveHandler);
+      });
     }
 
-    // Mobile stats animation
     if (mobileStats.length > 0) {
-      gsap.set(mobileStats, {
-        opacity: 0,
-        y: 15, // Less movement on mobile
-        scale: 0.95,
-      });
-
-      gsap.to(mobileStats, {
+      gsap.set(mobileStats, { opacity: 0, y: 10, scale: 0.98 });
+      const mobileAnim = gsap.to(mobileStats, {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.5, // Faster animation
-        stagger: 0.1,
-        ease: "back.out(1.7)",
-        delay: 0.5,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: "power2.out",
       });
+      tl.add(mobileAnim, 0.6);
 
-      // Initialize mobile counters with proper suffixes
+      // Initialize mobile values
       mobileStats.forEach((stat) => {
         const valueElement = stat.querySelector(".mobile-value");
         if (valueElement) {
@@ -272,128 +204,38 @@ export default function Banner() {
           valueElement.textContent = finalValue + suffix;
         }
       });
-
-      // Handle touch events for mobile devices
-      mobileStats.forEach((stat) => {
-        const valueElement = stat.querySelector(".mobile-value");
-        let hasTriggeredCounter = false;
-
-        const touchHandler = () => {
-          if (valueElement && !hasTriggeredCounter) {
-            const finalValue = parseInt(valueElement.getAttribute("data-value"));
-            const suffix = valueElement.getAttribute("data-suffix") || "+";
-            gsap.set(valueElement, { textContent: "0" });
-            gsap.to(valueElement, {
-              textContent: finalValue,
-              duration: 1,
-              ease: "power1.inOut",
-              snap: { textContent: 1 },
-              onUpdate: function () {
-                valueElement.textContent =
-                  Math.round(gsap.getProperty(valueElement, "textContent")) + suffix;
-              },
-            });
-
-            gsap.to(stat, {
-              scale: 1.05,
-              duration: 0.2,
-              ease: "power1.inOut",
-              onComplete: () => {
-                gsap.to(stat, {
-                  scale: 1,
-                  duration: 0.2,
-                  ease: "power1.inOut",
-                });
-              },
-            });
-
-            hasTriggeredCounter = true;
-            setTimeout(() => {
-              hasTriggeredCounter = false;
-            }, 3000);
-          }
-        };
-
-        // Store the handler for cleanup
-        touchHandlers.set(stat, touchHandler);
-        stat.addEventListener("touchstart", touchHandler);
-      });
     }
 
-    // Scroll animations (optimized for mobile)
-    const scrollTriggers = [];
+    // REMOVED PARALLAX SCROLL ANIMATIONS - This is likely causing the friction!
+    // The parent component should handle all scroll animations
 
-    if (!isMobile) {
-      // Desktop parallax effects
-      scrollTriggers.push(
-        ScrollTrigger.create({
-          animation: gsap.to(".banner-background-image", {
-            y: "25%",
-            ease: "none",
-          }),
-          trigger: bannerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.5,
-        })
-      );
+    // Play the entrance animation
+    tl.play();
 
-      scrollTriggers.push(
-        ScrollTrigger.create({
-          animation: gsap.to(".banner-content", {
-            y: "-15%",
-            ease: "none",
-          }),
-          trigger: bannerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.5,
-        })
-      );
-    } else {
-      // Mobile - much more subtle parallax to avoid performance issues
-      scrollTriggers.push(
-        ScrollTrigger.create({
-          animation: gsap.to(".banner-background-image", {
-            y: "10%", // Very subtle
-            ease: "none",
-          }),
-          trigger: bannerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 2, // Slower scrub for smoother performance
-        })
-      );
-
-      scrollTriggers.push(
-        ScrollTrigger.create({
-          animation: gsap.to(".banner-content", {
-            y: "-5%", // Very subtle
-            ease: "none",
-          }),
-          trigger: bannerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 2, // Slower scrub for smoother performance
-        })
-      );
-    }
-
-    // PROPER CLEANUP FUNCTION
+    // CLEANUP FUNCTION
     return () => {
-      // Kill the main timeline
+      // Kill main timeline
       if (tl) {
         tl.kill();
       }
 
+      // Kill all stored animations
+      animationsRef.current.forEach(anim => {
+        if (anim && anim.kill) {
+          anim.kill();
+        }
+      });
+      animationsRef.current = [];
+
       // Kill all ScrollTriggers
-      scrollTriggers.forEach(trigger => {
-        if (trigger) {
+      scrollTriggersRef.current.forEach(trigger => {
+        if (trigger && trigger.kill) {
           trigger.kill();
         }
       });
+      scrollTriggersRef.current = [];
 
-      // Kill all GSAP animations on elements
+      // Kill tweens on specific elements
       gsap.killTweensOf([
         ".banner-background-image",
         ".banner-overlay",
@@ -405,7 +247,7 @@ export default function Banner() {
         buttonRef.current
       ]);
 
-      // Remove event listeners properly
+      // Remove event listeners
       if (mouseMoveHandler) {
         document.removeEventListener("mousemove", mouseMoveHandler);
       }
@@ -416,18 +258,16 @@ export default function Banner() {
           element.removeEventListener("touchstart", handler);
         }
       });
-
-      // Clear the touch handlers map
       touchHandlers.clear();
 
-      // Revert SplitText if it was used
+      // Revert SplitText
       if (splitTextInstance) {
         splitTextInstance.revert();
       }
 
-      // Clear any remaining ScrollTriggers
+      // Clean up any remaining ScrollTriggers
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger) {
+        if (trigger && trigger.kill) {
           trigger.kill();
         }
       });
@@ -435,7 +275,7 @@ export default function Banner() {
   }, [pathname, isMobile]);
 
   const openPopup = (e) => {
-    // Create ripple effect
+    // Simple ripple effect
     const ripple = document.createElement('div');
     const rect = e.target.getBoundingClientRect();
     ripple.className = 'absolute animate-ripple rounded-full bg-gray-200';
@@ -443,10 +283,7 @@ export default function Banner() {
     ripple.style.top = `${e.clientY - rect.top}px`;
     e.target.appendChild(ripple);
 
-    // Remove ripple after animation
     setTimeout(() => ripple.remove(), 1000);
-
-    // Open popup with slight delay for visual feedback
     setTimeout(() => setIsPopupOpen(true), 200);
   };
 
@@ -456,201 +293,197 @@ export default function Banner() {
 
   return (
     <>
-    <section
-      ref={bannerRef}
-      className="w-full bg-white relative overflow-hidden max-w-full my-6"
-      style={{
-        minHeight: '100vh',
-        height: '100vh'
-      }}
-    >
-      {/* Background Image with Parallax Effect */}
-      <div
-        className="banner-background-image absolute inset-0 w-full h-full"
+      <section
+        ref={bannerRef}
+        className="w-full bg-white relative overflow-hidden max-w-full my-6"
         style={{
-          backgroundImage: "url('/images/background/banner-red.webp')",
-          backgroundSize: isMobile ? "inherit" : "cover", // Changed to cover for mobile
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: isMobile ? "scroll" : "scroll", // Changed to scroll for mobile performance
+          minHeight: '100vh',
+          height: '100vh'
         }}
-      ></div>
+      >
+        {/* Background Image - REMOVED parallax transforms */}
+        <div
+          className="banner-background-image absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: "url('/images/background/banner-red.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            backgroundAttachment: "scroll", // Always scroll for performance
+          }}
+        ></div>
 
-      {/* Gradient Overlay - Enhanced for mobile */}
-      {/* <div className="banner-overlay absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70"></div> */}
+        {/* Gradient Overlay */}
+        <div className="banner-overlay absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70"></div>
 
-      {/* Main Content Container */}
-      <div className="max-w-7xl mx-auto relative z-10 h-full flex flex-col justify-center items-center px-4">
-        <div className="banner-content text-center w-full flex flex-col justify-center items-center h-full space-y-4 md:space-y-6">
-          {/* Google Partner Logo */}
-          <div className="flex-shrink-0">
-            <img
-              width={isMobile ? 150 : 240}
-              height={isMobile ? 100 : 100}
-              className="mx-auto w-28 h-28 sm:w-16 sm:h-16 md:w-[240px] md:h-auto object-contain"
-              src="/images/logo/Google Premier Partner.webp"
-              alt="Google Premier Partner"
-            />
-          </div>
+        {/* Main Content Container - REMOVED parallax class */}
+        <div className="max-w-7xl mx-auto relative z-10 h-full flex flex-col justify-center items-center px-4">
+          <div className="banner-content text-center w-full flex flex-col justify-center items-center h-full space-y-4 md:space-y-6">
+            {/* Google Partner Logo */}
+            <div className="flex-shrink-0">
+              <img
+                width={isMobile ? 150 : 240}
+                height={isMobile ? 100 : 100}
+                className="mx-auto w-28 h-28 sm:w-16 sm:h-16 md:w-[240px] md:h-auto object-contain"
+                src="/images/logo/Google Premier Partner.webp"
+                alt="Google Premier Partner"
+              />
+            </div>
 
-          {/* Badge Text */}
-          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20 flex-shrink-0">
-            <p>In Top 3% Digital Growth Partner</p>
-          </div>
+            {/* Badge Text */}
+            <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20 flex-shrink-0">
+              <p>In Top 3% Digital Growth Partner</p>
+            </div>
 
-          {/* Main heading with responsive sizes */}
-          <h1
-            ref={headingRef}
-            className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold leading-tight text-white px-2 flex-shrink-0"
-          >
-            Awarded #1
-            Digital Growth Partner
-          </h1>
-
-          {/* Description with responsive sizing */}
-          <p
-            ref={descriptionRef}
-            className="!max-w-xl mx-auto text-white/90 text-xs sm:text-sm md:text-lg px-4 sm:px-0 leading-relaxed flex-shrink-0"
-          >
-            Marketing isn&apos;t magic, it&apos;s strategy. <br/>
-            Elevate your brand with strategic <b>SEO, Paid Media, Content, and Social expertise.</b>
-          </p>
-
-          <div ref={buttonRef} className="flex-shrink-0">
-            <Button
-              className="group relative overflow-hidden !bg-white !text-black font-semibold px-5 py-3 md:px-8 md:py-6 text-sm md:text-lg rounded-full shadow-lg transition-all duration-300 hover:shadow-xl active:scale-95"
-              onClick={openPopup}
-              onMouseEnter={(e) => {
-                if (!isMobile) {
-                  e.target.style.transform = 'translateY(-2px)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isMobile) {
-                  e.target.style.transform = 'translateY(0)';
-                }
-              }}
+            {/* Main heading */}
+            <h1
+              ref={headingRef}
+              className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-bold leading-tight text-white px-2 flex-shrink-0"
             >
-              <span className="relative z-10 flex items-center gap-2 cursor-pointer">
-                Enquire Now
-                <svg
-                  className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </span>
-            </Button>
+              Awarded #1
+              Digital Growth Partner
+            </h1>
 
+            {/* Description */}
+            <p
+              ref={descriptionRef}
+              className="!max-w-xl mx-auto text-white/90 text-xs sm:text-sm md:text-lg px-4 sm:px-0 leading-relaxed flex-shrink-0"
+            >
+              Marketing isn&apos;t magic, it&apos;s strategy. <br/>
+              Elevate your brand with strategic <b>SEO, Paid Media, Content, and Social expertise.</b>
+            </p>
 
+            {/* Button */}
+            <div ref={buttonRef} className="flex-shrink-0">
+              <Button
+                className="group relative overflow-hidden !bg-white !text-black font-semibold px-5 py-3 md:px-8 md:py-6 text-sm md:text-lg rounded-full shadow-lg transition-all duration-300 hover:shadow-xl active:scale-95"
+                onClick={openPopup}
+                onMouseEnter={(e) => {
+                  if (!isMobile) {
+                    gsap.to(e.target, { y: -2, duration: 0.2 });
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isMobile) {
+                    gsap.to(e.target, { y: 0, duration: 0.2 });
+                  }
+                }}
+              >
+                <span className="relative z-10 flex items-center gap-2 cursor-pointer">
+                  Enquire Now
+                  <svg
+                    className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </span>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Floating Stat Bubbles - Desktop Only */}
-      <div className="hidden lg:block absolute inset-0 pointer-events-auto max-w-full">
-        <div
-          className="stat-bubble absolute top-1/4 left-[15%] bg-white/10 backdrop-blur-lg text-center px-6 py-4 rounded-xl border border-white/30 shadow-xl cursor-pointer"
-          ref={(el) => (statBubblesRef.current[0] = el)}
-        >
+        {/* Floating Stat Bubbles - Desktop Only - Simplified */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-auto max-w-full">
           <div
-            className="text-2xl font-bold text-white stat-value"
-            data-value="50"
-            data-suffix="+"
+            className="stat-bubble absolute top-1/4 left-[15%] bg-white/10 backdrop-blur-lg text-center px-6 py-4 rounded-xl border border-white/30 shadow-xl cursor-pointer transition-all duration-300"
+            ref={(el) => (statBubblesRef.current[0] = el)}
           >
-            50+
-          </div>
-          <div className="text-sm text-white/90">Retainership</div>
-        </div>
-
-        <div
-          className="stat-bubble absolute top-1/5 right-[15%] bg-white/10 backdrop-blur-lg text-center px-6 py-4 rounded-xl border border-white/30 shadow-xl cursor-pointer"
-          ref={(el) => (statBubblesRef.current[1] = el)}
-        >
-          <div
-            className="text-2xl font-bold text-white stat-value"
-            data-value="12"
-            data-suffix="+"
-          >
-            12+
-          </div>
-          <div className="text-sm text-white/90">Years of Experience</div>
-        </div>
-
-        <div
-          className="stat-bubble absolute bottom-1/4 right-[20%] bg-white/10 backdrop-blur-lg text-center px-6 py-4 rounded-xl border border-white/30 shadow-xl cursor-pointer"
-          ref={(el) => (statBubblesRef.current[2] = el)}
-        >
-          <div
-            className="text-2xl font-bold text-white stat-value"
-            data-value="92"
-            data-suffix="%"
-          >
-            92%
-          </div>
-          <div className="text-sm text-white/90">Client Retention</div>
-        </div>
-      </div>
-
-      {/* Down Arrow Indicator */}
-      <div className="hidden md:block absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 text-white">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="animate-bounce md:w-6 md:h-6"
-        >
-          <path d="M12 5v14M19 12l-7 7-7-7" />
-        </svg>
-      </div>
-
-      {/* Mobile Stats - Fixed positioning and improved responsiveness */}
-      <div className="block lg:hidden absolute bottom-2 inset-x-0 px-3 w-full">
-        <div className="grid grid-cols-3 gap-2 max-w-xs mx-auto">
-          <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
-            <FiBriefcase className="text-sm text-white mb-1" />
-            <div className="text-sm font-semibold text-white mobile-value" data-value="50" data-suffix="+">
+            <div
+              className="text-2xl font-bold text-white stat-value"
+              data-value="50"
+              data-suffix="+"
+            >
               50+
             </div>
-            <div className="text-[8px] text-white/80 text-center leading-tight">Retainership</div>
+            <div className="text-sm text-white/90">Retainership</div>
           </div>
 
-          <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
-            <FiClock className="text-sm text-white mb-1" />
-            <div className="text-sm font-semibold text-white mobile-value" data-value="12" data-suffix="+">
+          <div
+            className="stat-bubble absolute top-1/5 right-[15%] bg-white/10 backdrop-blur-lg text-center px-6 py-4 rounded-xl border border-white/30 shadow-xl cursor-pointer transition-all duration-300"
+            ref={(el) => (statBubblesRef.current[1] = el)}
+          >
+            <div
+              className="text-2xl font-bold text-white stat-value"
+              data-value="12"
+              data-suffix="+"
+            >
               12+
             </div>
-            <div className="text-[8px] text-white/80 text-center leading-tight">Experience</div>
+            <div className="text-sm text-white/90">Years of Experience</div>
           </div>
 
-          <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
-            <FiUsers className="text-sm text-white mb-1" />
-            <div className="text-sm font-semibold text-white mobile-value" data-value="92" data-suffix="%">
+          <div
+            className="stat-bubble absolute bottom-1/4 right-[20%] bg-white/10 backdrop-blur-lg text-center px-6 py-4 rounded-xl border border-white/30 shadow-xl cursor-pointer transition-all duration-300"
+            ref={(el) => (statBubblesRef.current[2] = el)}
+          >
+            <div
+              className="text-2xl font-bold text-white stat-value"
+              data-value="92"
+              data-suffix="%"
+            >
               92%
             </div>
-            <div className="text-[8px] text-white/80 text-center leading-tight">Retention</div>
+            <div className="text-sm text-white/90">Client Retention</div>
           </div>
         </div>
-      </div>
 
-      
-   
-    </section>
+        {/* Down Arrow Indicator */}
+        <div className="hidden md:block absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 text-white">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="animate-bounce md:w-6 md:h-6"
+          >
+            <path d="M12 5v14M19 12l-7 7-7-7" />
+          </svg>
+        </div>
 
-    {/* Popup Modal */}
-    <PopupModal isOpen={isPopupOpen} onClose={closePopup} />
-  </>
+        {/* Mobile Stats */}
+        <div className="block lg:hidden absolute bottom-2 inset-x-0 px-3 w-full">
+          <div className="grid grid-cols-3 gap-2 max-w-xs mx-auto">
+            <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
+              <FiBriefcase className="text-sm text-white mb-1" />
+              <div className="text-sm font-semibold text-white mobile-value" data-value="50" data-suffix="+">
+                50+
+              </div>
+              <div className="text-[8px] text-white/80 text-center leading-tight">Retainership</div>
+            </div>
+
+            <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
+              <FiClock className="text-sm text-white mb-1" />
+              <div className="text-sm font-semibold text-white mobile-value" data-value="12" data-suffix="+">
+                12+
+              </div>
+              <div className="text-[8px] text-white/80 text-center leading-tight">Experience</div>
+            </div>
+
+            <div className="mobile-stat bg-[#9a0c28]/90 backdrop-blur-sm p-2 rounded-lg flex flex-col items-center justify-center min-h-[70px]">
+              <FiUsers className="text-sm text-white mb-1" />
+              <div className="text-sm font-semibold text-white mobile-value" data-value="92" data-suffix="%">
+                92%
+              </div>
+              <div className="text-[8px] text-white/80 text-center leading-tight">Retention</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popup Modal */}
+      <PopupModal isOpen={isPopupOpen} onClose={closePopup} />
+    </>
   );
 }
