@@ -15,19 +15,19 @@ import useSmoothScroll from "@/utils/smooth-scroll";
 import AnimatedIntro from "@/components/Home/Intro/AnimatedIntro";
 import WhyTrustUs from "@/components/Home/Partners/WhyTrustUs";
 import ClutchWidget from "@/components/Home/CompanyInfo/ClutchWidget";
-import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
+// import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
+import ContactPipeDrive from "@/components/Home/PipeDrive/ContactPipeDrive";
 import ImageSection from "@/components/Home/PipeDrive/ImageSection";
 import Link from "next/link";
 import { Search, MousePointer, Share2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-
-
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const timelineRef = useRef(null);
   const scrollTriggersRef = useRef([]);
   const isCleanedUpRef = useRef(false);
+  const observerRef = useRef(null);
 
   const router = useRouter();
 
@@ -47,7 +47,7 @@ export default function Home() {
 
     // Wait for everything to load before initializing animations
     const onPageLoad = () => {
-      if (isCleanedUpRef.current) return; // Don't run if already cleaned up
+      if (isCleanedUpRef.current) return;
 
       try {
         // Create initial loading animation
@@ -67,21 +67,18 @@ export default function Home() {
           ease: "power2.inOut",
         });
 
-        // Set up parallax and reveal animations for each section
-        setupSectionAnimations();
+        // Set up optimized animations
+        setupOptimizedAnimations();
       } catch (error) {
         console.error("Error in onPageLoad:", error);
-        setIsLoaded(true); // Fallback to show content
+        setIsLoaded(true);
       }
     };
 
-    // Create the event handler function so we can remove it properly
     loadEventHandler = onPageLoad;
 
-    // If the page has already loaded, run the function
     if (typeof window !== "undefined") {
       if (document.readyState === "complete") {
-        // Use setTimeout to ensure it runs after the component is fully mounted
         setTimeout(onPageLoad, 0);
       } else {
         window.addEventListener("load", loadEventHandler);
@@ -92,212 +89,138 @@ export default function Home() {
     return () => {
       isCleanedUpRef.current = true;
 
-      // Remove load event listener
       if (typeof window !== "undefined" && loadEventHandler) {
         window.removeEventListener("load", loadEventHandler);
       }
 
-      // Kill the main timeline
       if (timelineRef.current) {
         timelineRef.current.kill();
         timelineRef.current = null;
       }
 
-      // Kill all stored ScrollTriggers
+      // Clean up all ScrollTriggers more thoroughly
       scrollTriggersRef.current.forEach((trigger) => {
-        if (trigger && trigger.kill) {
+        if (trigger && typeof trigger.kill === 'function') {
           trigger.kill();
         }
       });
       scrollTriggersRef.current = [];
 
-      // Kill all GSAP tweens on common elements
-      gsap.killTweensOf([
-        ".page-loader",
-        ".banner-background",
-        ".banner-content",
-        ".stat-bubble",
-        ".animate-section",
-        ".parallax-bg",
-        ".reveal-text",
-        "#partners-container",
-        ".service-tab",
-        ".reveal-image"
-      ]);
+      // Clean up intersection observer
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
 
-      // Get all ScrollTriggers and kill them
+      // Kill all GSAP tweens
+      gsap.killTweensOf("*");
+
+      // Clear all ScrollTriggers
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger && trigger.kill) {
+        if (trigger && typeof trigger.kill === 'function') {
           trigger.kill();
         }
       });
 
-      // Refresh ScrollTrigger to clean up any remaining instances
+      // Refresh ScrollTrigger
       if (typeof window !== "undefined") {
         ScrollTrigger.refresh();
       }
     };
   }, []);
 
-  // In your Home component, update the setupSectionAnimations function:
-
-  const setupSectionAnimations = () => {
+  const setupOptimizedAnimations = () => {
     if (isCleanedUpRef.current) return;
 
     try {
       // Clear previous ScrollTriggers
       scrollTriggersRef.current.forEach((trigger) => {
-        if (trigger && trigger.kill) {
+        if (trigger && typeof trigger.kill === 'function') {
           trigger.kill();
         }
       });
       scrollTriggersRef.current = [];
 
-      // FIXED: Only apply parallax to banner if explicitly needed and with lighter scrub values
       const isMobile = window.innerWidth < 768;
 
+      // ONLY apply banner animations if not mobile
       if (!isMobile) {
-        // Much lighter parallax effect for banner background
+        // Lighter banner parallax
         const bannerBgTrigger = ScrollTrigger.create({
           animation: gsap.to(".banner-background-image", {
-            yPercent: 10, // Reduced from 25
+            yPercent: 5, // Much lighter
             ease: "none",
           }),
           trigger: ".banner-section",
           start: "top top",
           end: "bottom top",
-          scrub: 2, // Increased for smoother effect
+          scrub: 3, // Smoother
         });
         scrollTriggersRef.current.push(bannerBgTrigger);
-
-        // Much lighter parallax effect for banner content
-        const bannerContentTrigger = ScrollTrigger.create({
-          animation: gsap.to(".banner-content", {
-            yPercent: -5, // Reduced from -15
-            ease: "none",
-          }),
-          trigger: ".banner-section",
-          start: "top top",
-          end: "bottom top",
-          scrub: 2, // Increased for smoother effect
-        });
-        scrollTriggersRef.current.push(bannerContentTrigger);
       }
 
-      // FIXED: Much simpler stat bubbles animation
-      gsap.to(".stat-bubble", {
-        y: "random(-5, 5)", // Reduced movement
-        x: "random(-3, 3)", // Reduced movement
-        rotation: "random(-1, 1)", // Less rotation
-        duration: "random(4, 6)", // Slower
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-        stagger: 0.5, // More staggered
-      });
-
-      // Apply animations to sections - IMPROVED performance
-      const sections = document.querySelectorAll(".animate-section");
-      sections.forEach((section, index) => {
-        if (isCleanedUpRef.current) return;
-
-        // Much simpler section entrance
-        const sectionTrigger = ScrollTrigger.create({
-          animation: gsap.fromTo(
-            section,
-            { y: 30, opacity: 0 }, // Reduced movement
-            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" } // Faster
-          ),
-          trigger: section,
-          start: "top bottom-=100", // Earlier trigger
-          toggleActions: "play none none reverse",
+      // Simple stat bubbles animation (no ScrollTrigger)
+      const statBubbles = document.querySelectorAll(".stat-bubble");
+      if (statBubbles.length > 0 && !isMobile) {
+        gsap.to(statBubbles, {
+          y: "random(-3, 3)",
+          x: "random(-2, 2)",
+          rotation: "random(-0.5, 0.5)",
+          duration: "random(6, 8)",
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          stagger: 1,
         });
-        scrollTriggersRef.current.push(sectionTrigger);
-
-        // REMOVED complex parallax for backgrounds - this was causing issues
-
-        // Simplified text reveals
-        const textElements = section.querySelectorAll(".reveal-text");
-        if (textElements.length > 0) {
-          const textTrigger = ScrollTrigger.create({
-            animation: gsap.fromTo(
-              textElements,
-              { y: 20, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: "power2.out",
-              }
-            ),
-            trigger: section,
-            start: "top bottom-=120",
-            toggleActions: "play none none reverse",
-          });
-          scrollTriggersRef.current.push(textTrigger);
-        }
-      });
-
-      // Simplified partners animation
-      const partnersElement = document.querySelector("#partners-container");
-      if (partnersElement) {
-        const partnersTrigger = ScrollTrigger.create({
-          animation: gsap.fromTo(
-            "#partners-container",
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
-          ),
-          trigger: "#partners-container",
-          start: "top bottom-=100",
-          toggleActions: "play none none reverse",
-        });
-        scrollTriggersRef.current.push(partnersTrigger);
       }
 
-      // Simplified service tabs
-      const tabs = document.querySelectorAll(".service-tab");
-      if (tabs.length > 0) {
-        const tabsTrigger = ScrollTrigger.create({
-          animation: gsap.fromTo(
-            tabs,
-            { scale: 0.9, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 0.5,
-              stagger: 0.1,
-              ease: "power2.out",
-            }
-          ),
-          trigger: "#service-tabs-section",
-          start: "top bottom-=100",
-          toggleActions: "play none none reverse",
-        });
-        scrollTriggersRef.current.push(tabsTrigger);
-      }
+      // Use Intersection Observer for sections instead of ScrollTrigger for better performance
+      setupIntersectionObserver();
 
-      // Simplified image reveals
-      const revealImages = document.querySelectorAll(".reveal-image");
-      revealImages.forEach((img) => {
-        if (isCleanedUpRef.current) return;
-
-        const imageTrigger = ScrollTrigger.create({
-          animation: gsap.fromTo(
-            img,
-            { scale: 1.05, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 1, ease: "power2.out" }
-          ),
-          trigger: img,
-          start: "top bottom-=100",
-          toggleActions: "play none none reverse",
-        });
-        scrollTriggersRef.current.push(imageTrigger);
-      });
+      // REMOVED: Complex form section animations that were causing lag
+      // REMOVED: Heavy parallax backgrounds
+      // REMOVED: Multiple overlapping ScrollTriggers
 
     } catch (error) {
-      console.error("Error in setupSectionAnimations:", error);
+      console.error("Error in setupOptimizedAnimations:", error);
     }
+  };
+
+  const setupIntersectionObserver = () => {
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    // Use Intersection Observer for better performance
+    const options = {
+      root: null,
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.1
+    };
+
+    const callback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animate-in')) {
+          entry.target.classList.add('animate-in');
+
+          // Simple fade in animation
+          gsap.fromTo(entry.target,
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+          );
+        }
+      });
+    };
+
+    observerRef.current = new IntersectionObserver(callback, options);
+
+    // Observe sections
+    const sections = document.querySelectorAll('.animate-section');
+    sections.forEach(section => {
+      if (observerRef.current) {
+        observerRef.current.observe(section);
+      }
+    });
   };
 
   const handleNavigation = (service) => {
@@ -311,6 +234,7 @@ export default function Home() {
         <div className="loader-content text-white text-3xl">ShootOrder</div>
       </div>
 
+      {/* HERO SECTION */}
       <div className="banner-section relative overflow-hidden max-w-7xl mx-auto">
         <div className="banner-background w-full">
           <Banner />
@@ -325,20 +249,24 @@ export default function Home() {
             objectFit: "cover",
           }}
         >
+          {/* ANIMATED INTRO SECTION */}
           <AnimatedIntro />
+
+          {/* ABOUT US SECTION */}
           <div className="!max-w-7xl mx-auto">
             <AboutUs />
           </div>
         </div>
-          
+
         <div className="animate-section !max-w-7xl !mx-auto" id="company-section">
-          <div className="parallax-bg absolute inset-0 -z-10 w-full">
+          {/* Simplified background */}
+          <div className="absolute inset-0 -z-10 w-full opacity-30">
             <div className="absolute top-1/4 left-1/4 w-1/4 h-1/4 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
         </div>
-        
+
         {/* OUR SERVICES */}
-        <section className=" py-8 md:py-16 px-4">
+        <section className="py-8 md:py-16 px-4">
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Our Services</h2>
@@ -358,7 +286,6 @@ export default function Home() {
               <div
                 className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
                 onClick={() => handleNavigation('google-ads')}
-
               >
                 <MousePointer className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold text-lg mb-2">Paid Advertising</h3>
@@ -368,71 +295,55 @@ export default function Home() {
               <div
                 className="p-6 bg-[#9A0C28] text-white rounded-lg shadow-lg hover:bg-[#c4102e] transition-colors duration-300 cursor-pointer text-center"
                 onClick={() => handleNavigation('social-media-marketing')}
-
               >
                 <Share2 className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold text-lg mb-2">Social Media Marketing</h3>
                 <p className="text-sm opacity-90">Build brand awareness and engage with your audience across social platforms</p>
               </div>
             </div>
-            {/* <ServiceTabs /> */}
           </div>
         </section>
 
+        {/* OUR PARTNERS */}
         <div className="max-w-7xl mx-auto" id="partners-section">
           <div id="partners-container" className="!max-w-7xl mx-auto">
             <OurPartners />
           </div>
         </div>
 
+        {/* <div className="animate-section !max-w-7xl mx-auto" id="hire-section" style={{ background: "#9A0C28" }}>
+         
+          <Hire />
+        </div> */}
 
-
-
-
-
-        <div className="animate-section !max-w-7xl mx-auto" id="hire-section" style={{ background: "#9A0C28" }}>
-          <div className="parallax-bg absolute inset-0 -z-10 w-full">
-            <div className="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 bg-gradient-to-tl from-green-500/10 to-transparent rounded-full blur-3xl"></div>
-          </div>
-          {/* <Hire /> */}
-        </div>
-
-
-
+        {/* CLUTCH REVIEW */}
         <ClutchWidget />
 
-        <div className="mx-auto" >
+        {/* WHY TRUST US */}
+        <div className="mx-auto">
           <WhyTrustUs />
         </div>
 
-        {/* Form section */}
+        {/* SIMPLIFIED FORM SECTION - This was likely causing the lag */}
         <section className="py-20" style={{ background: "#9A0C28" }}>
-          <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="talent-form-section">
-            <div className="parallax-bg absolute inset-0 -z-10 w-full">
-              <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl"></div>
-            </div>
+          <div className="!max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            {/* Main Content Container */}
-            <>
-              <h2 className="text-4xl font-bold text-center mb-8 text-white">Contact us</h2>
-              <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12" >
+            <h2 className="text-4xl font-bold text-center mb-8 text-white">Contact us</h2>
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 
-                {/* Image Section - Left on desktop, Top on mobile */}
-                <div className="w-full lg:w-1/2 h-full order-1 lg:order-1">
-                  <ImageSection />
-                </div>
 
-                {/* Form Section - Right on desktop, Bottom on mobile */}
-                <div className="w-full lg:w-1/2 order-2 lg:order-2">
-                  <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-
-                    {/* Pipedrive Form */}
-                    <PipeDriveForm />
-                  </div>
-                </div>
-
+              <div className="w-full lg:w-1/2 h-full order-1 lg:order-1">
+                <ImageSection />
               </div>
-            </>
+
+              <div className="w-full lg:w-1/2 order-2 lg:order-2">
+                <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+                  {/* <PipeDriveForm /> */}
+                  <ContactPipeDrive />
+                </div>
+              </div>
+
+            </div>
           </div>
         </section>
       </div>

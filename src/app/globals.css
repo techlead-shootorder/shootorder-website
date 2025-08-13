@@ -189,3 +189,25 @@ body::-webkit-scrollbar {
 .smooth-scroll {
   scroll-behavior: smooth;
 }
+
+/* Add these to your global CSS for better scroll performance */
+.smooth-scroll-container {
+  will-change: scroll-position;
+}
+
+/* Optimize animations */
+.stat-bubble, .animate-section {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Reduce paint operations */
+.banner-background-image {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize form section */
+.pipedriveWebForms {
+  contain: layout style paint;
+}

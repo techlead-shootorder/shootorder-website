@@ -15,7 +15,9 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BsLinkedin, BsDribbble, BsBehance } from "react-icons/bs";
 import Link from "next/link";
 import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
+// import PipeDriveForm from "@/components/Home/PipeDrive/PipeDriveForm";
+import ContactPipeDrive from "@/components/Home/PipeDrive/ContactPipeDrive";
+
 
 export default function ContactUs() {
   return (
@@ -90,7 +92,8 @@ export default function ContactUs() {
               We are always looking for a next great project
             </p> */}
 
-           <PipeDriveForm/>
+           {/* <PipeDriveForm/> */}
+           <ContactPipeDrive />
           </div>
 
 

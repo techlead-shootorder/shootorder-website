@@ -3,7 +3,9 @@ import Image from "next/image";
 import React, {useState, useRef } from "react";
 import ServiceModal from "../Modal/ServiceModal";
 import { motion, useScroll, useTransform } from "framer-motion";
-import PopupModal from "@/components/Modal/PopupModal";
+// import PopupModal from "@/components/Modal/PopupModal";
+import EnquireNowPopup from "@/components/Modal/EnquireNowPopup";
+
 
 const BannerForServices = ({ imageUrl, subheading, heading }) => {
   console.log("image url of service banner", imageUrl)
@@ -137,7 +139,9 @@ const BannerForServices = ({ imageUrl, subheading, heading }) => {
         </div>
       </motion.div>
 
-       <PopupModal isOpen={isPopupOpen} onClose={closePopup} />
+       {/* <PopupModal isOpen={isPopupOpen} onClose={closePopup} /> */}
+             <EnquireNowPopup isOpen={isPopupOpen} onClose={closePopup} />
+       
 
       <ServiceModal ref={modalRef} />
     </section>

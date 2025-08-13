@@ -8,7 +8,8 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname, useRouter } from "next/navigation";
-import PopupModal from "@/components/Modal/PopupModal";
+// import PopupModal from "@/components/Modal/PopupModal";
+import EnquireNowPopup from "@/components/Modal/EnquireNowPopup";
 
 export default function Banner() {
   const bannerRef = useRef(null);
@@ -483,7 +484,9 @@ export default function Banner() {
       </section>
 
       {/* Popup Modal */}
-      <PopupModal isOpen={isPopupOpen} onClose={closePopup} />
+      {/* <PopupModal isOpen={isPopupOpen} onClose={closePopup} /> */}
+
+      <EnquireNowPopup isOpen={isPopupOpen} onClose={closePopup} />
     </>
   );
 }
