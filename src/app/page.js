@@ -330,13 +330,14 @@ export default function Home() {
             <AboutUs />
           </div>
         </div>
-
+          
         <div className="animate-section !max-w-7xl !mx-auto" id="company-section">
           <div className="parallax-bg absolute inset-0 -z-10 w-full">
             <div className="absolute top-1/4 left-1/4 w-1/4 h-1/4 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
         </div>
-
+        
+        {/* OUR SERVICES */}
         <section className=" py-8 md:py-16 px-4">
           <div className="animate-section !max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="service-tabs-section">
             <div className="text-center mb-8 md:mb-12">
