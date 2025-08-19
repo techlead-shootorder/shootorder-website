@@ -628,13 +628,13 @@ export default function Header() {
             {/* Mobile Contact Section */}
             <div className="mt-auto p-4 border-t space-y-3">
               <a
-                href="tel:1-855-217-4637"
+                href="tel:203-456-1552"
                 className="flex items-center gap-3 py-3 px-4 text-gray-700 hover:text-[#9a0c28] hover:bg-gray-50 rounded-lg transition-all duration-200"
               >
                 <div className="p-2 rounded-full bg-[#9a0c28]/10">
                   <FaPhoneAlt className="text-[#9a0c28] text-sm" />
                 </div>
-                <span className="font-medium">+1-855-217-4637</span>
+                <span className="font-medium">+203-456-1552</span>
               </a>
 
               <a href="/contact-us/" className="block">
