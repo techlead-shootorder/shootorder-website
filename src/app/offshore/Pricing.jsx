@@ -144,9 +144,11 @@ export default function Pricing() {
                                     </div>
 
                                     {/* Button */}
-                                    <button className="w-full bg-black text-white text-sm font-semibold py-3 rounded-lg hover:bg-[#9a0c28] transition-colors duration-300 mt-auto">
+                                    <a href="/contact-us">
+                                    <button className="w-full bg-black text-white text-sm font-semibold py-3 rounded-lg hover:bg-[#9a0c28] transition-colors duration-300 mt-auto cursor-pointer">
                                         Hire Now
                                     </button>
+                                    </a>
                                 </div>
                             </div>
                         );
