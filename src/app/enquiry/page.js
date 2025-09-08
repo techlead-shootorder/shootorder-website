@@ -39,8 +39,8 @@ export default function EnquiryPage() {
     {
       icon: <Phone className="w-5 h-5" />,
       label: "Phone",
-      value: "203-456-1552",
-      link: "tel:203-456-1552",
+      value: "(203) 721-2740",
+      link: "tel:203-721-2740",
     },
     {
       icon: <Mail className="w-5 h-5" />,

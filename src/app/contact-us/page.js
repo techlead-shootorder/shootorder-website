@@ -53,7 +53,7 @@ export default function ContactUs() {
             </p>
             <div className="text-white space-y-4">
               <p className="flex items-center gap-2">
-                <FaPhoneAlt /> 203-456-1552
+                <FaPhoneAlt /> (203) 721-2740
               </p>
               <p className="flex items-center gap-2">
                 <FiMail /> info@shootorder.us
