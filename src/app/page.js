@@ -1,3 +1,4 @@
+// shootorder-us
 "use client";
 import { useEffect, useState, useRef } from "react";
 import AboutUs from "@/components/Home/About/AboutUs";
@@ -21,6 +22,8 @@ import ImageSection from "@/components/Home/PipeDrive/ImageSection";
 import Link from "next/link";
 import { Search, MousePointer, Share2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import HeaderSkeleton from "@/components/Skeleton/HeaderSkeleton";
+import HeroBannerSkeleton from "@/components/Skeleton/HeroBannerSkeleton";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,7 +50,7 @@ export default function Home() {
 
     // Wait for everything to load before initializing animations
     const onPageLoad = () => {
-      if (isCleanedUpRef.current) return;
+      if (isCleanedUpRef.current) return; // Don't run if already cleaned up
 
       try {
         // Create initial loading animation
@@ -61,9 +64,10 @@ export default function Home() {
 
         timelineRef.current = loadTl;
 
+        // Animate skeleton fade out instead of slide up
         loadTl.to(".page-loader", {
-          y: "-100%",
-          duration: 1.2,
+          opacity: 0,
+          duration: 0.8,
           ease: "power2.inOut",
         });
 
@@ -71,17 +75,22 @@ export default function Home() {
         setupOptimizedAnimations();
       } catch (error) {
         console.error("Error in onPageLoad:", error);
-        setIsLoaded(true);
+        setIsLoaded(true); // Fallback to show content
       }
     };
 
+    // Create the event handler function so we can remove it properly
     loadEventHandler = onPageLoad;
 
+    // If the page has already loaded, run the function
     if (typeof window !== "undefined") {
       if (document.readyState === "complete") {
-        setTimeout(onPageLoad, 0);
+        // Use setTimeout to ensure it runs after the component is fully mounted
+        setTimeout(onPageLoad, 2000); // Show skeleton for 2 seconds minimum
       } else {
-        window.addEventListener("load", loadEventHandler);
+        window.addEventListener("load", () => {
+          setTimeout(loadEventHandler, 2000); // Show skeleton for 2 seconds minimum
+        });
       }
     }
 
@@ -89,6 +98,7 @@ export default function Home() {
     return () => {
       isCleanedUpRef.current = true;
 
+      // Remove load event listener
       if (typeof window !== "undefined" && loadEventHandler) {
         window.removeEventListener("load", loadEventHandler);
       }
@@ -229,10 +239,13 @@ export default function Home() {
 
   return (
     <div className="smooth-scroll-container overflow-hidden">
-      {/* Page Loader */}
-      <div className="page-loader fixed top-0 left-0 w-full h-full bg-black z-50 flex items-center justify-center">
-        <div className="loader-content text-white text-3xl">ShootOrder</div>
-      </div>
+      {/* Skeleton Preloader */}
+      {!isLoaded && (
+        <div className="page-loader fixed top-0 left-0 w-full h-full z-50">
+          <HeaderSkeleton />
+          <HeroBannerSkeleton />
+        </div>
+      )}
 
       {/* HERO SECTION */}
       <div className="banner-section relative overflow-hidden max-w-7xl mx-auto">
