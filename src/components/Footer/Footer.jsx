@@ -167,8 +167,8 @@ const Footer = () => {
                     Digital Marketing
                   </h3>
                   <div className="space-y-6">
-                    {digitalMarketingServices.sections.map((section) => (
-                      <div key={section.heading}>
+                    {digitalMarketingServices.sections.map((section, index) => (
+                      <div key={index}>
                         <h4 className="font-bold text-gray-800 mb-3">
                           {section.heading}
                         </h4>

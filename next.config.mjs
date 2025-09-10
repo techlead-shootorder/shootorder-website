@@ -20,15 +20,11 @@ const nextConfig = {
   trailingSlash: true,
   
   // Disable server-side features for static export
-  experimental: {
-    // Remove if you're not using app directory
-    appDir: false
-  },
    generateBuildId: async () => {
     return 'static-build'
   },
   // Custom webpack config if needed
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config) => {
     // Add any custom webpack configurations here
     return config;
   },
