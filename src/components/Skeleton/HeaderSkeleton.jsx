@@ -22,6 +22,8 @@ export default function HeaderSkeleton() {
         // { name: "Contact", href: "#", hasMegaMenu: true, menuType: "contact" },
     ];
 
+    // added comment to push code
+
     // Skeleton service categories
     const serviceCategories = [
         {
