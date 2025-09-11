@@ -9,12 +9,20 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AnimatedIntro() {
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const sectionRef = useRef(null);
   const paragraphRef = useRef(null);
   const bgRefs = useRef([]);
 
-  // Mobile detection
+  // Initialize mounting state
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Mobile detection - only run after mount
+  useEffect(() => {
+    if (!isMounted) return;
+    
     const checkMobile = () => {
       const mobile =
         window.innerWidth <= 768 ||
@@ -26,11 +34,11 @@ export default function AnimatedIntro() {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  }, [isMounted]);
 
   // Mobile: IntersectionObserver
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMounted || !isMobile) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
@@ -38,11 +46,11 @@ export default function AnimatedIntro() {
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [isMobile]);
+  }, [isMounted, isMobile]);
 
   // Desktop: GSAP animation
   useEffect(() => {
-    if (isMobile || !paragraphRef.current) return;
+    if (!isMounted || isMobile || !paragraphRef.current) return;
 
     const element = paragraphRef.current;
     const words = element.textContent.split(" ");
@@ -101,7 +109,7 @@ export default function AnimatedIntro() {
     });
 
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
-  }, [isMobile]);
+  }, [isMounted, isMobile]);
 
   const renderMobileText = () => {
     const text =
@@ -122,6 +130,29 @@ export default function AnimatedIntro() {
     });
   };
 
+  // Fixed bubble positions to avoid hydration mismatch
+  const bubblePositions = [
+    { left: 10, top: 20 },
+    { left: 80, top: 15 },
+    { left: 15, top: 70 },
+    { left: 85, top: 60 },
+    { left: 50, top: 10 },
+    { left: 60, top: 80 }
+  ];
+
+  // Render nothing until mounted to avoid hydration mismatch
+  if (!isMounted) {
+    return (
+      <section className="relative h-3/4 md:min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <div className="text-black font-bold leading-relaxed text-2xl sm:text-3xl md:text-4xl lg:text-6xl px-4">
+            A Google Ads Premier Partner delivering 360° Digital Growth across the USA.
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       ref={sectionRef}
@@ -131,7 +162,7 @@ export default function AnimatedIntro() {
     >
       {/* Floating bubbles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
+        {bubblePositions.map((position, i) => (
           <div
             key={i}
             ref={(el) => (bgRefs.current[i] = el)}
@@ -141,8 +172,8 @@ export default function AnimatedIntro() {
             style={{
               width: `${60 + i * 20}px`,
               height: `${60 + i * 20}px`,
-              left: `${Math.random() * 80}%`,
-              top: `${Math.random() * 80}%`,
+              left: `${position.left}%`,
+              top: `${position.top}%`,
               animationDelay: `${i * 2}s`,
               animationDuration: `${4 + i}s`,
             }}
@@ -151,7 +182,7 @@ export default function AnimatedIntro() {
       </div>
 
       {/* Text content */}
-      <div className="relative z-10 !max-w-7xl mx-auto text-center">
+      <div className="relative z-10 max-w-7xl mx-auto text-center">
         <div
           ref={paragraphRef}
           className={`text-black font-bold leading-relaxed ${
