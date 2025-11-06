@@ -8,7 +8,7 @@ import EnquireNowPopup from "@/components/Modal/EnquireNowPopup";
 
 
 const BannerForServices = ({ imageUrl, subheading, heading }) => {
-  console.log("image url of service banner", imageUrl)
+  
   const modalRef = useRef();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);

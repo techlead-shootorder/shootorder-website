@@ -90,7 +90,7 @@ export default function ContactForm({colorClass}) {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted:", formData);
+      
       // Here you would typically send the data to your backend
       // For example: axios.post('/api/contact', formData)
     }

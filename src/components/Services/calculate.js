@@ -8,7 +8,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 // Add validation for 80D fields
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM Content Loaded - Initializing validation");
+ 
 
   // Get the medical insurance premium fields
   const sec80dSelf = document.getElementById("sec80dSelf");
@@ -17,14 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add input event listeners to validate limits
   if (sec80dSelf) {
     sec80dSelf.addEventListener("input", function () {
-      console.log("80D Self field validation triggered");
+      
       validateMedicalInsuranceLimit(sec80dSelf, sec80dAbove, 25000);
     });
   }
 
   if (sec80dAbove) {
     sec80dAbove.addEventListener("input", function () {
-      console.log("80D Above 60 field validation triggered");
+      
       validateMedicalInsuranceLimit(sec80dAbove, sec80dSelf, 50000);
     });
   }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (sec80dParentsSenior) {
     sec80dParentsSenior.addEventListener("input", function () {
-      console.log("80D Parents Senior field validation triggered");
+     
       validateMedicalInsuranceLimit(
         sec80dParentsSenior,
         sec80dParentsNonSenior,
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (sec80dParentsNonSenior) {
     sec80dParentsNonSenior.addEventListener("input", function () {
-      console.log("80D Parents Non-Senior field validation triggered");
+     
       validateMedicalInsuranceLimit(
         sec80dParentsNonSenior,
         sec80dParentsSenior,
@@ -60,15 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to validate medical insurance limits
 function validateMedicalInsuranceLimit(currentField, otherField, maxLimit) {
-  console.log(
-    `Validating medical insurance limit: ${currentField.id}, Max: ${maxLimit}`
-  );
+  
 
   // Get the values as numbers
   const currentValue = parseFloat(currentField.value) || 0;
   const otherValue = parseFloat(otherField.value) || 0;
 
-  console.log(`Current Value: ${currentValue}, Other Value: ${otherValue}`);
+  // console.log(`Current Value: ${currentValue}, Other Value: ${otherValue}`);
 
   // Check if the current field's value exceeds its max limit
   if (currentValue > maxLimit) {
@@ -93,18 +91,18 @@ function validateMedicalInsuranceLimit(currentField, otherField, maxLimit) {
 
 // Function to navigate to next tab
 function nextTab(tabId) {
-  console.log(`Navigating to tab: ${tabId}`);
+  // console.log(`Navigating to tab: ${tabId}`);
   document.getElementById(tabId).click();
   window.scrollTo(0, 0);
 }
 
 // Function to reset form
 function resetForm() {
-  console.log("Starting form reset");
+  // console.log("Starting form reset");
 
   // Reset all input fields
   const inputs = document.querySelectorAll('input[type="number"]');
-  console.log(`Resetting ${inputs.length} input fields`);
+  // console.log(`Resetting ${inputs.length} input fields`);
   inputs.forEach((input) => {
     input.value = "";
   });
@@ -114,14 +112,14 @@ function resetForm() {
     document.getElementById("cityType") || document.getElementById("cityPaid");
   if (citySelect) {
     citySelect.value = "metro";
-    console.log("City selection reset to metro");
+    // console.log("City selection reset to metro");
   }
 
   // Reset result values
   const resultElements = document.querySelectorAll(
     '[id$="TotalIncome"], [id$="TaxableIncome"], [id$="IncomeTax"], [id$="Surcharge"], [id$="Cess"], [id$="TotalTax"]'
   );
-  console.log(`Resetting ${resultElements.length} result elements`);
+  // console.log(`Resetting ${resultElements.length} result elements`);
   resultElements.forEach((element) => {
     element.textContent = "0";
   });
@@ -134,23 +132,23 @@ function resetForm() {
     "#newRegimeSlabDetails td:last-child"
   );
 
-  console.log(
-    `Resetting old regime slab details: ${oldRegimeSlabDetails.length} cells`
-  );
+  // console.log(
+  //   `Resetting old regime slab details: ${oldRegimeSlabDetails.length} cells`
+  // );
   oldRegimeSlabDetails.forEach((cell) => {
     cell.textContent = "₹0";
   });
 
-  console.log(
-    `Resetting new regime slab details: ${newRegimeSlabDetails.length} cells`
-  );
+  // console.log(
+  //   `Resetting new regime slab details: ${newRegimeSlabDetails.length} cells`
+  // );
   newRegimeSlabDetails.forEach((cell) => {
     cell.textContent = "₹0";
   });
 
   // Navigate to first tab
   nextTab("financial-year-tab");
-  console.log("Form reset completed");
+  // console.log("Form reset completed");
 }
 
 // Initialize event listeners after DOM is loaded
@@ -216,7 +214,7 @@ function calculateTax() {
             if (newRegimeTax === 0) {
                 newRegimeSlabTaxes = [0, 0, 0, 0, 0, 0, 0];
             }
-            console.log(`Applied Section 87A rebate: ${rebateAmount}, Effective rebate limit: ${effectiveRebateLimit}`);
+            // console.log(`Applied Section 87A rebate: ${rebateAmount}, Effective rebate limit: ${effectiveRebateLimit}`);
         }
     } else {
         // FY 2024-25 calculations

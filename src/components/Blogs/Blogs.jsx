@@ -75,7 +75,7 @@ async function getWordPressBlogs() {
         imageUrl = null;
       }
       
-      console.log(`Post: ${item.title}, Image URL: ${imageUrl}`);
+      
 
       return {
         id: `wp-${index}`,

@@ -32,7 +32,7 @@ export async function initializeAdminUsers() {
       
       // Save default admin users
       fs.writeFileSync(adminUsersPath, JSON.stringify(defaultAdmins, null, 2), 'utf8');
-      console.log('Created default admin user');
+      
     }
   } catch (error) {
     console.error('Error initializing admin users:', error);
@@ -114,9 +114,9 @@ export async function installBcrypt() {
   try {
     const { execSync } = require('child_process');
     execSync('npm install bcryptjs', { stdio: 'inherit' });
-    console.log('Successfully installed bcryptjs');
+    
   } catch (error) {
     console.error('Failed to install bcryptjs:', error);
-    console.log('Please install manually with: npm install bcryptjs');
+    
   }
 }

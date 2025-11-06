@@ -165,7 +165,7 @@ export default function NewBlogPage() {
       
       const result = await response.json();
       
-      console.log("result for the blog", result);
+      
       
       if (response.ok) {
         setMessage({ 

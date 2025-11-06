@@ -176,7 +176,7 @@ export default function NewServicePage() {
       
       const result = await response.json();
       
-      console.log("result for the service", result);
+      
       
       if (response.ok) {
         setMessage({ 

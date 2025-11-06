@@ -14,7 +14,6 @@ import CaseStudyComponent from "@/components/CaseStudies/CaseStudyComponent";
 
 export async function generateStaticParams() {
   const slugs = await getAllServiceSlugs();
-  console.log("slugs ------>", slugs);
 
   return slugs.map((slug) => ({
     slug: slug,
@@ -38,7 +37,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ServicePage({ params }) {
   const service = await getServiceBySlug(params.slug);
-  console.log("servieces", service);
+  
   if (!service) {
     notFound();
   }
