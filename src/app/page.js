@@ -49,7 +49,7 @@ export default function Home() {
     whyTrust: false,
     contact: false
   });
-  
+
   const scrollTriggersRef = useRef([]);
   const observerRef = useRef(null);
   const router = useRouter();
@@ -91,7 +91,7 @@ export default function Home() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionName = entry.target.getAttribute('data-section');
-          
+
           if (sectionName && !visibleSections[sectionName]) {
             setVisibleSections(prev => ({
               ...prev,
@@ -121,7 +121,7 @@ export default function Home() {
 
       gsap.killTweensOf("*");
       ScrollTrigger.getAll().forEach((trigger) => trigger?.kill?.());
-      
+
       if (typeof window !== "undefined") {
         ScrollTrigger.refresh();
       }
@@ -243,8 +243,8 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Simplified background */}
         <div className="animate-section !max-w-7xl !mx-auto" id="company-section">
-          {/* Simplified background */}
           <div className="absolute inset-0 -z-10 w-full opacity-30">
             <div className="absolute top-1/4 left-1/4 w-1/4 h-1/4 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-3xl"></div>
           </div>
